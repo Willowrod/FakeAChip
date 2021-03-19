@@ -18,8 +18,8 @@ struct IOSView: View {
     }
 }
 
-struct IOSView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpectrumView()
-    }
-}
+//struct IOSView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SpectrumView()
+//    }
+//}

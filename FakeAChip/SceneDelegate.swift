@@ -14,14 +14,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        #if targetEnvironment(macCatalyst)
-        let contentView = MacMainMenu()
-        #else
-        let contentView = IOSMainMenu()
-        #endif
 
-        // Use a UIHostingController as window root view controller.
+        #if targetEnvironment(macCatalyst)
+        let stateObject = FakeAChipData(.Mac)
+        let contentView = MacMainMenu()
+            .environmentObject(stateObject)
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = KeyInputController(rootView: contentView, state: stateObject)
+            self.window = window
+            Sizing.instance.size = window.frame.size
+            window.makeKeyAndVisible()
+        }
+        
+        
+        
+        #else
+        let stateObject = FakeAChipData(.iOS)
+        let contentView = IOSMainMenu()
+            .environmentObject(stateObject)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
@@ -29,6 +40,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Sizing.instance.size = window.frame.size
             window.makeKeyAndVisible()
         }
+        #endif
+
+        // Use a UIHostingController as window root view controller.
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

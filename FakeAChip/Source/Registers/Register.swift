@@ -31,68 +31,88 @@ class Register {
     }
     
     func setBit(bit: Int) {
-        register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
+        set(bit: bit)
     }
     
     func clearBit(bit: Int) {
+        clear(bit: bit)
+    }
+    
+    func set(bit: Int) {
+        register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
+    }
+    
+    func clear(bit: Int) {
         register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
+    }
+    
+    func set(bit: Int, value: Bool) {
+        if (value){
+            setBit(bit: bit)
+        } else {
+            clearBit(bit: bit)
+        }
     }
     
     func readBit(bit: Int) -> Bool {
         return register.byteValue.isSet(bit: bit)
     }
-//    
-//    func inc() {
-//        byteValue.inc()
-//    }
-//    
-//    func dec() {
-//        byteValue.dec()
-//    }
-//    
-//    func rlc(){
-//        byteValue.rlc()
-//    }
-//    
-//    func rrc(){
-//        byteValue.rrc()
-//    }
-//    
-//    func rl(){
-//        byteValue.rl()
-//    }
-//    
-//    func rr(){
-//        byteValue.rr()
-//    }
-//    
-//    func sla(){
-//        byteValue.sla()
-//    }
-//    
-//    func sra(){
-//        byteValue.sra()
-//    }
-//    
-//    func sll(){
-//        byteValue.sll()
-//    }
-//    
-//    func srl(){
-//        byteValue.srl()
-//    }
-//    
-//    func testBit(bit: Int){
-//        byteValue.testBit(bit: bit)
-//    }
-//    
-//    func inCommand(byte: UInt8){
-//        byteValue = byte
-//        Z80.F.clearBit(bit: Flag.HALF_CARRY)
-//        Z80.F.clearBit(bit: Flag.SUBTRACT)
-//        Z80.F.clearBit(bit: Flag.SIGN)
-//        Z80.F.zero(passedValue: byteValue)
-//        Z80.F.clearBit(bit: Flag.PARITY)
-//    }
+    
+    func isSet(bit: Int) -> Bool {
+        return readBit(bit: bit)
+    }
+    
+    func inc() {
+        ld(value: value().inc())
+    }
+    
+    func dec() {
+        ld(value: value().dec())
+    }
+    
+    func rlc(){
+        ld(value: value().rlc())
+    }
+    
+    func rrc(){
+        ld(value: value().rrc())
+    }
+    
+    func rl(){
+        ld(value: value().rl())
+    }
+    
+    func rr(){
+        ld(value: value().rr())
+    }
+    
+    func sla(){
+        ld(value: value().sla())
+    }
+    
+    func sra(){
+        ld(value: value().sra())
+    }
+    
+    func sll(){
+        ld(value: value().sll())
+    }
+    
+    func srl(){
+        ld(value: value().srl())
+    }
+    
+    func testBit(bit: Int){
+        value().testBit(bit: bit)
+    }
+    
+    func inCommand(byte: UInt8){
+        Z80.F.clearBit(bit: Flag.HALF_CARRY)
+        Z80.F.clearBit(bit: Flag.SUBTRACT)
+        Z80.F.clearBit(bit: Flag.SIGN)
+        Z80.F.zero(passedValue: byte)
+        Z80.F.clearBit(bit: Flag.PARITY)
+        ld(value: byte)
+    }
     
 }

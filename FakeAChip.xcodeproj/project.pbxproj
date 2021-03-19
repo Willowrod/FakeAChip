@@ -81,6 +81,47 @@
 		CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
 		CDA172522603811000910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
+		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
+		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
+		CDA172632604962100910C23 /* ZX128k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725E2604962100910C23 /* ZX128k.rom */; };
+		CDA172642604962100910C23 /* ZX128k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725E2604962100910C23 /* ZX128k.rom */; };
+		CDA172652604962100910C23 /* ZX128k+2.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725F2604962100910C23 /* ZX128k+2.rom */; };
+		CDA172662604962100910C23 /* ZX128k+2.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725F2604962100910C23 /* ZX128k+2.rom */; };
+		CDA172672604962100910C23 /* ZX48k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA172602604962100910C23 /* ZX48k.rom */; };
+		CDA172682604962100910C23 /* ZX48k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA172602604962100910C23 /* ZX48k.rom */; };
+		CDA17277260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */; };
+		CDA17278260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */; };
+		CDA17279260498C600910C23 /* Z80+OpcodeED.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17272260498C600910C23 /* Z80+OpcodeED.swift */; };
+		CDA1727A260498C600910C23 /* Z80+OpcodeED.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17272260498C600910C23 /* Z80+OpcodeED.swift */; };
+		CDA1727B260498C600910C23 /* Z80+Opcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17273260498C600910C23 /* Z80+Opcode.swift */; };
+		CDA1727C260498C600910C23 /* Z80+Opcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17273260498C600910C23 /* Z80+Opcode.swift */; };
+		CDA1727D260498C600910C23 /* Z80.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17274260498C600910C23 /* Z80.swift */; };
+		CDA1727E260498C600910C23 /* Z80.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17274260498C600910C23 /* Z80.swift */; };
+		CDA1727F260498C600910C23 /* Z80+OpcodeCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17275260498C600910C23 /* Z80+OpcodeCB.swift */; };
+		CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17275260498C600910C23 /* Z80+OpcodeCB.swift */; };
+		CDA17281260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17276260498C600910C23 /* Z80+OpCodeDDFD.swift */; };
+		CDA17282260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17276260498C600910C23 /* Z80+OpCodeDDFD.swift */; };
+		CDA1728A26049ADA00910C23 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1728926049ADA00910C23 /* Flag.swift */; };
+		CDA1728B26049ADA00910C23 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1728926049ADA00910C23 /* Flag.swift */; };
+		CDA172A02604B37000910C23 /* allTestsP_DD00to7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172922604B36F00910C23 /* allTestsP_DD00to7f.swift */; };
+		CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172932604B36F00910C23 /* allTestsP_FDCB00to7f.swift */; };
+		CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172942604B36F00910C23 /* allTestsTo7f.swift */; };
+		CDA172A62604B37000910C23 /* allTestsP_DDCB80toff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172952604B36F00910C23 /* allTestsP_DDCB80toff.swift */; };
+		CDA172A82604B37000910C23 /* allTests80toca.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172962604B37000910C23 /* allTests80toca.swift */; };
+		CDA172AA2604B37000910C23 /* allTestsP_CB00to7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172972604B37000910C23 /* allTestsP_CB00to7f.swift */; };
+		CDA172AC2604B37000910C23 /* allTestsP_FD_ALL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172982604B37000910C23 /* allTestsP_FD_ALL.swift */; };
+		CDA172AE2604B37000910C23 /* allTestsP_FDCB80toff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172992604B37000910C23 /* allTestsP_FDCB80toff.swift */; };
+		CDA172B02604B37000910C23 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729A2604B37000910C23 /* BaseTest.swift */; };
+		CDA172B22604B37000910C23 /* allTestsP_DD80toff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729B2604B37000910C23 /* allTestsP_DD80toff.swift */; };
+		CDA172B42604B37000910C23 /* allTestP_ED_ALL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729C2604B37000910C23 /* allTestP_ED_ALL.swift */; };
+		CDA172B62604B37000910C23 /* allTestsP_DDCB00to7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729D2604B37000910C23 /* allTestsP_DDCB00to7f.swift */; };
+		CDA172B82604B37000910C23 /* allTestsP_CB80toff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729E2604B37000910C23 /* allTestsP_CB80toff.swift */; };
+		CDA172C22604B44000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
+		CDA172C62604B44A00910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
+		CDA172CA2604B4A300910C23 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
+		CDA172DE2605016F00910C23 /* VDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172DD2605016F00910C23 /* VDU.swift */; };
+		CDA172DF2605016F00910C23 /* VDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172DD2605016F00910C23 /* VDU.swift */; };
+		CDA172E52605521500910C23 /* KeyInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172E42605521500910C23 /* KeyInputController.swift */; };
 		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
@@ -154,6 +195,32 @@
 		CD891490260202FD00C75998 /* RegisterSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetModel.swift; sourceTree = "<group>"; };
 		CDA172512603811000910C23 /* RegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStruct.swift; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
+		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
+		CDA1725E2604962100910C23 /* ZX128k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX128k.rom; sourceTree = "<group>"; };
+		CDA1725F2604962100910C23 /* ZX128k+2.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+2.rom"; sourceTree = "<group>"; };
+		CDA172602604962100910C23 /* ZX48k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX48k.rom; sourceTree = "<group>"; };
+		CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeDDFDCB.swift"; sourceTree = "<group>"; };
+		CDA17272260498C600910C23 /* Z80+OpcodeED.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeED.swift"; sourceTree = "<group>"; };
+		CDA17273260498C600910C23 /* Z80+Opcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Z80+Opcode.swift"; sourceTree = "<group>"; };
+		CDA17274260498C600910C23 /* Z80.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Z80.swift; sourceTree = "<group>"; };
+		CDA17275260498C600910C23 /* Z80+OpcodeCB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeCB.swift"; sourceTree = "<group>"; };
+		CDA17276260498C600910C23 /* Z80+OpCodeDDFD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Z80+OpCodeDDFD.swift"; sourceTree = "<group>"; };
+		CDA1728926049ADA00910C23 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		CDA172922604B36F00910C23 /* allTestsP_DD00to7f.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_DD00to7f.swift; sourceTree = "<group>"; };
+		CDA172932604B36F00910C23 /* allTestsP_FDCB00to7f.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_FDCB00to7f.swift; sourceTree = "<group>"; };
+		CDA172942604B36F00910C23 /* allTestsTo7f.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsTo7f.swift; sourceTree = "<group>"; };
+		CDA172952604B36F00910C23 /* allTestsP_DDCB80toff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_DDCB80toff.swift; sourceTree = "<group>"; };
+		CDA172962604B37000910C23 /* allTests80toca.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTests80toca.swift; sourceTree = "<group>"; };
+		CDA172972604B37000910C23 /* allTestsP_CB00to7f.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_CB00to7f.swift; sourceTree = "<group>"; };
+		CDA172982604B37000910C23 /* allTestsP_FD_ALL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_FD_ALL.swift; sourceTree = "<group>"; };
+		CDA172992604B37000910C23 /* allTestsP_FDCB80toff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_FDCB80toff.swift; sourceTree = "<group>"; };
+		CDA1729A2604B37000910C23 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
+		CDA1729B2604B37000910C23 /* allTestsP_DD80toff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_DD80toff.swift; sourceTree = "<group>"; };
+		CDA1729C2604B37000910C23 /* allTestP_ED_ALL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestP_ED_ALL.swift; sourceTree = "<group>"; };
+		CDA1729D2604B37000910C23 /* allTestsP_DDCB00to7f.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_DDCB00to7f.swift; sourceTree = "<group>"; };
+		CDA1729E2604B37000910C23 /* allTestsP_CB80toff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allTestsP_CB80toff.swift; sourceTree = "<group>"; };
+		CDA172DD2605016F00910C23 /* VDU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDU.swift; sourceTree = "<group>"; };
+		CDA172E42605521500910C23 /* KeyInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInputController.swift; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +253,7 @@
 		CD0CC53125FA6BD400731EDA = {
 			isa = PBXGroup;
 			children = (
+				CDA1725B260495EE00910C23 /* Roms */,
 				CD0CC5C225FA74B300731EDA /* Library */,
 				CD0CC53C25FA6BD400731EDA /* FakeAChip */,
 				CD0CC55325FA6BD700731EDA /* FakeAChipTests */,
@@ -230,6 +298,19 @@
 		CD0CC55325FA6BD700731EDA /* FakeAChipTests */ = {
 			isa = PBXGroup;
 			children = (
+				CDA1729C2604B37000910C23 /* allTestP_ED_ALL.swift */,
+				CDA172962604B37000910C23 /* allTests80toca.swift */,
+				CDA172972604B37000910C23 /* allTestsP_CB00to7f.swift */,
+				CDA1729E2604B37000910C23 /* allTestsP_CB80toff.swift */,
+				CDA172922604B36F00910C23 /* allTestsP_DD00to7f.swift */,
+				CDA1729B2604B37000910C23 /* allTestsP_DD80toff.swift */,
+				CDA1729D2604B37000910C23 /* allTestsP_DDCB00to7f.swift */,
+				CDA172952604B36F00910C23 /* allTestsP_DDCB80toff.swift */,
+				CDA172982604B37000910C23 /* allTestsP_FD_ALL.swift */,
+				CDA172932604B36F00910C23 /* allTestsP_FDCB00to7f.swift */,
+				CDA172992604B37000910C23 /* allTestsP_FDCB80toff.swift */,
+				CDA172942604B36F00910C23 /* allTestsTo7f.swift */,
+				CDA1729A2604B37000910C23 /* BaseTest.swift */,
 				CD0CC55425FA6BD700731EDA /* FakeAChipTests.swift */,
 				CD0CC55625FA6BD700731EDA /* Info.plist */,
 			);
@@ -248,6 +329,8 @@
 		CD0CC57025FA6C3F00731EDA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CDA172E32605520100910C23 /* Controlls */,
+				CDA1726F260498C500910C23 /* Processor */,
 				CDC8C553260261A10010EBF7 /* Common */,
 				CD8914862600EA5300C75998 /* CPU */,
 				CD89146725FFBF0B00C75998 /* Registers */,
@@ -266,6 +349,7 @@
 		CD0CC57125FA6C3F00731EDA /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CDA1728926049ADA00910C23 /* Flag.swift */,
 				CD0CC57225FA6C3F00731EDA /* FileFormat.swift */,
 				CD0CC5D925FF54F500731EDA /* SystemConstants.swift */,
 			);
@@ -399,11 +483,60 @@
 			path = CPU;
 			sourceTree = "<group>";
 		};
+		CDA1725B260495EE00910C23 /* Roms */ = {
+			isa = PBXGroup;
+			children = (
+				CDA1725C260495F800910C23 /* ZXSpectrumFamily */,
+			);
+			path = Roms;
+			sourceTree = "<group>";
+		};
+		CDA1725C260495F800910C23 /* ZXSpectrumFamily */ = {
+			isa = PBXGroup;
+			children = (
+				CDA172602604962100910C23 /* ZX48k.rom */,
+				CDA1725E2604962100910C23 /* ZX128k.rom */,
+				CDA1725F2604962100910C23 /* ZX128k+2.rom */,
+				CDA1725D2604962100910C23 /* ZX128k+3.rom */,
+			);
+			path = ZXSpectrumFamily;
+			sourceTree = "<group>";
+		};
+		CDA1726F260498C500910C23 /* Processor */ = {
+			isa = PBXGroup;
+			children = (
+				CDA17270260498C500910C23 /* Z80 */,
+			);
+			path = Processor;
+			sourceTree = "<group>";
+		};
+		CDA17270260498C500910C23 /* Z80 */ = {
+			isa = PBXGroup;
+			children = (
+				CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */,
+				CDA17272260498C600910C23 /* Z80+OpcodeED.swift */,
+				CDA17273260498C600910C23 /* Z80+Opcode.swift */,
+				CDA17274260498C600910C23 /* Z80.swift */,
+				CDA17275260498C600910C23 /* Z80+OpcodeCB.swift */,
+				CDA17276260498C600910C23 /* Z80+OpCodeDDFD.swift */,
+			);
+			path = Z80;
+			sourceTree = "<group>";
+		};
+		CDA172E32605520100910C23 /* Controlls */ = {
+			isa = PBXGroup;
+			children = (
+				CDA172E42605521500910C23 /* KeyInputController.swift */,
+			);
+			path = Controlls;
+			sourceTree = "<group>";
+		};
 		CDC8C553260261A10010EBF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */,
 				CDC8C554260261BA0010EBF7 /* Sizing.swift */,
+				CDA172DD2605016F00910C23 /* VDU.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -513,8 +646,12 @@
 			files = (
 				CD0CC54A25FA6BD600731EDA /* LaunchScreen.storyboard in Resources */,
 				CD0CC54725FA6BD600731EDA /* Preview Assets.xcassets in Resources */,
+				CDA172672604962100910C23 /* ZX48k.rom in Resources */,
+				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,
+				CDA172652604962100910C23 /* ZX128k+2.rom in Resources */,
 				CD0CC5C425FA74C200731EDA /* middleoflakecheat.z80 in Resources */,
+				CDA172612604962100910C23 /* ZX128k+3.rom in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +659,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
+				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
 				CD0CC5C525FA74C200731EDA /* middleoflakecheat.z80 in Resources */,
+				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
+				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,10 +686,12 @@
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
 				CD0CC5AA25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
+				CDA17277260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */,
 				CD0CC5CA25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
+				CDA1727D260498C600910C23 /* Z80.swift in Sources */,
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
@@ -560,15 +703,19 @@
 				CDA172522603811000910C23 /* RegisterStruct.swift in Sources */,
 				CD0CC5AE25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */,
+				CDA1728A26049ADA00910C23 /* Flag.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CD0CC5B025FA6C4000731EDA /* IOSView.swift in Sources */,
 				CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
+				CDA172E52605521500910C23 /* KeyInputController.swift in Sources */,
 				CD0CC59825FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
+				CDA1727F260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
+				CDA17281260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
 				CD0CC5A825FA6C4000731EDA /* Speccy.swift in Sources */,
 				CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD89147525FFBF0B00C75998 /* RegisterPair.swift in Sources */,
@@ -576,8 +723,11 @@
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
 				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
 				CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */,
+				CDA17279260498C600910C23 /* Z80+OpcodeED.swift in Sources */,
+				CDA1727B260498C600910C23 /* Z80+Opcode.swift in Sources */,
 				CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */,
 				CD89146F25FFBF0B00C75998 /* Refresh.swift in Sources */,
+				CDA172DE2605016F00910C23 /* VDU.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +735,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
 				CD0CC59925FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CD0CC5AB25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CD0CC5AF25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
@@ -593,8 +744,14 @@
 				CD0CC59D25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CD89147025FFBF0B00C75998 /* Refresh.swift in Sources */,
 				CD0CC5A325FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
+				CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */,
+				CDA172B02604B37000910C23 /* BaseTest.swift in Sources */,
+				CDA172DF2605016F00910C23 /* VDU.swift in Sources */,
 				CD0CC5A725FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5A125FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
+				CDA172A82604B37000910C23 /* allTests80toca.swift in Sources */,
+				CDA1727E260498C600910C23 /* Z80.swift in Sources */,
+				CDA172AC2604B37000910C23 /* allTestsP_FD_ALL.swift in Sources */,
 				CD89147625FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CD0CC58D25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */,
@@ -602,23 +759,40 @@
 				CD8914892600EA6800C75998 /* CPU.swift in Sources */,
 				CD0CC59B25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
 				CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */,
+				CDA172AE2604B37000910C23 /* allTestsP_FDCB80toff.swift in Sources */,
+				CDA172A02604B37000910C23 /* allTestsP_DD00to7f.swift in Sources */,
+				CDA172C62604B44A00910C23 /* RegisterStruct.swift in Sources */,
+				CDA1727A260498C600910C23 /* Z80+OpcodeED.swift in Sources */,
 				CD89146E25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
+				CDA172CA2604B4A300910C23 /* SpectrumView.swift in Sources */,
 				CD0CC5CB25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
+				CDA1728B26049ADA00910C23 /* Flag.swift in Sources */,
+				CDA172A62604B37000910C23 /* allTestsP_DDCB80toff.swift in Sources */,
+				CDA172B82604B37000910C23 /* allTestsP_CB80toff.swift in Sources */,
 				CD0CC5AD25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD0CC5E125FF556200731EDA /* FakeAChipData.swift in Sources */,
+				CDA172B42604B37000910C23 /* allTestP_ED_ALL.swift in Sources */,
+				CDA17282260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
 				CD89147425FFBF0B00C75998 /* Register.swift in Sources */,
+				CDA172C22604B44000910C23 /* RegisterPairStruct.swift in Sources */,
 				CD89147F25FFC22500C75998 /* RegisterSetView.swift in Sources */,
+				CDA172B62604B37000910C23 /* allTestsP_DDCB00to7f.swift in Sources */,
 				CD0CC5A525FA6C4000731EDA /* MacMainMenu.swift in Sources */,
+				CDA1727C260498C600910C23 /* Z80+Opcode.swift in Sources */,
+				CDA172AA2604B37000910C23 /* allTestsP_CB00to7f.swift in Sources */,
 				CD0CC5DB25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CD0CC55525FA6BD700731EDA /* FakeAChipTests.swift in Sources */,
 				CD0CC5B125FA6C4000731EDA /* IOSView.swift in Sources */,
 				CD0CC59725FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
+				CDA17278260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */,
 				CD0CC59F25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD0CC59325FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC5A925FA6C4000731EDA /* Speccy.swift in Sources */,
 				CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
+				CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
+				CDA172B22604B37000910C23 /* allTestsP_DD80toff.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9EFFD82B-9337-407E-A674-A9CFA9B73FCE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/ZXSpectrumFamily/Views/SpectrumView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "SpectrumView"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FCEC1D16-8E0D-4F56-9D50-A90B0AE0718D"
+            uuid = "DCFF1F8D-1F6A-40A7-8226-407B19DDF40F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/Registers/RegisterPair.swift"
+            filePath = "FakeAChip/Source/MainMenu/MacMainMenu.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "setPairs(h:l:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "onKeyPress(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

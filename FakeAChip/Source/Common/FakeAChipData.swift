@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class FakeAChipData: ObservableObject {
+    
+    
+    var delegate: KeyInput?
+    
     @Published var host: HostSystem
     @Published var environment: SystemEnvironment = .Disassembly
     var environmentTag: Int = 1 {
@@ -23,6 +28,10 @@ class FakeAChipData: ObservableObject {
         }
     }
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
+    
+    
+    @Published var vdu: VDU = VDU(image: UIImage())
+    
     init(_ host: HostSystem) {
         self.host = host
     }

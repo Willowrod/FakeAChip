@@ -6,13 +6,12 @@
 //
 
 import Foundation
-//class Refresh: Register {
-//    override func ld(value: UInt8) {
-//        super.ld(value: value)
-//        byteValue = byteValue & 0x7f
-//    }
-//    
-////    override func inc() {
-////        byteValue = (byteValue &+ 1) & 0x7f
-////    }
-//}
+class Refresh: Register {
+    override func ld(value: UInt8) {
+        super.ld(value: value & 0x7f)
+    }
+    
+    override func inc() {
+        super.ld(value: (value() &+ 1) & 0x7f)
+    }
+}

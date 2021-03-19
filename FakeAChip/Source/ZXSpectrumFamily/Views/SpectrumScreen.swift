@@ -9,11 +9,14 @@ import SwiftUI
 
 struct SpectrumScreen: View {
     let screenWidth: CGFloat
-    let screen: ZXBitmap
+    //let screen: UIImage //ZXBitmap
+    @EnvironmentObject var settings: FakeAChipData
     var body: some View {
         HStack{
-//        UIImage.init(bitmap: screen).map({Image(uiImage: $0)})?.resizable().frame(width: width, height: (width / 8) * 6, alignment: .center)
-            UIImage.init(bitmap: screen).map({Image(uiImage: $0)})?.resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+         //   UIImage.init(bitmap: screen).map({Image(uiImage: $0)})?.resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+            
+            Image(uiImage: settings.vdu.image).resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+            
         }
     }
 }

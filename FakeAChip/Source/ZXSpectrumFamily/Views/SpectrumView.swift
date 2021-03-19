@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
-    let ram = Speccy.instance
+    let computer = Speccy.instance
     var body: some View {
         
         GeometryReader { geometry in
@@ -20,11 +20,11 @@ struct SpectrumView: View {
             Group {
                 switch settings.environment {
                 case SystemEnvironment.Emulation:
-                SpectrumEmulationView(ram: ram)
+                SpectrumEmulationView(computer: computer)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(ram: ram)
+                    SpectrumDisassemblyView(computer: computer)
                 case SystemEnvironment.Code:
-                SpectrumCodeView(ram: ram)
+                SpectrumCodeView(computer: computer)
                 
                 }
             }
@@ -34,28 +34,28 @@ struct SpectrumView: View {
             Text("Running in  \(settings.environment.rawValue) mode").padding(30)
         }
         .onAppear(){
-            ram.addSettings(settings)
-            ram.process()
+            computer.addSettings(settings)
+            computer.startProcessing()
         }
         }
     }
 }
 
 struct SpectrumEmulationView: View {
-    let ram: Speccy
+    let computer: Speccy
     var body: some View {
         VStack{
-            SpectrumScreen(screenWidth: Sizing.instance.size.width, screen: ram.screenImage)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width)//, screen: computer.screenImage)
         }
         }
     }
 
 struct SpectrumDisassemblyView: View {
-    let ram: Speccy
+    let computer: Speccy
     var body: some View {
         VStack{
           
-            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2, screen: ram.screenImage)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)//, screen: computer.screenImage)
             
             RegisterSetView() //(registers: pairs)
         }
@@ -63,12 +63,12 @@ struct SpectrumDisassemblyView: View {
     }
 
 struct SpectrumCodeView: View {
-    let ram: Speccy
+    let computer: Speccy
     var body: some View {
         HStack{
             RegisterSetView() //(registers: pairs)
             
-              SpectrumScreen(screenWidth: Sizing.instance.size.width / 4, screen: ram.screenImage)
+              SpectrumScreen(screenWidth: Sizing.instance.size.width / 4)//, screen: computer.screenImage)
         }
         }
     }

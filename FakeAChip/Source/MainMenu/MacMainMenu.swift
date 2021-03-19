@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MacMainMenu: View {
-    @StateObject var settings = FakeAChipData(.Mac)
+struct MacMainMenu: View, KeyInput {
+//    @StateObject var settings = FakeAChipData(.Mac)
     var body: some View {
 //        NavigationView {
 //            VStack {
@@ -18,9 +18,15 @@ struct MacMainMenu: View {
 //            }
 //        }
         SpectrumView()
-        .environmentObject(settings)
+ //       .environmentObject(settings)
     }
     
+    func onKeyPress(_ key: String) {
+         print(key)
+         guard key == UIKeyCommand.inputEscape else { return }
+         // esc key was pressed
+         /* ... */
+     }
     func pressButton(){
         print("Boo to the Mac!")
     }
@@ -31,3 +37,5 @@ struct MacMainMenu_Previews: PreviewProvider {
         MacMainMenu()
     }
 }
+
+

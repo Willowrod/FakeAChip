@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct IOSMainMenu: View {
-    @StateObject var settings = FakeAChipData(.iOS)
     var body: some View {
 //        NavigationView {
 //            VStack {
@@ -18,7 +17,7 @@ struct IOSMainMenu: View {
 //            }
 //        }
         SpectrumView()
-        .environmentObject(settings)
+ //       .environmentObject(settings)
     }
 }
 
