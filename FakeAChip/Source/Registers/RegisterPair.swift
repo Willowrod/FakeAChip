@@ -8,30 +8,28 @@
 import Foundation
 
 class RegisterPair {
-    var high = Register()
-    var low = Register()
-    var name = ""
+
+    var registerPair: RegisterPairStruct
+    let name: String
     
-    init(_ named: String, highValue: UInt8, lowValue: UInt8) {
+    init(_ named: String, highValue: UInt8, lowValue: UInt8, id: Int) {
         name = named
-        high.ld(value: highValue)
-        low.ld(value: lowValue)
+        registerPair = RegisterPairStruct(high: Register(value: highValue), low: Register(value: lowValue), name: named)
     }
     
-    func setAF(h: Accumilator, l: FlagRegister) {
-        high = h
-        low = l
-    }
+//    mutating func setAF(h: Accumilator, l: FlagRegister) {
+//        high = h
+//        low = l
+//    }
     
     func ld(pair: RegisterPair){
-        high = pair.high
-        low = pair.low
+        registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value()), low: Register(value: pair.registerPair.low.value()), name: registerPair.name)
     }
     
-    func ld(value: UInt16){
-            high.byteValue = UInt8(value / 256)
-            let lowValue = value - UInt16(high.byteValue) * 256
-            low.byteValue = UInt8(lowValue)
+     func ld(value: UInt16){
+        let high = UInt8(value / 256)
+        let low = UInt8(value - UInt16(high) * 256)
+        registerPair = RegisterPairStruct(high: Register(value: high), low: Register(value: low), name: registerPair.name)
     }
     
     func dec() {
@@ -91,21 +89,20 @@ class RegisterPair {
     }
     
     func ld(high: UInt8, low: UInt8){
-        self.high.byteValue = high
-        self.low.byteValue = low
+        registerPair.high.ld(value: high)
+        registerPair.low.ld(value: low)
     }
     
     func value() -> UInt16{
-        return (UInt16(high.byteValue) * 256) + UInt16(low.byteValue)
+        return (UInt16(registerPair.high.value()) * 256) + UInt16(registerPair.low.value())
     }
     
     func swap(spare: RegisterPair){
-        ld(value: spare.value())
+        ld(pair: spare)
     }
     
     func setPairs(h: UInt8, l: UInt8){
-        high.byteValue = h
-        low.byteValue = l
+        ld(high: h, low: l)
     }
     
     func addSelf() {

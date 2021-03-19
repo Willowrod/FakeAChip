@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Accumilator: Register {
+//class Accumilator: Register {
     
 //    func sub(diff: UInt8) {
 //        let oldValue = byteValue
@@ -246,4 +246,4 @@ class Accumilator: Register {
 //        Z80.F.bits5And3(calculatedValue: byteValue)
 //    }
     
-}
+//}

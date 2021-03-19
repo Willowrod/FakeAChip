@@ -75,6 +75,16 @@
 		CD89147625FFBF0B00C75998 /* RegisterPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146C25FFBF0B00C75998 /* RegisterPair.swift */; };
 		CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89147D25FFC22500C75998 /* RegisterSetView.swift */; };
 		CD89147F25FFC22500C75998 /* RegisterSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89147D25FFC22500C75998 /* RegisterSetView.swift */; };
+		CD8914882600EA6800C75998 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8914872600EA6800C75998 /* CPU.swift */; };
+		CD8914892600EA6800C75998 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8914872600EA6800C75998 /* CPU.swift */; };
+		CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
+		CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
+		CDA172522603811000910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
+		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
+		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
+		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
+		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
+		CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +150,12 @@
 		CD89146B25FFBF0B00C75998 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		CD89146C25FFBF0B00C75998 /* RegisterPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPair.swift; sourceTree = "<group>"; };
 		CD89147D25FFC22500C75998 /* RegisterSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetView.swift; sourceTree = "<group>"; };
+		CD8914872600EA6800C75998 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
+		CD891490260202FD00C75998 /* RegisterSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetModel.swift; sourceTree = "<group>"; };
+		CDA172512603811000910C23 /* RegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStruct.swift; sourceTree = "<group>"; };
+		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
+		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
+		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +248,8 @@
 		CD0CC57025FA6C3F00731EDA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CDC8C553260261A10010EBF7 /* Common */,
+				CD8914862600EA5300C75998 /* CPU */,
 				CD89146725FFBF0B00C75998 /* Registers */,
 				CD0CC5E525FF583800731EDA /* SharedComponents */,
 				CD0CC57125FA6C3F00731EDA /* Constants */,
@@ -241,7 +259,6 @@
 				CD0CC58025FA6C3F00731EDA /* MainMenu */,
 				CD0CC58325FA6C4000731EDA /* ZXSpectrumFamily */,
 				CD0CC58B25FA6C4000731EDA /* IOSView.swift */,
-				CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -259,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0CC57425FA6C3F00731EDA /* RegisterModel.swift */,
+				CD891490260202FD00C75998 /* RegisterSetModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0CC54125FA6BD400731EDA /* SpectrumView.swift */,
+				CDC8C560260263730010EBF7 /* SpectrumScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,8 +385,27 @@
 				CD89146A25FFBF0B00C75998 /* Accumilator.swift */,
 				CD89146B25FFBF0B00C75998 /* Register.swift */,
 				CD89146C25FFBF0B00C75998 /* RegisterPair.swift */,
+				CDA172512603811000910C23 /* RegisterStruct.swift */,
+				CDA172562603828000910C23 /* RegisterPairStruct.swift */,
 			);
 			path = Registers;
+			sourceTree = "<group>";
+		};
+		CD8914862600EA5300C75998 /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				CD8914872600EA6800C75998 /* CPU.swift */,
+			);
+			path = CPU;
+			sourceTree = "<group>";
+		};
+		CDC8C553260261A10010EBF7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */,
+				CDC8C554260261BA0010EBF7 /* Sizing.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,10 +542,12 @@
 			files = (
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
+				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
 				CD0CC5AA25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CD0CC5CA25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
+				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
@@ -516,6 +556,8 @@
 				CD0CC5AC25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD0CC5A625FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5E725FF585F00731EDA /* MainHeader.swift in Sources */,
+				CD8914882600EA6800C75998 /* CPU.swift in Sources */,
+				CDA172522603811000910C23 /* RegisterStruct.swift in Sources */,
 				CD0CC5AE25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
@@ -528,9 +570,11 @@
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
 				CD0CC5A825FA6C4000731EDA /* Speccy.swift in Sources */,
+				CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD89147525FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */,
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
+				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
 				CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */,
 				CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */,
 				CD89146F25FFBF0B00C75998 /* Refresh.swift in Sources */,
@@ -555,10 +599,13 @@
 				CD0CC58D25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CD0CC5E825FF585F00731EDA /* MainHeader.swift in Sources */,
+				CD8914892600EA6800C75998 /* CPU.swift in Sources */,
 				CD0CC59B25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
+				CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CD89146E25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
 				CD0CC5CB25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
 				CD0CC5AD25FA6C4000731EDA /* ZXColor.swift in Sources */,
+				CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD0CC5E125FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CD89147425FFBF0B00C75998 /* Register.swift in Sources */,
 				CD89147F25FFC22500C75998 /* RegisterSetView.swift in Sources */,
@@ -571,6 +618,7 @@
 				CD0CC59325FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC5A925FA6C4000731EDA /* Speccy.swift in Sources */,
 				CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */,
+				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

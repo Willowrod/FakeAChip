@@ -8,34 +8,38 @@
 import Foundation
 
 class Register {
-    var byteValue: UInt8 = 0xFF
+    var register: RegisterStruct = RegisterStruct(byteValue: 0xFF)
+    
+    init(value: UInt8) {
+        register = RegisterStruct(byteValue: value)
+    }
     
     func value() -> UInt8 {
-        return byteValue
+        return register.byteValue
     }
     
     func hexValue() -> String {
-        return String(byteValue, radix: 16).uppercased().padded()
+        return String(register.byteValue, radix: 16).uppercased().padded()
     }
     
     func stringValue() -> String {
-        return String(byteValue)
+        return String(register.byteValue)
     }
     
     func ld(value: UInt8){
-        self.byteValue = value
+        register = RegisterStruct(byteValue: value)
     }
     
     func setBit(bit: Int) {
-        byteValue = (byteValue | 1 << bit)
+        register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
     }
     
     func clearBit(bit: Int) {
-        byteValue = (byteValue & ~(1 << bit))
+        register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
     }
     
     func readBit(bit: Int) -> Bool {
-        return byteValue.isSet(bit: bit)
+        return register.byteValue.isSet(bit: bit)
     }
 //    
 //    func inc() {

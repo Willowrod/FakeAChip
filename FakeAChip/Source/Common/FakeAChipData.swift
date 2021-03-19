@@ -22,6 +22,7 @@ class FakeAChipData: ObservableObject {
             }
         }
     }
+    @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     init(_ host: HostSystem) {
         self.host = host
     }

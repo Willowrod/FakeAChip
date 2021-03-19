@@ -9,8 +9,10 @@ import SwiftUI
 
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
-    let ram = Speccy()
+    let ram = Speccy.instance
     var body: some View {
+        
+        GeometryReader { geometry in
         VStack{
             MainHeader()
             Spacer()
@@ -20,7 +22,7 @@ struct SpectrumView: View {
                 case SystemEnvironment.Emulation:
                 SpectrumEmulationView(ram: ram)
                 case SystemEnvironment.Disassembly:
-                SpectrumDisassemblyView(ram: ram)
+                    SpectrumDisassemblyView(ram: ram)
                 case SystemEnvironment.Code:
                 SpectrumCodeView(ram: ram)
                 
@@ -32,7 +34,9 @@ struct SpectrumView: View {
             Text("Running in  \(settings.environment.rawValue) mode").padding(30)
         }
         .onAppear(){
+            ram.addSettings(settings)
             ram.process()
+        }
         }
     }
 }
@@ -41,7 +45,7 @@ struct SpectrumEmulationView: View {
     let ram: Speccy
     var body: some View {
         VStack{
-            UIImage.init(bitmap: ram.screenImage).map({Image(uiImage: $0)})?.resizable().frame(width: 800, height: 600, alignment: .center)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width, screen: ram.screenImage)
         }
         }
     }
@@ -50,7 +54,10 @@ struct SpectrumDisassemblyView: View {
     let ram: Speccy
     var body: some View {
         VStack{
-            UIImage.init(bitmap: ram.screenImage).map({Image(uiImage: $0)})?.resizable().frame(width: 400, height: 300, alignment: .center)
+          
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2, screen: ram.screenImage)
+            
+            RegisterSetView() //(registers: pairs)
         }
         }
     }
@@ -58,8 +65,10 @@ struct SpectrumDisassemblyView: View {
 struct SpectrumCodeView: View {
     let ram: Speccy
     var body: some View {
-        VStack{
-            UIImage.init(bitmap: ram.screenImage).map({Image(uiImage: $0)})?.resizable().frame(width: 200, height: 150, alignment: .center)
+        HStack{
+            RegisterSetView() //(registers: pairs)
+            
+              SpectrumScreen(screenWidth: Sizing.instance.size.width / 4, screen: ram.screenImage)
         }
         }
     }
