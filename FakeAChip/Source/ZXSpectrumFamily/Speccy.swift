@@ -21,7 +21,7 @@ class Speccy: Z80 {
     
     var rom: [UInt8] = []
     var ram: [UInt8] = []
-    var keyboard: [UInt8] = []
+    var keyboard: [UInt8] = Array(repeating: 0xFF, count: 8)
     var kempston: UInt8 = 0x00
     var screenImage = ZXBitmap(width: 256, height: 192, color: .blue)
     func loadRom(){
@@ -78,7 +78,7 @@ class Speccy: Z80 {
         if (testMode){
         rom[location] = value
         } else {
-        print("Cannot write to ROM")
+            print("Cannot write to ROM from PC:\(PC.hex()) to \(UInt16(location).hex()) with value: \(value.hex())")
         }
     }
     
@@ -130,14 +130,54 @@ class Speccy: Z80 {
                     return UInt16(rom[location]) &+ (UInt16(rom[location &+ 1]) * 256)
                 }
         let ramLocation = location - 0x4000
-        if ramLocation < ram.count{
+        if ramLocation + 1 < ram.count{
         return UInt16(ram[ramLocation]) &+ (UInt16(ram[ramLocation &+ 1]) * 256)
         }
         return 0x00
     }
     
+    override func load(file: String, path: String? = nil){
+        
+            pauseProcessor = true
+            interupt = false
+       var fileStruct = file.split(separator: ".")
+        
+        if fileStruct.count > 1{
+            let fileType = fileStruct.last
+            fileStruct.removeLast()
+            let name = fileStruct.joined(separator: ".")
+            switch fileType {
+            case "sna":
+                loadSnapshot(sna: name)
+            case "z80":
+                loadZ80(z80Snap: name, path: path)
+//            case "zip":
+//                unzipFile(file: file)
+//            case "tzx":
+//                importTZX(tzxFile: name)
+            default:
+                print("Unknown file type = \(file)")
+            }
+        } else {
+            print("Unknown or bad file = \(file)")
+        }
+        
+        interupt = true
+            pauseProcessor = false
+    }
     
-    
+    func loadSnapshot(sna: String){
+            let snapShot = SNAFormat(fileName: sna)
+        //writeRAM(dataModel: snapShot.ramBanks[0], startAddress: 16384)
+        var count = 0
+        snapShot.ramBanks[0].forEach{ byte in
+            ram[count] = byte
+            count += 1
+        }
+        initialiseRegisters(header: snapShot.registers)
+        header = snapShot.registers
+//        writeCodeBytes()
+    }
     
     
     func loadZ80(z80Snap: String, path: String? = nil){
@@ -145,16 +185,23 @@ class Speccy: Z80 {
         let banks = snapShot.retrieveRam()
         if (banks.count > 0){
             if banks.count == 1{
-                // ram = Array(repeating: 0x00, count: 0x4000)
-                ram.removeAll()
+              //  ram = Array(repeating: 0x00, count: 0x4000)
+                //ram.removeAll()
+                var count = 0
                 banks[0].forEach{ byte in
-                    ram.append(byte)
+                    ram[count] = byte
+                    count += 1
                 }
             }
         }
+        
+        initialiseRegisters(header: snapShot.registers)
+            header = snapShot.registers
+                spareRegister.ld(value: pagingByte)
+                performOut(port: 0xfd, map: 0x74, source: spareRegister)
     }
     
-     func startProcessing() {
+    override func startProcessing() {
         DispatchQueue.background(background: {
             self.process()
         }, completion:{
@@ -169,11 +216,11 @@ class Speccy: Z80 {
     
     override func renderFrame(){
 //        beeper.endFrame()
-//        flashCount += 1
-//        if (flashCount >= 16){
-//            flashCount = 0
-//            flashOn = !flashOn
-//        }
+        flashCount += 1
+        if (flashCount >= 16){
+            flashCount = 0
+            flashOn = !flashOn
+        }
         DispatchQueue.main.sync {
             self.blitScreen()
 //            self.delegate?.updateView(bitmap: self.screenBuffer)
@@ -183,8 +230,8 @@ class Speccy: Z80 {
             let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair]
             data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
-//        frameEnds = true
-//        runInterupt()
+        frameEnds = true
+        runInterupt()
     }
     
     override func process(){
@@ -225,13 +272,13 @@ class Speccy: Z80 {
                 }
                 
                 shouldForceBreak = false//
-//                if PC >= 0x0b24 && PC <= 0x0BD9 {
+//                if PC >= 0x4000 {
 //          print("Next: \(String(PC, radix:16)) Opcode: \(String(byte, radix:16)) AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16)) (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
 //                    //                  print("Next: \(String(PC, radix:16))  AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16))")
 //                    
-//                    if PC == 0x0bbe{
-//                    print("Breaking here")
-//                    }
+////                    if PC == 0x0bbe{
+////                    print("Breaking here")
+////                    }
 //               }
                 
                 opCode(byte: byte)
@@ -257,22 +304,12 @@ class Speccy: Z80 {
                     print("Paused")
             }
         }
-        
-//        var count = 0
-//        while count >= 0 {
-//            count += 1
-//       //     if count % 10 == 0 {
-//                update()
-//             //   print ("AF value = \(AF.value())")
-//       //     }
-//            if count % 100000 == 0 {
-//                let pairs = [AF.registerPair, BC.registerPair]//, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair]
-//                DispatchQueue.main.sync {
-//                    data?.registerPairs = RegisterSetModel(registerPairs: pairs)
-//                }
-//
-//            }
-//        }
+    }
+    
+    func runInterupt() {
+        if (interupt){
+            shouldRunInterupt = true
+        }
     }
     
     override func performIn(port: UInt8, map: UInt8, destination: Register){
@@ -321,7 +358,7 @@ class Speccy: Z80 {
     }
     
     
-    func keyboardInteraction(key: Int, pressed: Bool){
+    override func keyboardInteraction(key: Int, pressed: Bool){
         var bank = -1
         var bit = -1
         switch key{
@@ -455,6 +492,11 @@ class Speccy: Z80 {
         }
     }
     
+    
+    override func keyboardInteraction(bank: Int, bit: Int, pressed: Bool) {
+        keyboard[bank] = pressed ? keyboard[bank].clear(bit: bit) : keyboard[bank].set(bit: bit)
+    }
+    
     func joystickInteraction(key: Int, pressed: Bool){
         // Kempston 000FUDLR
         switch key{
@@ -476,8 +518,6 @@ class Speccy: Z80 {
         
         
     }
-    
-    
     
     
     func update(){

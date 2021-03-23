@@ -14,6 +14,8 @@ class Sizing {
     
     var size: CGSize = .zero
     
-    
+    func width() -> CGFloat {
+        return size.width * 0.9
+    }
     
 }

@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct MacMainMenu: View, KeyInput {
+struct MacMainMenu: View {
 //    @StateObject var settings = FakeAChipData(.Mac)
+    @EnvironmentObject var settings: FakeAChipData
     var body: some View {
 //        NavigationView {
 //            VStack {
@@ -20,13 +21,6 @@ struct MacMainMenu: View, KeyInput {
         SpectrumView()
  //       .environmentObject(settings)
     }
-    
-    func onKeyPress(_ key: String) {
-         print(key)
-         guard key == UIKeyCommand.inputEscape else { return }
-         // esc key was pressed
-         /* ... */
-     }
     func pressButton(){
         print("Boo to the Mac!")
     }

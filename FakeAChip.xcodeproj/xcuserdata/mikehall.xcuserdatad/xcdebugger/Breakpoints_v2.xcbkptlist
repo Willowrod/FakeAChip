@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DCFF1F8D-1F6A-40A7-8226-407B19DDF40F"
-            shouldBeEnabled = "Yes"
+            uuid = "04475B0F-E866-4EDA-9813-5575CD58A207"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/MainMenu/MacMainMenu.swift"
+            filePath = "FakeAChip/Source/Controlls/KeyInputController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "onKeyPress(_:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "keyboardInteraction(key:pressed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

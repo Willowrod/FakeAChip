@@ -26,25 +26,22 @@ class KeyInputController<Content: View>: UIHostingController<Content> {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    override func becomeFirstResponder() -> Bool {
-        true
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let key = presses.first?.key else {
+            return
+        }
+        keyboardInteraction(key: key.keyCode.rawValue, pressed: true)
     }
     
-    override var keyCommands: [UIKeyCommand]? {
-//        switch state.current {
-//        case .usingApp:
-            return [
-                UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: [], action: #selector(keyPressed(_:)))
-            ]
-//            
-//        default:
-//            return nil
-//        }
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let key = presses.first?.key else {
+            return
+        }
+        keyboardInteraction(key: key.keyCode.rawValue, pressed: false)
     }
     
-    @objc private func keyPressed(_ sender: UIKeyCommand) {
-        guard let key = sender.input else { return }
-        state.delegate?.onKeyPress(key)
+    func keyboardInteraction(key: Int, pressed: Bool){
+         state.keyboardInteraction(key: key, pressed: pressed)
     }
+    
 }

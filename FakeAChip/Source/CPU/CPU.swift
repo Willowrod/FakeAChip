@@ -16,7 +16,8 @@ import Foundation
 ////    func updateCodeByteModel(model: [CodeByteModel])
 //}
 
-class CPU {
+class CPU: CoreDelegate {
+    
     
     var data: FakeAChipData? = nil
     
@@ -138,6 +139,18 @@ class CPU {
     
     func addSettings(_ data: FakeAChipData){
         self.data = data
+    }
+    
+    
+    func keyboardInteraction(key: Int, pressed: Bool) {
+    }
+    
+    
+    func keyboardInteraction(bank: Int, bit: Int, pressed: Bool) {
+    }
+
+    func startProcessing() {
+        
     }
     
 }

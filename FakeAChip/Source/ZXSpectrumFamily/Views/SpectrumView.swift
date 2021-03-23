@@ -9,31 +9,30 @@ import SwiftUI
 
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
-    let computer = Speccy.instance
+    let computer: CPU = Speccy.instance
     var body: some View {
         
         GeometryReader { geometry in
         VStack{
-            MainHeader()
+            MainHeader(computer: computer)
             Spacer()
-            Text("Viewed on \(settings.host.rawValue)")
             Group {
                 switch settings.environment {
                 case SystemEnvironment.Emulation:
-                SpectrumEmulationView(computer: computer)
+                    SpectrumEmulationView(computer: computer as! Speccy)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(computer: computer)
+                    SpectrumDisassemblyView(computer: computer as! Speccy)
                 case SystemEnvironment.Code:
-                SpectrumCodeView(computer: computer)
+                    SpectrumCodeView(computer: computer as! Speccy)
                 
                 }
             }
             
             Spacer()
             
-            Text("Running in  \(settings.environment.rawValue) mode").padding(30)
         }
         .onAppear(){
+            settings.delegate = computer
             computer.addSettings(settings)
             computer.startProcessing()
         }
@@ -45,7 +44,9 @@ struct SpectrumEmulationView: View {
     let computer: Speccy
     var body: some View {
         VStack{
-            SpectrumScreen(screenWidth: Sizing.instance.size.width)//, screen: computer.screenImage)
+            SpectrumScreen(screenWidth: Sizing.instance.width())
+            Spacer()
+            ZXKeyboard()
         }
         }
     }

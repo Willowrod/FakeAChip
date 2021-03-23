@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct SpectrumScreen: View {
+struct SpectrumScreen: View { //, KeyInput
     let screenWidth: CGFloat
-    //let screen: UIImage //ZXBitmap
     @EnvironmentObject var settings: FakeAChipData
     var body: some View {
         HStack{
-         //   UIImage.init(bitmap: screen).map({Image(uiImage: $0)})?.resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
-            
+            VStack{
             Image(uiImage: settings.vdu.image).resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
-            
+            }
+            .padding(screenWidth / 18)
         }
+        .background(Color.red)
+
     }
 }
 

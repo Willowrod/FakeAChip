@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainHeader: View {
     @EnvironmentObject var settings: FakeAChipData
- //   @State private var mainEnvironment = settings.environment
+    let computer: CPU
     var body: some View {
         HStack {
             Picker(selection: $settings.environmentTag, label: Text("What is your favorite color?")) {
@@ -23,23 +23,36 @@ struct MainHeader: View {
             
             
             Spacer()
+            Text("FPS: \(settings.debugModel.fps)")
+            Spacer()
             
-            Button("Load"){
-                loadData()
+            Menu("Load"){
+                ForEach(settings.listOfGames(extensions: ["sna", "z80"]), id: \.self){ item in
+                                    Button("Game: \(item)"){
+                                        loadData(item)
+                                    }
+                }
+//                Button("deflektor.sna"){
+//                    loadData("deflektor.sna")
+//                }
+//                Button("middleoflakecheat.z80"){
+//                    loadData("middleoflakecheat.z80")
+//                }
             }
             .padding(20)
         }
-        .frame(minWidth: 600, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 60, idealHeight: 60, maxHeight: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 60, alignment: .center)
     }
     
     
-    func loadData(){
+    func loadData(_ file: String){
         print("Loading data.......")
+        computer.load(file: file)
     }
 }
 
-struct MainHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        MainHeader()
-    }
-}
+//struct MainHeader_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainHeader()
+//    }
+//}
