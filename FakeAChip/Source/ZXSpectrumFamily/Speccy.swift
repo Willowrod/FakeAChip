@@ -11,11 +11,12 @@ import UIKit
 class Speccy: Z80 {
     
     static var instance = Speccy()
-    
+    let beeper = ZXBeeper()
     
     override init() {
         super.init()
         loadRom()
+        beeper.ticksPerFrame = tStatesPerFrame
         ram = Array(repeating: 0x00, count: 0xC000)
     }
     
@@ -215,7 +216,7 @@ class Speccy: Z80 {
     }
     
     override func renderFrame(){
-//        beeper.endFrame()
+        beeper.endFrame()
         flashCount += 1
         if (flashCount >= 16){
             flashCount = 0
@@ -282,7 +283,7 @@ class Speccy: Z80 {
 //               }
                 
                 opCode(byte: byte)
- //               beeper.updateSample(UInt32(currentTStates), beep: clicks)
+                beeper.updateSample(UInt32(currentTStates), beep: clicks)
         
             }
             if currentTStates >= tStatesPerFrame {
@@ -298,10 +299,6 @@ class Speccy: Z80 {
                                 frameEnds = false
                             }
                         }
-                
-            } else {
-                
-                    print("Paused")
             }
         }
     }
@@ -497,20 +494,20 @@ class Speccy: Z80 {
         keyboard[bank] = pressed ? keyboard[bank].clear(bit: bit) : keyboard[bank].set(bit: bit)
     }
     
-    func joystickInteraction(key: Int, pressed: Bool){
+    override func joystickInteraction(key: Int, pressed: Bool){
         // Kempston 000FUDLR
         switch key{
-        case 1: // Left
+        case 0: // Left
             kempston = pressed ? kempston.set(bit: 1) : kempston.clear(bit: 1)
-        case 2: // Right
+        case 1: // Right
             kempston = pressed ? kempston.set(bit: 0) : kempston.clear(bit: 0)
-        case 3: // Up
+        case 2: // Up
             kempston = pressed ? kempston.set(bit: 3) : kempston.clear(bit: 3)
-        case 4: // Down
+        case 3: // Down
             kempston = pressed ? kempston.set(bit: 2) : kempston.clear(bit: 2)
-        case 5: // LFire
+        case 4: // LFire
             kempston = pressed ? kempston.set(bit: 4) : kempston.clear(bit: 4)
-        case 6: // RFire
+        case 5: // RFire
             kempston = pressed ? kempston.set(bit: 4) : kempston.clear(bit: 4)
         default:
          break

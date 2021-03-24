@@ -42,11 +42,21 @@ struct SpectrumView: View {
 
 struct SpectrumEmulationView: View {
     let computer: Speccy
+    @EnvironmentObject var settings: FakeAChipData
+
     var body: some View {
         VStack{
             SpectrumScreen(screenWidth: Sizing.instance.width())
+            
+            Group {
+                switch settings.host {
+                case .iOS:
             Spacer()
             ZXKeyboard()
+                case .Mac:
+                    Spacer()
+            }
+            }
         }
         }
     }

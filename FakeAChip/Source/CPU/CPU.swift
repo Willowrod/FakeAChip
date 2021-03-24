@@ -148,6 +148,11 @@ class CPU: CoreDelegate {
     
     func keyboardInteraction(bank: Int, bit: Int, pressed: Bool) {
     }
+    
+    
+    func joystickInteraction(key: Int, pressed: Bool){
+        
+    }
 
     func startProcessing() {
         

@@ -11,6 +11,7 @@ import UIKit
 protocol CoreDelegate {
     func keyboardInteraction(key: Int, pressed: Bool)
     func keyboardInteraction(bank: Int, bit: Int, pressed: Bool)
+    func joystickInteraction(key: Int, pressed: Bool)
 }
 
 class FakeAChipData: ObservableObject {
@@ -19,7 +20,7 @@ class FakeAChipData: ObservableObject {
     var delegate: CoreDelegate?
     
     @Published var host: HostSystem
-    @Published var environment: SystemEnvironment = .Disassembly
+    @Published var environment: SystemEnvironment = .Emulation
     var environmentTag: Int = 1 {
         didSet {
             switch environmentTag {
@@ -62,6 +63,10 @@ class FakeAChipData: ObservableObject {
     
     func keyboardInteraction(key: Int, pressed: Bool){
         delegate?.keyboardInteraction(key: key, pressed: pressed)
+    }
+    
+    func joyStickInteraction(key: Int, pressed: Bool){
+        delegate?.joystickInteraction(key: key, pressed: pressed)
     }
     
     func keyboardInteraction(bank: Int, bit: Int, pressed: Bool){

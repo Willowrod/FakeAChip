@@ -264,8 +264,6 @@
 		CDA1741726091C9800910C23 /* lordoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736C26091C9400910C23 /* lordoftherings.sna */; };
 		CDA1741826091C9800910C23 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736D26091C9400910C23 /* subsunk.sna */; };
 		CDA1741926091C9800910C23 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736D26091C9400910C23 /* subsunk.sna */; };
-		CDA1741A26091C9800910C23 /* rockstaratemyhamster.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736E26091C9400910C23 /* rockstaratemyhamster.sna */; };
-		CDA1741B26091C9800910C23 /* rockstaratemyhamster.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736E26091C9400910C23 /* rockstaratemyhamster.sna */; };
 		CDA1741C26091C9800910C23 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736F26091C9500910C23 /* knighttyme128.z80 */; };
 		CDA1741D26091C9800910C23 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736F26091C9500910C23 /* knighttyme128.z80 */; };
 		CDA1741E26091C9800910C23 /* urbanupstart.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737026091C9500910C23 /* urbanupstart.sna */; };
@@ -332,6 +330,8 @@
 		CDA1746826091D6900910C23 /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746626091D6900910C23 /* ZXKeyboard.swift */; };
 		CDA1746E2609253600910C23 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
 		CDA1746F2609253600910C23 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
+		CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA174762609E39200910C23 /* ZXBeeper.swift */; };
+		CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA174762609E39200910C23 /* ZXBeeper.swift */; };
 		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
@@ -502,7 +502,6 @@
 		CDA1736B26091C9400910C23 /* matchday2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = matchday2.sna; sourceTree = "<group>"; };
 		CDA1736C26091C9400910C23 /* lordoftherings.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordoftherings.sna; sourceTree = "<group>"; };
 		CDA1736D26091C9400910C23 /* subsunk.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = subsunk.sna; sourceTree = "<group>"; };
-		CDA1736E26091C9400910C23 /* rockstaratemyhamster.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = rockstaratemyhamster.sna; sourceTree = "<group>"; };
 		CDA1736F26091C9500910C23 /* knighttyme128.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = knighttyme128.z80; sourceTree = "<group>"; };
 		CDA1737026091C9500910C23 /* urbanupstart.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbanupstart.sna; sourceTree = "<group>"; };
 		CDA1737126091C9500910C23 /* curseofsherwood.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = curseofsherwood.sna; sourceTree = "<group>"; };
@@ -536,6 +535,7 @@
 		CDA1738D26091C9800910C23 /* dandy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dandy.sna; sourceTree = "<group>"; };
 		CDA1746626091D6900910C23 /* ZXKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKeyboard.swift; sourceTree = "<group>"; };
 		CDA1746D2609253600910C23 /* PressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressActions.swift; sourceTree = "<group>"; };
+		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -717,6 +717,7 @@
 		CD0CC58325FA6C4000731EDA /* ZXSpectrumFamily */ = {
 			isa = PBXGroup;
 			children = (
+				CDA174762609E39200910C23 /* ZXBeeper.swift */,
 				CD0CC5D525FF538E00731EDA /* Views */,
 				CD0CC58425FA6C4000731EDA /* FileFormats */,
 				CD0CC58625FA6C4000731EDA /* Speccy.swift */,
@@ -817,7 +818,6 @@
 				CDA1734C26091C8F00910C23 /* repton.sna */,
 				CDA1733B26091C8C00910C23 /* robinofsherlock.sna */,
 				CDA1733E26091C8D00910C23 /* rocknwrestle.sna */,
-				CDA1736E26091C9400910C23 /* rockstaratemyhamster.sna */,
 				CDA1733226091C8B00910C23 /* seabasedelta.sna */,
 				CDA1738826091C9700910C23 /* shakenbutnotstired.sna */,
 				CDA1737E26091C9600910C23 /* sherlock.sna */,
@@ -1153,7 +1153,6 @@
 				CDA1744C26091C9800910C23 /* supersprint.sna in Resources */,
 				CDA1744026091C9800910C23 /* inferno.sna in Resources */,
 				CDA1739C26091C9800910C23 /* megabucks.sna in Resources */,
-				CDA1741A26091C9800910C23 /* rockstaratemyhamster.sna in Resources */,
 				CDA173D026091C9800910C23 /* ticket_to_ride.tzx in Resources */,
 				CDA173F626091C9800910C23 /* adayinthelife.sna in Resources */,
 				CDA173AE26091C9800910C23 /* brian.sna in Resources */,
@@ -1234,7 +1233,6 @@
 				CDA173B126091C9800910C23 /* stbernard.sna in Resources */,
 				CDA1739326091C9800910C23 /* completebastard.sna in Resources */,
 				CDA1741F26091C9800910C23 /* urbanupstart.sna in Resources */,
-				CDA1741B26091C9800910C23 /* rockstaratemyhamster.sna in Resources */,
 				CDA1739526091C9800910C23 /* henryshoard.sna in Resources */,
 				CDA1739B26091C9800910C23 /* brian.szx in Resources */,
 				CDA173CD26091C9800910C23 /* ericandthefloaters.sna in Resources */,
@@ -1346,6 +1344,7 @@
 				CDA1728A26049ADA00910C23 /* Flag.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CD0CC5B025FA6C4000731EDA /* IOSView.swift in Sources */,
+				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
@@ -1379,6 +1378,7 @@
 			files = (
 				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
 				CD0CC59925FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
+				CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD0CC5AB25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CD0CC5AF25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD0CC59525FA6C4000731EDA /* StringExtensions.swift in Sources */,
