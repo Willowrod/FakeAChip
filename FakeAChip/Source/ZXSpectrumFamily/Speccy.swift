@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class Speccy: Z80 {
     
@@ -19,11 +20,12 @@ class Speccy: Z80 {
         beeper.ticksPerFrame = tStatesPerFrame
         ram = Array(repeating: 0x00, count: 0xC000)
     }
-    
+    var framePair = RegisterPair("Frames", highValue: 0x00, lowValue: 0x00, id: -2)
     var rom: [UInt8] = []
     var ram: [UInt8] = []
     var keyboard: [UInt8] = Array(repeating: 0xFF, count: 8)
     var kempston: UInt8 = 0x00
+    var initPc: UInt16 = 0x5B00
     var screenImage = ZXBitmap(width: 256, height: 192, color: .blue)
     func loadRom(){
         if (testMode){
@@ -48,10 +50,10 @@ class Speccy: Z80 {
     }
     
     func writeROM(dataModel: [UInt8]){
-//        pauseProcessor = true
-//        interupt = false
+        //        pauseProcessor = true
+        //        interupt = false
         rom = dataModel
-//        pauseProcessor = false
+        //        pauseProcessor = false
     }
     
     override func findRam(data:[UInt8]) -> String{
@@ -68,8 +70,8 @@ class Speccy: Z80 {
                 }
                 if match {
                     print ("\(String(count, radix: 16)), ")
+                }
             }
-        }
             count += 1
         }
         return "sweep completed"
@@ -77,7 +79,7 @@ class Speccy: Z80 {
     
     func ldRom(location: Int, value: UInt8){
         if (testMode){
-        rom[location] = value
+            rom[location] = value
         } else {
             print("Cannot write to ROM from PC:\(PC.hex()) to \(UInt16(location).hex()) with value: \(value.hex())")
         }
@@ -88,7 +90,7 @@ class Speccy: Z80 {
             ldRom(location: location, value: fetchRam(location: location).dec())
             return
         }
-      //  let loc = location - 0x4000
+        //  let loc = location - 0x4000
         ldRam(location: location, value: fetchRam(location: location).dec())
     }
     
@@ -97,7 +99,7 @@ class Speccy: Z80 {
             ldRom(location: location, value: fetchRam(location: location).inc())
             return
         }
-       //let loc = location - 0x4000
+        //let loc = location - 0x4000
         ldRam(location: location, value: fetchRam(location: location).inc())
     }
     
@@ -116,32 +118,32 @@ class Speccy: Z80 {
     }
     
     override func fetchRam(location: Int) -> UInt8 {
-            if location < 0x4000 {
-                return rom[location]
-            }
+        if location < 0x4000 {
+            return rom[location]
+        }
         let ramLocation = location - 0x4000
         if ramLocation < ram.count{
-        return ram[ramLocation]
+            return ram[ramLocation]
         }
         return 0x00
     }
     
     override func fetchRamWord(location: Int) -> UInt16 {
-                if location < 0x4000 {
-                    return UInt16(rom[location]) &+ (UInt16(rom[location &+ 1]) * 256)
-                }
+        if location < 0x4000 {
+            return UInt16(rom[location]) &+ (UInt16(rom[location &+ 1]) * 256)
+        }
         let ramLocation = location - 0x4000
         if ramLocation + 1 < ram.count{
-        return UInt16(ram[ramLocation]) &+ (UInt16(ram[ramLocation &+ 1]) * 256)
+            return UInt16(ram[ramLocation]) &+ (UInt16(ram[ramLocation &+ 1]) * 256)
         }
         return 0x00
     }
     
     override func load(file: String, path: String? = nil){
         
-            pauseProcessor = true
-            interupt = false
-       var fileStruct = file.split(separator: ".")
+        pauseProcessor = true
+        interupt = false
+        var fileStruct = file.split(separator: ".")
         
         if fileStruct.count > 1{
             let fileType = fileStruct.last
@@ -152,10 +154,10 @@ class Speccy: Z80 {
                 loadSnapshot(sna: name)
             case "z80":
                 loadZ80(z80Snap: name, path: path)
-//            case "zip":
-//                unzipFile(file: file)
-//            case "tzx":
-//                importTZX(tzxFile: name)
+            //            case "zip":
+            //                unzipFile(file: file)
+            //            case "tzx":
+            //                importTZX(tzxFile: name)
             default:
                 print("Unknown file type = \(file)")
             }
@@ -164,11 +166,11 @@ class Speccy: Z80 {
         }
         
         interupt = true
-            pauseProcessor = false
+        pauseProcessor = false
     }
     
     func loadSnapshot(sna: String){
-            let snapShot = SNAFormat(fileName: sna)
+        let snapShot = SNAFormat(fileName: sna)
         //writeRAM(dataModel: snapShot.ramBanks[0], startAddress: 16384)
         var count = 0
         snapShot.ramBanks[0].forEach{ byte in
@@ -177,7 +179,7 @@ class Speccy: Z80 {
         }
         initialiseRegisters(header: snapShot.registers)
         header = snapShot.registers
-//        writeCodeBytes()
+        //        writeCodeBytes()
     }
     
     
@@ -186,7 +188,7 @@ class Speccy: Z80 {
         let banks = snapShot.retrieveRam()
         if (banks.count > 0){
             if banks.count == 1{
-              //  ram = Array(repeating: 0x00, count: 0x4000)
+                //  ram = Array(repeating: 0x00, count: 0x4000)
                 //ram.removeAll()
                 var count = 0
                 banks[0].forEach{ byte in
@@ -197,9 +199,13 @@ class Speccy: Z80 {
         }
         
         initialiseRegisters(header: snapShot.registers)
-            header = snapShot.registers
-                spareRegister.ld(value: pagingByte)
-                performOut(port: 0xfd, map: 0x74, source: spareRegister)
+        header = snapShot.registers
+        spareRegister.ld(value: pagingByte)
+        performOut(port: 0xfd, map: 0x74, source: spareRegister)
+    }
+    
+    func initialPC() -> UInt16 {
+        return initPc
     }
     
     override func startProcessing() {
@@ -224,11 +230,10 @@ class Speccy: Z80 {
         }
         DispatchQueue.main.sync {
             self.blitScreen()
-//            self.delegate?.updateView(bitmap: self.screenBuffer)
             if let screen = UIImage.init(bitmap: screenImage){
-                data?.vdu = VDU(image: screen)
+                data?.vdu = VDU(image: screen, border: data?.vdu.border)
             }
-            let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair]
+            let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair]
             data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
         frameEnds = true
@@ -239,66 +244,67 @@ class Speccy: Z80 {
         currentTStates = 0
         while true {
             if !pauseProcessor {
-                        if (!frameEnds) {
-            if (shouldRunInterupt){
-                interupt = false
-                interupt2 = false
-                push(value: PC)
-                switch interuptMode {
-                case 0:
-                    PC = 0x0066
-                case 1:
-                    PC = 0x0038
-                default:
-                    let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
-                    PC = fetchRamWord(location: intAddress)
-                    
-                }
-                halt = false
-                shouldRunInterupt = false
-            }
-            if (halt){
-                instructionComplete(states: 4, length: 0)
-                halt = false
-            } else {
-                let byte = fetchRam(location: PC)
-                shouldBreak = breakPoints.contains(PC) || shouldStep || shouldForceBreak
-                if (shouldBreak){
-                    DispatchQueue.main.sync {
-//                        delegate?.updateRegisters()
-//                        delegate?.updateDebug(line: PC)
-                    }
-                    while shouldBreak {
-                    }
-                }
-                
-                shouldForceBreak = false//
-//                if PC >= 0x4000 {
-//          print("Next: \(String(PC, radix:16)) Opcode: \(String(byte, radix:16)) AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16)) (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-//                    //                  print("Next: \(String(PC, radix:16))  AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16))")
-//                    
-////                    if PC == 0x0bbe{
-////                    print("Breaking here")
-////                    }
-//               }
-                
-                opCode(byte: byte)
-                beeper.updateSample(UInt32(currentTStates), beep: clicks)
-        
-            }
-            if currentTStates >= tStatesPerFrame {
-                currentTStates = 0
-                renderFrame()
-            }
-            
+                if (!frameEnds) {
+                    if (shouldRunInterupt){
+                        interupt = false
+                        interupt2 = false
+                        push(value: PC)
+                        switch interuptMode {
+                        case 0:
+                            PC = 0x0066
+                        case 1:
+                            PC = 0x0038
+                        default:
+                            let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
+                            PC = fetchRamWord(location: intAddress)
+                            
                         }
-                        else {
-                            let time = Date().timeIntervalSince1970
-                            if (frameStarted + 0.02 <= time){
-                                frameStarted = time
-                                frameEnds = false
+                        halt = false
+                        shouldRunInterupt = false
+                    }
+                    if (halt){
+                        instructionComplete(states: 4, length: 0)
+                        halt = false
+                    } else {
+                        let byte = fetchRam(location: PC)
+                        shouldBreak = breakPoints.contains(PC) || shouldStep || shouldForceBreak
+                        if (shouldBreak){
+                            DispatchQueue.main.sync {
+                                //                        delegate?.updateRegisters()
+                                //                        delegate?.updateDebug(line: PC)
+                            }
+                            while shouldBreak {
                             }
                         }
+                        
+                        shouldForceBreak = false//
+                        //                if PC >= 0x4000 {
+                        //          print("Next: \(String(PC, radix:16)) Opcode: \(String(byte, radix:16)) AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16)) (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+                        //                    //                  print("Next: \(String(PC, radix:16))  AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16))")
+                        //
+                        ////                    if PC == 0x0bbe{
+                        ////                    print("Breaking here")
+                        ////                    }
+                        //               }
+                        
+                        opCode(byte: byte)
+                        beeper.updateSample(UInt32(currentTStates), beep: clicks)
+                        
+                    }
+                    if currentTStates >= tStatesPerFrame {
+                        currentTStates = 0
+                        renderFrame()
+                    }
+                    
+                }
+                else {
+                    let time = Date().timeIntervalSince1970
+                    if (frameStarted + 0.02 <= time){
+                        framePair.inc()
+                        frameStarted = time
+                        frameEnds = false
+                    }
+                }
             }
         }
     }
@@ -311,49 +317,58 @@ class Speccy: Z80 {
     
     override func performIn(port: UInt8, map: UInt8, destination: Register){
         if (port == 0xfe){
-        switch map{
-        case 0xfe:
-            destination.inCommand(byte: keyboard[7])
-        case 0xfd:
-            destination.inCommand(byte: keyboard[6])
-        case 0xfb:
-            destination.inCommand(byte: keyboard[5])
-        case 0xf7:
-            destination.inCommand(byte: keyboard[4])
-        case 0xef:
-            destination.inCommand(byte: keyboard[3])
-        case 0xdf:
-            destination.inCommand(byte: keyboard[2])
-        case 0xbf:
-            destination.inCommand(byte: keyboard[1])
-        case 0x7f:
-            destination.inCommand(byte: keyboard[0])
-        default:
-            break
-        }
+            switch map{
+            case 0xfe:
+                destination.inCommand(byte: keyboard[7])
+            case 0xfd:
+                destination.inCommand(byte: keyboard[6])
+            case 0xfb:
+                destination.inCommand(byte: keyboard[5])
+            case 0xf7:
+                destination.inCommand(byte: keyboard[4])
+            case 0xef:
+                destination.inCommand(byte: keyboard[3])
+            case 0xdf:
+                destination.inCommand(byte: keyboard[2])
+            case 0xbf:
+                destination.inCommand(byte: keyboard[1])
+            case 0x7f:
+                destination.inCommand(byte: keyboard[0])
+            default:
+                break
+            }
         } else if port == 0x7f {
- //           print("Checking for Fuller Joystick")
+            //           print("Checking for Fuller Joystick")
             //             destination.inCommand(byte: kempston)
         } else if port == 0x1f {
-          destination.inCommand(byte: kempston)
- //          print("Checking for Kempston Joystick")
+            destination.inCommand(byte: kempston)
+            //          print("Checking for Kempston Joystick")
         } else {
- //           print("Checking port \(port.hex())")
+            //           print("Checking port \(port.hex())")
         }
     }
     
     override func performOut(port: UInt8, map: UInt8, source: Register) {
         if (port == 0xfe){ // Change the border colour
-                DispatchQueue.main.sync {
-        // TO DO:   delegate?.updateBorder(colour: source.byteValue.border())
-                }
-            clicks = source.value() & 24
+            DispatchQueue.main.sync {
+                updateBorder(source.value())
+                clicks = source.value() & 24
+            }
         }
         if (port == 0xfd){ // 128k paging
-      //      delegate?.updateBorder(colour: source.byteValue.border())
         }
     }
     
+    func borderColour(_ colour: UInt8) -> Color {
+        let zxColour = colour.border()
+        return Color(red: Double(zxColour.r), green: Double(zxColour.g), blue: Double(zxColour.b), opacity: 1)
+    }
+    
+    func updateBorder(_ colour: UInt8) {
+        if let data = data {
+            data.vdu = VDU(image: data.vdu.image, border: borderColour(colour))
+        }
+    }
     
     override func keyboardInteraction(key: Int, pressed: Bool){
         var bank = -1
@@ -510,12 +525,59 @@ class Speccy: Z80 {
         case 5: // RFire
             kempston = pressed ? kempston.set(bit: 4) : kempston.clear(bit: 4)
         default:
-         break
+            break
         }
         
         
     }
     
+    override func initialiseRegisters(header: RegisterModel){
+        testRegisters()
+        aR().ld(value:header.primary.registerA)
+        Z80.fR().ld(value:header.primary.registerF)
+        bR().ld(value:header.primary.registerB)
+        cR().ld(value:header.primary.registerC)
+        dR().ld(value:header.primary.registerD)
+        eR().ld(value:header.primary.registerE)
+        hR().ld(value:header.primary.registerH)
+        lR().ld(value:header.primary.registerL)
+        
+        BC2.ld(value:header.registerPair(l: header.swap.registerC, h: header.swap.registerB))
+        DE2.ld(value:header.registerPair(l: header.swap.registerE, h: header.swap.registerD))
+        HL2.ld(value:header.registerPair(l: header.swap.registerL, h: header.swap.registerH))
+        AF2.ld(value:header.registerPair(l: header.swap.registerF, h: header.swap.registerA))
+        
+        SP = header.registerSP
+        ix().ld(value: header.registerIX)
+        iy().ld(value: header.registerIY)
+        
+        I.ld(value: header.registerI)
+        R.ld(value: header.registerR)
+        
+        interuptMode = header.interuptMode
+        interupt = header.interuptEnabled
+        interupt2 = interupt
+        
+        if (header.shouldReturn){
+            ret()
+            initPc = PC
+        } else {
+            PC = header.registerPC
+            initPc = PC
+        }
+        pagingByte = header.ramBankSetting
+        //TO DO: delegate?.updateBorder(colour: header.borderColour.border())
+        updateBorder(header.borderColour)
+    }
+    
+    override func memoryDump(withRom: Bool = true) -> [UInt8]{
+        var model: [UInt8] = []
+        if withRom {
+            model.append(contentsOf: rom)
+        }
+            model.append(contentsOf: ram)
+        return model
+    }
     
     func update(){
         AF.inc()

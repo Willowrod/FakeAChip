@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ZXKeyboard: View {
     @EnvironmentObject var settings: FakeAChipData
-    let keyWidth: CGFloat = 60
-    let keyHeight: CGFloat = 40
+    let keyWidth: CGFloat
+    let keyHeight: CGFloat
     let bank0: [String] = ["SP", "SS", "M", "N", "B"]
     let bank1: [String] = ["EN", "L", "K", "J", "H"]
     let bank2: [String] = ["P", "O", "I", "U", "Y"]
@@ -180,6 +180,6 @@ func pressStick(bit: Int, pressed: Bool) {
 
 struct ZXKeyboard_Previews: PreviewProvider {
     static var previews: some View {
-        ZXKeyboard()
+        ZXKeyboard(keyWidth: 60, keyHeight: 40)
     }
 }

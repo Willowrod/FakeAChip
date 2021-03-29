@@ -134,7 +134,7 @@ class Z80Format: BaseFileFormat {
         registers.registerSP = registers.registerPair(l: snaData[8], h: snaData[9])
         registers.registerI = snaData[10]
         registers.registerR = snaData[11]
-        registers.registerR.clear(bit: 7)
+        registers.registerR = registers.registerR.clear(bit: 7)
         let flagByte = snaData[12]
         hasCompressedData = flagByte.isSet(bit: 5)
         registers.borderColour = (flagByte & 14) >> 1

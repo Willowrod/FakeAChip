@@ -14,14 +14,15 @@ protocol CoreDelegate {
     func joystickInteraction(key: Int, pressed: Bool)
 }
 
-class FakeAChipData: ObservableObject {
+class FakeAChipData: ObservableObject, DisassemblyDelegate {
+    
     
     
     var delegate: CoreDelegate?
     
     @Published var host: HostSystem
     @Published var environment: SystemEnvironment = .Emulation
-    var environmentTag: Int = 1 {
+    var environmentTag: Int = 0 {
         didSet {
             switch environmentTag {
             case 0:
@@ -33,6 +34,10 @@ class FakeAChipData: ObservableObject {
             }
         }
     }
+    
+    @Published var disassembly: DisassemblyModel = DisassemblyModel()
+    
+    
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
     
@@ -55,7 +60,13 @@ class FakeAChipData: ObservableObject {
     var seconds = 0
     @Published var debugModel: DebugModel = DebugModel()
     
+    func disassemble(_ data: [UInt8], knownJumpPoints: [Int] = [], fromPC: Int){
+        _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
+    }
     
+    func disassemblyComplete(disassembly: DisassemblyModel) {
+        self.disassembly = disassembly
+    }
     
     init(_ host: HostSystem) {
         self.host = host

@@ -12,7 +12,7 @@ struct MainHeader: View {
     let computer: CPU
     var body: some View {
         HStack {
-            Picker(selection: $settings.environmentTag, label: Text("What is your favorite color?")) {
+            Picker(selection: $settings.environmentTag, label: Text("What are you doing with FakeAChip today?")) {
                 Text("Emulation").tag(0)
                 Text("Disassembly").tag(1)
                 Text("Coding").tag(2)

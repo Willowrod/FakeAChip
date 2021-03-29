@@ -187,11 +187,6 @@ class Z80: CPU {
         spare.swap(spare: sparePair)
     }
     
-    func exchangeAF(){
-        let sparePair = RegisterPair("Spare", pair: AF)
-        
-    }
-    
     func exchangeAll(){
         exchange(working: BC, spare: BC2)
         exchange(working: DE, spare: DE2)
@@ -199,39 +194,6 @@ class Z80: CPU {
     }
     
     func initialiseRegisters(header: RegisterModel){
-        testRegisters()
-        aR().ld(value:header.primary.registerA)
-        Z80.fR().ld(value:header.primary.registerF)
-        bR().ld(value:header.primary.registerB)
-        cR().ld(value:header.primary.registerC)
-        dR().ld(value:header.primary.registerD)
-        eR().ld(value:header.primary.registerE)
-        hR().ld(value:header.primary.registerH)
-        lR().ld(value:header.primary.registerL)
-        
-        BC2.ld(value:header.registerPair(l: header.swap.registerC, h: header.swap.registerB))
-        DE2.ld(value:header.registerPair(l: header.swap.registerE, h: header.swap.registerD))
-        HL2.ld(value:header.registerPair(l: header.swap.registerL, h: header.swap.registerH))
-        AF2.ld(value:header.registerPair(l: header.swap.registerF, h: header.swap.registerA))
-
-        SP = header.registerSP
-        ix().ld(value: header.registerIX)
-        iy().ld(value: header.registerIY)
-        
-        I.ld(value: header.registerI)
-        R.ld(value: header.registerR)
-        
-        interuptMode = header.interuptMode
-        interupt = header.interuptEnabled
-        interupt2 = interupt
-        
-        if (header.shouldReturn){
-        ret()
-        } else {
-            PC = header.registerPC
-        }
-        pagingByte = header.ramBankSetting
-        //TO DO: delegate?.updateBorder(colour: header.borderColour.border())
         
     }
     

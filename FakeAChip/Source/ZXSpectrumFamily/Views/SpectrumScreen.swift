@@ -17,7 +17,7 @@ struct SpectrumScreen: View { //, KeyInput
             }
             .padding(screenWidth / 18)
         }
-        .background(Color.red)
+        .background(settings.vdu.border)
 
     }
 }

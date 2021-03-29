@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
+   // @ObservedObject var disassembly = DisassemblyModel()
     let computer: CPU = Speccy.instance
     var body: some View {
         
@@ -21,7 +22,7 @@ struct SpectrumView: View {
                 case SystemEnvironment.Emulation:
                     SpectrumEmulationView(computer: computer as! Speccy)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(computer: computer as! Speccy)
+                    SpectrumDisassemblyView(disassembly: settings.disassembly, computer: computer as! Speccy)
                 case SystemEnvironment.Code:
                     SpectrumCodeView(computer: computer as! Speccy)
                 
@@ -52,7 +53,7 @@ struct SpectrumEmulationView: View {
                 switch settings.host {
                 case .iOS:
             Spacer()
-            ZXKeyboard()
+                    ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
                 case .Mac:
                     Spacer()
             }
@@ -62,13 +63,16 @@ struct SpectrumEmulationView: View {
     }
 
 struct SpectrumDisassemblyView: View {
+    @ObservedObject var disassembly: DisassemblyModel
     let computer: Speccy
     var body: some View {
         VStack{
-          
+            HStack{
             SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)//, screen: computer.screenImage)
             
             RegisterSetView() //(registers: pairs)
+            }
+            DisassemblyList(disassembly: disassembly, computer: computer)
         }
         }
     }

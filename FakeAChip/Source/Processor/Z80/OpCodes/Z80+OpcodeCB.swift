@@ -119,7 +119,7 @@ extension Z80 {
                 register.testBit(bit: opCodeOffset - 8)
                 instructionComplete(states: 8)
             } else {
-                var changeRam = fetchRam(registerPair: hl())
+                let changeRam = fetchRam(registerPair: hl())
                 changeRam.testBit(bit: opCodeOffset - 8, memPtr: MEMPTR)
                 instructionComplete(states: 12)
             }
