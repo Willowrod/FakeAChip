@@ -360,6 +360,12 @@
 		CDEF99A42612674800729043 /* ComputerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99A22612674800729043 /* ComputerModel.swift */; };
 		CDEF99A92612676E00729043 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99A82612676E00729043 /* DataType.swift */; };
 		CDEF99AA2612676E00729043 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99A82612676E00729043 /* DataType.swift */; };
+		CDEF99E22614BF7A00729043 /* TypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E12614BF7A00729043 /* TypeSelector.swift */; };
+		CDEF99E32614BF7A00729043 /* TypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E12614BF7A00729043 /* TypeSelector.swift */; };
+		CDEF99E82614C4C900729043 /* DisassemblerCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */; };
+		CDEF99E92614C4C900729043 /* DisassemblerCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */; };
+		CDEF99EE2614C53900729043 /* DisassemblerTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */; };
+		CDEF99EF2614C53900729043 /* DisassemblerTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -574,6 +580,9 @@
 		CDEF9997261265B000729043 /* CodeListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeListing.swift; sourceTree = "<group>"; };
 		CDEF99A22612674800729043 /* ComputerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerModel.swift; sourceTree = "<group>"; };
 		CDEF99A82612676E00729043 /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		CDEF99E12614BF7A00729043 /* TypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelector.swift; sourceTree = "<group>"; };
+		CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerCodeSection.swift; sourceTree = "<group>"; };
+		CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerTextSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -918,6 +927,9 @@
 				CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */,
 				CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */,
 				CDEF98752610AF0F00729043 /* DisassemblySection.swift */,
+				CDEF99E12614BF7A00729043 /* TypeSelector.swift */,
+				CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */,
+				CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */,
 			);
 			path = Disassembly;
 			sourceTree = "<group>";
@@ -1399,6 +1411,7 @@
 				CDEF9973261263BD00729043 /* Z80Disassembler.swift in Sources */,
 				CD0CC5AA25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CDA17277260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */,
+				CDEF99E82614C4C900729043 /* DisassemblerCodeSection.swift in Sources */,
 				CD0CC5CA25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CDEF999A261265B000729043 /* CodeListing.swift in Sources */,
@@ -1422,6 +1435,7 @@
 				CD0CC5AE25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD2DA78D260CF2500022F4EF /* DisassemblyList.swift in Sources */,
 				CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */,
+				CDEF99EE2614C53900729043 /* DisassemblerTextSection.swift in Sources */,
 				CDA1728A26049ADA00910C23 /* Flag.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CD0CC5B025FA6C4000731EDA /* IOSView.swift in Sources */,
@@ -1438,6 +1452,7 @@
 				CDA1727F260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
 				CDA17281260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
 				CDA172EE2608859F00910C23 /* DebugModel.swift in Sources */,
+				CDEF99E22614BF7A00729043 /* TypeSelector.swift in Sources */,
 				CD0CC5A825FA6C4000731EDA /* Speccy.swift in Sources */,
 				CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CDA1746E2609253600910C23 /* PressActions.swift in Sources */,
@@ -1460,6 +1475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEF99E32614BF7A00729043 /* TypeSelector.swift in Sources */,
 				CDEF99A42612674800729043 /* ComputerModel.swift in Sources */,
 				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
 				CD0CC59925FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
@@ -1480,6 +1496,7 @@
 				CDEF999B261265B000729043 /* CodeListing.swift in Sources */,
 				CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */,
 				CDA172B02604B37000910C23 /* BaseTest.swift in Sources */,
+				CDEF99E92614C4C900729043 /* DisassemblerCodeSection.swift in Sources */,
 				CDA172DF2605016F00910C23 /* VDU.swift in Sources */,
 				CD0CC5A725FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5A125FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
@@ -1492,6 +1509,7 @@
 				CD0CC5E825FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914892600EA6800C75998 /* CPU.swift in Sources */,
 				CD0CC59B25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
+				CDEF99EF2614C53900729043 /* DisassemblerTextSection.swift in Sources */,
 				CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDA172AE2604B37000910C23 /* allTestsP_FDCB80toff.swift in Sources */,
 				CDA172A02604B37000910C23 /* allTestsP_DD00to7f.swift in Sources */,

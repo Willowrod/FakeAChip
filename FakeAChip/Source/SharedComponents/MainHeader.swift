@@ -23,7 +23,15 @@ struct MainHeader: View {
             
             
             Spacer()
+            Button("▶️"){
+                computer.resume()
+            }
+            Button("⏸"){
+                computer.pause()
+            }
+            Spacer()
             Text("FPS: \(settings.debugModel.fps)")
+            
             Spacer()
             
             Menu("Load"){

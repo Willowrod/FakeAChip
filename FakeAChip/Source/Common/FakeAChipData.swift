@@ -60,7 +60,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     var seconds = 0
     @Published var debugModel: DebugModel = DebugModel()
     
-    func disassemble(_ data: [UInt8], knownJumpPoints: [Int] = [], fromPC: Int){
+    func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
         _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
     }
     

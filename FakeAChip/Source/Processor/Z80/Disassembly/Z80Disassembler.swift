@@ -25,13 +25,14 @@ class Z80Disassembler {
     let opcodeLookup = OpCodeDefs()
     var delegate: DisassemblyDelegate? = nil
     var isCalc = false
+    var maxUnknownSectionLength = 256
     
-    init(withData: [UInt8], knownJumpPoints: [Int], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
+    init(withData: [UInt8], knownJumpPoints: [UInt16], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
         memoryDump = withData
         currentPC = fromPC
         self.delegate = delegate
         entryPoints.append(fromPC)
-        entryPoints.append(contentsOf: knownJumpPoints)
+        entryPoints.append(contentsOf: knownJumpPoints.map({Int($0)}))
         if !shouldIncludeRom {
             for a in 0x0000...0x3FFF {
             alreadyAdded.append(a)
@@ -63,6 +64,7 @@ class Z80Disassembler {
             let disassemblySection = DisassemblySectionModel()
             disassemblySection.startingLine = UInt16(routine.startLine)
             disassemblySection.title = routine.title
+            disassemblySection.type = routine.type
             routine.code.forEach{line in
                 let disassemblyLine = DisassemblyLineModel()
                 disassemblyLine.line = UInt16(line.line)
@@ -317,26 +319,49 @@ class Z80Disassembler {
     }
     
     func sweep2(){
-var currentStartLine = 0x5B01
+        var currentStartLine: Int = 0x5B00
         allRoutines.forEach{routine in
-           // currentStartLine += 1
-            if routine.startLine > currentStartLine {
-                var opCodeSet: [OpCode] = []
-                let unknownCode = memoryDump[currentStartLine..<routine.startLine]
-                var code = ""
-                unknownCode.forEach{ byte in
-                    code = "\(code)\(byte) "
+            //var nextRoutineStart = routine.startLine
+            var addon = true
+            while routine.startLine > currentStartLine {
+                addon = false
+                var chunkEnd = currentStartLine + maxUnknownSectionLength
+                if chunkEnd > routine.startLine {
+                    chunkEnd = routine.startLine
                 }
-                var unknownOpCode = OpCode(v: "UNKNOWN", c: "UNKNOWN", m: code, l: code.count)
-                unknownOpCode.line = currentStartLine
-                unknownOpCode.lineType = .EMPTY
-                opCodeSet.append(unknownOpCode)
-                let title = "\(UInt16(currentStartLine).hex()) - \(UInt16(routine.startLine - 1).hex()) - Undefined"
-                allRoutines.append(CodeRoutine(startLine: currentStartLine, length: unknownCode.count, code: opCodeSet, description: "", title: title, type: .UNDEFINED))
-                print("Found routine \(title)")
+                currentStartLine = routineLengthChunk(currentStartLine, chunkEnd: chunkEnd)
             }
+            if addon {
             currentStartLine = routine.startLine + routine.length
+            }
         }
+        while 0xffff > currentStartLine {
+            var chunkEnd = currentStartLine + maxUnknownSectionLength
+            if chunkEnd > 0xffff {
+                chunkEnd = 0xffff
+            }
+            currentStartLine = routineLengthChunk(currentStartLine, chunkEnd: chunkEnd)
+        }
+    }
+    
+    func routineLengthChunk(_ start: Int, chunkEnd: Int) -> Int{
+        if chunkEnd < 0x5B00 {
+            return chunkEnd
+        }
+        var opCodeSet: [OpCode] = []
+        let unknownCode = memoryDump[start..<chunkEnd]
+        var count = start
+        unknownCode.forEach{ byte in
+            var unknownOpCode = OpCode(v: "UNKNOWN", c: byte.hex(), m: byte.hex(), l: 1)
+            unknownOpCode.line = count
+            unknownOpCode.lineType = .DATA
+            opCodeSet.append(unknownOpCode)
+            count += 1
+        }
+        let title = "\(UInt16(start).hex()) - \(UInt16(chunkEnd - 1).hex()) - Undefined"
+        allRoutines.append(CodeRoutine(startLine: start, length: chunkEnd - start, code: opCodeSet, description: "", title: title, type: .UNDEFINED))
+        print("Found routine \(title)")
+        return chunkEnd
     }
     
     func sweep3(){

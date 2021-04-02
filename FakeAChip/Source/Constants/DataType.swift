@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum DataType: String{
-    case CODE = "CODE",
-         DATA = "DATA",
-         TEXT = "TEXT",
-         GRAPHICS = "GRAPHICS",
-         UNUSED = "VALUE",
-         UNDEFINED = "UNDEFINED"
+enum DataType: String, CaseIterable {
+    case CODE = "CODE"
+    case DATA = "DATA"
+    case TEXT = "TEXT"
+    case GRAPHICS = "GRAPHICS"
+    case UNUSED = "VALUE"
+    case UNDEFINED = "UNDEFINED"
 }
 
 extension DataType: Codable {
@@ -28,22 +28,22 @@ extension DataType: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Key.self)
         let label = try values.decode(String.self, forKey: .rawValue)
-       switch label {
-          case "CODE": self = .CODE
-       case "DATA": self = .DATA
-       case "TEXT": self = .TEXT
-       case "GRAPHICS": self = .GRAPHICS
-       case "UNUSED": self = .UNUSED
-       case "UNDEFINED": self = .UNDEFINED
-       default:
-       self = .UNDEFINED
-       }
+        switch label {
+        case "CODE": self = .CODE
+        case "DATA": self = .DATA
+        case "TEXT": self = .TEXT
+        case "GRAPHICS": self = .GRAPHICS
+        case "UNUSED": self = .UNUSED
+        case "UNDEFINED": self = .UNDEFINED
+        default:
+            self = .UNDEFINED
+        }
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
         switch self {
-
+        
         case .CODE:
             try container.encode("CODE", forKey: .rawValue)
         case .DATA:
@@ -60,5 +60,5 @@ extension DataType: Codable {
     }
 }
 
-    
-    
+
+

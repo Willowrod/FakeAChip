@@ -13,6 +13,7 @@ class Speccy: Z80 {
     
     static var instance = Speccy()
     let beeper = ZXBeeper()
+    var borderColour: Color = .black
     
     override init() {
         super.init()
@@ -54,6 +55,14 @@ class Speccy: Z80 {
         //        interupt = false
         rom = dataModel
         //        pauseProcessor = false
+    }
+    
+    override func pause() {
+        pauseProcessor = true
+    }
+    
+    override func resume() {
+        pauseProcessor = false
     }
     
     override func findRam(data:[UInt8]) -> String{
@@ -288,7 +297,7 @@ class Speccy: Z80 {
                         //               }
                         
                         opCode(byte: byte)
-                        beeper.updateSample(UInt32(currentTStates), beep: clicks)
+ //                       beeper.updateSample(UInt32(currentTStates), beep: clicks)
                         
                     }
                     if currentTStates >= tStatesPerFrame {
@@ -365,8 +374,13 @@ class Speccy: Z80 {
     }
     
     func updateBorder(_ colour: UInt8) {
+        let newColour = borderColour(colour)
+        if borderColour == newColour{
+            return
+        }
+        borderColour = newColour
         if let data = data {
-            data.vdu = VDU(image: data.vdu.image, border: borderColour(colour))
+            data.vdu = VDU(image: data.vdu.image, border: newColour)
         }
     }
     

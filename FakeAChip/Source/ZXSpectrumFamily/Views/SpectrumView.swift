@@ -68,9 +68,9 @@ struct SpectrumDisassemblyView: View {
     var body: some View {
         VStack{
             HStack{
-            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)//, screen: computer.screenImage)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)
             
-            RegisterSetView() //(registers: pairs)
+            RegisterSetView()
             }
             DisassemblyList(disassembly: disassembly, computer: computer)
         }

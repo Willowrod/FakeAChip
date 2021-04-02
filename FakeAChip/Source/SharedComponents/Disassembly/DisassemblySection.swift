@@ -15,12 +15,23 @@ struct DisassemblySection: View {
         VStack{
             Section(header:
                         HStack{
-                           // Text(section.id)
                             TextField("ID: ", text: $section.title)
+                            Spacer()
+                            TypeSelector(section: section)
+                            Spacer()
+                            Toggle("Showing:", isOn: $section.isShowing)
                         }
             ){
-                ForEach(section.lines, id: \.id){line in
-                    DisassemblyRow(line: line)
+                if (section.isShowing){
+                    switch section.type {
+                    case .CODE:
+                        DisassemblerCodeSection(section: section)
+                    case .TEXT:
+                        DisassemblerTextSection(section: section)
+                    default:
+                        Text("Other shizzle")
+                    }
+     
                 }
             }
             }

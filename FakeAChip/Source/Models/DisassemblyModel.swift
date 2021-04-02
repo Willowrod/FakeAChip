@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 class DisassemblyModel: ObservableObject, Codable {
-   @Published var sections: [DisassemblySectionModel] = [] //DisassemblySectionModel(),DisassemblySectionModel(),DisassemblySectionModel(),DisassemblySectionModel()
+   @Published var sections: [DisassemblySectionModel] = []
+   @Published var showing: DataType? = nil
     
     enum CodingKeys: CodingKey {
         case sections
@@ -27,6 +28,13 @@ class DisassemblyModel: ObservableObject, Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sections, forKey: .sections)
+    }
+    
+    func showingValue() -> String {
+        if let showing = showing {
+            return "Showing \(showing.rawValue.capitalized)"
+        }
+        return "Showing All"
     }
     
     func export() {
@@ -51,7 +59,9 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     var id = UUID()
     @Published var title: String = "PlaceHolder"
     @Published var startingLine: UInt16 = 0
-    @Published var type: String = ""
+    @Published var type: DataType = .UNUSED
+    @Published var textOffset = 0
+    @Published var isShowing = false
     var lines: [DisassemblyLineModel] = [] //DisassemblyLineModel(), DisassemblyLineModel(), DisassemblyLineModel()
 
     enum CodingKeys: CodingKey {
@@ -76,6 +86,17 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         try container.encode(id, forKey: .id)
     }
     
+    func textOutput() -> String {
+        var string = ""
+        lines.forEach{byte in
+            if let ascii = UInt8(byte.code, radix: 16), ascii >= 0x20, ascii <= 0x7C{
+            string = "\(string)\(String(UnicodeScalar(UInt8(ascii))))"
+            } else {
+                string = "\(string)~"
+            }
+        }
+        return string
+    }
 
 }
 
