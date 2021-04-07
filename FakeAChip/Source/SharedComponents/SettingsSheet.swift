@@ -15,26 +15,24 @@ struct SettingsSheet: View {
             Button("Press to dismiss") {
                 presentationMode.wrappedValue.dismiss()
             }
-            HStack{
+         //   HStack{
             Text("Current System")
                 Menu(settings.emulatedSystem.rawValue){
                     ForEach(ComputerType.allCases, id: \.self){make in
                         Text(make.rawValue)
-                        ForEach(ComputerType.allCases, id: \.self){make in
-                            Text(make.rawValue)
                             ForEach(make.associatedModels(), id: \.self){model in
                                 Button(model.rawValue){
                                     settings.changeEnvironment(model: model)
                                     presentationMode.wrappedValue.dismiss()
                                 }
-                            }
                             
                             
                             
                         }
                     }
-                }
             }
+            //    }
+            Spacer()
         }
     }
 }
