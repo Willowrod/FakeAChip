@@ -18,15 +18,15 @@ struct DisassemblyList: View {
                 Button(action: {
                     computer.pause()
                     settings.disassemble(computer.memoryDump(withRom: true), knownJumpPoints: computer.jumpPoints, fromPC: Int(computer.initialPC()))
-                                            }, label: {
-                                                Text("RUN")
-                                            })
+                }, label: {
+                    Text("RUN")
+                })
                 Spacer()
                 Menu(disassembly.showingValue()){
                     
-                        Button("Show All"){
-                            disassembly.showing = nil
-                        }
+                    Button("Show All"){
+                        disassembly.showing = nil
+                    }
                     ForEach(DataType.allCases, id: \.self){type in
                         Button("Show \(type.rawValue)"){
                             disassembly.showing = type
@@ -34,33 +34,33 @@ struct DisassemblyList: View {
                     }
                 }
                 Spacer()
-                        Button(action: {
-                                                        let newItem = DisassemblySectionModel()
-                                                        self.disassembly.sections.append(newItem)
-                                                    }, label: {
-                                                        Image(systemName: "plus")
-                                                    })
-                                                Button(action: {
-                                                    disassembly.export()
-                                                }, label: {
-                                                    Image(systemName: "chevron.up")
-                                                })
+                Button(action: {
+                    let newItem = DisassemblySectionModel()
+                    self.disassembly.sections.append(newItem)
+                }, label: {
+                    Image(systemName: "plus")
+                })
+                Button(action: {
+                    disassembly.export()
+                }, label: {
+                    Image(systemName: "chevron.up")
+                })
             }
             
             
-                if let showing = disassembly.showing {
-                    List(disassembly.sections.filter({$0.type == showing})){ section in
-                 //       if section.type == showing {
+            if let showing = disassembly.showing {
+                List(disassembly.sections.filter({$0.type == showing})){ section in
+                    //       if section.type == showing {
                     DisassemblySection(section: section)
-                  //      }
-                    }
-                    .listStyle(InsetGroupedListStyle())
-                } else {
-                    List(disassembly.sections){ section in
-                    DisassemblySection(section: section)
-                    }
-                    .listStyle(InsetGroupedListStyle())
+                    //      }
                 }
+                .listStyle(InsetGroupedListStyle())
+            } else {
+                List(disassembly.sections){ section in
+                    DisassemblySection(section: section)
+                }
+                .listStyle(InsetGroupedListStyle())
+            }
         }
     }
 }

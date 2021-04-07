@@ -10,8 +10,8 @@ import Foundation
 struct CodeListing: Codable {
     
     var startLine: UInt16 = 0x6000
-    var baseComputer: ComputerType = .Sinclair_Spectrum
-    var specificComputer: ComputerModel = .ZXSpectrum_48K
+    var baseComputer: ComputerType = .Sinclair
+    var specificComputer: ComputerModel = .Sinclair_Spectrum_48K
     var author = "Mike Hall"
     var InspeccytorVersion = "1.0"
     

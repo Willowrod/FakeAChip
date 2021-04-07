@@ -30,6 +30,10 @@ struct MainHeader: View {
                 computer.pause()
             }
             Spacer()
+            Button("⚙️"){
+                settings.isShowingSettings.toggle()
+            }
+            Spacer()
             Text("FPS: \(settings.debugModel.fps)")
             
             Spacer()
@@ -50,6 +54,11 @@ struct MainHeader: View {
             .padding(20)
         }
         .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 60, alignment: .center)
+        
+        .sheet(isPresented: $settings.isShowingSettings) {
+            SettingsSheet().environmentObject(settings)
+        }
+        
     }
     
     

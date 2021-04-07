@@ -10,21 +10,21 @@ import SwiftUI
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
    // @ObservedObject var disassembly = DisassemblyModel()
-    let computer: CPU = Speccy.instance
+    //let computer: CPU = Speccy.instance
     var body: some View {
         
         GeometryReader { geometry in
         VStack{
-            MainHeader(computer: computer)
+            MainHeader(computer: settings.currentComputerInstance)
             Spacer()
             Group {
                 switch settings.environment {
                 case SystemEnvironment.Emulation:
-                    SpectrumEmulationView(computer: computer as! Speccy)
+                    SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(disassembly: settings.disassembly, computer: computer as! Speccy)
+                    SpectrumDisassemblyView(disassembly: settings.disassembly, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
-                    SpectrumCodeView(computer: computer as! Speccy)
+                    SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
                 
                 }
             }
@@ -32,11 +32,11 @@ struct SpectrumView: View {
             Spacer()
             
         }
-        .onAppear(){
-            settings.delegate = computer
-            computer.addSettings(settings)
-            computer.startProcessing()
-        }
+//        .onAppear(){
+//            settings.delegate = settings.currentComputerInstance
+//            settings.currentComputerInstance.addSettings(settings)
+//            settings.currentComputerInstance.startProcessing()
+//        }
         }
     }
 }
@@ -64,15 +64,22 @@ struct SpectrumEmulationView: View {
 
 struct SpectrumDisassemblyView: View {
     @ObservedObject var disassembly: DisassemblyModel
+    @State private var showingSheet = false
     let computer: Speccy
     var body: some View {
         VStack{
+            Button("Show Sheet") {
+            showingSheet.toggle()
+        }
             HStack{
             SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)
             
             RegisterSetView()
             }
             DisassemblyList(disassembly: disassembly, computer: computer)
+        }
+        .sheet(isPresented: $showingSheet) {
+            DisassemblySheet()
         }
         }
     }

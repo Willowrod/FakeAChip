@@ -18,6 +18,7 @@ import Foundation
 
 class CPU: CoreDelegate {
     
+    static var instance: CPU? = nil
     
     var data: FakeAChipData? = nil
     
@@ -27,6 +28,8 @@ class CPU: CoreDelegate {
     var ramUpdated = false
     
     var testMode = false
+    
+    var processing = false
     
     // Registers
     var spareRegister: Register = Register(value: 0x00)
@@ -46,6 +49,9 @@ class CPU: CoreDelegate {
     var shouldStep = false
     var shouldForceBreak = false
     
+    func disengage(){
+        
+    }
     
     func process(){
         
@@ -155,6 +161,10 @@ class CPU: CoreDelegate {
     }
 
     func startProcessing() {
+        
+    }
+    
+    func stopProcessing() {
         
     }
     

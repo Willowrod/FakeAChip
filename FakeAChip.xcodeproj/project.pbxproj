@@ -51,8 +51,6 @@
 		CD0CC5AF25FA6C4000731EDA /* ZXBitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58A25FA6C4000731EDA /* ZXBitmap.swift */; };
 		CD0CC5B025FA6C4000731EDA /* IOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58B25FA6C4000731EDA /* IOSView.swift */; };
 		CD0CC5B125FA6C4000731EDA /* IOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58B25FA6C4000731EDA /* IOSView.swift */; };
-		CD0CC5C425FA74C200731EDA /* middleoflakecheat.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD0CC5C325FA74C200731EDA /* middleoflakecheat.z80 */; };
-		CD0CC5C525FA74C200731EDA /* middleoflakecheat.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD0CC5C325FA74C200731EDA /* middleoflakecheat.z80 */; };
 		CD0CC5CA25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5C925FBA34200731EDA /* DispatchQueue+backgrounding.swift */; };
 		CD0CC5CB25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5C925FBA34200731EDA /* DispatchQueue+backgrounding.swift */; };
 		CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5D925FF54F500731EDA /* SystemConstants.swift */; };
@@ -132,206 +130,6 @@
 		CDA172EF2608859F00910C23 /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172ED2608859F00910C23 /* DebugModel.swift */; };
 		CDA173172609172E00910C23 /* SNAFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA173162609172E00910C23 /* SNAFormat.swift */; };
 		CDA173182609172E00910C23 /* SNAFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA173162609172E00910C23 /* SNAFormat.swift */; };
-		CDA17320260917E900910C23 /* deflektor.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1731F260917E900910C23 /* deflektor.sna */; };
-		CDA17321260917E900910C23 /* deflektor.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1731F260917E900910C23 /* deflektor.sna */; };
-		CDA1738E26091C9800910C23 /* dundarach.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732826091C8A00910C23 /* dundarach.sna */; };
-		CDA1738F26091C9800910C23 /* dundarach.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732826091C8A00910C23 /* dundarach.sna */; };
-		CDA1739026091C9800910C23 /* penetrator.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732926091C8A00910C23 /* penetrator.sna */; };
-		CDA1739126091C9800910C23 /* penetrator.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732926091C8A00910C23 /* penetrator.sna */; };
-		CDA1739226091C9800910C23 /* completebastard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732A26091C8A00910C23 /* completebastard.sna */; };
-		CDA1739326091C9800910C23 /* completebastard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732A26091C8A00910C23 /* completebastard.sna */; };
-		CDA1739426091C9800910C23 /* henryshoard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732B26091C8B00910C23 /* henryshoard.sna */; };
-		CDA1739526091C9800910C23 /* henryshoard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732B26091C8B00910C23 /* henryshoard.sna */; };
-		CDA1739626091C9800910C23 /* hunchback.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732C26091C8B00910C23 /* hunchback.sna */; };
-		CDA1739726091C9800910C23 /* hunchback.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732C26091C8B00910C23 /* hunchback.sna */; };
-		CDA1739826091C9800910C23 /* Dizzy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732D26091C8B00910C23 /* Dizzy.sna */; };
-		CDA1739926091C9800910C23 /* Dizzy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732D26091C8B00910C23 /* Dizzy.sna */; };
-		CDA1739A26091C9800910C23 /* brian.szx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732E26091C8B00910C23 /* brian.szx */; };
-		CDA1739B26091C9800910C23 /* brian.szx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732E26091C8B00910C23 /* brian.szx */; };
-		CDA1739C26091C9800910C23 /* megabucks.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732F26091C8B00910C23 /* megabucks.sna */; };
-		CDA1739D26091C9800910C23 /* megabucks.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1732F26091C8B00910C23 /* megabucks.sna */; };
-		CDA1739E26091C9800910C23 /* testand.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733026091C8B00910C23 /* testand.sna */; };
-		CDA1739F26091C9800910C23 /* testand.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733026091C8B00910C23 /* testand.sna */; };
-		CDA173A026091C9800910C23 /* testz80.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733126091C8B00910C23 /* testz80.sna */; };
-		CDA173A126091C9800910C23 /* testz80.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733126091C8B00910C23 /* testz80.sna */; };
-		CDA173A226091C9800910C23 /* seabasedelta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733226091C8B00910C23 /* seabasedelta.sna */; };
-		CDA173A326091C9800910C23 /* seabasedelta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733226091C8B00910C23 /* seabasedelta.sna */; };
-		CDA173A426091C9800910C23 /* transylvaniantower.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733326091C8C00910C23 /* transylvaniantower.sna */; };
-		CDA173A526091C9800910C23 /* transylvaniantower.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733326091C8C00910C23 /* transylvaniantower.sna */; };
-		CDA173A626091C9800910C23 /* footballmanager2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733426091C8C00910C23 /* footballmanager2.sna */; };
-		CDA173A726091C9800910C23 /* footballmanager2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733426091C8C00910C23 /* footballmanager2.sna */; };
-		CDA173A826091C9800910C23 /* chubby.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733526091C8C00910C23 /* chubby.sna */; };
-		CDA173A926091C9800910C23 /* chubby.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733526091C8C00910C23 /* chubby.sna */; };
-		CDA173AA26091C9800910C23 /* worminparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733626091C8C00910C23 /* worminparadise.sna */; };
-		CDA173AB26091C9800910C23 /* worminparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733626091C8C00910C23 /* worminparadise.sna */; };
-		CDA173AC26091C9800910C23 /* zzzz.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733726091C8C00910C23 /* zzzz.sna */; };
-		CDA173AD26091C9800910C23 /* zzzz.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733726091C8C00910C23 /* zzzz.sna */; };
-		CDA173AE26091C9800910C23 /* brian.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733826091C8C00910C23 /* brian.sna */; };
-		CDA173AF26091C9800910C23 /* brian.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733826091C8C00910C23 /* brian.sna */; };
-		CDA173B026091C9800910C23 /* stbernard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733926091C8C00910C23 /* stbernard.sna */; };
-		CDA173B126091C9800910C23 /* stbernard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733926091C8C00910C23 /* stbernard.sna */; };
-		CDA173B226091C9800910C23 /* trevorbrooking.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733A26091C8C00910C23 /* trevorbrooking.sna */; };
-		CDA173B326091C9800910C23 /* trevorbrooking.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733A26091C8C00910C23 /* trevorbrooking.sna */; };
-		CDA173B426091C9800910C23 /* robinofsherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733B26091C8C00910C23 /* robinofsherlock.sna */; };
-		CDA173B526091C9800910C23 /* robinofsherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733B26091C8C00910C23 /* robinofsherlock.sna */; };
-		CDA173B626091C9800910C23 /* crimebustersinc.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733C26091C8D00910C23 /* crimebustersinc.sna */; };
-		CDA173B726091C9800910C23 /* crimebustersinc.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733C26091C8D00910C23 /* crimebustersinc.sna */; };
-		CDA173B826091C9800910C23 /* dizzy.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733D26091C8D00910C23 /* dizzy.z80 */; };
-		CDA173B926091C9800910C23 /* dizzy.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733D26091C8D00910C23 /* dizzy.z80 */; };
-		CDA173BA26091C9800910C23 /* rocknwrestle.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733E26091C8D00910C23 /* rocknwrestle.sna */; };
-		CDA173BB26091C9800910C23 /* rocknwrestle.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733E26091C8D00910C23 /* rocknwrestle.sna */; };
-		CDA173BC26091C9800910C23 /* incredibleshrinkingfireman.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733F26091C8D00910C23 /* incredibleshrinkingfireman.sna */; };
-		CDA173BD26091C9800910C23 /* incredibleshrinkingfireman.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1733F26091C8D00910C23 /* incredibleshrinkingfireman.sna */; };
-		CDA173BE26091C9800910C23 /* questfortheholygrail.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734026091C8D00910C23 /* questfortheholygrail.sna */; };
-		CDA173BF26091C9800910C23 /* questfortheholygrail.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734026091C8D00910C23 /* questfortheholygrail.sna */; };
-		CDA173C026091C9800910C23 /* lordoftherings_2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734126091C8D00910C23 /* lordoftherings_2.sna */; };
-		CDA173C126091C9800910C23 /* lordoftherings_2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734126091C8D00910C23 /* lordoftherings_2.sna */; };
-		CDA173C226091C9800910C23 /* cyberrun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734226091C8D00910C23 /* cyberrun.sna */; };
-		CDA173C326091C9800910C23 /* cyberrun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734226091C8D00910C23 /* cyberrun.sna */; };
-		CDA173C426091C9800910C23 /* dizzy_TI.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734326091C8D00910C23 /* dizzy_TI.sna */; };
-		CDA173C526091C9800910C23 /* dizzy_TI.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734326091C8D00910C23 /* dizzy_TI.sna */; };
-		CDA173C626091C9800910C23 /* lordsoftime.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734426091C8E00910C23 /* lordsoftime.sna */; };
-		CDA173C726091C9800910C23 /* lordsoftime.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734426091C8E00910C23 /* lordsoftime.sna */; };
-		CDA173C826091C9800910C23 /* redhawk_side1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734526091C8E00910C23 /* redhawk_side1.sna */; };
-		CDA173C926091C9800910C23 /* redhawk_side1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734526091C8E00910C23 /* redhawk_side1.sna */; };
-		CDA173CA26091C9800910C23 /* twinkingdomvalley.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734626091C8E00910C23 /* twinkingdomvalley.sna */; };
-		CDA173CB26091C9800910C23 /* twinkingdomvalley.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734626091C8E00910C23 /* twinkingdomvalley.sna */; };
-		CDA173CC26091C9800910C23 /* ericandthefloaters.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734726091C8E00910C23 /* ericandthefloaters.sna */; };
-		CDA173CD26091C9800910C23 /* ericandthefloaters.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734726091C8E00910C23 /* ericandthefloaters.sna */; };
-		CDA173CE26091C9800910C23 /* booty.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734826091C8E00910C23 /* booty.sna */; };
-		CDA173CF26091C9800910C23 /* booty.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734826091C8E00910C23 /* booty.sna */; };
-		CDA173D026091C9800910C23 /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734926091C8F00910C23 /* ticket_to_ride.tzx */; };
-		CDA173D126091C9800910C23 /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734926091C8F00910C23 /* ticket_to_ride.tzx */; };
-		CDA173D226091C9800910C23 /* dizzy_ck.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734A26091C8F00910C23 /* dizzy_ck.sna */; };
-		CDA173D326091C9800910C23 /* dizzy_ck.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734A26091C8F00910C23 /* dizzy_ck.sna */; };
-		CDA173D426091C9800910C23 /* invincibleisland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734B26091C8F00910C23 /* invincibleisland.sna */; };
-		CDA173D526091C9800910C23 /* invincibleisland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734B26091C8F00910C23 /* invincibleisland.sna */; };
-		CDA173D626091C9800910C23 /* repton.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734C26091C8F00910C23 /* repton.sna */; };
-		CDA173D726091C9800910C23 /* repton.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734C26091C8F00910C23 /* repton.sna */; };
-		CDA173D826091C9800910C23 /* necrisdome.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734D26091C8F00910C23 /* necrisdome.sna */; };
-		CDA173D926091C9800910C23 /* necrisdome.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734D26091C8F00910C23 /* necrisdome.sna */; };
-		CDA173DA26091C9800910C23 /* hunchback2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734E26091C8F00910C23 /* hunchback2.sna */; };
-		CDA173DB26091C9800910C23 /* hunchback2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734E26091C8F00910C23 /* hunchback2.sna */; };
-		CDA173DC26091C9800910C23 /* survival_adventure.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734F26091C9000910C23 /* survival_adventure.sna */; };
-		CDA173DD26091C9800910C23 /* survival_adventure.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1734F26091C9000910C23 /* survival_adventure.sna */; };
-		CDA173DE26091C9800910C23 /* marsport.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735026091C9000910C23 /* marsport.sna */; };
-		CDA173DF26091C9800910C23 /* marsport.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735026091C9000910C23 /* marsport.sna */; };
-		CDA173E026091C9800910C23 /* footballmanager2_wh.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735126091C9000910C23 /* footballmanager2_wh.sna */; };
-		CDA173E126091C9800910C23 /* footballmanager2_wh.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735126091C9000910C23 /* footballmanager2_wh.sna */; };
-		CDA173E226091C9800910C23 /* Action Biker.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735226091C9000910C23 /* Action Biker.tzx */; };
-		CDA173E326091C9800910C23 /* Action Biker.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735226091C9000910C23 /* Action Biker.tzx */; };
-		CDA173E426091C9800910C23 /* everyonesawally.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735326091C9000910C23 /* everyonesawally.sna */; };
-		CDA173E526091C9800910C23 /* everyonesawally.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735326091C9000910C23 /* everyonesawally.sna */; };
-		CDA173E626091C9800910C23 /* hampstead.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735426091C9000910C23 /* hampstead.sna */; };
-		CDA173E726091C9800910C23 /* hampstead.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735426091C9000910C23 /* hampstead.sna */; };
-		CDA173E826091C9800910C23 /* dynamitedan.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735526091C9000910C23 /* dynamitedan.sna */; };
-		CDA173E926091C9800910C23 /* dynamitedan.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735526091C9000910C23 /* dynamitedan.sna */; };
-		CDA173EC26091C9800910C23 /* mooncresta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735726091C9100910C23 /* mooncresta.sna */; };
-		CDA173ED26091C9800910C23 /* mooncresta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735726091C9100910C23 /* mooncresta.sna */; };
-		CDA173EE26091C9800910C23 /* dizzy_Magicland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735826091C9100910C23 /* dizzy_Magicland.sna */; };
-		CDA173EF26091C9800910C23 /* dizzy_Magicland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735826091C9100910C23 /* dizzy_Magicland.sna */; };
-		CDA173F026091C9800910C23 /* montyontherun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735926091C9100910C23 /* montyontherun.sna */; };
-		CDA173F126091C9800910C23 /* montyontherun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735926091C9100910C23 /* montyontherun.sna */; };
-		CDA173F226091C9800910C23 /* universalhero.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735A26091C9100910C23 /* universalhero.sna */; };
-		CDA173F326091C9800910C23 /* universalhero.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735A26091C9100910C23 /* universalhero.sna */; };
-		CDA173F426091C9800910C23 /* cavesofdoom.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735B26091C9100910C23 /* cavesofdoom.sna */; };
-		CDA173F526091C9800910C23 /* cavesofdoom.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735B26091C9100910C23 /* cavesofdoom.sna */; };
-		CDA173F626091C9800910C23 /* adayinthelife.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735C26091C9200910C23 /* adayinthelife.sna */; };
-		CDA173F726091C9800910C23 /* adayinthelife.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735C26091C9200910C23 /* adayinthelife.sna */; };
-		CDA173F826091C9800910C23 /* testtape.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735D26091C9200910C23 /* testtape.tap */; };
-		CDA173F926091C9800910C23 /* testtape.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735D26091C9200910C23 /* testtape.tap */; };
-		CDA173FA26091C9800910C23 /* matchoftheday.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735E26091C9200910C23 /* matchoftheday.sna */; };
-		CDA173FB26091C9800910C23 /* matchoftheday.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735E26091C9200910C23 /* matchoftheday.sna */; };
-		CDA173FC26091C9800910C23 /* wildbunch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735F26091C9200910C23 /* wildbunch.sna */; };
-		CDA173FD26091C9800910C23 /* wildbunch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1735F26091C9200910C23 /* wildbunch.sna */; };
-		CDA1740026091C9800910C23 /* specialoperations.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736126091C9200910C23 /* specialoperations.sna */; };
-		CDA1740126091C9800910C23 /* specialoperations.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736126091C9200910C23 /* specialoperations.sna */; };
-		CDA1740226091C9800910C23 /* minder.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736226091C9300910C23 /* minder.sna */; };
-		CDA1740326091C9800910C23 /* minder.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736226091C9300910C23 /* minder.sna */; };
-		CDA1740426091C9800910C23 /* actionbiker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736326091C9300910C23 /* actionbiker.sna */; };
-		CDA1740526091C9800910C23 /* actionbiker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736326091C9300910C23 /* actionbiker.sna */; };
-		CDA1740626091C9800910C23 /* redmoon.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736426091C9300910C23 /* redmoon.sna */; };
-		CDA1740726091C9800910C23 /* redmoon.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736426091C9300910C23 /* redmoon.sna */; };
-		CDA1740826091C9800910C23 /* mugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736526091C9300910C23 /* mugsy.sna */; };
-		CDA1740926091C9800910C23 /* mugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736526091C9300910C23 /* mugsy.sna */; };
-		CDA1740A26091C9800910C23 /* dizzy_potyf.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736626091C9400910C23 /* dizzy_potyf.sna */; };
-		CDA1740B26091C9800910C23 /* dizzy_potyf.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736626091C9400910C23 /* dizzy_potyf.sna */; };
-		CDA1740C26091C9800910C23 /* kwah.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736726091C9400910C23 /* kwah.sna */; };
-		CDA1740D26091C9800910C23 /* kwah.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736726091C9400910C23 /* kwah.sna */; };
-		CDA1740E26091C9800910C23 /* bugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736826091C9400910C23 /* bugsy.sna */; };
-		CDA1740F26091C9800910C23 /* bugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736826091C9400910C23 /* bugsy.sna */; };
-		CDA1741026091C9800910C23 /* emotion.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736926091C9400910C23 /* emotion.sna */; };
-		CDA1741126091C9800910C23 /* emotion.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736926091C9400910C23 /* emotion.sna */; };
-		CDA1741226091C9800910C23 /* blizzardpass.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736A26091C9400910C23 /* blizzardpass.sna */; };
-		CDA1741326091C9800910C23 /* blizzardpass.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736A26091C9400910C23 /* blizzardpass.sna */; };
-		CDA1741426091C9800910C23 /* matchday2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736B26091C9400910C23 /* matchday2.sna */; };
-		CDA1741526091C9800910C23 /* matchday2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736B26091C9400910C23 /* matchday2.sna */; };
-		CDA1741626091C9800910C23 /* lordoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736C26091C9400910C23 /* lordoftherings.sna */; };
-		CDA1741726091C9800910C23 /* lordoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736C26091C9400910C23 /* lordoftherings.sna */; };
-		CDA1741826091C9800910C23 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736D26091C9400910C23 /* subsunk.sna */; };
-		CDA1741926091C9800910C23 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736D26091C9400910C23 /* subsunk.sna */; };
-		CDA1741C26091C9800910C23 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736F26091C9500910C23 /* knighttyme128.z80 */; };
-		CDA1741D26091C9800910C23 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1736F26091C9500910C23 /* knighttyme128.z80 */; };
-		CDA1741E26091C9800910C23 /* urbanupstart.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737026091C9500910C23 /* urbanupstart.sna */; };
-		CDA1741F26091C9800910C23 /* urbanupstart.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737026091C9500910C23 /* urbanupstart.sna */; };
-		CDA1742026091C9800910C23 /* curseofsherwood.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737126091C9500910C23 /* curseofsherwood.sna */; };
-		CDA1742126091C9800910C23 /* curseofsherwood.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737126091C9500910C23 /* curseofsherwood.sna */; };
-		CDA1742226091C9800910C23 /* grumpygumphrey.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737226091C9500910C23 /* grumpygumphrey.sna */; };
-		CDA1742326091C9800910C23 /* grumpygumphrey.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737226091C9500910C23 /* grumpygumphrey.sna */; };
-		CDA1742426091C9800910C23 /* mugsysrevenge.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737326091C9500910C23 /* mugsysrevenge.sna */; };
-		CDA1742526091C9800910C23 /* mugsysrevenge.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737326091C9500910C23 /* mugsysrevenge.sna */; };
-		CDA1742626091C9800910C23 /* dizzy_fw.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737426091C9500910C23 /* dizzy_fw.sna */; };
-		CDA1742726091C9800910C23 /* dizzy_fw.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737426091C9500910C23 /* dizzy_fw.sna */; };
-		CDA1742826091C9800910C23 /* threeweeksinparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737526091C9500910C23 /* threeweeksinparadise.sna */; };
-		CDA1742926091C9800910C23 /* threeweeksinparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737526091C9500910C23 /* threeweeksinparadise.sna */; };
-		CDA1742A26091C9800910C23 /* knightorc_1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737626091C9500910C23 /* knightorc_1.sna */; };
-		CDA1742B26091C9800910C23 /* knightorc_1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737626091C9500910C23 /* knightorc_1.sna */; };
-		CDA1742C26091C9800910C23 /* contactsamcruise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737726091C9500910C23 /* contactsamcruise.sna */; };
-		CDA1742D26091C9800910C23 /* contactsamcruise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737726091C9500910C23 /* contactsamcruise.sna */; };
-		CDA1742E26091C9800910C23 /* xcel.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737826091C9500910C23 /* xcel.sna */; };
-		CDA1742F26091C9800910C23 /* xcel.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737826091C9500910C23 /* xcel.sna */; };
-		CDA1743026091C9800910C23 /* galaxians.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737926091C9600910C23 /* galaxians.sna */; };
-		CDA1743126091C9800910C23 /* galaxians.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737926091C9600910C23 /* galaxians.sna */; };
-		CDA1743226091C9800910C23 /* ianbothamstestmatch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737A26091C9600910C23 /* ianbothamstestmatch.sna */; };
-		CDA1743326091C9800910C23 /* ianbothamstestmatch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737A26091C9600910C23 /* ianbothamstestmatch.sna */; };
-		CDA1743426091C9800910C23 /* boredoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737B26091C9600910C23 /* boredoftherings.sna */; };
-		CDA1743526091C9800910C23 /* boredoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737B26091C9600910C23 /* boredoftherings.sna */; };
-		CDA1743626091C9800910C23 /* wriggler.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737C26091C9600910C23 /* wriggler.sna */; };
-		CDA1743726091C9800910C23 /* wriggler.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737C26091C9600910C23 /* wriggler.sna */; };
-		CDA1743826091C9800910C23 /* superspy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737D26091C9600910C23 /* superspy.sna */; };
-		CDA1743926091C9800910C23 /* superspy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737D26091C9600910C23 /* superspy.sna */; };
-		CDA1743A26091C9800910C23 /* sherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737E26091C9600910C23 /* sherlock.sna */; };
-		CDA1743B26091C9800910C23 /* sherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737E26091C9600910C23 /* sherlock.sna */; };
-		CDA1743C26091C9800910C23 /* aticatac.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737F26091C9600910C23 /* aticatac.sna */; };
-		CDA1743D26091C9800910C23 /* aticatac.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1737F26091C9600910C23 /* aticatac.sna */; };
-		CDA1743E26091C9800910C23 /* stevedavissnooker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738026091C9600910C23 /* stevedavissnooker.sna */; };
-		CDA1743F26091C9800910C23 /* stevedavissnooker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738026091C9600910C23 /* stevedavissnooker.sna */; };
-		CDA1744026091C9800910C23 /* inferno.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738126091C9600910C23 /* inferno.sna */; };
-		CDA1744126091C9800910C23 /* inferno.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738126091C9600910C23 /* inferno.sna */; };
-		CDA1744226091C9800910C23 /* spectest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738226091C9600910C23 /* spectest.z80 */; };
-		CDA1744326091C9800910C23 /* spectest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738226091C9600910C23 /* spectest.z80 */; };
-		CDA1744426091C9800910C23 /* fivedoctors.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738326091C9600910C23 /* fivedoctors.sna */; };
-		CDA1744526091C9800910C23 /* fivedoctors.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738326091C9600910C23 /* fivedoctors.sna */; };
-		CDA1744626091C9800910C23 /* dontpanic.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738426091C9600910C23 /* dontpanic.sna */; };
-		CDA1744726091C9800910C23 /* dontpanic.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738426091C9600910C23 /* dontpanic.sna */; };
-		CDA1744826091C9800910C23 /* crimebusters_notthatone.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738526091C9700910C23 /* crimebusters_notthatone.sna */; };
-		CDA1744926091C9800910C23 /* crimebusters_notthatone.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738526091C9700910C23 /* crimebusters_notthatone.sna */; };
-		CDA1744A26091C9800910C23 /* tirnanog.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738626091C9700910C23 /* tirnanog.sna */; };
-		CDA1744B26091C9800910C23 /* tirnanog.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738626091C9700910C23 /* tirnanog.sna */; };
-		CDA1744C26091C9800910C23 /* supersprint.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738726091C9700910C23 /* supersprint.sna */; };
-		CDA1744D26091C9800910C23 /* supersprint.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738726091C9700910C23 /* supersprint.sna */; };
-		CDA1744E26091C9800910C23 /* shakenbutnotstired.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738826091C9700910C23 /* shakenbutnotstired.sna */; };
-		CDA1744F26091C9800910C23 /* shakenbutnotstired.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738826091C9700910C23 /* shakenbutnotstired.sna */; };
-		CDA1745026091C9800910C23 /* youngones.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738926091C9700910C23 /* youngones.sna */; };
-		CDA1745126091C9800910C23 /* youngones.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738926091C9700910C23 /* youngones.sna */; };
-		CDA1745226091C9800910C23 /* dynamitedan2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738A26091C9700910C23 /* dynamitedan2.sna */; };
-		CDA1745326091C9800910C23 /* dynamitedan2.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738A26091C9700910C23 /* dynamitedan2.sna */; };
-		CDA1745426091C9800910C23 /* tripods.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738B26091C9700910C23 /* tripods.sna */; };
-		CDA1745526091C9800910C23 /* tripods.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738B26091C9700910C23 /* tripods.sna */; };
-		CDA1745626091C9800910C23 /* shipoftheline.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738C26091C9700910C23 /* shipoftheline.sna */; };
-		CDA1745726091C9800910C23 /* shipoftheline.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738C26091C9700910C23 /* shipoftheline.sna */; };
-		CDA1745826091C9800910C23 /* dandy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738D26091C9800910C23 /* dandy.sna */; };
-		CDA1745926091C9800910C23 /* dandy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDA1738D26091C9800910C23 /* dandy.sna */; };
 		CDA1746726091D6900910C23 /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746626091D6900910C23 /* ZXKeyboard.swift */; };
 		CDA1746826091D6900910C23 /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746626091D6900910C23 /* ZXKeyboard.swift */; };
 		CDA1746E2609253600910C23 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
@@ -366,6 +164,181 @@
 		CDEF99E92614C4C900729043 /* DisassemblerCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */; };
 		CDEF99EE2614C53900729043 /* DisassemblerTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */; };
 		CDEF99EF2614C53900729043 /* DisassemblerTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */; };
+		CDEF99F4261A602700729043 /* DisassemblySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99F3261A602700729043 /* DisassemblySheet.swift */; };
+		CDEF9A4E261B7F0500729043 /* superSprint.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FB261B7F0000729043 /* superSprint.z80 */; };
+		CDEF9A4F261B7F0500729043 /* superSprint.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FB261B7F0000729043 /* superSprint.z80 */; };
+		CDEF9A50261B7F0500729043 /* supersprint.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FC261B7F0000729043 /* supersprint.sna */; };
+		CDEF9A51261B7F0500729043 /* supersprint.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FC261B7F0000729043 /* supersprint.sna */; };
+		CDEF9A52261B7F0500729043 /* everyonesawally.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FD261B7F0000729043 /* everyonesawally.sna */; };
+		CDEF9A53261B7F0500729043 /* everyonesawally.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FD261B7F0000729043 /* everyonesawally.sna */; };
+		CDEF9A54261B7F0500729043 /* jetSetWilly2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FE261B7F0000729043 /* jetSetWilly2.z80 */; };
+		CDEF9A55261B7F0500729043 /* jetSetWilly2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FE261B7F0000729043 /* jetSetWilly2.z80 */; };
+		CDEF9A56261B7F0500729043 /* aticatac.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FF261B7F0000729043 /* aticatac.sna */; };
+		CDEF9A57261B7F0500729043 /* aticatac.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF99FF261B7F0000729043 /* aticatac.sna */; };
+		CDEF9A58261B7F0500729043 /* dizzy_Magicland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A00261B7F0000729043 /* dizzy_Magicland.sna */; };
+		CDEF9A59261B7F0500729043 /* dizzy_Magicland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A00261B7F0000729043 /* dizzy_Magicland.sna */; };
+		CDEF9A5A261B7F0500729043 /* montyontherun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A01261B7F0000729043 /* montyontherun.sna */; };
+		CDEF9A5B261B7F0500729043 /* montyontherun.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A01261B7F0000729043 /* montyontherun.sna */; };
+		CDEF9A5C261B7F0500729043 /* chuckyEgg2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A02261B7F0000729043 /* chuckyEgg2.z80 */; };
+		CDEF9A5D261B7F0500729043 /* chuckyEgg2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A02261B7F0000729043 /* chuckyEgg2.z80 */; };
+		CDEF9A5E261B7F0500729043 /* spectest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A03261B7F0000729043 /* spectest.z80 */; };
+		CDEF9A5F261B7F0500729043 /* spectest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A03261B7F0000729043 /* spectest.z80 */; };
+		CDEF9A60261B7F0500729043 /* seasOfBlood.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A04261B7F0000729043 /* seasOfBlood.z80 */; };
+		CDEF9A61261B7F0500729043 /* seasOfBlood.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A04261B7F0000729043 /* seasOfBlood.z80 */; };
+		CDEF9A62261B7F0500729043 /* kwah.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A05261B7F0000729043 /* kwah.sna */; };
+		CDEF9A63261B7F0500729043 /* kwah.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A05261B7F0000729043 /* kwah.sna */; };
+		CDEF9A64261B7F0500729043 /* mooncresta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A06261B7F0100729043 /* mooncresta.sna */; };
+		CDEF9A65261B7F0500729043 /* mooncresta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A06261B7F0100729043 /* mooncresta.sna */; };
+		CDEF9A66261B7F0500729043 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A07261B7F0100729043 /* subsunk.sna */; };
+		CDEF9A67261B7F0500729043 /* subsunk.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A07261B7F0100729043 /* subsunk.sna */; };
+		CDEF9A68261B7F0500729043 /* forestAtWorldsEnd.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A08261B7F0100729043 /* forestAtWorldsEnd.z80 */; };
+		CDEF9A69261B7F0500729043 /* forestAtWorldsEnd.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A08261B7F0100729043 /* forestAtWorldsEnd.z80 */; };
+		CDEF9A6A261B7F0500729043 /* twinkingdomvalley.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A09261B7F0100729043 /* twinkingdomvalley.sna */; };
+		CDEF9A6B261B7F0500729043 /* twinkingdomvalley.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A09261B7F0100729043 /* twinkingdomvalley.sna */; };
+		CDEF9A6C261B7F0500729043 /* shakenbutnotstired.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0A261B7F0100729043 /* shakenbutnotstired.sna */; };
+		CDEF9A6D261B7F0500729043 /* shakenbutnotstired.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0A261B7F0100729043 /* shakenbutnotstired.sna */; };
+		CDEF9A6E261B7F0500729043 /* sherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0B261B7F0100729043 /* sherlock.sna */; };
+		CDEF9A6F261B7F0500729043 /* sherlock.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0B261B7F0100729043 /* sherlock.sna */; };
+		CDEF9A70261B7F0500729043 /* incredibleshrinkingfireman.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0C261B7F0100729043 /* incredibleshrinkingfireman.sna */; };
+		CDEF9A71261B7F0500729043 /* incredibleshrinkingfireman.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0C261B7F0100729043 /* incredibleshrinkingfireman.sna */; };
+		CDEF9A72261B7F0500729043 /* custerdsQuest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0D261B7F0100729043 /* custerdsQuest.z80 */; };
+		CDEF9A73261B7F0500729043 /* custerdsQuest.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0D261B7F0100729043 /* custerdsQuest.z80 */; };
+		CDEF9A74261B7F0500729043 /* skistar2000.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0E261B7F0100729043 /* skistar2000.z80 */; };
+		CDEF9A75261B7F0500729043 /* skistar2000.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0E261B7F0100729043 /* skistar2000.z80 */; };
+		CDEF9A76261B7F0500729043 /* Inferno(RS).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0F261B7F0100729043 /* Inferno(RS).z80 */; };
+		CDEF9A77261B7F0500729043 /* Inferno(RS).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A0F261B7F0100729043 /* Inferno(RS).z80 */; };
+		CDEF9A78261B7F0500729043 /* castlemaster.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A10261B7F0100729043 /* castlemaster.z80 */; };
+		CDEF9A79261B7F0500729043 /* castlemaster.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A10261B7F0100729043 /* castlemaster.z80 */; };
+		CDEF9A7A261B7F0500729043 /* ericandthefloaters.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A11261B7F0100729043 /* ericandthefloaters.sna */; };
+		CDEF9A7B261B7F0500729043 /* ericandthefloaters.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A11261B7F0100729043 /* ericandthefloaters.sna */; };
+		CDEF9A7C261B7F0500729043 /* backToSkool.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A12261B7F0100729043 /* backToSkool.z80 */; };
+		CDEF9A7D261B7F0500729043 /* backToSkool.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A12261B7F0100729043 /* backToSkool.z80 */; };
+		CDEF9A7E261B7F0500729043 /* cyberrun.Z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A13261B7F0100729043 /* cyberrun.Z80 */; };
+		CDEF9A7F261B7F0500729043 /* cyberrun.Z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A13261B7F0100729043 /* cyberrun.Z80 */; };
+		CDEF9A80261B7F0500729043 /* urbanupstart.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A14261B7F0100729043 /* urbanupstart.sna */; };
+		CDEF9A81261B7F0500729043 /* urbanupstart.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A14261B7F0100729043 /* urbanupstart.sna */; };
+		CDEF9A82261B7F0500729043 /* jock&theTimeRings.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A15261B7F0200729043 /* jock&theTimeRings.z80 */; };
+		CDEF9A83261B7F0500729043 /* jock&theTimeRings.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A15261B7F0200729043 /* jock&theTimeRings.z80 */; };
+		CDEF9A84261B7F0500729043 /* dizzy_potyf.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A16261B7F0200729043 /* dizzy_potyf.sna */; };
+		CDEF9A85261B7F0500729043 /* dizzy_potyf.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A16261B7F0200729043 /* dizzy_potyf.sna */; };
+		CDEF9A86261B7F0500729043 /* adayinthelife.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A17261B7F0200729043 /* adayinthelife.sna */; };
+		CDEF9A87261B7F0500729043 /* adayinthelife.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A17261B7F0200729043 /* adayinthelife.sna */; };
+		CDEF9A88261B7F0500729043 /* henryshoard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A18261B7F0200729043 /* henryshoard.sna */; };
+		CDEF9A89261B7F0500729043 /* henryshoard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A18261B7F0200729043 /* henryshoard.sna */; };
+		CDEF9A8A261B7F0500729043 /* superspy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A19261B7F0200729043 /* superspy.sna */; };
+		CDEF9A8B261B7F0500729043 /* superspy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A19261B7F0200729043 /* superspy.sna */; };
+		CDEF9A8C261B7F0500729043 /* bugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1A261B7F0200729043 /* bugsy.sna */; };
+		CDEF9A8D261B7F0500729043 /* bugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1A261B7F0200729043 /* bugsy.sna */; };
+		CDEF9A8E261B7F0500729043 /* zzzz.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1B261B7F0200729043 /* zzzz.sna */; };
+		CDEF9A8F261B7F0500729043 /* zzzz.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1B261B7F0200729043 /* zzzz.sna */; };
+		CDEF9A90261B7F0500729043 /* lordoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1C261B7F0200729043 /* lordoftherings.sna */; };
+		CDEF9A91261B7F0500729043 /* lordoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1C261B7F0200729043 /* lordoftherings.sna */; };
+		CDEF9A92261B7F0500729043 /* threeweeksinparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1D261B7F0200729043 /* threeweeksinparadise.sna */; };
+		CDEF9A93261B7F0500729043 /* threeweeksinparadise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1D261B7F0200729043 /* threeweeksinparadise.sna */; };
+		CDEF9A94261B7F0500729043 /* crimebustersinc.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1E261B7F0200729043 /* crimebustersinc.sna */; };
+		CDEF9A95261B7F0500729043 /* crimebustersinc.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1E261B7F0200729043 /* crimebustersinc.sna */; };
+		CDEF9A96261B7F0500729043 /* contactsamcruise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1F261B7F0200729043 /* contactsamcruise.sna */; };
+		CDEF9A97261B7F0500729043 /* contactsamcruise.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A1F261B7F0200729043 /* contactsamcruise.sna */; };
+		CDEF9A98261B7F0500729043 /* mugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A20261B7F0200729043 /* mugsy.sna */; };
+		CDEF9A99261B7F0500729043 /* mugsy.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A20261B7F0200729043 /* mugsy.sna */; };
+		CDEF9A9A261B7F0500729043 /* penetrator.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A21261B7F0200729043 /* penetrator.sna */; };
+		CDEF9A9B261B7F0500729043 /* penetrator.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A21261B7F0200729043 /* penetrator.sna */; };
+		CDEF9A9C261B7F0500729043 /* colourOfMagic.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A22261B7F0200729043 /* colourOfMagic.z80 */; };
+		CDEF9A9D261B7F0500729043 /* colourOfMagic.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A22261B7F0200729043 /* colourOfMagic.z80 */; };
+		CDEF9A9E261B7F0500729043 /* testz80.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A23261B7F0200729043 /* testz80.sna */; };
+		CDEF9A9F261B7F0500729043 /* testz80.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A23261B7F0200729043 /* testz80.sna */; };
+		CDEF9AA0261B7F0500729043 /* questfortheholygrail.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A24261B7F0300729043 /* questfortheholygrail.sna */; };
+		CDEF9AA1261B7F0500729043 /* questfortheholygrail.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A24261B7F0300729043 /* questfortheholygrail.sna */; };
+		CDEF9AA2261B7F0500729043 /* dizzy_fw.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A25261B7F0300729043 /* dizzy_fw.sna */; };
+		CDEF9AA3261B7F0500729043 /* dizzy_fw.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A25261B7F0300729043 /* dizzy_fw.sna */; };
+		CDEF9AA4261B7F0500729043 /* skoolDaze.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A26261B7F0300729043 /* skoolDaze.z80 */; };
+		CDEF9AA5261B7F0500729043 /* skoolDaze.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A26261B7F0300729043 /* skoolDaze.z80 */; };
+		CDEF9AA6261B7F0500729043 /* codenameMat2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A27261B7F0300729043 /* codenameMat2.z80 */; };
+		CDEF9AA7261B7F0500729043 /* codenameMat2.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A27261B7F0300729043 /* codenameMat2.z80 */; };
+		CDEF9AA8261B7F0500729043 /* invincibleisland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A28261B7F0300729043 /* invincibleisland.sna */; };
+		CDEF9AA9261B7F0500729043 /* invincibleisland.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A28261B7F0300729043 /* invincibleisland.sna */; };
+		CDEF9AAA261B7F0500729043 /* ChampionshipSprint.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A29261B7F0300729043 /* ChampionshipSprint.z80 */; };
+		CDEF9AAB261B7F0500729043 /* ChampionshipSprint.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A29261B7F0300729043 /* ChampionshipSprint.z80 */; };
+		CDEF9AAC261B7F0500729043 /* dizzy.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2A261B7F0300729043 /* dizzy.z80 */; };
+		CDEF9AAD261B7F0500729043 /* dizzy.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2A261B7F0300729043 /* dizzy.z80 */; };
+		CDEF9AAE261B7F0500729043 /* dizzy_TI.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2B261B7F0300729043 /* dizzy_TI.sna */; };
+		CDEF9AAF261B7F0500729043 /* dizzy_TI.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2B261B7F0300729043 /* dizzy_TI.sna */; };
+		CDEF9AB0261B7F0500729043 /* seabasedelta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2C261B7F0300729043 /* seabasedelta.sna */; };
+		CDEF9AB1261B7F0500729043 /* seabasedelta.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2C261B7F0300729043 /* seabasedelta.sna */; };
+		CDEF9AB2261B7F0500729043 /* codenameMat.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2D261B7F0300729043 /* codenameMat.z80 */; };
+		CDEF9AB3261B7F0500729043 /* codenameMat.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2D261B7F0300729043 /* codenameMat.z80 */; };
+		CDEF9AB4261B7F0500729043 /* tirnanog.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2E261B7F0300729043 /* tirnanog.sna */; };
+		CDEF9AB5261B7F0500729043 /* tirnanog.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2E261B7F0300729043 /* tirnanog.sna */; };
+		CDEF9AB6261B7F0500729043 /* completebastard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2F261B7F0300729043 /* completebastard.sna */; };
+		CDEF9AB7261B7F0500729043 /* completebastard.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A2F261B7F0300729043 /* completebastard.sna */; };
+		CDEF9AB8261B7F0500729043 /* boredoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A30261B7F0300729043 /* boredoftherings.sna */; };
+		CDEF9AB9261B7F0500729043 /* boredoftherings.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A30261B7F0300729043 /* boredoftherings.sna */; };
+		CDEF9ABA261B7F0500729043 /* devilsOfTheDeep.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A31261B7F0300729043 /* devilsOfTheDeep.z80 */; };
+		CDEF9ABB261B7F0500729043 /* devilsOfTheDeep.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A31261B7F0300729043 /* devilsOfTheDeep.z80 */; };
+		CDEF9ABC261B7F0500729043 /* actionbiker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A32261B7F0300729043 /* actionbiker.sna */; };
+		CDEF9ABD261B7F0500729043 /* actionbiker.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A32261B7F0300729043 /* actionbiker.sna */; };
+		CDEF9ABE261B7F0500729043 /* dundarach.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A33261B7F0400729043 /* dundarach.sna */; };
+		CDEF9ABF261B7F0500729043 /* dundarach.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A33261B7F0400729043 /* dundarach.sna */; };
+		CDEF9AC0261B7F0500729043 /* redmoon.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A34261B7F0400729043 /* redmoon.sna */; };
+		CDEF9AC1261B7F0500729043 /* redmoon.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A34261B7F0400729043 /* redmoon.sna */; };
+		CDEF9AC2261B7F0500729043 /* testand.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A35261B7F0400729043 /* testand.sna */; };
+		CDEF9AC3261B7F0500729043 /* testand.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A35261B7F0400729043 /* testand.sna */; };
+		CDEF9AC4261B7F0500729043 /* deflektor.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A36261B7F0400729043 /* deflektor.sna */; };
+		CDEF9AC5261B7F0500729043 /* deflektor.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A36261B7F0400729043 /* deflektor.sna */; };
+		CDEF9AC6261B7F0500729043 /* transylvaniantower.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A37261B7F0400729043 /* transylvaniantower.sna */; };
+		CDEF9AC7261B7F0500729043 /* transylvaniantower.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A37261B7F0400729043 /* transylvaniantower.sna */; };
+		CDEF9AC8261B7F0500729043 /* lifeterm.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A38261B7F0400729043 /* lifeterm.z80 */; };
+		CDEF9AC9261B7F0500729043 /* lifeterm.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A38261B7F0400729043 /* lifeterm.z80 */; };
+		CDEF9ACA261B7F0500729043 /* universalhero.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A39261B7F0400729043 /* universalhero.sna */; };
+		CDEF9ACB261B7F0500729043 /* universalhero.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A39261B7F0400729043 /* universalhero.sna */; };
+		CDEF9ACC261B7F0500729043 /* brian.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3A261B7F0400729043 /* brian.sna */; };
+		CDEF9ACD261B7F0500729043 /* brian.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3A261B7F0400729043 /* brian.sna */; };
+		CDEF9ACE261B7F0500729043 /* necrisdome.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3B261B7F0400729043 /* necrisdome.sna */; };
+		CDEF9ACF261B7F0500729043 /* necrisdome.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3B261B7F0400729043 /* necrisdome.sna */; };
+		CDEF9AD0261B7F0500729043 /* hampstead.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3C261B7F0400729043 /* hampstead.sna */; };
+		CDEF9AD1261B7F0500729043 /* hampstead.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3C261B7F0400729043 /* hampstead.sna */; };
+		CDEF9AD2261B7F0500729043 /* warlockOfFiretopMountain.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3D261B7F0400729043 /* warlockOfFiretopMountain.z80 */; };
+		CDEF9AD3261B7F0500729043 /* warlockOfFiretopMountain.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3D261B7F0400729043 /* warlockOfFiretopMountain.z80 */; };
+		CDEF9AD4261B7F0500729043 /* dizzy_ck.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3E261B7F0400729043 /* dizzy_ck.sna */; };
+		CDEF9AD5261B7F0500729043 /* dizzy_ck.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3E261B7F0400729043 /* dizzy_ck.sna */; };
+		CDEF9AD6261B7F0500729043 /* wildbunch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3F261B7F0400729043 /* wildbunch.sna */; };
+		CDEF9AD7261B7F0500729043 /* wildbunch.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A3F261B7F0400729043 /* wildbunch.sna */; };
+		CDEF9AD8261B7F0500729043 /* marsport.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A40261B7F0400729043 /* marsport.sna */; };
+		CDEF9AD9261B7F0500729043 /* marsport.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A40261B7F0400729043 /* marsport.sna */; };
+		CDEF9ADA261B7F0500729043 /* mugsysrevenge.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A41261B7F0400729043 /* mugsysrevenge.sna */; };
+		CDEF9ADB261B7F0500729043 /* mugsysrevenge.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A41261B7F0400729043 /* mugsysrevenge.sna */; };
+		CDEF9ADC261B7F0500729043 /* knightorc_1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A42261B7F0400729043 /* knightorc_1.sna */; };
+		CDEF9ADD261B7F0500729043 /* knightorc_1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A42261B7F0400729043 /* knightorc_1.sna */; };
+		CDEF9ADE261B7F0500729043 /* booty.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A43261B7F0400729043 /* booty.sna */; };
+		CDEF9ADF261B7F0500729043 /* booty.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A43261B7F0400729043 /* booty.sna */; };
+		CDEF9AE0261B7F0500729043 /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A44261B7F0400729043 /* ticket_to_ride.tzx */; };
+		CDEF9AE1261B7F0500729043 /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A44261B7F0400729043 /* ticket_to_ride.tzx */; };
+		CDEF9AE2261B7F0500729043 /* xcel.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A45261B7F0500729043 /* xcel.sna */; };
+		CDEF9AE3261B7F0500729043 /* xcel.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A45261B7F0500729043 /* xcel.sna */; };
+		CDEF9AE4261B7F0500729043 /* redhawk_side1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A46261B7F0500729043 /* redhawk_side1.sna */; };
+		CDEF9AE5261B7F0500729043 /* redhawk_side1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A46261B7F0500729043 /* redhawk_side1.sna */; };
+		CDEF9AE6261B7F0500729043 /* cauldron.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A47261B7F0500729043 /* cauldron.z80 */; };
+		CDEF9AE7261B7F0500729043 /* cauldron.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A47261B7F0500729043 /* cauldron.z80 */; };
+		CDEF9AE8261B7F0500729043 /* shipoftheline.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A48261B7F0500729043 /* shipoftheline.sna */; };
+		CDEF9AE9261B7F0500729043 /* shipoftheline.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A48261B7F0500729043 /* shipoftheline.sna */; };
+		CDEF9AEA261B7F0500729043 /* wriggler.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A49261B7F0500729043 /* wriggler.sna */; };
+		CDEF9AEB261B7F0500729043 /* wriggler.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A49261B7F0500729043 /* wriggler.sna */; };
+		CDEF9AEC261B7F0500729043 /* megabucks.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4A261B7F0500729043 /* megabucks.sna */; };
+		CDEF9AED261B7F0500729043 /* megabucks.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4A261B7F0500729043 /* megabucks.sna */; };
+		CDEF9AEE261B7F0500729043 /* forestOfDoom.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4B261B7F0500729043 /* forestOfDoom.z80 */; };
+		CDEF9AEF261B7F0500729043 /* forestOfDoom.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4B261B7F0500729043 /* forestOfDoom.z80 */; };
+		CDEF9AF0261B7F0500729043 /* lordsoftime.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4C261B7F0500729043 /* lordsoftime.sna */; };
+		CDEF9AF1261B7F0500729043 /* lordsoftime.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4C261B7F0500729043 /* lordsoftime.sna */; };
+		CDEF9AF2261B7F0500729043 /* youngones.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4D261B7F0500729043 /* youngones.sna */; };
+		CDEF9AF3261B7F0500729043 /* youngones.sna in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9A4D261B7F0500729043 /* youngones.sna */; };
+		CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B23261C852200729043 /* SettingsSheet.swift */; };
+		CDEF9B25261C852200729043 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B23261C852200729043 /* SettingsSheet.swift */; };
+		CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B2A261C944500729043 /* EmptyCPU.swift */; };
+		CDEF9B2C261C944500729043 /* EmptyCPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B2A261C944500729043 /* EmptyCPU.swift */; };
+		CDEF9B34261CB94A00729043 /* Speccy128.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B33261CB94A00729043 /* Speccy128.swift */; };
+		CDEF9B35261CB94A00729043 /* Speccy128.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B33261CB94A00729043 /* Speccy128.swift */; };
+		CDEF9B3A261CCEEF00729043 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9B39261CCEEE00729043 /* knighttyme128.z80 */; };
+		CDEF9B3B261CCEEF00729043 /* knighttyme128.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDEF9B39261CCEEE00729043 /* knighttyme128.z80 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -419,7 +392,6 @@
 		CD0CC58A25FA6C4000731EDA /* ZXBitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBitmap.swift; sourceTree = "<group>"; };
 		CD0CC58B25FA6C4000731EDA /* IOSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSView.swift; sourceTree = "<group>"; };
 		CD0CC5B825FA736B00731EDA /* FakeAChip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FakeAChip.entitlements; sourceTree = "<group>"; };
-		CD0CC5C325FA74C200731EDA /* middleoflakecheat.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = middleoflakecheat.z80; sourceTree = "<group>"; };
 		CD0CC5C925FBA34200731EDA /* DispatchQueue+backgrounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+backgrounding.swift"; sourceTree = "<group>"; };
 		CD0CC5D925FF54F500731EDA /* SystemConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConstants.swift; sourceTree = "<group>"; };
 		CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAChipData.swift; sourceTree = "<group>"; };
@@ -466,106 +438,6 @@
 		CDA172E42605521500910C23 /* KeyInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInputController.swift; sourceTree = "<group>"; };
 		CDA172ED2608859F00910C23 /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
 		CDA173162609172E00910C23 /* SNAFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNAFormat.swift; sourceTree = "<group>"; };
-		CDA1731F260917E900910C23 /* deflektor.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = deflektor.sna; sourceTree = "<group>"; };
-		CDA1732826091C8A00910C23 /* dundarach.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dundarach.sna; sourceTree = "<group>"; };
-		CDA1732926091C8A00910C23 /* penetrator.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = penetrator.sna; sourceTree = "<group>"; };
-		CDA1732A26091C8A00910C23 /* completebastard.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = completebastard.sna; sourceTree = "<group>"; };
-		CDA1732B26091C8B00910C23 /* henryshoard.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = henryshoard.sna; sourceTree = "<group>"; };
-		CDA1732C26091C8B00910C23 /* hunchback.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = hunchback.sna; sourceTree = "<group>"; };
-		CDA1732D26091C8B00910C23 /* Dizzy.sna */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dizzy.sna; sourceTree = "<group>"; };
-		CDA1732E26091C8B00910C23 /* brian.szx */ = {isa = PBXFileReference; lastKnownFileType = file; path = brian.szx; sourceTree = "<group>"; };
-		CDA1732F26091C8B00910C23 /* megabucks.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = megabucks.sna; sourceTree = "<group>"; };
-		CDA1733026091C8B00910C23 /* testand.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = testand.sna; sourceTree = "<group>"; };
-		CDA1733126091C8B00910C23 /* testz80.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = testz80.sna; sourceTree = "<group>"; };
-		CDA1733226091C8B00910C23 /* seabasedelta.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = seabasedelta.sna; sourceTree = "<group>"; };
-		CDA1733326091C8C00910C23 /* transylvaniantower.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = transylvaniantower.sna; sourceTree = "<group>"; };
-		CDA1733426091C8C00910C23 /* footballmanager2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = footballmanager2.sna; sourceTree = "<group>"; };
-		CDA1733526091C8C00910C23 /* chubby.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = chubby.sna; sourceTree = "<group>"; };
-		CDA1733626091C8C00910C23 /* worminparadise.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = worminparadise.sna; sourceTree = "<group>"; };
-		CDA1733726091C8C00910C23 /* zzzz.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = zzzz.sna; sourceTree = "<group>"; };
-		CDA1733826091C8C00910C23 /* brian.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = brian.sna; sourceTree = "<group>"; };
-		CDA1733926091C8C00910C23 /* stbernard.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = stbernard.sna; sourceTree = "<group>"; };
-		CDA1733A26091C8C00910C23 /* trevorbrooking.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = trevorbrooking.sna; sourceTree = "<group>"; };
-		CDA1733B26091C8C00910C23 /* robinofsherlock.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = robinofsherlock.sna; sourceTree = "<group>"; };
-		CDA1733C26091C8D00910C23 /* crimebustersinc.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = crimebustersinc.sna; sourceTree = "<group>"; };
-		CDA1733D26091C8D00910C23 /* dizzy.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy.z80; sourceTree = "<group>"; };
-		CDA1733E26091C8D00910C23 /* rocknwrestle.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocknwrestle.sna; sourceTree = "<group>"; };
-		CDA1733F26091C8D00910C23 /* incredibleshrinkingfireman.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = incredibleshrinkingfireman.sna; sourceTree = "<group>"; };
-		CDA1734026091C8D00910C23 /* questfortheholygrail.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = questfortheholygrail.sna; sourceTree = "<group>"; };
-		CDA1734126091C8D00910C23 /* lordoftherings_2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordoftherings_2.sna; sourceTree = "<group>"; };
-		CDA1734226091C8D00910C23 /* cyberrun.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = cyberrun.sna; sourceTree = "<group>"; };
-		CDA1734326091C8D00910C23 /* dizzy_TI.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_TI.sna; sourceTree = "<group>"; };
-		CDA1734426091C8E00910C23 /* lordsoftime.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordsoftime.sna; sourceTree = "<group>"; };
-		CDA1734526091C8E00910C23 /* redhawk_side1.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = redhawk_side1.sna; sourceTree = "<group>"; };
-		CDA1734626091C8E00910C23 /* twinkingdomvalley.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = twinkingdomvalley.sna; sourceTree = "<group>"; };
-		CDA1734726091C8E00910C23 /* ericandthefloaters.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = ericandthefloaters.sna; sourceTree = "<group>"; };
-		CDA1734826091C8E00910C23 /* booty.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = booty.sna; sourceTree = "<group>"; };
-		CDA1734926091C8F00910C23 /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
-		CDA1734A26091C8F00910C23 /* dizzy_ck.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_ck.sna; sourceTree = "<group>"; };
-		CDA1734B26091C8F00910C23 /* invincibleisland.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = invincibleisland.sna; sourceTree = "<group>"; };
-		CDA1734C26091C8F00910C23 /* repton.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = repton.sna; sourceTree = "<group>"; };
-		CDA1734D26091C8F00910C23 /* necrisdome.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = necrisdome.sna; sourceTree = "<group>"; };
-		CDA1734E26091C8F00910C23 /* hunchback2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = hunchback2.sna; sourceTree = "<group>"; };
-		CDA1734F26091C9000910C23 /* survival_adventure.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = survival_adventure.sna; sourceTree = "<group>"; };
-		CDA1735026091C9000910C23 /* marsport.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = marsport.sna; sourceTree = "<group>"; };
-		CDA1735126091C9000910C23 /* footballmanager2_wh.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = footballmanager2_wh.sna; sourceTree = "<group>"; };
-		CDA1735226091C9000910C23 /* Action Biker.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Action Biker.tzx"; sourceTree = "<group>"; };
-		CDA1735326091C9000910C23 /* everyonesawally.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = everyonesawally.sna; sourceTree = "<group>"; };
-		CDA1735426091C9000910C23 /* hampstead.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = hampstead.sna; sourceTree = "<group>"; };
-		CDA1735526091C9000910C23 /* dynamitedan.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dynamitedan.sna; sourceTree = "<group>"; };
-		CDA1735726091C9100910C23 /* mooncresta.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mooncresta.sna; sourceTree = "<group>"; };
-		CDA1735826091C9100910C23 /* dizzy_Magicland.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_Magicland.sna; sourceTree = "<group>"; };
-		CDA1735926091C9100910C23 /* montyontherun.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = montyontherun.sna; sourceTree = "<group>"; };
-		CDA1735A26091C9100910C23 /* universalhero.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = universalhero.sna; sourceTree = "<group>"; };
-		CDA1735B26091C9100910C23 /* cavesofdoom.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = cavesofdoom.sna; sourceTree = "<group>"; };
-		CDA1735C26091C9200910C23 /* adayinthelife.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = adayinthelife.sna; sourceTree = "<group>"; };
-		CDA1735D26091C9200910C23 /* testtape.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = testtape.tap; sourceTree = "<group>"; };
-		CDA1735E26091C9200910C23 /* matchoftheday.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = matchoftheday.sna; sourceTree = "<group>"; };
-		CDA1735F26091C9200910C23 /* wildbunch.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = wildbunch.sna; sourceTree = "<group>"; };
-		CDA1736126091C9200910C23 /* specialoperations.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = specialoperations.sna; sourceTree = "<group>"; };
-		CDA1736226091C9300910C23 /* minder.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = minder.sna; sourceTree = "<group>"; };
-		CDA1736326091C9300910C23 /* actionbiker.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = actionbiker.sna; sourceTree = "<group>"; };
-		CDA1736426091C9300910C23 /* redmoon.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = redmoon.sna; sourceTree = "<group>"; };
-		CDA1736526091C9300910C23 /* mugsy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mugsy.sna; sourceTree = "<group>"; };
-		CDA1736626091C9400910C23 /* dizzy_potyf.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_potyf.sna; sourceTree = "<group>"; };
-		CDA1736726091C9400910C23 /* kwah.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = kwah.sna; sourceTree = "<group>"; };
-		CDA1736826091C9400910C23 /* bugsy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = bugsy.sna; sourceTree = "<group>"; };
-		CDA1736926091C9400910C23 /* emotion.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = emotion.sna; sourceTree = "<group>"; };
-		CDA1736A26091C9400910C23 /* blizzardpass.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = blizzardpass.sna; sourceTree = "<group>"; };
-		CDA1736B26091C9400910C23 /* matchday2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = matchday2.sna; sourceTree = "<group>"; };
-		CDA1736C26091C9400910C23 /* lordoftherings.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordoftherings.sna; sourceTree = "<group>"; };
-		CDA1736D26091C9400910C23 /* subsunk.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = subsunk.sna; sourceTree = "<group>"; };
-		CDA1736F26091C9500910C23 /* knighttyme128.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = knighttyme128.z80; sourceTree = "<group>"; };
-		CDA1737026091C9500910C23 /* urbanupstart.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbanupstart.sna; sourceTree = "<group>"; };
-		CDA1737126091C9500910C23 /* curseofsherwood.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = curseofsherwood.sna; sourceTree = "<group>"; };
-		CDA1737226091C9500910C23 /* grumpygumphrey.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = grumpygumphrey.sna; sourceTree = "<group>"; };
-		CDA1737326091C9500910C23 /* mugsysrevenge.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mugsysrevenge.sna; sourceTree = "<group>"; };
-		CDA1737426091C9500910C23 /* dizzy_fw.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_fw.sna; sourceTree = "<group>"; };
-		CDA1737526091C9500910C23 /* threeweeksinparadise.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = threeweeksinparadise.sna; sourceTree = "<group>"; };
-		CDA1737626091C9500910C23 /* knightorc_1.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = knightorc_1.sna; sourceTree = "<group>"; };
-		CDA1737726091C9500910C23 /* contactsamcruise.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = contactsamcruise.sna; sourceTree = "<group>"; };
-		CDA1737826091C9500910C23 /* xcel.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcel.sna; sourceTree = "<group>"; };
-		CDA1737926091C9600910C23 /* galaxians.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = galaxians.sna; sourceTree = "<group>"; };
-		CDA1737A26091C9600910C23 /* ianbothamstestmatch.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = ianbothamstestmatch.sna; sourceTree = "<group>"; };
-		CDA1737B26091C9600910C23 /* boredoftherings.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = boredoftherings.sna; sourceTree = "<group>"; };
-		CDA1737C26091C9600910C23 /* wriggler.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = wriggler.sna; sourceTree = "<group>"; };
-		CDA1737D26091C9600910C23 /* superspy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = superspy.sna; sourceTree = "<group>"; };
-		CDA1737E26091C9600910C23 /* sherlock.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherlock.sna; sourceTree = "<group>"; };
-		CDA1737F26091C9600910C23 /* aticatac.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = aticatac.sna; sourceTree = "<group>"; };
-		CDA1738026091C9600910C23 /* stevedavissnooker.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = stevedavissnooker.sna; sourceTree = "<group>"; };
-		CDA1738126091C9600910C23 /* inferno.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = inferno.sna; sourceTree = "<group>"; };
-		CDA1738226091C9600910C23 /* spectest.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = spectest.z80; sourceTree = "<group>"; };
-		CDA1738326091C9600910C23 /* fivedoctors.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = fivedoctors.sna; sourceTree = "<group>"; };
-		CDA1738426091C9600910C23 /* dontpanic.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dontpanic.sna; sourceTree = "<group>"; };
-		CDA1738526091C9700910C23 /* crimebusters_notthatone.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = crimebusters_notthatone.sna; sourceTree = "<group>"; };
-		CDA1738626091C9700910C23 /* tirnanog.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = tirnanog.sna; sourceTree = "<group>"; };
-		CDA1738726091C9700910C23 /* supersprint.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = supersprint.sna; sourceTree = "<group>"; };
-		CDA1738826091C9700910C23 /* shakenbutnotstired.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = shakenbutnotstired.sna; sourceTree = "<group>"; };
-		CDA1738926091C9700910C23 /* youngones.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = youngones.sna; sourceTree = "<group>"; };
-		CDA1738A26091C9700910C23 /* dynamitedan2.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dynamitedan2.sna; sourceTree = "<group>"; };
-		CDA1738B26091C9700910C23 /* tripods.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = tripods.sna; sourceTree = "<group>"; };
-		CDA1738C26091C9700910C23 /* shipoftheline.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = shipoftheline.sna; sourceTree = "<group>"; };
-		CDA1738D26091C9800910C23 /* dandy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dandy.sna; sourceTree = "<group>"; };
 		CDA1746626091D6900910C23 /* ZXKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKeyboard.swift; sourceTree = "<group>"; };
 		CDA1746D2609253600910C23 /* PressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressActions.swift; sourceTree = "<group>"; };
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
@@ -583,6 +455,94 @@
 		CDEF99E12614BF7A00729043 /* TypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelector.swift; sourceTree = "<group>"; };
 		CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerCodeSection.swift; sourceTree = "<group>"; };
 		CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerTextSection.swift; sourceTree = "<group>"; };
+		CDEF99F3261A602700729043 /* DisassemblySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblySheet.swift; sourceTree = "<group>"; };
+		CDEF99FB261B7F0000729043 /* superSprint.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = superSprint.z80; sourceTree = "<group>"; };
+		CDEF99FC261B7F0000729043 /* supersprint.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = supersprint.sna; sourceTree = "<group>"; };
+		CDEF99FD261B7F0000729043 /* everyonesawally.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = everyonesawally.sna; sourceTree = "<group>"; };
+		CDEF99FE261B7F0000729043 /* jetSetWilly2.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = jetSetWilly2.z80; sourceTree = "<group>"; };
+		CDEF99FF261B7F0000729043 /* aticatac.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = aticatac.sna; sourceTree = "<group>"; };
+		CDEF9A00261B7F0000729043 /* dizzy_Magicland.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_Magicland.sna; sourceTree = "<group>"; };
+		CDEF9A01261B7F0000729043 /* montyontherun.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = montyontherun.sna; sourceTree = "<group>"; };
+		CDEF9A02261B7F0000729043 /* chuckyEgg2.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = chuckyEgg2.z80; sourceTree = "<group>"; };
+		CDEF9A03261B7F0000729043 /* spectest.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = spectest.z80; sourceTree = "<group>"; };
+		CDEF9A04261B7F0000729043 /* seasOfBlood.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = seasOfBlood.z80; sourceTree = "<group>"; };
+		CDEF9A05261B7F0000729043 /* kwah.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = kwah.sna; sourceTree = "<group>"; };
+		CDEF9A06261B7F0100729043 /* mooncresta.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mooncresta.sna; sourceTree = "<group>"; };
+		CDEF9A07261B7F0100729043 /* subsunk.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = subsunk.sna; sourceTree = "<group>"; };
+		CDEF9A08261B7F0100729043 /* forestAtWorldsEnd.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = forestAtWorldsEnd.z80; sourceTree = "<group>"; };
+		CDEF9A09261B7F0100729043 /* twinkingdomvalley.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = twinkingdomvalley.sna; sourceTree = "<group>"; };
+		CDEF9A0A261B7F0100729043 /* shakenbutnotstired.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = shakenbutnotstired.sna; sourceTree = "<group>"; };
+		CDEF9A0B261B7F0100729043 /* sherlock.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherlock.sna; sourceTree = "<group>"; };
+		CDEF9A0C261B7F0100729043 /* incredibleshrinkingfireman.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = incredibleshrinkingfireman.sna; sourceTree = "<group>"; };
+		CDEF9A0D261B7F0100729043 /* custerdsQuest.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = custerdsQuest.z80; sourceTree = "<group>"; };
+		CDEF9A0E261B7F0100729043 /* skistar2000.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = skistar2000.z80; sourceTree = "<group>"; };
+		CDEF9A0F261B7F0100729043 /* Inferno(RS).z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inferno(RS).z80"; sourceTree = "<group>"; };
+		CDEF9A10261B7F0100729043 /* castlemaster.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = castlemaster.z80; sourceTree = "<group>"; };
+		CDEF9A11261B7F0100729043 /* ericandthefloaters.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = ericandthefloaters.sna; sourceTree = "<group>"; };
+		CDEF9A12261B7F0100729043 /* backToSkool.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backToSkool.z80; sourceTree = "<group>"; };
+		CDEF9A13261B7F0100729043 /* cyberrun.Z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cyberrun.Z80; sourceTree = "<group>"; };
+		CDEF9A14261B7F0100729043 /* urbanupstart.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbanupstart.sna; sourceTree = "<group>"; };
+		CDEF9A15261B7F0200729043 /* jock&theTimeRings.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jock&theTimeRings.z80"; sourceTree = "<group>"; };
+		CDEF9A16261B7F0200729043 /* dizzy_potyf.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_potyf.sna; sourceTree = "<group>"; };
+		CDEF9A17261B7F0200729043 /* adayinthelife.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = adayinthelife.sna; sourceTree = "<group>"; };
+		CDEF9A18261B7F0200729043 /* henryshoard.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = henryshoard.sna; sourceTree = "<group>"; };
+		CDEF9A19261B7F0200729043 /* superspy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = superspy.sna; sourceTree = "<group>"; };
+		CDEF9A1A261B7F0200729043 /* bugsy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = bugsy.sna; sourceTree = "<group>"; };
+		CDEF9A1B261B7F0200729043 /* zzzz.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = zzzz.sna; sourceTree = "<group>"; };
+		CDEF9A1C261B7F0200729043 /* lordoftherings.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordoftherings.sna; sourceTree = "<group>"; };
+		CDEF9A1D261B7F0200729043 /* threeweeksinparadise.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = threeweeksinparadise.sna; sourceTree = "<group>"; };
+		CDEF9A1E261B7F0200729043 /* crimebustersinc.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = crimebustersinc.sna; sourceTree = "<group>"; };
+		CDEF9A1F261B7F0200729043 /* contactsamcruise.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = contactsamcruise.sna; sourceTree = "<group>"; };
+		CDEF9A20261B7F0200729043 /* mugsy.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mugsy.sna; sourceTree = "<group>"; };
+		CDEF9A21261B7F0200729043 /* penetrator.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = penetrator.sna; sourceTree = "<group>"; };
+		CDEF9A22261B7F0200729043 /* colourOfMagic.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = colourOfMagic.z80; sourceTree = "<group>"; };
+		CDEF9A23261B7F0200729043 /* testz80.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = testz80.sna; sourceTree = "<group>"; };
+		CDEF9A24261B7F0300729043 /* questfortheholygrail.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = questfortheholygrail.sna; sourceTree = "<group>"; };
+		CDEF9A25261B7F0300729043 /* dizzy_fw.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_fw.sna; sourceTree = "<group>"; };
+		CDEF9A26261B7F0300729043 /* skoolDaze.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = skoolDaze.z80; sourceTree = "<group>"; };
+		CDEF9A27261B7F0300729043 /* codenameMat2.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = codenameMat2.z80; sourceTree = "<group>"; };
+		CDEF9A28261B7F0300729043 /* invincibleisland.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = invincibleisland.sna; sourceTree = "<group>"; };
+		CDEF9A29261B7F0300729043 /* ChampionshipSprint.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChampionshipSprint.z80; sourceTree = "<group>"; };
+		CDEF9A2A261B7F0300729043 /* dizzy.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy.z80; sourceTree = "<group>"; };
+		CDEF9A2B261B7F0300729043 /* dizzy_TI.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_TI.sna; sourceTree = "<group>"; };
+		CDEF9A2C261B7F0300729043 /* seabasedelta.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = seabasedelta.sna; sourceTree = "<group>"; };
+		CDEF9A2D261B7F0300729043 /* codenameMat.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = codenameMat.z80; sourceTree = "<group>"; };
+		CDEF9A2E261B7F0300729043 /* tirnanog.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = tirnanog.sna; sourceTree = "<group>"; };
+		CDEF9A2F261B7F0300729043 /* completebastard.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = completebastard.sna; sourceTree = "<group>"; };
+		CDEF9A30261B7F0300729043 /* boredoftherings.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = boredoftherings.sna; sourceTree = "<group>"; };
+		CDEF9A31261B7F0300729043 /* devilsOfTheDeep.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = devilsOfTheDeep.z80; sourceTree = "<group>"; };
+		CDEF9A32261B7F0300729043 /* actionbiker.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = actionbiker.sna; sourceTree = "<group>"; };
+		CDEF9A33261B7F0400729043 /* dundarach.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dundarach.sna; sourceTree = "<group>"; };
+		CDEF9A34261B7F0400729043 /* redmoon.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = redmoon.sna; sourceTree = "<group>"; };
+		CDEF9A35261B7F0400729043 /* testand.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = testand.sna; sourceTree = "<group>"; };
+		CDEF9A36261B7F0400729043 /* deflektor.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = deflektor.sna; sourceTree = "<group>"; };
+		CDEF9A37261B7F0400729043 /* transylvaniantower.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = transylvaniantower.sna; sourceTree = "<group>"; };
+		CDEF9A38261B7F0400729043 /* lifeterm.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lifeterm.z80; sourceTree = "<group>"; };
+		CDEF9A39261B7F0400729043 /* universalhero.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = universalhero.sna; sourceTree = "<group>"; };
+		CDEF9A3A261B7F0400729043 /* brian.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = brian.sna; sourceTree = "<group>"; };
+		CDEF9A3B261B7F0400729043 /* necrisdome.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = necrisdome.sna; sourceTree = "<group>"; };
+		CDEF9A3C261B7F0400729043 /* hampstead.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = hampstead.sna; sourceTree = "<group>"; };
+		CDEF9A3D261B7F0400729043 /* warlockOfFiretopMountain.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = warlockOfFiretopMountain.z80; sourceTree = "<group>"; };
+		CDEF9A3E261B7F0400729043 /* dizzy_ck.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = dizzy_ck.sna; sourceTree = "<group>"; };
+		CDEF9A3F261B7F0400729043 /* wildbunch.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = wildbunch.sna; sourceTree = "<group>"; };
+		CDEF9A40261B7F0400729043 /* marsport.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = marsport.sna; sourceTree = "<group>"; };
+		CDEF9A41261B7F0400729043 /* mugsysrevenge.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = mugsysrevenge.sna; sourceTree = "<group>"; };
+		CDEF9A42261B7F0400729043 /* knightorc_1.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = knightorc_1.sna; sourceTree = "<group>"; };
+		CDEF9A43261B7F0400729043 /* booty.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = booty.sna; sourceTree = "<group>"; };
+		CDEF9A44261B7F0400729043 /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
+		CDEF9A45261B7F0500729043 /* xcel.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcel.sna; sourceTree = "<group>"; };
+		CDEF9A46261B7F0500729043 /* redhawk_side1.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = redhawk_side1.sna; sourceTree = "<group>"; };
+		CDEF9A47261B7F0500729043 /* cauldron.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cauldron.z80; sourceTree = "<group>"; };
+		CDEF9A48261B7F0500729043 /* shipoftheline.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = shipoftheline.sna; sourceTree = "<group>"; };
+		CDEF9A49261B7F0500729043 /* wriggler.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = wriggler.sna; sourceTree = "<group>"; };
+		CDEF9A4A261B7F0500729043 /* megabucks.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = megabucks.sna; sourceTree = "<group>"; };
+		CDEF9A4B261B7F0500729043 /* forestOfDoom.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = forestOfDoom.z80; sourceTree = "<group>"; };
+		CDEF9A4C261B7F0500729043 /* lordsoftime.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = lordsoftime.sna; sourceTree = "<group>"; };
+		CDEF9A4D261B7F0500729043 /* youngones.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = youngones.sna; sourceTree = "<group>"; };
+		CDEF9B23261C852200729043 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		CDEF9B2A261C944500729043 /* EmptyCPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCPU.swift; sourceTree = "<group>"; };
+		CDEF9B33261CB94A00729043 /* Speccy128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speccy128.swift; sourceTree = "<group>"; };
+		CDEF9B39261CCEEE00729043 /* knighttyme128.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = knighttyme128.z80; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +595,7 @@
 		CD0CC53C25FA6BD400731EDA /* FakeAChip */ = {
 			isa = PBXGroup;
 			children = (
+				CDEF9B29261C943100729043 /* EmptyCPU */,
 				CDA1746C2609251500910C23 /* SwiftUI Magic */,
 				CD0CC5B825FA736B00731EDA /* FakeAChip.entitlements */,
 				CD0CC57025FA6C3F00731EDA /* Source */,
@@ -770,6 +731,7 @@
 				CD0CC58425FA6C4000731EDA /* FileFormats */,
 				CD0CC58625FA6C4000731EDA /* Speccy.swift */,
 				CD0CC58725FA6C4000731EDA /* Screen */,
+				CDEF9B33261CB94A00729043 /* Speccy128.swift */,
 			);
 			path = ZXSpectrumFamily;
 			sourceTree = "<group>";
@@ -796,107 +758,90 @@
 		CD0CC5C225FA74B300731EDA /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				CD0CC5C325FA74C200731EDA /* middleoflakecheat.z80 */,
-				CDA1735226091C9000910C23 /* Action Biker.tzx */,
-				CDA1736326091C9300910C23 /* actionbiker.sna */,
-				CDA1735C26091C9200910C23 /* adayinthelife.sna */,
-				CDA1737F26091C9600910C23 /* aticatac.sna */,
-				CDA1736A26091C9400910C23 /* blizzardpass.sna */,
-				CDA1734826091C8E00910C23 /* booty.sna */,
-				CDA1737B26091C9600910C23 /* boredoftherings.sna */,
-				CDA1733826091C8C00910C23 /* brian.sna */,
-				CDA1732E26091C8B00910C23 /* brian.szx */,
-				CDA1736826091C9400910C23 /* bugsy.sna */,
-				CDA1735B26091C9100910C23 /* cavesofdoom.sna */,
-				CDA1733526091C8C00910C23 /* chubby.sna */,
-				CDA1732A26091C8A00910C23 /* completebastard.sna */,
-				CDA1737726091C9500910C23 /* contactsamcruise.sna */,
-				CDA1738526091C9700910C23 /* crimebusters_notthatone.sna */,
-				CDA1733C26091C8D00910C23 /* crimebustersinc.sna */,
-				CDA1737126091C9500910C23 /* curseofsherwood.sna */,
-				CDA1734226091C8D00910C23 /* cyberrun.sna */,
-				CDA1738D26091C9800910C23 /* dandy.sna */,
-				CDA1734A26091C8F00910C23 /* dizzy_ck.sna */,
-				CDA1737426091C9500910C23 /* dizzy_fw.sna */,
-				CDA1735826091C9100910C23 /* dizzy_Magicland.sna */,
-				CDA1736626091C9400910C23 /* dizzy_potyf.sna */,
-				CDA1734326091C8D00910C23 /* dizzy_TI.sna */,
-				CDA1732D26091C8B00910C23 /* Dizzy.sna */,
-				CDA1733D26091C8D00910C23 /* dizzy.z80 */,
-				CDA1738426091C9600910C23 /* dontpanic.sna */,
-				CDA1732826091C8A00910C23 /* dundarach.sna */,
-				CDA1735526091C9000910C23 /* dynamitedan.sna */,
-				CDA1738A26091C9700910C23 /* dynamitedan2.sna */,
-				CDA1736926091C9400910C23 /* emotion.sna */,
-				CDA1734726091C8E00910C23 /* ericandthefloaters.sna */,
-				CDA1735326091C9000910C23 /* everyonesawally.sna */,
-				CDA1738326091C9600910C23 /* fivedoctors.sna */,
-				CDA1735126091C9000910C23 /* footballmanager2_wh.sna */,
-				CDA1733426091C8C00910C23 /* footballmanager2.sna */,
-				CDA1737926091C9600910C23 /* galaxians.sna */,
-				CDA1737226091C9500910C23 /* grumpygumphrey.sna */,
-				CDA1735426091C9000910C23 /* hampstead.sna */,
-				CDA1732B26091C8B00910C23 /* henryshoard.sna */,
-				CDA1732C26091C8B00910C23 /* hunchback.sna */,
-				CDA1734E26091C8F00910C23 /* hunchback2.sna */,
-				CDA1737A26091C9600910C23 /* ianbothamstestmatch.sna */,
-				CDA1733F26091C8D00910C23 /* incredibleshrinkingfireman.sna */,
-				CDA1738126091C9600910C23 /* inferno.sna */,
-				CDA1734B26091C8F00910C23 /* invincibleisland.sna */,
-				CDA1737626091C9500910C23 /* knightorc_1.sna */,
-				CDA1736F26091C9500910C23 /* knighttyme128.z80 */,
-				CDA1736726091C9400910C23 /* kwah.sna */,
-				CDA1734126091C8D00910C23 /* lordoftherings_2.sna */,
-				CDA1736C26091C9400910C23 /* lordoftherings.sna */,
-				CDA1734426091C8E00910C23 /* lordsoftime.sna */,
-				CDA1735026091C9000910C23 /* marsport.sna */,
-				CDA1736B26091C9400910C23 /* matchday2.sna */,
-				CDA1735E26091C9200910C23 /* matchoftheday.sna */,
-				CDA1732F26091C8B00910C23 /* megabucks.sna */,
-				CDA1736226091C9300910C23 /* minder.sna */,
-				CDA1735926091C9100910C23 /* montyontherun.sna */,
-				CDA1735726091C9100910C23 /* mooncresta.sna */,
-				CDA1736526091C9300910C23 /* mugsy.sna */,
-				CDA1737326091C9500910C23 /* mugsysrevenge.sna */,
-				CDA1734D26091C8F00910C23 /* necrisdome.sna */,
-				CDA1732926091C8A00910C23 /* penetrator.sna */,
-				CDA1734026091C8D00910C23 /* questfortheholygrail.sna */,
-				CDA1734526091C8E00910C23 /* redhawk_side1.sna */,
-				CDA1736426091C9300910C23 /* redmoon.sna */,
-				CDA1734C26091C8F00910C23 /* repton.sna */,
-				CDA1733B26091C8C00910C23 /* robinofsherlock.sna */,
-				CDA1733E26091C8D00910C23 /* rocknwrestle.sna */,
-				CDA1733226091C8B00910C23 /* seabasedelta.sna */,
-				CDA1738826091C9700910C23 /* shakenbutnotstired.sna */,
-				CDA1737E26091C9600910C23 /* sherlock.sna */,
-				CDA1738C26091C9700910C23 /* shipoftheline.sna */,
-				CDA1736126091C9200910C23 /* specialoperations.sna */,
-				CDA1738226091C9600910C23 /* spectest.z80 */,
-				CDA1733926091C8C00910C23 /* stbernard.sna */,
-				CDA1738026091C9600910C23 /* stevedavissnooker.sna */,
-				CDA1736D26091C9400910C23 /* subsunk.sna */,
-				CDA1738726091C9700910C23 /* supersprint.sna */,
-				CDA1737D26091C9600910C23 /* superspy.sna */,
-				CDA1734F26091C9000910C23 /* survival_adventure.sna */,
-				CDA1733026091C8B00910C23 /* testand.sna */,
-				CDA1735D26091C9200910C23 /* testtape.tap */,
-				CDA1733126091C8B00910C23 /* testz80.sna */,
-				CDA1737526091C9500910C23 /* threeweeksinparadise.sna */,
-				CDA1734926091C8F00910C23 /* ticket_to_ride.tzx */,
-				CDA1738626091C9700910C23 /* tirnanog.sna */,
-				CDA1733326091C8C00910C23 /* transylvaniantower.sna */,
-				CDA1733A26091C8C00910C23 /* trevorbrooking.sna */,
-				CDA1738B26091C9700910C23 /* tripods.sna */,
-				CDA1734626091C8E00910C23 /* twinkingdomvalley.sna */,
-				CDA1735A26091C9100910C23 /* universalhero.sna */,
-				CDA1737026091C9500910C23 /* urbanupstart.sna */,
-				CDA1735F26091C9200910C23 /* wildbunch.sna */,
-				CDA1733626091C8C00910C23 /* worminparadise.sna */,
-				CDA1737C26091C9600910C23 /* wriggler.sna */,
-				CDA1737826091C9500910C23 /* xcel.sna */,
-				CDA1738926091C9700910C23 /* youngones.sna */,
-				CDA1733726091C8C00910C23 /* zzzz.sna */,
-				CDA1731F260917E900910C23 /* deflektor.sna */,
+				CDEF9B39261CCEEE00729043 /* knighttyme128.z80 */,
+				CDEF9A32261B7F0300729043 /* actionbiker.sna */,
+				CDEF9A17261B7F0200729043 /* adayinthelife.sna */,
+				CDEF99FF261B7F0000729043 /* aticatac.sna */,
+				CDEF9A12261B7F0100729043 /* backToSkool.z80 */,
+				CDEF9A43261B7F0400729043 /* booty.sna */,
+				CDEF9A30261B7F0300729043 /* boredoftherings.sna */,
+				CDEF9A3A261B7F0400729043 /* brian.sna */,
+				CDEF9A1A261B7F0200729043 /* bugsy.sna */,
+				CDEF9A10261B7F0100729043 /* castlemaster.z80 */,
+				CDEF9A47261B7F0500729043 /* cauldron.z80 */,
+				CDEF9A29261B7F0300729043 /* ChampionshipSprint.z80 */,
+				CDEF9A02261B7F0000729043 /* chuckyEgg2.z80 */,
+				CDEF9A2D261B7F0300729043 /* codenameMat.z80 */,
+				CDEF9A27261B7F0300729043 /* codenameMat2.z80 */,
+				CDEF9A22261B7F0200729043 /* colourOfMagic.z80 */,
+				CDEF9A2F261B7F0300729043 /* completebastard.sna */,
+				CDEF9A1F261B7F0200729043 /* contactsamcruise.sna */,
+				CDEF9A1E261B7F0200729043 /* crimebustersinc.sna */,
+				CDEF9A0D261B7F0100729043 /* custerdsQuest.z80 */,
+				CDEF9A13261B7F0100729043 /* cyberrun.Z80 */,
+				CDEF9A36261B7F0400729043 /* deflektor.sna */,
+				CDEF9A31261B7F0300729043 /* devilsOfTheDeep.z80 */,
+				CDEF9A3E261B7F0400729043 /* dizzy_ck.sna */,
+				CDEF9A25261B7F0300729043 /* dizzy_fw.sna */,
+				CDEF9A00261B7F0000729043 /* dizzy_Magicland.sna */,
+				CDEF9A16261B7F0200729043 /* dizzy_potyf.sna */,
+				CDEF9A2B261B7F0300729043 /* dizzy_TI.sna */,
+				CDEF9A2A261B7F0300729043 /* dizzy.z80 */,
+				CDEF9A33261B7F0400729043 /* dundarach.sna */,
+				CDEF9A11261B7F0100729043 /* ericandthefloaters.sna */,
+				CDEF99FD261B7F0000729043 /* everyonesawally.sna */,
+				CDEF9A08261B7F0100729043 /* forestAtWorldsEnd.z80 */,
+				CDEF9A4B261B7F0500729043 /* forestOfDoom.z80 */,
+				CDEF9A3C261B7F0400729043 /* hampstead.sna */,
+				CDEF9A18261B7F0200729043 /* henryshoard.sna */,
+				CDEF9A0C261B7F0100729043 /* incredibleshrinkingfireman.sna */,
+				CDEF9A0F261B7F0100729043 /* Inferno(RS).z80 */,
+				CDEF9A28261B7F0300729043 /* invincibleisland.sna */,
+				CDEF99FE261B7F0000729043 /* jetSetWilly2.z80 */,
+				CDEF9A15261B7F0200729043 /* jock&theTimeRings.z80 */,
+				CDEF9A42261B7F0400729043 /* knightorc_1.sna */,
+				CDEF9A05261B7F0000729043 /* kwah.sna */,
+				CDEF9A38261B7F0400729043 /* lifeterm.z80 */,
+				CDEF9A1C261B7F0200729043 /* lordoftherings.sna */,
+				CDEF9A4C261B7F0500729043 /* lordsoftime.sna */,
+				CDEF9A40261B7F0400729043 /* marsport.sna */,
+				CDEF9A4A261B7F0500729043 /* megabucks.sna */,
+				CDEF9A01261B7F0000729043 /* montyontherun.sna */,
+				CDEF9A06261B7F0100729043 /* mooncresta.sna */,
+				CDEF9A20261B7F0200729043 /* mugsy.sna */,
+				CDEF9A41261B7F0400729043 /* mugsysrevenge.sna */,
+				CDEF9A3B261B7F0400729043 /* necrisdome.sna */,
+				CDEF9A21261B7F0200729043 /* penetrator.sna */,
+				CDEF9A24261B7F0300729043 /* questfortheholygrail.sna */,
+				CDEF9A46261B7F0500729043 /* redhawk_side1.sna */,
+				CDEF9A34261B7F0400729043 /* redmoon.sna */,
+				CDEF9A2C261B7F0300729043 /* seabasedelta.sna */,
+				CDEF9A04261B7F0000729043 /* seasOfBlood.z80 */,
+				CDEF9A0A261B7F0100729043 /* shakenbutnotstired.sna */,
+				CDEF9A0B261B7F0100729043 /* sherlock.sna */,
+				CDEF9A48261B7F0500729043 /* shipoftheline.sna */,
+				CDEF9A0E261B7F0100729043 /* skistar2000.z80 */,
+				CDEF9A26261B7F0300729043 /* skoolDaze.z80 */,
+				CDEF9A03261B7F0000729043 /* spectest.z80 */,
+				CDEF9A07261B7F0100729043 /* subsunk.sna */,
+				CDEF99FC261B7F0000729043 /* supersprint.sna */,
+				CDEF99FB261B7F0000729043 /* superSprint.z80 */,
+				CDEF9A19261B7F0200729043 /* superspy.sna */,
+				CDEF9A35261B7F0400729043 /* testand.sna */,
+				CDEF9A23261B7F0200729043 /* testz80.sna */,
+				CDEF9A1D261B7F0200729043 /* threeweeksinparadise.sna */,
+				CDEF9A44261B7F0400729043 /* ticket_to_ride.tzx */,
+				CDEF9A2E261B7F0300729043 /* tirnanog.sna */,
+				CDEF9A37261B7F0400729043 /* transylvaniantower.sna */,
+				CDEF9A09261B7F0100729043 /* twinkingdomvalley.sna */,
+				CDEF9A39261B7F0400729043 /* universalhero.sna */,
+				CDEF9A14261B7F0100729043 /* urbanupstart.sna */,
+				CDEF9A3D261B7F0400729043 /* warlockOfFiretopMountain.z80 */,
+				CDEF9A3F261B7F0400729043 /* wildbunch.sna */,
+				CDEF9A49261B7F0500729043 /* wriggler.sna */,
+				CDEF9A45261B7F0500729043 /* xcel.sna */,
+				CDEF9A4D261B7F0500729043 /* youngones.sna */,
+				CDEF9A1B261B7F0200729043 /* zzzz.sna */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -917,6 +862,7 @@
 				CD2DA786260CF1FF0022F4EF /* Disassembly */,
 				CD89145D25FFBE8100C75998 /* RegistryViews */,
 				CD0CC5E625FF585F00731EDA /* MainHeader.swift */,
+				CDEF9B23261C852200729043 /* SettingsSheet.swift */,
 			);
 			path = SharedComponents;
 			sourceTree = "<group>";
@@ -930,6 +876,7 @@
 				CDEF99E12614BF7A00729043 /* TypeSelector.swift */,
 				CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */,
 				CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */,
+				CDEF99F3261A602700729043 /* DisassemblySheet.swift */,
 			);
 			path = Disassembly;
 			sourceTree = "<group>";
@@ -1061,6 +1008,14 @@
 			path = Disassembly;
 			sourceTree = "<group>";
 		};
+		CDEF9B29261C943100729043 /* EmptyCPU */ = {
+			isa = PBXGroup;
+			children = (
+				CDEF9B2A261C944500729043 /* EmptyCPU.swift */,
+			);
+			path = EmptyCPU;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1164,114 +1119,97 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEF9AC4261B7F0500729043 /* deflektor.sna in Resources */,
+				CDEF9AC0261B7F0500729043 /* redmoon.sna in Resources */,
+				CDEF9AF2261B7F0500729043 /* youngones.sna in Resources */,
+				CDEF9A60261B7F0500729043 /* seasOfBlood.z80 in Resources */,
+				CDEF9AEC261B7F0500729043 /* megabucks.sna in Resources */,
+				CDEF9AB2261B7F0500729043 /* codenameMat.z80 in Resources */,
+				CDEF9AE2261B7F0500729043 /* xcel.sna in Resources */,
+				CDEF9A74261B7F0500729043 /* skistar2000.z80 in Resources */,
+				CDEF9A64261B7F0500729043 /* mooncresta.sna in Resources */,
+				CDEF9A84261B7F0500729043 /* dizzy_potyf.sna in Resources */,
+				CDEF9A94261B7F0500729043 /* crimebustersinc.sna in Resources */,
+				CDEF9A78261B7F0500729043 /* castlemaster.z80 in Resources */,
+				CDEF9A8C261B7F0500729043 /* bugsy.sna in Resources */,
+				CDEF9A68261B7F0500729043 /* forestAtWorldsEnd.z80 in Resources */,
+				CDEF9A9A261B7F0500729043 /* penetrator.sna in Resources */,
+				CDEF9ADC261B7F0500729043 /* knightorc_1.sna in Resources */,
+				CDEF9A7A261B7F0500729043 /* ericandthefloaters.sna in Resources */,
+				CDEF9AE4261B7F0500729043 /* redhawk_side1.sna in Resources */,
+				CDEF9A90261B7F0500729043 /* lordoftherings.sna in Resources */,
+				CDEF9A8E261B7F0500729043 /* zzzz.sna in Resources */,
+				CDEF9ACE261B7F0500729043 /* necrisdome.sna in Resources */,
+				CDEF9A7E261B7F0500729043 /* cyberrun.Z80 in Resources */,
+				CDEF9AB0261B7F0500729043 /* seabasedelta.sna in Resources */,
+				CDEF9A92261B7F0500729043 /* threeweeksinparadise.sna in Resources */,
+				CDEF9AA8261B7F0500729043 /* invincibleisland.sna in Resources */,
+				CDEF9A6A261B7F0500729043 /* twinkingdomvalley.sna in Resources */,
 				CD0CC54A25FA6BD600731EDA /* LaunchScreen.storyboard in Resources */,
-				CDA173EC26091C9800910C23 /* mooncresta.sna in Resources */,
-				CDA17320260917E900910C23 /* deflektor.sna in Resources */,
-				CDA1742226091C9800910C23 /* grumpygumphrey.sna in Resources */,
-				CDA173A226091C9800910C23 /* seabasedelta.sna in Resources */,
-				CDA173BC26091C9800910C23 /* incredibleshrinkingfireman.sna in Resources */,
-				CDA173BA26091C9800910C23 /* rocknwrestle.sna in Resources */,
-				CDA173C626091C9800910C23 /* lordsoftime.sna in Resources */,
-				CDA173AC26091C9800910C23 /* zzzz.sna in Resources */,
-				CDA173DC26091C9800910C23 /* survival_adventure.sna in Resources */,
-				CDA173B826091C9800910C23 /* dizzy.z80 in Resources */,
-				CDA173E426091C9800910C23 /* everyonesawally.sna in Resources */,
-				CDA173A026091C9800910C23 /* testz80.sna in Resources */,
-				CDA1739026091C9800910C23 /* penetrator.sna in Resources */,
-				CDA1743226091C9800910C23 /* ianbothamstestmatch.sna in Resources */,
-				CDA173CC26091C9800910C23 /* ericandthefloaters.sna in Resources */,
-				CDA1739426091C9800910C23 /* henryshoard.sna in Resources */,
 				CD0CC54725FA6BD600731EDA /* Preview Assets.xcassets in Resources */,
-				CDA1741626091C9800910C23 /* lordoftherings.sna in Resources */,
-				CDA1739826091C9800910C23 /* Dizzy.sna in Resources */,
-				CDA173CE26091C9800910C23 /* booty.sna in Resources */,
+				CDEF9A72261B7F0500729043 /* custerdsQuest.z80 in Resources */,
+				CDEF9AD2261B7F0500729043 /* warlockOfFiretopMountain.z80 in Resources */,
 				CDA172672604962100910C23 /* ZX48k.rom in Resources */,
-				CDA173C426091C9800910C23 /* dizzy_TI.sna in Resources */,
-				CDA173F226091C9800910C23 /* universalhero.sna in Resources */,
-				CDA1741826091C9800910C23 /* subsunk.sna in Resources */,
-				CDA1742A26091C9800910C23 /* knightorc_1.sna in Resources */,
+				CDEF9AEA261B7F0500729043 /* wriggler.sna in Resources */,
+				CDEF9A9C261B7F0500729043 /* colourOfMagic.z80 in Resources */,
+				CDEF9A6E261B7F0500729043 /* sherlock.sna in Resources */,
+				CDEF9A70261B7F0500729043 /* incredibleshrinkingfireman.sna in Resources */,
+				CDEF9AE6261B7F0500729043 /* cauldron.z80 in Resources */,
+				CDEF9AC2261B7F0500729043 /* testand.sna in Resources */,
 				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
-				CDA1739A26091C9800910C23 /* brian.szx in Resources */,
+				CDEF9A62261B7F0500729043 /* kwah.sna in Resources */,
+				CDEF9AD8261B7F0500729043 /* marsport.sna in Resources */,
+				CDEF9AA2261B7F0500729043 /* dizzy_fw.sna in Resources */,
+				CDEF9A8A261B7F0500729043 /* superspy.sna in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,
-				CDA1745626091C9800910C23 /* shipoftheline.sna in Resources */,
-				CDA173B026091C9800910C23 /* stbernard.sna in Resources */,
+				CDEF9AA0261B7F0500729043 /* questfortheholygrail.sna in Resources */,
+				CDEF9AB4261B7F0500729043 /* tirnanog.sna in Resources */,
+				CDEF9AA6261B7F0500729043 /* codenameMat2.z80 in Resources */,
+				CDEF9AF0261B7F0500729043 /* lordsoftime.sna in Resources */,
+				CDEF9A76261B7F0500729043 /* Inferno(RS).z80 in Resources */,
+				CDEF9B3A261CCEEF00729043 /* knighttyme128.z80 in Resources */,
+				CDEF9AAC261B7F0500729043 /* dizzy.z80 in Resources */,
+				CDEF9A5A261B7F0500729043 /* montyontherun.sna in Resources */,
+				CDEF9ABA261B7F0500729043 /* devilsOfTheDeep.z80 in Resources */,
+				CDEF9AB8261B7F0500729043 /* boredoftherings.sna in Resources */,
+				CDEF9A82261B7F0500729043 /* jock&theTimeRings.z80 in Resources */,
+				CDEF9AD4261B7F0500729043 /* dizzy_ck.sna in Resources */,
+				CDEF9ABE261B7F0500729043 /* dundarach.sna in Resources */,
+				CDEF9A9E261B7F0500729043 /* testz80.sna in Resources */,
+				CDEF9A52261B7F0500729043 /* everyonesawally.sna in Resources */,
+				CDEF9AD0261B7F0500729043 /* hampstead.sna in Resources */,
+				CDEF9A66261B7F0500729043 /* subsunk.sna in Resources */,
+				CDEF9A98261B7F0500729043 /* mugsy.sna in Resources */,
+				CDEF9ACC261B7F0500729043 /* brian.sna in Resources */,
+				CDEF9ADE261B7F0500729043 /* booty.sna in Resources */,
+				CDEF9A5E261B7F0500729043 /* spectest.z80 in Resources */,
 				CDA172652604962100910C23 /* ZX128k+2.rom in Resources */,
-				CDA1744226091C9800910C23 /* spectest.z80 in Resources */,
-				CDA1738E26091C9800910C23 /* dundarach.sna in Resources */,
-				CDA1745826091C9800910C23 /* dandy.sna in Resources */,
-				CDA1742626091C9800910C23 /* dizzy_fw.sna in Resources */,
-				CDA1742C26091C9800910C23 /* contactsamcruise.sna in Resources */,
-				CDA173DA26091C9800910C23 /* hunchback2.sna in Resources */,
-				CDA173E026091C9800910C23 /* footballmanager2_wh.sna in Resources */,
-				CDA1744626091C9800910C23 /* dontpanic.sna in Resources */,
-				CDA1743026091C9800910C23 /* galaxians.sna in Resources */,
-				CDA173D226091C9800910C23 /* dizzy_ck.sna in Resources */,
-				CDA173CA26091C9800910C23 /* twinkingdomvalley.sna in Resources */,
-				CDA1739226091C9800910C23 /* completebastard.sna in Resources */,
-				CDA1743E26091C9800910C23 /* stevedavissnooker.sna in Resources */,
-				CDA1745426091C9800910C23 /* tripods.sna in Resources */,
-				CDA1743426091C9800910C23 /* boredoftherings.sna in Resources */,
-				CDA1744426091C9800910C23 /* fivedoctors.sna in Resources */,
-				CDA173E626091C9800910C23 /* hampstead.sna in Resources */,
-				CDA1745026091C9800910C23 /* youngones.sna in Resources */,
-				CDA173AA26091C9800910C23 /* worminparadise.sna in Resources */,
-				CDA1741026091C9800910C23 /* emotion.sna in Resources */,
-				CDA1740626091C9800910C23 /* redmoon.sna in Resources */,
-				CDA1742826091C9800910C23 /* threeweeksinparadise.sna in Resources */,
-				CDA1741226091C9800910C23 /* blizzardpass.sna in Resources */,
-				CDA173FA26091C9800910C23 /* matchoftheday.sna in Resources */,
-				CDA173A826091C9800910C23 /* chubby.sna in Resources */,
-				CDA1740226091C9800910C23 /* minder.sna in Resources */,
-				CDA1744E26091C9800910C23 /* shakenbutnotstired.sna in Resources */,
-				CDA1742426091C9800910C23 /* mugsysrevenge.sna in Resources */,
-				CDA1740426091C9800910C23 /* actionbiker.sna in Resources */,
-				CDA173DE26091C9800910C23 /* marsport.sna in Resources */,
-				CDA1741426091C9800910C23 /* matchday2.sna in Resources */,
-				CDA1743A26091C9800910C23 /* sherlock.sna in Resources */,
-				CDA173F026091C9800910C23 /* montyontherun.sna in Resources */,
-				CDA1740A26091C9800910C23 /* dizzy_potyf.sna in Resources */,
-				CDA1740E26091C9800910C23 /* bugsy.sna in Resources */,
-				CDA173C026091C9800910C23 /* lordoftherings_2.sna in Resources */,
-				CDA173F426091C9800910C23 /* cavesofdoom.sna in Resources */,
-				CDA173EE26091C9800910C23 /* dizzy_Magicland.sna in Resources */,
-				CDA1744C26091C9800910C23 /* supersprint.sna in Resources */,
-				CDA1744026091C9800910C23 /* inferno.sna in Resources */,
-				CDA1739C26091C9800910C23 /* megabucks.sna in Resources */,
-				CDA173D026091C9800910C23 /* ticket_to_ride.tzx in Resources */,
-				CDA173F626091C9800910C23 /* adayinthelife.sna in Resources */,
-				CDA173AE26091C9800910C23 /* brian.sna in Resources */,
-				CDA173D826091C9800910C23 /* necrisdome.sna in Resources */,
-				CDA1739E26091C9800910C23 /* testand.sna in Resources */,
-				CDA1740026091C9800910C23 /* specialoperations.sna in Resources */,
-				CDA173E826091C9800910C23 /* dynamitedan.sna in Resources */,
-				CDA1742E26091C9800910C23 /* xcel.sna in Resources */,
-				CDA173D426091C9800910C23 /* invincibleisland.sna in Resources */,
-				CDA173FC26091C9800910C23 /* wildbunch.sna in Resources */,
-				CDA173BE26091C9800910C23 /* questfortheholygrail.sna in Resources */,
-				CDA173B426091C9800910C23 /* robinofsherlock.sna in Resources */,
-				CD0CC5C425FA74C200731EDA /* middleoflakecheat.z80 in Resources */,
-				CDA173B226091C9800910C23 /* trevorbrooking.sna in Resources */,
-				CDA173C226091C9800910C23 /* cyberrun.sna in Resources */,
-				CDA173A626091C9800910C23 /* footballmanager2.sna in Resources */,
-				CDA1744A26091C9800910C23 /* tirnanog.sna in Resources */,
-				CDA1743C26091C9800910C23 /* aticatac.sna in Resources */,
-				CDA173D626091C9800910C23 /* repton.sna in Resources */,
-				CDA1744826091C9800910C23 /* crimebusters_notthatone.sna in Resources */,
-				CDA1741C26091C9800910C23 /* knighttyme128.z80 in Resources */,
-				CDA1740C26091C9800910C23 /* kwah.sna in Resources */,
-				CDA173C826091C9800910C23 /* redhawk_side1.sna in Resources */,
-				CDA173A426091C9800910C23 /* transylvaniantower.sna in Resources */,
-				CDA173B626091C9800910C23 /* crimebustersinc.sna in Resources */,
-				CDA1739626091C9800910C23 /* hunchback.sna in Resources */,
-				CDA1743626091C9800910C23 /* wriggler.sna in Resources */,
-				CDA1740826091C9800910C23 /* mugsy.sna in Resources */,
+				CDEF9A50261B7F0500729043 /* supersprint.sna in Resources */,
+				CDEF9ACA261B7F0500729043 /* universalhero.sna in Resources */,
+				CDEF9A54261B7F0500729043 /* jetSetWilly2.z80 in Resources */,
+				CDEF9A7C261B7F0500729043 /* backToSkool.z80 in Resources */,
+				CDEF9ADA261B7F0500729043 /* mugsysrevenge.sna in Resources */,
+				CDEF9A80261B7F0500729043 /* urbanupstart.sna in Resources */,
+				CDEF9A4E261B7F0500729043 /* superSprint.z80 in Resources */,
+				CDEF9A6C261B7F0500729043 /* shakenbutnotstired.sna in Resources */,
+				CDEF9A56261B7F0500729043 /* aticatac.sna in Resources */,
+				CDEF9AA4261B7F0500729043 /* skoolDaze.z80 in Resources */,
+				CDEF9AC6261B7F0500729043 /* transylvaniantower.sna in Resources */,
+				CDEF9A86261B7F0500729043 /* adayinthelife.sna in Resources */,
+				CDEF9A5C261B7F0500729043 /* chuckyEgg2.z80 in Resources */,
+				CDEF9AAE261B7F0500729043 /* dizzy_TI.sna in Resources */,
+				CDEF9ABC261B7F0500729043 /* actionbiker.sna in Resources */,
+				CDEF9A96261B7F0500729043 /* contactsamcruise.sna in Resources */,
+				CDEF9AE0261B7F0500729043 /* ticket_to_ride.tzx in Resources */,
+				CDEF9AEE261B7F0500729043 /* forestOfDoom.z80 in Resources */,
+				CDEF9AD6261B7F0500729043 /* wildbunch.sna in Resources */,
 				CDA172612604962100910C23 /* ZX128k+3.rom in Resources */,
-				CDA173E226091C9800910C23 /* Action Biker.tzx in Resources */,
-				CDA1742026091C9800910C23 /* curseofsherwood.sna in Resources */,
-				CDA1745226091C9800910C23 /* dynamitedan2.sna in Resources */,
-				CDA173F826091C9800910C23 /* testtape.tap in Resources */,
-				CDA1743826091C9800910C23 /* superspy.sna in Resources */,
-				CDA1741E26091C9800910C23 /* urbanupstart.sna in Resources */,
+				CDEF9AE8261B7F0500729043 /* shipoftheline.sna in Resources */,
+				CDEF9A58261B7F0500729043 /* dizzy_Magicland.sna in Resources */,
+				CDEF9AB6261B7F0500729043 /* completebastard.sna in Resources */,
+				CDEF9A88261B7F0500729043 /* henryshoard.sna in Resources */,
+				CDEF9AC8261B7F0500729043 /* lifeterm.z80 in Resources */,
+				CDEF9AAA261B7F0500729043 /* ChampionshipSprint.z80 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,111 +1217,94 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA173AD26091C9800910C23 /* zzzz.sna in Resources */,
+				CDEF9AB9261B7F0500729043 /* boredoftherings.sna in Resources */,
+				CDEF9AA7261B7F0500729043 /* codenameMat2.z80 in Resources */,
+				CDEF9A51261B7F0500729043 /* supersprint.sna in Resources */,
+				CDEF9ABB261B7F0500729043 /* devilsOfTheDeep.z80 in Resources */,
+				CDEF9AD3261B7F0500729043 /* warlockOfFiretopMountain.z80 in Resources */,
+				CDEF9AF3261B7F0500729043 /* youngones.sna in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
-				CDA1744F26091C9800910C23 /* shakenbutnotstired.sna in Resources */,
-				CDA1739726091C9800910C23 /* hunchback.sna in Resources */,
-				CDA173C326091C9800910C23 /* cyberrun.sna in Resources */,
-				CDA173C926091C9800910C23 /* redhawk_side1.sna in Resources */,
-				CDA1742126091C9800910C23 /* curseofsherwood.sna in Resources */,
-				CDA173F926091C9800910C23 /* testtape.tap in Resources */,
-				CDA173CB26091C9800910C23 /* twinkingdomvalley.sna in Resources */,
-				CDA1742D26091C9800910C23 /* contactsamcruise.sna in Resources */,
-				CDA173D526091C9800910C23 /* invincibleisland.sna in Resources */,
-				CDA173AF26091C9800910C23 /* brian.sna in Resources */,
-				CDA173D126091C9800910C23 /* ticket_to_ride.tzx in Resources */,
-				CDA1744126091C9800910C23 /* inferno.sna in Resources */,
-				CDA1742926091C9800910C23 /* threeweeksinparadise.sna in Resources */,
-				CDA173A326091C9800910C23 /* seabasedelta.sna in Resources */,
-				CDA173A926091C9800910C23 /* chubby.sna in Resources */,
-				CDA1743526091C9800910C23 /* boredoftherings.sna in Resources */,
-				CDA173D926091C9800910C23 /* necrisdome.sna in Resources */,
-				CDA1742B26091C9800910C23 /* knightorc_1.sna in Resources */,
-				CDA1743B26091C9800910C23 /* sherlock.sna in Resources */,
-				CDA173EF26091C9800910C23 /* dizzy_Magicland.sna in Resources */,
-				CDA173F326091C9800910C23 /* universalhero.sna in Resources */,
-				CDA173ED26091C9800910C23 /* mooncresta.sna in Resources */,
-				CDA1740F26091C9800910C23 /* bugsy.sna in Resources */,
-				CDA173F726091C9800910C23 /* adayinthelife.sna in Resources */,
-				CDA173A526091C9800910C23 /* transylvaniantower.sna in Resources */,
-				CDA1739F26091C9800910C23 /* testand.sna in Resources */,
-				CDA1740526091C9800910C23 /* actionbiker.sna in Resources */,
-				CDA17321260917E900910C23 /* deflektor.sna in Resources */,
-				CDA173E726091C9800910C23 /* hampstead.sna in Resources */,
-				CDA173F126091C9800910C23 /* montyontherun.sna in Resources */,
-				CDA1739126091C9800910C23 /* penetrator.sna in Resources */,
-				CDA1743926091C9800910C23 /* superspy.sna in Resources */,
-				CDA1744926091C9800910C23 /* crimebusters_notthatone.sna in Resources */,
-				CDA173B126091C9800910C23 /* stbernard.sna in Resources */,
-				CDA1739326091C9800910C23 /* completebastard.sna in Resources */,
-				CDA1741F26091C9800910C23 /* urbanupstart.sna in Resources */,
-				CDA1739526091C9800910C23 /* henryshoard.sna in Resources */,
-				CDA1739B26091C9800910C23 /* brian.szx in Resources */,
-				CDA173CD26091C9800910C23 /* ericandthefloaters.sna in Resources */,
-				CDA1743726091C9800910C23 /* wriggler.sna in Resources */,
-				CDA173BB26091C9800910C23 /* rocknwrestle.sna in Resources */,
-				CDA173D326091C9800910C23 /* dizzy_ck.sna in Resources */,
+				CDEF9ACB261B7F0500729043 /* universalhero.sna in Resources */,
+				CDEF9A99261B7F0500729043 /* mugsy.sna in Resources */,
+				CDEF9A77261B7F0500729043 /* Inferno(RS).z80 in Resources */,
+				CDEF9A6B261B7F0500729043 /* twinkingdomvalley.sna in Resources */,
+				CDEF9A61261B7F0500729043 /* seasOfBlood.z80 in Resources */,
+				CDEF9A7B261B7F0500729043 /* ericandthefloaters.sna in Resources */,
+				CDEF9AE5261B7F0500729043 /* redhawk_side1.sna in Resources */,
+				CDEF9ADD261B7F0500729043 /* knightorc_1.sna in Resources */,
+				CDEF9AB3261B7F0500729043 /* codenameMat.z80 in Resources */,
+				CDEF9A6F261B7F0500729043 /* sherlock.sna in Resources */,
+				CDEF9A55261B7F0500729043 /* jetSetWilly2.z80 in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
-				CDA173B526091C9800910C23 /* robinofsherlock.sna in Resources */,
-				CDA1740926091C9800910C23 /* mugsy.sna in Resources */,
-				CDA1745726091C9800910C23 /* shipoftheline.sna in Resources */,
-				CDA173B326091C9800910C23 /* trevorbrooking.sna in Resources */,
-				CDA173BD26091C9800910C23 /* incredibleshrinkingfireman.sna in Resources */,
-				CDA1741926091C9800910C23 /* subsunk.sna in Resources */,
-				CDA1741126091C9800910C23 /* emotion.sna in Resources */,
-				CDA1741326091C9800910C23 /* blizzardpass.sna in Resources */,
-				CD0CC5C525FA74C200731EDA /* middleoflakecheat.z80 in Resources */,
-				CDA1742326091C9800910C23 /* grumpygumphrey.sna in Resources */,
-				CDA173B726091C9800910C23 /* crimebustersinc.sna in Resources */,
-				CDA1739D26091C9800910C23 /* megabucks.sna in Resources */,
-				CDA1742726091C9800910C23 /* dizzy_fw.sna in Resources */,
-				CDA1743326091C9800910C23 /* ianbothamstestmatch.sna in Resources */,
-				CDA1741726091C9800910C23 /* lordoftherings.sna in Resources */,
-				CDA173BF26091C9800910C23 /* questfortheholygrail.sna in Resources */,
-				CDA1745526091C9800910C23 /* tripods.sna in Resources */,
+				CDEF9ABD261B7F0500729043 /* actionbiker.sna in Resources */,
+				CDEF9A69261B7F0500729043 /* forestAtWorldsEnd.z80 in Resources */,
+				CDEF9A85261B7F0500729043 /* dizzy_potyf.sna in Resources */,
+				CDEF9A8D261B7F0500729043 /* bugsy.sna in Resources */,
+				CDEF9A67261B7F0500729043 /* subsunk.sna in Resources */,
+				CDEF9AA3261B7F0500729043 /* dizzy_fw.sna in Resources */,
+				CDEF9A57261B7F0500729043 /* aticatac.sna in Resources */,
+				CDEF9A75261B7F0500729043 /* skistar2000.z80 in Resources */,
+				CDEF9AC7261B7F0500729043 /* transylvaniantower.sna in Resources */,
+				CDEF9AE9261B7F0500729043 /* shipoftheline.sna in Resources */,
+				CDEF9A7F261B7F0500729043 /* cyberrun.Z80 in Resources */,
+				CDEF9AC3261B7F0500729043 /* testand.sna in Resources */,
+				CDEF9A5F261B7F0500729043 /* spectest.z80 in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
-				CDA173DF26091C9800910C23 /* marsport.sna in Resources */,
-				CDA173AB26091C9800910C23 /* worminparadise.sna in Resources */,
-				CDA1743F26091C9800910C23 /* stevedavissnooker.sna in Resources */,
-				CDA1740126091C9800910C23 /* specialoperations.sna in Resources */,
-				CDA1744D26091C9800910C23 /* supersprint.sna in Resources */,
+				CDEF9A7D261B7F0500729043 /* backToSkool.z80 in Resources */,
+				CDEF9AE1261B7F0500729043 /* ticket_to_ride.tzx in Resources */,
+				CDEF9ACD261B7F0500729043 /* brian.sna in Resources */,
+				CDEF9AC9261B7F0500729043 /* lifeterm.z80 in Resources */,
+				CDEF9AB1261B7F0500729043 /* seabasedelta.sna in Resources */,
+				CDEF9AC1261B7F0500729043 /* redmoon.sna in Resources */,
+				CDEF9ADF261B7F0500729043 /* booty.sna in Resources */,
+				CDEF9A8B261B7F0500729043 /* superspy.sna in Resources */,
+				CDEF9AD5261B7F0500729043 /* dizzy_ck.sna in Resources */,
+				CDEF9AD1261B7F0500729043 /* hampstead.sna in Resources */,
+				CDEF9A63261B7F0500729043 /* kwah.sna in Resources */,
+				CDEF9A65261B7F0500729043 /* mooncresta.sna in Resources */,
+				CDEF9A91261B7F0500729043 /* lordoftherings.sna in Resources */,
+				CDEF9AF1261B7F0500729043 /* lordsoftime.sna in Resources */,
+				CDEF9AE3261B7F0500729043 /* xcel.sna in Resources */,
+				CDEF9AAB261B7F0500729043 /* ChampionshipSprint.z80 in Resources */,
+				CDEF9AAF261B7F0500729043 /* dizzy_TI.sna in Resources */,
+				CDEF9AEF261B7F0500729043 /* forestOfDoom.z80 in Resources */,
+				CDEF9A89261B7F0500729043 /* henryshoard.sna in Resources */,
+				CDEF9A71261B7F0500729043 /* incredibleshrinkingfireman.sna in Resources */,
+				CDEF9ADB261B7F0500729043 /* mugsysrevenge.sna in Resources */,
+				CDEF9AED261B7F0500729043 /* megabucks.sna in Resources */,
+				CDEF9A97261B7F0500729043 /* contactsamcruise.sna in Resources */,
+				CDEF9B3B261CCEEF00729043 /* knighttyme128.z80 in Resources */,
+				CDEF9ACF261B7F0500729043 /* necrisdome.sna in Resources */,
+				CDEF9A73261B7F0500729043 /* custerdsQuest.z80 in Resources */,
+				CDEF9AE7261B7F0500729043 /* cauldron.z80 in Resources */,
+				CDEF9ABF261B7F0500729043 /* dundarach.sna in Resources */,
+				CDEF9A5D261B7F0500729043 /* chuckyEgg2.z80 in Resources */,
+				CDEF9AEB261B7F0500729043 /* wriggler.sna in Resources */,
+				CDEF9A4F261B7F0500729043 /* superSprint.z80 in Resources */,
+				CDEF9A81261B7F0500729043 /* urbanupstart.sna in Resources */,
+				CDEF9A8F261B7F0500729043 /* zzzz.sna in Resources */,
+				CDEF9AB5261B7F0500729043 /* tirnanog.sna in Resources */,
+				CDEF9AAD261B7F0500729043 /* dizzy.z80 in Resources */,
+				CDEF9A9F261B7F0500729043 /* testz80.sna in Resources */,
+				CDEF9A83261B7F0500729043 /* jock&theTimeRings.z80 in Resources */,
+				CDEF9A53261B7F0500729043 /* everyonesawally.sna in Resources */,
+				CDEF9A59261B7F0500729043 /* dizzy_Magicland.sna in Resources */,
+				CDEF9AA9261B7F0500729043 /* invincibleisland.sna in Resources */,
+				CDEF9A5B261B7F0500729043 /* montyontherun.sna in Resources */,
+				CDEF9A87261B7F0500729043 /* adayinthelife.sna in Resources */,
+				CDEF9A93261B7F0500729043 /* threeweeksinparadise.sna in Resources */,
+				CDEF9AB7261B7F0500729043 /* completebastard.sna in Resources */,
 				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
-				CDA1744B26091C9800910C23 /* tirnanog.sna in Resources */,
-				CDA1740726091C9800910C23 /* redmoon.sna in Resources */,
-				CDA1744726091C9800910C23 /* dontpanic.sna in Resources */,
-				CDA173C726091C9800910C23 /* lordsoftime.sna in Resources */,
-				CDA1740326091C9800910C23 /* minder.sna in Resources */,
-				CDA173DD26091C9800910C23 /* survival_adventure.sna in Resources */,
-				CDA173E126091C9800910C23 /* footballmanager2_wh.sna in Resources */,
-				CDA173B926091C9800910C23 /* dizzy.z80 in Resources */,
-				CDA173C526091C9800910C23 /* dizzy_TI.sna in Resources */,
-				CDA1740D26091C9800910C23 /* kwah.sna in Resources */,
-				CDA1743D26091C9800910C23 /* aticatac.sna in Resources */,
-				CDA173A726091C9800910C23 /* footballmanager2.sna in Resources */,
-				CDA173FD26091C9800910C23 /* wildbunch.sna in Resources */,
-				CDA173D726091C9800910C23 /* repton.sna in Resources */,
-				CDA1745326091C9800910C23 /* dynamitedan2.sna in Resources */,
-				CDA173A126091C9800910C23 /* testz80.sna in Resources */,
-				CDA1744526091C9800910C23 /* fivedoctors.sna in Resources */,
-				CDA173FB26091C9800910C23 /* matchoftheday.sna in Resources */,
-				CDA173E326091C9800910C23 /* Action Biker.tzx in Resources */,
-				CDA1742F26091C9800910C23 /* xcel.sna in Resources */,
-				CDA1740B26091C9800910C23 /* dizzy_potyf.sna in Resources */,
-				CDA173E926091C9800910C23 /* dynamitedan.sna in Resources */,
-				CDA173CF26091C9800910C23 /* booty.sna in Resources */,
-				CDA1742526091C9800910C23 /* mugsysrevenge.sna in Resources */,
-				CDA173E526091C9800910C23 /* everyonesawally.sna in Resources */,
-				CDA1745926091C9800910C23 /* dandy.sna in Resources */,
-				CDA1741526091C9800910C23 /* matchday2.sna in Resources */,
-				CDA173F526091C9800910C23 /* cavesofdoom.sna in Resources */,
-				CDA173DB26091C9800910C23 /* hunchback2.sna in Resources */,
-				CDA1741D26091C9800910C23 /* knighttyme128.z80 in Resources */,
-				CDA1738F26091C9800910C23 /* dundarach.sna in Resources */,
-				CDA1743126091C9800910C23 /* galaxians.sna in Resources */,
-				CDA1745126091C9800910C23 /* youngones.sna in Resources */,
-				CDA1739926091C9800910C23 /* Dizzy.sna in Resources */,
-				CDA173C126091C9800910C23 /* lordoftherings_2.sna in Resources */,
-				CDA1744326091C9800910C23 /* spectest.z80 in Resources */,
+				CDEF9AA5261B7F0500729043 /* skoolDaze.z80 in Resources */,
+				CDEF9A95261B7F0500729043 /* crimebustersinc.sna in Resources */,
+				CDEF9A79261B7F0500729043 /* castlemaster.z80 in Resources */,
+				CDEF9A9B261B7F0500729043 /* penetrator.sna in Resources */,
+				CDEF9AD9261B7F0500729043 /* marsport.sna in Resources */,
+				CDEF9AA1261B7F0500729043 /* questfortheholygrail.sna in Resources */,
+				CDEF9AD7261B7F0500729043 /* wildbunch.sna in Resources */,
+				CDEF9AC5261B7F0500729043 /* deflektor.sna in Resources */,
+				CDEF9A6D261B7F0500729043 /* shakenbutnotstired.sna in Resources */,
+				CDEF9A9D261B7F0500729043 /* colourOfMagic.z80 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,11 +1343,13 @@
 				CDA1727D260498C600910C23 /* Z80.swift in Sources */,
 				CDA173172609172E00910C23 /* SNAFormat.swift in Sources */,
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
+				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC59A25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
 				CD0CC5AC25FA6C4000731EDA /* ZXColor.swift in Sources */,
+				CDEF99F4261A602700729043 /* DisassemblySheet.swift in Sources */,
 				CD0CC5A625FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5E725FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914882600EA6800C75998 /* CPU.swift in Sources */,
@@ -1443,10 +1366,12 @@
 				CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
+				CDEF9B34261CB94A00729043 /* Speccy128.swift in Sources */,
 				CDEF99A32612674800729043 /* ComputerModel.swift in Sources */,
 				CDA172E52605521500910C23 /* KeyInputController.swift in Sources */,
 				CD0CC59825FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
+				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
 				CDA1727F260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
@@ -1475,6 +1400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEF9B35261CB94A00729043 /* Speccy128.swift in Sources */,
 				CDEF99E32614BF7A00729043 /* TypeSelector.swift in Sources */,
 				CDEF99A42612674800729043 /* ComputerModel.swift in Sources */,
 				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
@@ -1502,6 +1428,7 @@
 				CD0CC5A125FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
 				CDA172A82604B37000910C23 /* allTests80toca.swift in Sources */,
 				CDA1727E260498C600910C23 /* Z80.swift in Sources */,
+				CDEF9B25261C852200729043 /* SettingsSheet.swift in Sources */,
 				CDA172AC2604B37000910C23 /* allTestsP_FD_ALL.swift in Sources */,
 				CD89147625FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CD0CC58D25FA6C4000731EDA /* FileFormat.swift in Sources */,
@@ -1522,6 +1449,7 @@
 				CDA1728B26049ADA00910C23 /* Flag.swift in Sources */,
 				CDA172A62604B37000910C23 /* allTestsP_DDCB80toff.swift in Sources */,
 				CDA1746F2609253600910C23 /* PressActions.swift in Sources */,
+				CDEF9B2C261C944500729043 /* EmptyCPU.swift in Sources */,
 				CDA172B82604B37000910C23 /* allTestsP_CB80toff.swift in Sources */,
 				CD0CC5AD25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */,

@@ -11,9 +11,10 @@ import SwiftUI
 
 class Speccy: Z80 {
     
-    static var instance = Speccy()
     let beeper = ZXBeeper()
     var borderColour: Color = .black
+    
+    static var instanceSpectrum48: Speccy? = nil
     
     override init() {
         super.init()
@@ -28,6 +29,20 @@ class Speccy: Z80 {
     var kempston: UInt8 = 0x00
     var initPc: UInt16 = 0x5B00
     var screenImage = ZXBitmap(width: 256, height: 192, color: .blue)
+    
+    static func getSpectrum48Instance() -> Speccy{
+        if let instance = Speccy.instanceSpectrum48 {
+        return instance
+    }
+        Speccy.instanceSpectrum48 = Speccy()
+        return Speccy.instanceSpectrum48!
+    }
+    
+    override func disengage(){
+        beeper.stop()
+        Speccy.instanceSpectrum48 = nil
+    }
+    
     func loadRom(){
         if (testMode){
             rom = Array(repeating: 0x00, count: 0x4000)
@@ -218,11 +233,17 @@ class Speccy: Z80 {
     }
     
     override func startProcessing() {
+        processing = true
         DispatchQueue.background(background: {
             self.process()
         }, completion:{
-            // when background job finished, do something in main thread
+            print("48K Spectrum processing completed")
         })
+    }
+    
+    override func stopProcessing() {
+        pauseProcessor = true
+        processing = false
     }
     
     override func blitScreen(){
@@ -251,7 +272,7 @@ class Speccy: Z80 {
     
     override func process(){
         currentTStates = 0
-        while true {
+        while processing {
             if !pauseProcessor {
                 if (!frameEnds) {
                     if (shouldRunInterupt){
@@ -295,9 +316,9 @@ class Speccy: Z80 {
                         ////                    print("Breaking here")
                         ////                    }
                         //               }
-                        
+                        self.doAdditionalPreProcessing()
                         opCode(byte: byte)
- //                       beeper.updateSample(UInt32(currentTStates), beep: clicks)
+                        self.doAdditionalPostProcessing()
                         
                     }
                     if currentTStates >= tStatesPerFrame {
@@ -316,6 +337,14 @@ class Speccy: Z80 {
                 }
             }
         }
+    }
+    
+    func doAdditionalPreProcessing(){
+        
+    }
+    
+    func doAdditionalPostProcessing(){
+        beeper.updateSample(UInt32(currentTStates), beep: clicks)
     }
     
     func runInterupt() {

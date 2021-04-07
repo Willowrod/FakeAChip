@@ -16,9 +16,14 @@ protocol CoreDelegate {
 
 class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
-    
+    let supportedComputers: [ComputerModel] = [.Sinclair_Spectrum_48K, .Sinclair_Spectrum_128K]
     
     var delegate: CoreDelegate?
+    var isShowingSettings = false
+    
+    var currentComputerInstance: CPU = EmptyCPU() // = Speccy.instance
+    
+    @Published var emulatedSystem: ComputerModel = .Sinclair_Spectrum_48K
     
     @Published var host: HostSystem
     @Published var environment: SystemEnvironment = .Emulation
@@ -60,6 +65,35 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     var seconds = 0
     @Published var debugModel: DebugModel = DebugModel()
     
+    func changeEnvironment(model: ComputerModel){
+        if supportedComputers.contains(model){
+        emulatedSystem = model
+            bootNewSystem(model: model)
+        } else {
+            print ("\(model.rawValue) is not currently supported")
+        }
+    }
+    
+    func bootNewSystem(model: ComputerModel){
+        // Known supported models!
+        let oldModel = currentComputerInstance
+        currentComputerInstance.stopProcessing()
+        switch model {
+        case .Sinclair_Spectrum_48K:
+            currentComputerInstance = Speccy.getSpectrum48Instance()
+            delegate = currentComputerInstance
+        case .Sinclair_Spectrum_128K:
+            currentComputerInstance = Speccy128.getSpectrum128Instance()
+            delegate = currentComputerInstance
+        default:
+            currentComputerInstance = Speccy.getSpectrum48Instance()
+            delegate = currentComputerInstance
+        }
+        currentComputerInstance.addSettings(self)
+        currentComputerInstance.startProcessing()
+        oldModel.disengage()
+    }
+    
     func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
         _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
     }
@@ -70,6 +104,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
     init(_ host: HostSystem) {
         self.host = host
+        changeEnvironment(model: .Sinclair_Spectrum_128K)
     }
     
     func keyboardInteraction(key: Int, pressed: Bool){
