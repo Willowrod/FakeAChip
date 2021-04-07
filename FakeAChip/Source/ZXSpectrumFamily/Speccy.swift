@@ -189,7 +189,7 @@ class Speccy: Z80 {
         } else {
             print("Unknown or bad file = \(file)")
         }
-        
+        jumpPoints.removeAll()
         interupt = true
         pauseProcessor = false
     }

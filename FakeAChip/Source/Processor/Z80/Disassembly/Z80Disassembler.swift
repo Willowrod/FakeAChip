@@ -331,7 +331,7 @@ class Z80Disassembler {
             var addon = true
             while routine.startLine > currentStartLine {
                 addon = false
-                var chunkEnd = routine.startLine//currentStartLine + maxUnknownSectionLength
+                let chunkEnd = routine.startLine//currentStartLine + maxUnknownSectionLength
 //                if chunkEnd > routine.startLine {
 //                    chunkEnd = routine.startLine
 //                }
@@ -351,8 +351,8 @@ class Z80Disassembler {
     }
     
     func routineLengthChunk(_ start: Int, chunkEnd: Int) -> Int{
-        if chunkEnd < 0x5B00 {
-            return chunkEnd
+        if start < 0x5B00 {
+            return 0x5B00
         }
         //var opCodeSet: [OpCode] = []
         let unknownCode = memoryDump[start..<chunkEnd]
