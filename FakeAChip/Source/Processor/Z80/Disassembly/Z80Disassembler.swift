@@ -26,6 +26,7 @@ class Z80Disassembler {
     var delegate: DisassemblyDelegate? = nil
     var isCalc = false
     var maxUnknownSectionLength = 256
+    var minimumTextLength = 6
     
     init(withData: [UInt8], knownJumpPoints: [UInt16], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
         memoryDump = withData
@@ -65,6 +66,9 @@ class Z80Disassembler {
             disassemblySection.startingLine = UInt16(routine.startLine)
             disassemblySection.title = routine.title
             disassemblySection.type = routine.type
+            if routine.type == .POTENTIALTEXT {
+                disassemblySection.isShowing = true
+            }
             routine.code.forEach{line in
                 let disassemblyLine = DisassemblyLineModel()
                 disassemblyLine.line = UInt16(line.line)
@@ -163,7 +167,9 @@ class Z80Disassembler {
                 var secondextra = ""
                 secondextra = getCodeByteHex()
                 currentPC -= 1
-                opCode = opcodeLookup.opCode(code: "\(opCode.value)\(thisCode)", extra: getCodeByteHex(), secondExtra: secondextra)
+          //      opCode = opcodeLookup.opCode(code: "\(opCode.value)\(thisCode)", extra: getCodeByteHex(), secondExtra: secondextra)
+                opCode = opcodeLookup.opCode(code: "\(opCode.value)\(thisCode)", extra: extra, secondExtra: secondextra)
+                
             }
             if opCode.length == 2 {
                 let byte = getCodeByteInt()
@@ -325,10 +331,10 @@ class Z80Disassembler {
             var addon = true
             while routine.startLine > currentStartLine {
                 addon = false
-                var chunkEnd = currentStartLine + maxUnknownSectionLength
-                if chunkEnd > routine.startLine {
-                    chunkEnd = routine.startLine
-                }
+                var chunkEnd = routine.startLine//currentStartLine + maxUnknownSectionLength
+//                if chunkEnd > routine.startLine {
+//                    chunkEnd = routine.startLine
+//                }
                 currentStartLine = routineLengthChunk(currentStartLine, chunkEnd: chunkEnd)
             }
             if addon {
@@ -348,20 +354,69 @@ class Z80Disassembler {
         if chunkEnd < 0x5B00 {
             return chunkEnd
         }
-        var opCodeSet: [OpCode] = []
+        //var opCodeSet: [OpCode] = []
         let unknownCode = memoryDump[start..<chunkEnd]
-        var count = start
+        var chunkStart = start
+        var textBytes:[UInt8] = []
+        var nonTextBytes:[UInt8] = []
         unknownCode.forEach{ byte in
+            if byte >= 0x20 && byte <= 0x7C{
+                textBytes.append(byte)
+                if textBytes.count >= minimumTextLength && nonTextBytes.count > 0 {
+                    addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED)
+                    chunkStart += nonTextBytes.count
+                    nonTextBytes.removeAll()
+                }
+            } else {
+                if textBytes.count > minimumTextLength {
+                    addChunkOfData(textBytes, startChunk: chunkStart, type: .POTENTIALTEXT)
+                    chunkStart += textBytes.count
+                    textBytes.removeAll()
+                } else if textBytes.count > 0 {
+                    nonTextBytes.append(contentsOf: textBytes)
+                    textBytes.removeAll()
+                }
+                
+                nonTextBytes.append(byte)
+                if nonTextBytes.count > maxUnknownSectionLength {
+                    addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED)
+                    chunkStart += nonTextBytes.count
+                    nonTextBytes.removeAll()
+                }
+            }
+        }
+        if textBytes.count > minimumTextLength {
+            addChunkOfData(textBytes, startChunk: chunkStart, type: .POTENTIALTEXT)
+            chunkStart += textBytes.count
+            textBytes.removeAll()
+        } else if textBytes.count > 0 {
+            nonTextBytes.append(contentsOf: textBytes)
+            textBytes.removeAll()
+        }
+        
+        if nonTextBytes.count > 0 {
+            addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED)
+            chunkStart += nonTextBytes.count
+            nonTextBytes.removeAll()
+        }
+
+        return chunkEnd
+    }
+    
+    func addChunkOfData(_ data: [UInt8], startChunk: Int, type: DataType){
+        let chunkEnd = startChunk + data.count
+        var opCodeSet: [OpCode] = []
+        var count = startChunk
+        data.forEach{ byte in
             var unknownOpCode = OpCode(v: "UNKNOWN", c: byte.hex(), m: byte.hex(), l: 1)
             unknownOpCode.line = count
             unknownOpCode.lineType = .DATA
             opCodeSet.append(unknownOpCode)
             count += 1
         }
-        let title = "\(UInt16(start).hex()) - \(UInt16(chunkEnd - 1).hex()) - Undefined"
-        allRoutines.append(CodeRoutine(startLine: start, length: chunkEnd - start, code: opCodeSet, description: "", title: title, type: .UNDEFINED))
+        let title = "\(UInt16(startChunk).hex()) - \(UInt16(startChunk + data.count - 1).hex()) - \(type.rawValue.capitalized)"
+        allRoutines.append(CodeRoutine(startLine: startChunk, length: chunkEnd - startChunk, code: opCodeSet, description: "", title: title, type: type))
         print("Found routine \(title)")
-        return chunkEnd
     }
     
     func sweep3(){

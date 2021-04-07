@@ -65,6 +65,11 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     var seconds = 0
     @Published var debugModel: DebugModel = DebugModel()
     
+    init(_ host: HostSystem) {
+        self.host = host
+        changeEnvironment(model: .Sinclair_Spectrum_48K)
+    }
+    
     func changeEnvironment(model: ComputerModel){
         if supportedComputers.contains(model){
         emulatedSystem = model
@@ -100,11 +105,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
     func disassemblyComplete(disassembly: DisassemblyModel) {
         self.disassembly = disassembly
-    }
-    
-    init(_ host: HostSystem) {
-        self.host = host
-        changeEnvironment(model: .Sinclair_Spectrum_128K)
     }
     
     func keyboardInteraction(key: Int, pressed: Bool){

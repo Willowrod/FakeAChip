@@ -39,6 +39,7 @@ class Speccy: Z80 {
     }
     
     override func disengage(){
+        pause()
         beeper.stop()
         Speccy.instanceSpectrum48 = nil
     }

@@ -26,7 +26,7 @@ struct DisassemblySection: View {
                     switch section.type {
                     case .CODE:
                         DisassemblerCodeSection(section: section)
-                    case .TEXT:
+                    case .TEXT, .POTENTIALTEXT:
                         DisassemblerTextSection(section: section)
                     default:
                         Text("Other shizzle")

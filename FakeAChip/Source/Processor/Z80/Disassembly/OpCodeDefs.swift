@@ -729,7 +729,7 @@ class OpCodeDefs {
         case "DDBE":
         return OpCode(v: code, c: "CP (IX+§§)", m: " ", l: 2)
         case "DDCB":
-            return opCode(code: "DDCB\(secondExtra)", secondExtra: "")
+        return doubleExtendedOpCode(code: "DDCB\(secondExtra)", secondExtra: "") //, extra: extra
         case "DDE1":
         return OpCode(v: code, c: "POP IX", m: " ", l: 1)
         case "DDE3":
@@ -1411,7 +1411,7 @@ class OpCodeDefs {
                 case "FDBE":
                 return OpCode(v: code, c: "CP (IY+§§)", m: " ", l: 2)
         case "FDCB":
-            return opCode(code: "FDCB\(secondExtra)", secondExtra: "")
+            return doubleExtendedOpCode(code: "FDCB\(secondExtra)", secondExtra: "")
                 case "FDE1":
                 return OpCode(v: code, c: "POP IY", m: " ", l: 1)
                 case "FDE3":
@@ -1633,6 +1633,21 @@ class OpCodeDefs {
         return OpCode(v: code, c: "[z80]", m: " ", l: 1)
         case "EDFF":
         return OpCode(v: code, c: "ED_DOS", m: " ", l: 1)
+        
+                   
+            
+            
+            
+        default:
+            return OpCode(v: code, c: "Unknown", m: "Value is not known", l: 1, e: true)
+
+        }
+        
+    }
+    
+    func doubleExtendedOpCode(code: String, extra: String = "", secondExtra: String = "") -> OpCode {
+        
+        switch(code.uppercased()){
         case "DDCB00":
                       return OpCode(v: code, c: "RLC (ix+§§)->b", m: " ", l: 2)
                       case "DDCB01":
@@ -2658,15 +2673,11 @@ class OpCodeDefs {
                       return OpCode(v: code, c: "SET 7,(IY+§§)", m: " ", l: 2)
                       case "FDCBFF":
                       return OpCode(v: code, c: "SET 7,(iy+§§)->a", m: " ", l: 2)
-                   
-            
-            
-            
+                        
         default:
             return OpCode(v: code, c: "Unknown", m: "Value is not known", l: 1, e: true)
 
         }
-        
     }
     
     

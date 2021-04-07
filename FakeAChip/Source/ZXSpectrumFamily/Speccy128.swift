@@ -160,7 +160,7 @@ override func loadRom(){
 // Ram / Rom swap
           if (bankSwitchEnabled){
           let newRamBank = source.value() & 0x07
-          let newScreenBank = source.value() & 0x08
+         // let newScreenBank = source.value() & 0x08
           let newRomBank = source.value() & 0x10
           let disableSwitch = source.value() & 0x20
 
@@ -287,6 +287,7 @@ override func loadRom(){
     }
     
     override func disengage(){
+        pause()
         beeper.stop()
         Speccy128.instanceSpectrum128 = nil
     }

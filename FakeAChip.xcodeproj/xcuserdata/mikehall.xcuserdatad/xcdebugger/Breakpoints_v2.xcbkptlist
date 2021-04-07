@@ -14,8 +14,8 @@
             filePath = "FakeAChip/Source/Processor/Z80/Disassembly/Z80Disassembler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "sweep1()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "FakeAChip/Source/Processor/Z80/Disassembly/Z80Disassembler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "init(withData:knownJumpPoints:fromPC:delegate:shouldIncludeRom:shouldIncludeScreen:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,74 +110,10 @@
             filePath = "FakeAChip/Source/Common/FakeAChipData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "bootNewSystem(model:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FAE1228F-5471-47E2-B195-B0AD185D5C69"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/SharedComponents/SettingsSheet.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FAE1228F-5471-47E2-B195-B0AD185D5C69 - 8f66b6f4b945648"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FakeAChip.SettingsSheet.body.getter : some"
-                  moduleName = "FakeAChip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikehall/Src/Willowrod/Willowrod/FakeAChip/FakeAChip/Source/SharedComponents/SettingsSheet.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "219">
-               </Location>
-               <Location
-                  uuid = "FAE1228F-5471-47E2-B195-B0AD185D5C69 - 50875a5e0dbc982e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Menu&lt;SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;FakeAChip.ComputerType&gt;, FakeAChip.ComputerType, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;FakeAChip.ComputerType&gt;, FakeAChip.ComputerType, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;FakeAChip.ComputerModel&gt;, FakeAChip.ComputerModel, SwiftUI.Button&lt;SwiftUI.Text&gt;&gt;)&gt;&gt;)&gt;&gt;&gt;)&gt;&gt;)&gt; in FakeAChip.SettingsSheet.body.getter : some"
-                  moduleName = "FakeAChip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikehall/Src/Willowrod/Willowrod/FakeAChip/FakeAChip/Source/SharedComponents/SettingsSheet.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "387">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51D3D263-400E-4F70-A0F2-6FCE9A09B5C7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/SharedComponents/SettingsSheet.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,8 +126,8 @@
             filePath = "FakeAChip/Source/Common/FakeAChipData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "changeEnvironment(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +158,8 @@
             filePath = "FakeAChip/Source/ZXSpectrumFamily/Speccy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "process()"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +174,8 @@
             filePath = "FakeAChip/Source/Common/FakeAChipData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "bootNewSystem(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -258,6 +194,22 @@
             endingLineNumber = "51"
             landmarkName = "vdu"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8723EBF6-8C08-4B2A-9361-EB87E7188A81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FakeAChip/Source/ZXSpectrumFamily/Speccy128.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "disengage()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
