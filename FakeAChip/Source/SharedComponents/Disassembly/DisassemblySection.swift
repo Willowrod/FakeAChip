@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DisassemblySection: View {
     @ObservedObject var section: DisassemblySectionModel
+    let undefinedType: DataType
     var body: some View {
      
 
@@ -26,10 +27,23 @@ struct DisassemblySection: View {
                     switch section.type {
                     case .CODE:
                         DisassemblerCodeSection(section: section)
+                    case .GRAPHICS:
+                        DisassemblerGraphicSection(section: section)
                     case .TEXT, .POTENTIALTEXT:
                         DisassemblerTextSection(section: section)
+                    case .UNDEFINED:
+                        switch undefinedType {
+                        case .CODE:
+                            DisassemblerCodeSection(section: section)
+                        case .GRAPHICS:
+                            DisassemblerGraphicSection(section: section)
+                        case .TEXT, .POTENTIALTEXT:
+                            DisassemblerTextSection(section: section)
+                        default:
+                            Text("Undefined")
+                        }
                     default:
-                        Text("Other shizzle")
+                        Text("Not Supported")
                     }
      
                 }

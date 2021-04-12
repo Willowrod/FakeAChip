@@ -23,13 +23,20 @@ struct DisassemblyList: View {
                 })
                 Spacer()
                 Menu(disassembly.showingValue()){
-                    
                     Button("Show All"){
                         disassembly.showing = nil
                     }
                     ForEach(DataType.allCases, id: \.self){type in
                         Button("Show \(type.rawValue)"){
                             disassembly.showing = type
+                        }
+                    }
+                }
+                Spacer()
+                Menu("Show Undefined as: \(disassembly.undefinedDataShownAs.rawValue)"){
+                    ForEach(DataType.allCases, id: \.self){type in
+                        Button("Show \(type.rawValue)"){
+                            disassembly.undefinedDataShownAs = type
                         }
                     }
                 }
@@ -51,13 +58,13 @@ struct DisassemblyList: View {
             if let showing = disassembly.showing {
                 List(disassembly.sections.filter({$0.type == showing})){ section in
                     //       if section.type == showing {
-                    DisassemblySection(section: section)
+                    DisassemblySection(section: section, undefinedType: disassembly.undefinedDataShownAs)
                     //      }
                 }
                 .listStyle(InsetGroupedListStyle())
             } else {
                 List(disassembly.sections){ section in
-                    DisassemblySection(section: section)
+                    DisassemblySection(section: section, undefinedType: disassembly.undefinedDataShownAs)
                 }
                 .listStyle(InsetGroupedListStyle())
             }

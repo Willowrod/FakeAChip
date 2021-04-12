@@ -72,7 +72,7 @@ struct SpectrumDisassemblyView: View {
             showingSheet.toggle()
         }
             HStack{
-            SpectrumScreen(screenWidth: Sizing.instance.size.width / 2)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
             
             RegisterSetView()
             }

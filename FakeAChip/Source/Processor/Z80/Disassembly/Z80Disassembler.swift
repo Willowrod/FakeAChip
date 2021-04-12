@@ -66,7 +66,7 @@ class Z80Disassembler {
             disassemblySection.startingLine = UInt16(routine.startLine)
             disassemblySection.title = routine.title
             disassemblySection.type = routine.type
-            if routine.type == .POTENTIALTEXT {
+            if routine.type == .POTENTIALTEXT || routine.type == .UNDEFINED {
                 disassemblySection.isShowing = true
             }
             routine.code.forEach{line in
