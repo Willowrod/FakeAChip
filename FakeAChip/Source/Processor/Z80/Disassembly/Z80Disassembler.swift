@@ -66,15 +66,17 @@ class Z80Disassembler {
             disassemblySection.startingLine = UInt16(routine.startLine)
             disassemblySection.title = routine.title
             disassemblySection.type = routine.type
-            if routine.type == .POTENTIALTEXT || routine.type == .UNDEFINED {
-                disassemblySection.isShowing = true
-            }
+//            if routine.type == .POTENTIALTEXT || routine.type == .UNDEFINED {
+//                disassemblySection.isShowing = true
+//            }
             routine.code.forEach{line in
                 let disassemblyLine = DisassemblyLineModel()
                 disassemblyLine.line = UInt16(line.line)
                 disassemblyLine.title = line.meaning
                 disassemblyLine.code = line.code
+                disassemblyLine.bytes = line.opCodeArray
                 disassemblySection.lines.append(disassemblyLine)
+                disassemblySection.bytes.append(contentsOf: line.opCodeArray)
             }
             disassembly.sections.append(disassemblySection)
         }
@@ -106,6 +108,22 @@ class Z80Disassembler {
             return memoryDump[modelPosition]
         }
         return 0
+    }
+    
+    func getCodeChunk() -> [UInt8] {
+        let modelPosition = currentPC
+        var thisChunk: [UInt8] = []
+        for a in 0...3 {
+            thisChunk.append(getByteAtMemoryPosition(modelPosition + a))
+        }
+        return thisChunk
+    }
+    
+    func getByteAtMemoryPosition(_ modelPosition: Int) -> UInt8{
+        if (modelPosition < memoryDump.count){
+            return memoryDump[modelPosition]
+        }
+        return 0x00
     }
 
     func sweep0(){
@@ -153,10 +171,14 @@ class Z80Disassembler {
         var currentLine = -1
         var routineCodes: [OpCode] = []
         var thisLine = 0
+        var chunk: [UInt8] = []
         while runLoop{
           //  lineCount = 0
+            chunk = getCodeChunk()
             let lineAsInt = currentPC
-            var opCode = opcodeLookup.opCode(code:getCodeByteHex())
+            let initialCode = getCodeByteHex()
+            var opCode = opcodeLookup.opCode(code:initialCode)
+            opCode.opCodeArray.append(UInt8(initialCode, radix: 16) ?? 0x00)
             increasePC()
             if (!isCalc){
             if opCode.isPreCode {
@@ -274,13 +296,19 @@ class Z80Disassembler {
                     currentLine = opCode.line
                 //    lineCount = 1
                 }
+                opCode.opCodeArray.removeAll()
+                for a in 0..<opCode.length {
+                    if a < chunk.count{
+                    opCode.opCodeArray.append(chunk[a])
+                    }
+                }
                 routineCodes.append(opCode)
                 if opCode.isEndOfRoutine {
                     let title = "\(UInt16(currentLine).hex()) - \(UInt16(thisLine).hex())"
                     allRoutines.append(CodeRoutine(startLine: currentLine, length: count, code: routineCodes, description: "", title: title, type: .CODE))
                     currentLine = -1
                     count = 0
-                    print("Found routine \(title)")
+ //                   print("Found routine \(title)")
                     routineCodes.removeAll()
 //                }
 //
@@ -411,12 +439,13 @@ class Z80Disassembler {
             var unknownOpCode = OpCode(v: "UNKNOWN", c: byte.hex(), m: byte.hex(), l: 1)
             unknownOpCode.line = count
             unknownOpCode.lineType = .DATA
+            unknownOpCode.opCodeArray.append(byte)
             opCodeSet.append(unknownOpCode)
             count += 1
         }
         let title = "\(UInt16(startChunk).hex()) - \(UInt16(startChunk + data.count - 1).hex()) - \(type.rawValue.capitalized)"
         allRoutines.append(CodeRoutine(startLine: startChunk, length: chunkEnd - startChunk, code: opCodeSet, description: "", title: title, type: type))
-        print("Found routine \(title)")
+//        print("Found routine \(title)")
     }
     
     func sweep3(){
@@ -462,4 +491,10 @@ class Z80Disassembler {
             }
         })
     }
+    
+    // Block Disassembly
+
+    
+    
+    
 }

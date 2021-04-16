@@ -60,10 +60,20 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     var id = UUID()
     @Published var title: String = "PlaceHolder"
     @Published var startingLine: UInt16 = 0
-    @Published var type: DataType = .UNUSED
+    @Published var type: DataType = .UNUSED{
+        didSet {
+            if (temporaryDisassembly.count > 0){
+                lines = temporaryDisassembly
+            } else {
+                lines = codeOutput()
+            }
+        }
+    }
     @Published var textOffset = 0
     @Published var isShowing = false
+    var bytes: [UInt8] = []
     var lines: [DisassemblyLineModel] = [] //DisassemblyLineModel(), DisassemblyLineModel(), DisassemblyLineModel()
+    var temporaryDisassembly: [DisassemblyLineModel] = []
 
     enum CodingKeys: CodingKey {
         case title, lines, id
@@ -120,7 +130,21 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         }
         return returner
     }
+    
+    func codeOutput() -> [DisassemblyLineModel] {
+        temporaryDisassembly.removeAll()
+        let block = Z80BlockDisassembly(block: bytes, initialLine: Int(startingLine))
+        block.disassembly.forEach{line in
+            let disassemblyLine = DisassemblyLineModel()
+            disassemblyLine.line = UInt16(line.line)
+            disassemblyLine.title = line.meaning
+            disassemblyLine.code = line.code
+            temporaryDisassembly.append(disassemblyLine)
+        }
+        return temporaryDisassembly
+    }
 
+    
 
 }
 
@@ -130,7 +154,7 @@ class DisassemblyLineModel: ObservableObject, Identifiable, Codable {
     @Published var line: UInt16 = 0
     @Published var code: String = ""
     @Published var meaning: String = "?"
-    
+    var bytes: [UInt8] = []
     
     enum CodingKeys: CodingKey {
         case title, id

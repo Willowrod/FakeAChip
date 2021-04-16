@@ -46,16 +46,16 @@ struct OpCode: Codable {
         return targetType == .CODE || targetType == .RELATIVE || targetType == .RST
     }
     
-    mutating func writeOpCode(oC: String) {
-        opCodeString = oC
-        opCodeArray.removeAll()
-        let split = oC.split(separator: " ")
-        split.forEach{op in
-            if let opCodeUInt8 = UInt8(op, radix: 16){
-            opCodeArray.append(opCodeUInt8)
-            }
-        }
-    }
+//    mutating func writeOpCode(oC: String) {
+//        opCodeString = oC
+//        opCodeArray.removeAll()
+//        let split = oC.split(separator: " ")
+//        split.forEach{op in
+//            if let opCodeUInt8 = UInt8(op, radix: 16){
+//            opCodeArray.append(opCodeUInt8)
+//            }
+//        }
+//    }
     
 //    mutating func addCode(opCode: String){
 //        code = opCode
