@@ -232,7 +232,8 @@ class Speccy: Z80 {
             if banks.count == 1{
                 var count = 0
                 banks[0].forEach{ byte in
-                    if count < banks[0].count {
+                    if count < ram.count {
+                       // print ("count: \(count) - banks[0].count: \(banks[0].count)")
                     ram[count] = byte
                     count += 1
                     } else {

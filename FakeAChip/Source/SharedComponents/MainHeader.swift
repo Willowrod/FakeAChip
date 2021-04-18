@@ -40,9 +40,15 @@ struct MainHeader: View {
             
             Menu("Load"){
                 ForEach(settings.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
-                                    Button("Game: \(item)"){
+                    if item.contains("128") {
+                        Button("128K: \(item)"){
+                            loadData(item)
+                        }
+                    } else {
+                                    Button(item){
                                         loadData(item)
                                     }
+                    }
                 }
 //                Button("deflektor.sna"){
 //                    loadData("deflektor.sna")
