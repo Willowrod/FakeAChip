@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,13 @@
 		CD05400326258D5000221FC9 /* Z80BlockDisassembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */; };
 		CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0540092625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
+		CD0541D1262B27A800221FC9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD0541D0262B27A800221FC9 /* Zip */; };
+		CD0541D6262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541D5262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */; };
+		CD0541D7262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541D5262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */; };
+		CD0541DF262C83FE00221FC9 /* fk.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD0541DE262C83FE00221FC9 /* fk.z80 */; };
+		CD0541E0262C83FE00221FC9 /* fk.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD0541DE262C83FE00221FC9 /* fk.z80 */; };
+		CD0541E8262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541E7262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip */; };
+		CD0541E9262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541E7262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip */; };
 		CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
 		CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
@@ -199,6 +206,9 @@
 /* Begin PBXFileReference section */
 		CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80BlockDisassembly.swift; sourceTree = "<group>"; };
 		CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyUndefinedAsCodeSection.swift; sourceTree = "<group>"; };
+		CD0541D5262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip"; sourceTree = "<group>"; };
+		CD0541DE262C83FE00221FC9 /* fk.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fk.z80; sourceTree = "<group>"; };
+		CD0541E7262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Action Biker (1985)(Mastertronic).zip"; sourceTree = "<group>"; };
 		CD0CC53A25FA6BD400731EDA /* FakeAChip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeAChip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -307,6 +317,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0541D1262B27A800221FC9 /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +525,9 @@
 		CD0CC5C225FA74B300731EDA /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CD0541E7262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip */,
+				CD0541DE262C83FE00221FC9 /* fk.z80 */,
+				CD0541D5262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -708,6 +722,9 @@
 			dependencies = (
 			);
 			name = FakeAChip;
+			packageProductDependencies = (
+				CD0541D0262B27A800221FC9 /* Zip */,
+			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
 			productType = "com.apple.product-type.application";
@@ -779,6 +796,9 @@
 				Base,
 			);
 			mainGroup = CD0CC53125FA6BD400731EDA;
+			packageReferences = (
+				CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */,
+			);
 			productRefGroup = CD0CC53B25FA6BD400731EDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -801,7 +821,10 @@
 				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,
 				CDA172652604962100910C23 /* ZX128k+2.rom in Resources */,
+				CD0541D6262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
 				CDA172612604962100910C23 /* ZX128k+3.rom in Resources */,
+				CD0541DF262C83FE00221FC9 /* fk.z80 in Resources */,
+				CD0541E8262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,8 +834,11 @@
 			files = (
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
+				CD0541D7262B282700221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
 				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
+				CD0541E0262C83FE00221FC9 /* fk.z80 in Resources */,
+				CD0541E9262C840900221FC9 /* Action Biker (1985)(Mastertronic).zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,6 +1347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD0541D0262B27A800221FC9 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD0CC53225FA6BD400731EDA /* Project object */;
 }

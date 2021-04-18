@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Zip
 import SwiftUI
 
 class Speccy: Z80 {
@@ -179,8 +180,8 @@ class Speccy: Z80 {
                 loadSnapshot(sna: name)
             case "z80":
                 loadZ80(z80Snap: name, path: path)
-            //            case "zip":
-            //                unzipFile(file: file)
+                        case "zip":
+                            unzipFile(file: file)
             //            case "tzx":
             //                importTZX(tzxFile: name)
             default:
@@ -192,6 +193,22 @@ class Speccy: Z80 {
         jumpPoints.removeAll()
         interupt = true
         pauseProcessor = false
+    }
+    
+    func unzipFile(file: String){
+        let fm = FileManager.default
+        do {
+            
+            let filePath = Bundle.main.url(forResource: file.replacingOccurrences(of: ".zip", with: ""), withExtension: "zip")!
+            let unzipDirectory = try Zip.quickUnzipFile(filePath)
+            let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
+            if (items.count > 0){
+                load(file: items[0], path: unzipDirectory.path)
+            }
+        }
+        catch {
+          print("Something went wrong")
+        }
     }
     
     func loadSnapshot(sna: String){
@@ -213,12 +230,14 @@ class Speccy: Z80 {
         let banks = snapShot.retrieveRam()
         if (banks.count > 0){
             if banks.count == 1{
-                //  ram = Array(repeating: 0x00, count: 0x4000)
-                //ram.removeAll()
                 var count = 0
                 banks[0].forEach{ byte in
+                    if count < banks[0].count {
                     ram[count] = byte
                     count += 1
+                    } else {
+                        print ("RAM overflow!")
+                    }
                 }
             }
         }

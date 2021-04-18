@@ -39,7 +39,7 @@ struct MainHeader: View {
             Spacer()
             
             Menu("Load"){
-                ForEach(settings.listOfGames(extensions: ["sna", "z80"]), id: \.self){ item in
+                ForEach(settings.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
                                     Button("Game: \(item)"){
                                         loadData(item)
                                     }
