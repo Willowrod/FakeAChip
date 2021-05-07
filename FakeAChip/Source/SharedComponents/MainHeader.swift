@@ -39,6 +39,10 @@ struct MainHeader: View {
             Spacer()
             
             Menu("Load"){
+                
+                Button("TTR.tzx"){
+                    loadData("ticket_to_ride.tzx")
+                }
                 ForEach(settings.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
                     if item.contains("128") {
                         Button("128K: \(item)"){
@@ -50,9 +54,6 @@ struct MainHeader: View {
                                     }
                     }
                 }
-//                Button("deflektor.sna"){
-//                    loadData("deflektor.sna")
-//                }
 //                Button("middleoflakecheat.z80"){
 //                    loadData("middleoflakecheat.z80")
 //                }

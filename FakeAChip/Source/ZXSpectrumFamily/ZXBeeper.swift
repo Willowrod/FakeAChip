@@ -21,6 +21,7 @@ typealias AudioDataElement = Float
 typealias AudioData = [AudioDataElement]
 
 class ZXBeeper {
+    static let sharedInstance = ZXBeeper()
     private var outputQueue: AudioQueueRef?
     private var queueStarted: Bool = false
 

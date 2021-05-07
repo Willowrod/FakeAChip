@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 protocol CoreDelegate {
     func keyboardInteraction(key: Int, pressed: Bool)
@@ -57,6 +58,8 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
             }
         }
     }
+    
+    @Published var borderColour: Color = Color.white
     
     // Debug bits
     

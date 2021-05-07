@@ -39,6 +39,8 @@ class Z80: CPU {
    // var screenBuffer = Bitmap(width: 256, height: 192, color: .white)
     let tStatesPerFrame = 69888
     var currentTStates = 0
+    var loadingTStates = 0
+    var edges = 0
     var frameEnds = true
     var frameStarted: TimeInterval = Date().timeIntervalSince1970
     var flashCount = 0
@@ -224,6 +226,7 @@ print("Writing nothing to RAM....")
     
     func instructionComplete(states: Int, length: UInt16 = 1) {
         currentTStates += states
+        loadingTStates += states
         PC = PC &+ length
     }
     

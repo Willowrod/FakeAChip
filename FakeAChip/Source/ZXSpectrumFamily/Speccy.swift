@@ -12,8 +12,9 @@ import SwiftUI
 
 class Speccy: Z80 {
     
-    let beeper = ZXBeeper()
+    let beeper = ZXBeeper.sharedInstance
     var borderColour: Color = .black
+    var tape: TapeDelegate? = nil
     
     static var instanceSpectrum48: Speccy? = nil
     
@@ -24,6 +25,7 @@ class Speccy: Z80 {
         ram = Array(repeating: 0x00, count: 0xC000)
     }
     var framePair = RegisterPair("Frames", highValue: 0x00, lowValue: 0x00, id: -2)
+    var edgePair = RegisterPair("Edges", highValue: 0x00, lowValue: 0x00, id: -3)
     var rom: [UInt8] = []
     var ram: [UInt8] = []
     var keyboard: [UInt8] = Array(repeating: 0xFF, count: 8)
@@ -130,6 +132,7 @@ class Speccy: Z80 {
     }
     
     override func ldRam(location: Int, value: UInt8){
+       // print("Loading RAM at \(location) with \(value)")
         if location < 0x4000 {
             ldRom(location: location, value: value)
             return
@@ -182,8 +185,8 @@ class Speccy: Z80 {
                 loadZ80(z80Snap: name, path: path)
                         case "zip":
                             unzipFile(file: file)
-            //            case "tzx":
-            //                importTZX(tzxFile: name)
+                        case "tzx":
+                            importTZX(tzxFile: name)
             default:
                 print("Unknown file type = \(file)")
             }
@@ -249,6 +252,21 @@ class Speccy: Z80 {
         performOut(port: 0xfd, map: 0x74, source: spareRegister)
     }
     
+    func importTZX(tzxFile: String){
+        if let filePath = Bundle.main.path(forResource: tzxFile, ofType: "tzx"){
+            print("File found - \(filePath)")
+            let contents = NSData(contentsOfFile: filePath)
+            let data = contents! as Data
+            let dataString = data.hexString
+            let tzx = TZXFormat.init(data: dataString)
+            loadingTStates = 0
+            tape = tzx
+        } else {
+            //hexView.text = "- - - - - - - -"
+            print("file not found")
+        }
+    }
+    
     func initialPC() -> UInt16 {
         return initPc
     }
@@ -282,9 +300,9 @@ class Speccy: Z80 {
         DispatchQueue.main.sync {
             self.blitScreen()
             if let screen = UIImage.init(bitmap: screenImage){
-                data?.vdu = VDU(image: screen, border: data?.vdu.border)
+                data?.vdu = VDU(image: screen, border: borderColour)
             }
-            let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair]
+            let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
             data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
         frameEnds = true
@@ -333,12 +351,21 @@ class Speccy: Z80 {
                         //          print("Next: \(String(PC, radix:16)) Opcode: \(String(byte, radix:16)) AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16)) (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
                         //                    //                  print("Next: \(String(PC, radix:16))  AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16))")
                         //
-                        ////                    if PC == 0x0bbe{
-                        ////                    print("Breaking here")
-                        ////                    }
                         //               }
                         self.doAdditionalPreProcessing()
                         opCode(byte: byte)
+//                        if PC == 0x058f{
+//                            print("A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+//                            print("Breaking here")
+//                        }
+//
+//                        if PC == 0x05ee{
+//                            print("Increase B : \(b().hex())")
+//                        }
+//
+//                        if PC == 0x05fa{
+//                            print("New edge found - TState: \(currentTStates) A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+//                        }
                         self.doAdditionalPostProcessing()
                         
                     }
@@ -351,10 +378,13 @@ class Speccy: Z80 {
                 else {
                     let time = Date().timeIntervalSince1970
                     if (frameStarted + 0.02 <= time){
+   //                     print ("New frame please......")
                         framePair.inc()
                         frameStarted = time
                         frameEnds = false
-                    }
+                    } //else {
+//                        print ("filling in time......")
+//                    }
                 }
             }
         }
@@ -376,26 +406,39 @@ class Speccy: Z80 {
     
     override func performIn(port: UInt8, map: UInt8, destination: Register){
         if (port == 0xfe){
+     
+            var byteVal: UInt8 = 0x1f
             switch map{
             case 0xfe:
-                destination.inCommand(byte: keyboard[7])
+                byteVal = keyboard[7] //destination.inCommand(byte: keyboard[7])
             case 0xfd:
-                destination.inCommand(byte: keyboard[6])
+                byteVal = keyboard[6] //destination.inCommand(byte: keyboard[6] & ear)
             case 0xfb:
-                destination.inCommand(byte: keyboard[5])
+                byteVal = keyboard[5] //destination.inCommand(byte: keyboard[5] & ear)
             case 0xf7:
-                destination.inCommand(byte: keyboard[4])
+                byteVal = keyboard[4] //destination.inCommand(byte: keyboard[4] & ear)
             case 0xef:
-                destination.inCommand(byte: keyboard[3])
+                byteVal = keyboard[3] //destination.inCommand(byte: keyboard[3] & ear)
             case 0xdf:
-                destination.inCommand(byte: keyboard[2])
+                byteVal = keyboard[2] //destination.inCommand(byte: keyboard[2] & ear)
             case 0xbf:
-                destination.inCommand(byte: keyboard[1])
+                byteVal = keyboard[1] //destination.inCommand(byte: keyboard[1] & ear)
             case 0x7f:
-                destination.inCommand(byte: keyboard[0])
+                byteVal = keyboard[0] //destination.inCommand(byte: keyboard[0] & ear)
             default:
                 break
             }
+            
+            if let tape = tape, let data = tape.fetchData(tState: loadingTStates){
+                byteVal = byteVal.set(bit: 6, value: data.signal)
+                if data.reset {
+                    loadingTStates = 0
+                    edgePair.inc()
+                }
+            } else {
+                tape = nil
+            }
+            destination.inCommand(byte: byteVal)
         } else if port == 0x7f {
             //           print("Checking for Fuller Joystick")
             //             destination.inCommand(byte: kempston)
@@ -411,7 +454,7 @@ class Speccy: Z80 {
         if (port == 0xfe){ // Change the border colour
             DispatchQueue.main.sync {
                 updateBorder(source.value())
-                clicks = source.value() & 24
+//                clicks = source.value() & 24
             }
         }
         if (port == 0xfd){ // 128k paging
@@ -424,14 +467,14 @@ class Speccy: Z80 {
     }
     
     func updateBorder(_ colour: UInt8) {
-        let newColour = borderColour(colour)
-        if borderColour == newColour{
-            return
-        }
-        borderColour = newColour
-        if let data = data {
-            data.vdu = VDU(image: data.vdu.image, border: newColour)
-        }
+//        let newColour = borderColour(colour)
+//        if borderColour == newColour{
+//            return
+//        }
+        borderColour = borderColour(colour)
+//        if let data = data {
+//            data.vdu = VDU(image: data.vdu.image, border: newColour)
+//        }
     }
     
     override func keyboardInteraction(key: Int, pressed: Bool){
