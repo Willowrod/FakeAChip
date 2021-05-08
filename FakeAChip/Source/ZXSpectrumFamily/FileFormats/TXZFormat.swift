@@ -16,6 +16,9 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     var currentBit = 7
     var processing = false
     var workingBlock: BaseTZXBlock? = nil
+    var onPulseLength: Int = 0
+    var offPulseLength: Int = 0
+    var isOnPulse = true
     
     
     init(data: [UInt8]){
@@ -143,15 +146,44 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     }
     
     func fetchData(tState: Int) -> (signal: Bool, reset: Bool)? {
+      //  return (true, true)
         if workingBlock == nil {
             workingBlock = getcurrentBlock()
+            if let thisBlock = workingBlock, let thisBlockData = thisBlock.read() {
+                onPulseLength = thisBlockData.onPulse
+                offPulseLength = thisBlockData.offPulse
+            }
         }
-        if let thisBlock = workingBlock, let thisBlockData = thisBlock.read(tStates: tState) {
-            return thisBlockData
+        switch isOnPulse {
+        case true:
+            if tState < onPulseLength {
+                return(true, false)
+            } else {
+                isOnPulse = false
+                return(true, true)
+            }
+            
+        case false:
+            if tState < onPulseLength {
+                return(false, false)
+            } else {
+                isOnPulse = true
+                if let thisBlock = workingBlock, let thisBlockData = thisBlock.read() {
+                    onPulseLength = thisBlockData.onPulse
+                    offPulseLength = thisBlockData.offPulse
+                } else {
+                    currentBlock += 1
+                    workingBlock = nil//getcurrentBlock()
+                }
+                return(false, true)
+            }
         }
-        currentBlock += 1
-        workingBlock = getcurrentBlock()
-        return (false, false)
+//        if let thisBlock = workingBlock, let thisBlockData = thisBlock.read(tStates: tState) {
+//            return thisBlockData
+//        }
+//        currentBlock += 1
+//        workingBlock = getcurrentBlock()
+//        return (false, false)
     }
     
     func startTape() {
@@ -162,7 +194,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     }
 }
 enum PlayState {
-    case pilot, sync, play, pause
+    case pilot, sync, play, pause, complete
 }
 
 class BaseTZXBlock {
@@ -194,72 +226,49 @@ class BaseTZXBlock {
     
     func process(){}
     
-    func read(tStates: Int) -> (signal: Bool, reset: Bool)? {
-        var reset = false
-        var pulse = pulseLength
-        if playState == .pilot {
-            pulse = 2168
-        } else if playState == .sync {
-            if !isOffPulse {
-                pulse = 667
+    func read() -> (onPulse: Int, offPulse: Int)?{ //reset: Bool)? {
+  //      var reset = false
+        switch playState {
+        
+        case .pilot:
+            if isHeader {
+                if pilotCount >= 565 {
+                    playState = .sync
+                }
             } else {
-                pulse = 735
-            }
-        } else if currentByte >= blockData.count {
-            playState = .pause
-            pulse = 69888 * 50
-            isOffPulse = true
-        } else {
-        if currentlySet{
-            pulse = pulseLength * 2
-        }
-        }
-        if tStates >= pulse {
-            reset = true
-            isOffPulse = !isOffPulse
-
-            if (!isOffPulse) {
-                switch playState {
-                case .pilot:
-                        if isHeader {
-                            if pilotCount >= 565 {
-                                playState = .sync
-                            }
-                        } else {
-                            if pilotCount >= 3223 {
-                                playState = .sync
-                            }
-                        }
-                break
-                case .sync:
-                    if blockData.count > 0 {
-                    workingByte = blockData[0]
-                   currentlySet = workingByte.isSet(bit: currentBit)
-                    }
-                playState = .play
-                break
-                case .play:
-                currentBit -= 1
-                if currentBit < 0 {
-                    currentByte += 1
-                    currentBit = 7
-                    if currentByte < blockData.count {
-                    workingByte = blockData[currentByte]
-                    }
-                }
-                currentlySet = workingByte.isSet(bit: currentBit)
-                case .pause:
-                return nil
-                    
+                if pilotCount >= 3223 {
+                    playState = .sync
                 }
             }
-            
-            pilotCount += 1
- //           print("Pilot count: \(pilotCount)")
+            pilotCount += 2
+            return (2168, 2168)
+        case .sync:
+            workingByte = blockData[0]
+            playState = .play
+            return (667, 735)
+        case .play:
+            currentlySet = workingByte.isSet(bit: currentBit)
+            currentBit -= 1
+            if currentBit < 0 {
+                currentByte += 1
+                currentBit = 7
+                if currentByte < blockData.count {
+                workingByte = blockData[currentByte]
+                } else {
+                    playState = .pause
+                }
+            }
+            if currentlySet {
+                return(pulseLength * 2, pulseLength * 2)
+            } else {
+                return(pulseLength, pulseLength)
+            }
+        case .pause:
+            playState = .complete
+            return (0, 69888 * 50)
+        case .complete:
+        return nil
         }
-        
-        
-        return (!isOffPulse, reset)
     }
     
     func fetchByte(byte: Int) -> UInt8 {

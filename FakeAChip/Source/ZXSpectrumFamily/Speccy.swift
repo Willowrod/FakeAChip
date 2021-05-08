@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 import Zip
 import SwiftUI
+import os.log
 
 class Speccy: Z80 {
     
     let beeper = ZXBeeper.sharedInstance
     var borderColour: Color = .black
     var tape: TapeDelegate? = nil
-    
     static var instanceSpectrum48: Speccy? = nil
     
     override init() {
@@ -404,7 +404,14 @@ class Speccy: Z80 {
         }
     }
     
+    static let logHandler = OSLog(subsystem: "com.willowrod.FakeAChip", category: .pointsOfInterest)
+    
     override func performIn(port: UInt8, map: UInt8, destination: Register){
+        let signpostID = OSSignpostID(log: Speccy.logHandler)
+        os_signpost(.begin, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
+        defer {
+            os_signpost(.end, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
+        }
         if (port == 0xfe){
      
             var byteVal: UInt8 = 0x1f
@@ -428,8 +435,8 @@ class Speccy: Z80 {
             default:
                 break
             }
-            
-            if let tape = tape, let data = tape.fetchData(tState: loadingTStates){
+//            byteVal = byteVal.set(bit: 6, value: true)
+            if let data = tape?.fetchData(tState: loadingTStates){
                 byteVal = byteVal.set(bit: 6, value: data.signal)
                 if data.reset {
                     loadingTStates = 0
