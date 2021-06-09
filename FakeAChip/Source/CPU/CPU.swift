@@ -168,4 +168,15 @@ class CPU: CoreDelegate {
         
     }
     
+    func download() {
+        
+    }
+    
+    func reboot() {
+        
+    }
+    
+    func fast() {
+        
+    }
 }

@@ -10,6 +10,7 @@ import UIKit
 import Zip
 import SwiftUI
 import os.log
+import ZXDB_SDK
 
 class Speccy: Z80 {
     
@@ -17,6 +18,10 @@ class Speccy: Z80 {
     var borderColour: Color = .black
     var tape: TapeDelegate? = nil
     static var instanceSpectrum48: Speccy? = nil
+    
+    var shouldRestart = false
+    
+    var commandsPerFrame = 0
     
     override init() {
         super.init()
@@ -32,6 +37,8 @@ class Speccy: Z80 {
     var kempston: UInt8 = 0x00
     var initPc: UInt16 = 0x5B00
     var screenImage = ZXBitmap(width: 256, height: 192, color: .blue)
+    var restricted = true
+    
     
     static func getSpectrum48Instance() -> Speccy{
         if let instance = Speccy.instanceSpectrum48 {
@@ -45,6 +52,7 @@ class Speccy: Z80 {
         pause()
         beeper.stop()
         Speccy.instanceSpectrum48 = nil
+        print("Disengaged....")
     }
     
     func loadRom(){
@@ -78,10 +86,27 @@ class Speccy: Z80 {
     
     override func pause() {
         pauseProcessor = true
+        restricted = true
+        print("Paused")
     }
     
     override func resume() {
         pauseProcessor = false
+        restricted = true
+        print("Un Paused")
+    }
+    
+    override func fast() {
+        pauseProcessor = false
+        restricted = false
+        print("Fast forward")
+    }
+    
+    override func reboot() {
+        pause()
+        PC = 0x00
+        tape = nil
+        resume()
     }
     
     override func findRam(data:[UInt8]) -> String{
@@ -168,6 +193,20 @@ class Speccy: Z80 {
         return 0x00
     }
     
+    override func download() {
+        guard let url = URL(string: "https://worldofspectrum.net/pub/sinclair/games/a/Airwolf.tzx.zip") else {
+            return
+        }
+        Network.common.download(url: url) { (path: String?, error: ZXDBError?) in
+            if error == nil {
+                print("Path: \(path!)")
+                self.unzipFile(path: path)
+            } else {
+                print("Error: \(error!.getAllMessages())")
+            }
+        }
+    }
+    
     override func load(file: String, path: String? = nil){
         
         pauseProcessor = true
@@ -186,7 +225,7 @@ class Speccy: Z80 {
                         case "zip":
                             unzipFile(file: file)
                         case "tzx":
-                            importTZX(tzxFile: name)
+                            importTZX(tzxFile: file, path: path)
             default:
                 print("Unknown file type = \(file)")
             }
@@ -207,6 +246,26 @@ class Speccy: Z80 {
             let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
             if (items.count > 0){
                 load(file: items[0], path: unzipDirectory.path)
+            }
+        }
+        catch {
+          print("Something went wrong")
+        }
+    }
+    
+    func unzipFile(path: String?){
+        let fm = FileManager.default
+        do {
+            if let myPath = path {
+                guard let url = URL(string: myPath) else {
+                print("Error Unzipping")
+                return
+            }
+                let unzipDirectory = try Zip.quickUnzipFile(url)
+            let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
+            if (items.count > 0){
+                load(file: items[0], path: unzipDirectory.path)
+            }
             }
         }
         catch {
@@ -243,6 +302,7 @@ class Speccy: Z80 {
                         print ("RAM overflow!")
                     }
                 }
+                print("RAM import complete")
             }
         }
         
@@ -252,8 +312,18 @@ class Speccy: Z80 {
         performOut(port: 0xfd, map: 0x74, source: spareRegister)
     }
     
-    func importTZX(tzxFile: String){
-        if let filePath = Bundle.main.path(forResource: tzxFile, ofType: "tzx"){
+    func importTZX(tzxFile: String, path: String? = nil){
+        if let filePath = path, filePath.count > 0 {
+        let file = "\(filePath)/\(tzxFile)"
+        if let contents = NSData(contentsOfFile: file) {
+            let data = contents as Data
+            let dataString = data.hexString
+            let tzx = TZXFormat.init(data: dataString)
+            loadingTStates = 0
+            tape = tzx
+        }
+        } else if let filePath = Bundle.main.path(forResource: tzxFile.replacingOccurrences(of: ".tzx", with: ""), ofType: "tzx"){
+      //      pause()
             print("File found - \(filePath)")
             let contents = NSData(contentsOfFile: filePath)
             let data = contents! as Data
@@ -273,15 +343,18 @@ class Speccy: Z80 {
     
     override func startProcessing() {
         processing = true
+        self.resume()
         DispatchQueue.background(background: {
             self.process()
         }, completion:{
-            print("48K Spectrum processing completed")
+            if self.shouldRestart {
+                self.startProcessing()
+            }
         })
     }
     
     override func stopProcessing() {
-        pauseProcessor = true
+        self.pause()
         processing = false
     }
     
@@ -291,19 +364,22 @@ class Speccy: Z80 {
     }
     
     override func renderFrame(){
+        if restricted {
         beeper.endFrame()
+        }
         flashCount += 1
         if (flashCount >= 16){
             flashCount = 0
             flashOn = !flashOn
         }
-        DispatchQueue.main.sync {
+//      //
             self.blitScreen()
+        let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
             if let screen = UIImage.init(bitmap: screenImage){
+                DispatchQueue.main.sync {
                 data?.vdu = VDU(image: screen, border: borderColour)
+                data?.registerPairs = RegisterSetModel(registerPairs: pairs)
             }
-            let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
-            data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
         frameEnds = true
         runInterupt()
@@ -311,7 +387,10 @@ class Speccy: Z80 {
     
     override func process(){
         currentTStates = 0
+        
+        print ("Spectrum on - processing: \(processing)")
         while processing {
+            framePair.inc()
             if !pauseProcessor {
                 if (!frameEnds) {
                     if (shouldRunInterupt){
@@ -326,7 +405,7 @@ class Speccy: Z80 {
                         default:
                             let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
                             PC = fetchRamWord(location: intAddress)
-                            
+
                         }
                         halt = false
                         shouldRunInterupt = false
@@ -345,46 +424,35 @@ class Speccy: Z80 {
                             while shouldBreak {
                             }
                         }
-                        
-                        shouldForceBreak = false//
-                        //                if PC >= 0x4000 {
-                        //          print("Next: \(String(PC, radix:16)) Opcode: \(String(byte, radix:16)) AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16)) (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                        //                    //                  print("Next: \(String(PC, radix:16))  AF: \(String(AF.value(), radix: 16)) AF2: \(String(AF2.value(), radix: 16))")
-                        //
-                        //               }
+
+                        shouldForceBreak = false
                         self.doAdditionalPreProcessing()
+
                         opCode(byte: byte)
-//                        if PC == 0x058f{
-//                            print("A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-//                            print("Breaking here")
-//                        }
+//                        edgePair.ld(value: UInt16(PC))
 //
-//                        if PC == 0x05ee{
-//                            print("Increase B : \(b().hex())")
+//                        if PC > 0x4000{
+//                            print("Running snapshot")
+//                        } else {
+//
 //                        }
 //
 //                        if PC == 0x05fa{
 //                            print("New edge found - TState: \(currentTStates) A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
 //                        }
                         self.doAdditionalPostProcessing()
-                        
+
                     }
                     if currentTStates >= tStatesPerFrame {
                         currentTStates = 0
                         renderFrame()
                     }
-                    
-                }
-                else {
+                } else {
                     let time = Date().timeIntervalSince1970
-                    if (frameStarted + 0.02 <= time){
-   //                     print ("New frame please......")
-                        framePair.inc()
+                    if (!restricted || frameStarted + 0.02 <= time){
                         frameStarted = time
                         frameEnds = false
-                    } //else {
-//                        print ("filling in time......")
-//                    }
+                    }
                 }
             }
         }
@@ -395,7 +463,9 @@ class Speccy: Z80 {
     }
     
     func doAdditionalPostProcessing(){
+        if restricted {
         beeper.updateSample(UInt32(currentTStates), beep: clicks)
+        }
     }
     
     func runInterupt() {
@@ -407,11 +477,11 @@ class Speccy: Z80 {
     static let logHandler = OSLog(subsystem: "com.willowrod.FakeAChip", category: .pointsOfInterest)
     
     override func performIn(port: UInt8, map: UInt8, destination: Register){
-        let signpostID = OSSignpostID(log: Speccy.logHandler)
-        os_signpost(.begin, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
-        defer {
-            os_signpost(.end, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
-        }
+//        let signpostID = OSSignpostID(log: Speccy.logHandler)
+//        os_signpost(.begin, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
+//        defer {
+//            os_signpost(.end, log: Speccy.logHandler, name: "PerformingIn", signpostID: signpostID)
+//        }
         if (port == 0xfe){
      
             var byteVal: UInt8 = 0x1f
@@ -440,7 +510,7 @@ class Speccy: Z80 {
                 byteVal = byteVal.set(bit: 6, value: data.signal)
                 if data.reset {
                     loadingTStates = 0
-                    edgePair.inc()
+                  //  edgePair.inc()
                 }
             } else {
                 tape = nil
@@ -459,10 +529,10 @@ class Speccy: Z80 {
     
     override func performOut(port: UInt8, map: UInt8, source: Register) {
         if (port == 0xfe){ // Change the border colour
-            DispatchQueue.main.sync {
+ //           DispatchQueue.main.sync {
                 updateBorder(source.value())
 //                clicks = source.value() & 24
-            }
+ //           }
         }
         if (port == 0xfd){ // 128k paging
         }
@@ -680,7 +750,6 @@ class Speccy: Z80 {
             initPc = PC
         }
         pagingByte = header.ramBankSetting
-        //TO DO: delegate?.updateBorder(colour: header.borderColour.border())
         updateBorder(header.borderColour)
     }
     

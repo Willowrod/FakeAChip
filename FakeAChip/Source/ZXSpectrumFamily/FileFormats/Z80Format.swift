@@ -297,12 +297,14 @@ class Z80Format: BaseFileFormat {
     
     func retrieveRam() -> [[UInt8]] {
         if z80Version == 1 {
+            print ("Z80 V1 - just return the RAM.....")
             var ret: [[UInt8]] = []
             ret.append(ramBanks[0])
             return ret
         }
         switch memory {
         case .ZX48:
+            print ("Z80 V2 / 3 - 48K - return a single RAM bank")
         var ram: [UInt8] = []
             ram.append(contentsOf: ramBanks[8])
             ram.append(contentsOf: ramBanks[4])
@@ -311,6 +313,7 @@ class Z80Format: BaseFileFormat {
             ret.append(ram)
             return ret
         case .ZX128, .ZX128P2, .ZX128P3, .ZX128P2A:
+            print ("Z80 V2 / 3 - 128K - return all banks")
             var ret: [[UInt8]] = []
             for a in 3...10 {
                 ret.append(ramBanks[a])

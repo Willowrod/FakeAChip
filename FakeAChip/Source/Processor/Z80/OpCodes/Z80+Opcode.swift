@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import os
+
 extension Z80 {
     
     func opCode(byte: UInt8){

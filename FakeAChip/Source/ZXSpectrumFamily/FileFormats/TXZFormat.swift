@@ -149,9 +149,14 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
       //  return (true, true)
         if workingBlock == nil {
             workingBlock = getcurrentBlock()
-            if let thisBlock = workingBlock, let thisBlockData = thisBlock.read() {
+            if let thisBlock = workingBlock {
+            if let thisBlockData = thisBlock.read() {
                 onPulseLength = thisBlockData.onPulse
                 offPulseLength = thisBlockData.offPulse
+            }
+            } else {
+                print ("End of TZX file")
+                return nil
             }
         }
         switch isOnPulse {

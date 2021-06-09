@@ -46,6 +46,13 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
+    var tapePlayerState: TapePlayerState = .Empty
+    
+    var currentlyLoadedTape: String? = nil
+    
+    var currentTapeSections: [String] = []
+    
+    var isShowingTapeSelector = false
     
     @Published var vdu: VDU = VDU(image: UIImage()){
         didSet{
@@ -54,7 +61,9 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
             if timeNow > time + 1.0 {
                 seconds += 1
                 time = timeNow
-                debugModel = DebugModel(fps: frames / seconds)
+//                debugModel = DebugModel(fps: frames / seconds)
+                debugModel = DebugModel(fps: frames)
+                frames = 0
             }
         }
     }
@@ -84,7 +93,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
     func bootNewSystem(model: ComputerModel){
         // Known supported models!
-        let oldModel = currentComputerInstance
+   //     let oldModel = currentComputerInstance
         currentComputerInstance.stopProcessing()
         switch model {
         case .Sinclair_Spectrum_48K:
@@ -99,7 +108,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
         }
         currentComputerInstance.addSettings(self)
         currentComputerInstance.startProcessing()
-        oldModel.disengage()
+    //    oldModel.disengage()
     }
     
     func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){

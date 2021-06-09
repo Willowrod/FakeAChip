@@ -118,6 +118,11 @@ class RegisterPair {
         registerPair.low.ld(value: low)
     }
     
+    func ld(word: UInt16){
+        registerPair.high.ld(value: word.highByte())
+        registerPair.low.ld(value: word.lowByte())
+    }
+    
     func value() -> UInt16{
         return (UInt16(registerPair.high.value()) * 256) + UInt16(registerPair.low.value())
     }
