@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MainHeader: View {
-    @EnvironmentObject var settings: FakeAChipData
+  //  @EnvironmentObject var settings: FakeAChipData
+    @ObservedObject var headerData: HeaderData
     @State private var shouldReboot: Bool = false
     let computer: CPU
     var body: some View {
         VStack {
             HStack {
-                Picker(selection: $settings.environmentTag, label: Text("What are you doing with FakeAChip today?")) {
+                Picker(selection: $headerData.environmentTag, label: Text("What are you doing with FakeAChip today?")) {
                     Text("Emulation").tag(0)
                     Text("Disassembly").tag(1)
                     Text("Coding").tag(2)
@@ -39,14 +40,14 @@ struct MainHeader: View {
                 Spacer()
                 HStack {
                     Button("⚙️"){
-                        settings.isShowingSettings.toggle()
+                        headerData.isShowingSettings.toggle()
                     }
                     Button("♻️"){
                         shouldReboot = true
                     }
                 }
                 Spacer()
-                Text("FPS: \(settings.debugModel.fps)")
+                Text("FPS: \(headerData.debugModel.fps)")
                 
                 Spacer()
             }
@@ -54,7 +55,7 @@ struct MainHeader: View {
             HStack {
                 Menu("Load Snapshot"){
                     
-                    ForEach(settings.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
+                    ForEach(headerData.tapePlayerData.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
                         if item.contains("128") {
                             Button("128K: \(item)"){
                                 loadData(item)
@@ -116,12 +117,12 @@ struct MainHeader: View {
         }
         .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 120, alignment: .center)
         
-        .sheet(isPresented: $settings.isShowingSettings) {
-            SettingsSheet().environmentObject(settings)
+        .sheet(isPresented: $headerData.isShowingSettings) {
+            SettingsSheet().environmentObject(headerData)
         }
         
-        .sheet(isPresented: $settings.isShowingTapeSelector) {
-            ZXTapeLoaderView().environmentObject(settings)
+        .sheet(isPresented: $headerData.tapePlayerData.isShowingTapeSelector) {
+            ZXTapeLoaderView(tapePlayerData: headerData.tapePlayerData, computer: computer).environmentObject(headerData.tapePlayerData)
         }
         .alert(isPresented: $shouldReboot) {
             computer.pause()
@@ -139,8 +140,7 @@ struct MainHeader: View {
     }
     
     func eject(){
-   //     settings.currentlyLoadedTape = "Spellbound, Obvs"
-        settings.isShowingTapeSelector = true
+        headerData.tapePlayerData.isShowingTapeSelector = true
     }
     
     func loadData(_ file: String){
@@ -157,8 +157,8 @@ struct MainHeader: View {
     }
 }
 
-//struct MainHeader_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainHeader()
-//    }
-//}
+struct MainHeader_Previews: PreviewProvider {
+    static var previews: some View {
+        MainHeader(headerData: HeaderData(), computer: Speccy())
+    }
+}

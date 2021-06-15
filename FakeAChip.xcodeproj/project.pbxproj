@@ -91,6 +91,10 @@
 		CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD2DA798260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD306C77264C2FC20021AA0A /* ZXDB-SDK */; };
+		CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
+		CD3BD82C267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
+		CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
+		CD3BD82F2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
 		CD51D4732642B66C003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
 		CD51D4742642B66D003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
 		CD51D4762642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */; };
@@ -876,6 +880,8 @@
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
 		CD306C75264C2FB10021AA0A /* ZXDB-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ZXDB-SDK"; sourceTree = "<group>"; };
+		CD3BD82A267748C600394AB1 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
+		CD3BD82D2677495000394AB1 /* TapePlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerData.swift; sourceTree = "<group>"; };
 		CD51D4722642B66C003C2A9A /* TXZFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXZFormat.swift; sourceTree = "<group>"; };
 		CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
 		CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoader.swift; sourceTree = "<group>"; };
@@ -1916,6 +1922,8 @@
 				CDC8C554260261BA0010EBF7 /* Sizing.swift */,
 				CDA172DD2605016F00910C23 /* VDU.swift */,
 				CDEF9BBA261EED5B00729043 /* StandardSprite.swift */,
+				CD3BD82A267748C600394AB1 /* HeaderData.swift */,
+				CD3BD82D2677495000394AB1 /* TapePlayerData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2121,6 +2129,7 @@
 			files = (
 				CDEF998E2612642F00729043 /* TargetType.swift in Sources */,
 				CDA1746726091D6900910C23 /* ZXKeyboard.swift in Sources */,
+				CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */,
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
@@ -2134,6 +2143,7 @@
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CDEF999A261265B000729043 /* CodeListing.swift in Sources */,
 				CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */,
+				CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */,
 				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
 				CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */,
@@ -2229,6 +2239,8 @@
 				CDEF999B261265B000729043 /* CodeListing.swift in Sources */,
 				CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */,
 				CDA172B02604B37000910C23 /* BaseTest.swift in Sources */,
+				CD3BD82C267748C600394AB1 /* HeaderData.swift in Sources */,
+				CD3BD82F2677495000394AB1 /* TapePlayerData.swift in Sources */,
 				CDEF99E92614C4C900729043 /* DisassemblerCodeSection.swift in Sources */,
 				CDA172DF2605016F00910C23 /* VDU.swift in Sources */,
 				CD0CC5A725FA6C4000731EDA /* Z80Format.swift in Sources */,

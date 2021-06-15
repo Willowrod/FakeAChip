@@ -12,13 +12,17 @@ struct SpectrumView: View {
    // @ObservedObject var disassembly = DisassemblyModel()
     //let computer: CPU = Speccy.instance
     var body: some View {
-        
-        GeometryReader { geometry in
+   //     if #available(macCatalyst 15.0, *) {
+            
+//                  if #available(iOS 15.0, *) {
+//            Self._printChanges()
+//        }
+      return GeometryReader { geometry in
         VStack{
-            MainHeader(computer: settings.currentComputerInstance)
+            MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
             Spacer()
             Group {
-                switch settings.environment {
+                switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
                     SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Disassembly:

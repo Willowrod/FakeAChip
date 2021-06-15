@@ -20,39 +20,19 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     let supportedComputers: [ComputerModel] = [.Sinclair_Spectrum_48K, .Sinclair_Spectrum_128K]
     
     var delegate: CoreDelegate?
-    var isShowingSettings = false
     
     var currentComputerInstance: CPU = EmptyCPU() // = Speccy.instance
+    
+    var headerData = HeaderData()
     
     @Published var emulatedSystem: ComputerModel = .Sinclair_Spectrum_48K
     
     @Published var host: HostSystem
-    @Published var environment: SystemEnvironment = .Emulation
-    var environmentTag: Int = 0 {
-        didSet {
-            switch environmentTag {
-            case 0:
-                environment = .Emulation
-            case 1:
-                environment = .Disassembly
-            default:
-                environment = .Code
-            }
-        }
-    }
     
     @Published var disassembly: DisassemblyModel = DisassemblyModel()
     
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
-    
-    var tapePlayerState: TapePlayerState = .Empty
-    
-    var currentlyLoadedTape: String? = nil
-    
-    var currentTapeSections: [String] = []
-    
-    var isShowingTapeSelector = false
     
     @Published var vdu: VDU = VDU(image: UIImage()){
         didSet{
@@ -62,7 +42,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
                 seconds += 1
                 time = timeNow
 //                debugModel = DebugModel(fps: frames / seconds)
-                debugModel = DebugModel(fps: frames)
+                headerData.debugModel = DebugModel(fps: frames)
                 frames = 0
             }
         }
@@ -75,7 +55,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     var time = Date().timeIntervalSince1970
     var frames = 0
     var seconds = 0
-    @Published var debugModel: DebugModel = DebugModel()
     
     init(_ host: HostSystem) {
         self.host = host
@@ -131,25 +110,5 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
         delegate?.keyboardInteraction(bank: bank, bit: bit, pressed: pressed)
     }
     
-    func listOfGames(extensions: [String]) -> [String] {
-        var snapShots: [String] = []
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        do {
-            let items = try fm.contentsOfDirectory(atPath: path)
 
-            for item in items {
-                for fileExtension in extensions{
-                if item.contains(".\(fileExtension)") {
-                    snapShots.append(item)
-                }
-                }
-            }
-            snapShots.sort()
-            
-        } catch {
-            // failed to read directory – bad permissions, perhaps?
-        }
-        return snapShots
-    }
 }

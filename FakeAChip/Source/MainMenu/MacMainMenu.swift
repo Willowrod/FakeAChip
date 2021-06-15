@@ -22,7 +22,7 @@ struct MacMainMenu: View {
  //       .environmentObject(settings)
     }
     func pressButton(){
-        print("Boo to the Mac!")
+        print("Boot to the Mac!")
     }
 }
 

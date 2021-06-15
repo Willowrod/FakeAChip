@@ -194,17 +194,33 @@ class Speccy: Z80 {
     }
     
     override func download() {
-        guard let url = URL(string: "https://worldofspectrum.net/pub/sinclair/games/a/Airwolf.tzx.zip") else {
-            return
-        }
-        Network.common.download(url: url) { (path: String?, error: ZXDBError?) in
-            if error == nil {
-                print("Path: \(path!)")
-                self.unzipFile(path: path)
-            } else {
-                print("Error: \(error!.getAllMessages())")
+    //        guard let url = URL(string: "https://worldofspectrum.net/pub/sinclair/games/a/Airwolf.tzx.zip") else {
+    //            return
+    //        }
+    //        Network.common.download(url: url) { (path: String?, error: ZXDBError?) in
+    //            if error == nil {
+    //                print("Path: \(path!)")
+    //                self.unzipFile(path: path)
+    //            } else {
+    //                print("Error: \(error!.getAllMessages())")
+    //            }
+    //        }
+     //   if #available(macCatalyst 15.0, *) {
+            
+                  if #available(iOS 15.0, *) {
+            async {
+                await asyncDownload()
             }
+        } else {
+            // Fallback on earlier versions
         }
+    }
+    
+func asyncDownload() async {
+               let availableTitles = try? await ZXDB().asyncSearch("Spellbound")
+    availableTitles?.forEach { item in
+        print(item)
+    }
     }
     
     override func load(file: String, path: String? = nil){
