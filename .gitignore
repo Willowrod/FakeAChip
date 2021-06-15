@@ -1,3 +1,4 @@
 *.z80
 *.zip
 Library/*
+ZXDB-SDK/
