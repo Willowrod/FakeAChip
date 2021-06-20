@@ -101,6 +101,8 @@
 		CD51D4772642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */; };
 		CD51D4792642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD51D47A2642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
+		CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */; };
+		CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */; };
 		CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146825FFBF0B00C75998 /* FlagRegister.swift */; };
@@ -119,6 +121,9 @@
 		CD8914892600EA6800C75998 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8914872600EA6800C75998 /* CPU.swift */; };
 		CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
 		CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
+		CD9AD732267C88E80095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
+		CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
+		CD9AD734267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
 		CDA172522603811000910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -885,6 +890,7 @@
 		CD51D4722642B66C003C2A9A /* TXZFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXZFormat.swift; sourceTree = "<group>"; };
 		CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
 		CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoader.swift; sourceTree = "<group>"; };
+		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		CD89145E25FFBEA800C75998 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CD89146825FFBF0B00C75998 /* FlagRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagRegister.swift; sourceTree = "<group>"; };
 		CD89146925FFBF0B00C75998 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
@@ -894,6 +900,7 @@
 		CD89147D25FFC22500C75998 /* RegisterSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetView.swift; sourceTree = "<group>"; };
 		CD8914872600EA6800C75998 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		CD891490260202FD00C75998 /* RegisterSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetModel.swift; sourceTree = "<group>"; };
+		CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDA172512603811000910C23 /* RegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStruct.swift; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
 		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
@@ -954,6 +961,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */,
+				CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */,
 				CD0541D1262B27A800221FC9 /* Zip in Frameworks */,
 				CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */,
 			);
@@ -1003,6 +1012,7 @@
 		CD0CC53C25FA6BD400731EDA /* FakeAChip */ = {
 			isa = PBXGroup;
 			children = (
+				CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */,
 				CDEF9B29261C943100729043 /* EmptyCPU */,
 				CDA1746C2609251500910C23 /* SwiftUI Magic */,
 				CD0CC5B825FA736B00731EDA /* FakeAChip.entitlements */,
@@ -1819,6 +1829,7 @@
 		CD306C76264C2FC20021AA0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1972,6 +1983,7 @@
 				CD0CC53625FA6BD400731EDA /* Sources */,
 				CD0CC53725FA6BD400731EDA /* Frameworks */,
 				CD0CC53825FA6BD400731EDA /* Resources */,
+				CD9AD731267C827A0095FDF6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1981,6 +1993,7 @@
 			packageProductDependencies = (
 				CD0541D0262B27A800221FC9 /* Zip */,
 				CD306C77264C2FC20021AA0A /* ZXDB-SDK */,
+				CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */,
 			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
@@ -2055,6 +2068,7 @@
 			mainGroup = CD0CC53125FA6BD400731EDA;
 			packageReferences = (
 				CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */,
+				CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CD0CC53B25FA6BD400731EDA /* Products */;
 			projectDirPath = "";
@@ -2083,6 +2097,7 @@
 				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
 				CD0546F0262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
 				CD05468A262C9EFC00221FC9 /* 007 - Live and Let Die (1988)(Domark).zip in Resources */,
+				CD9AD732267C88E80095FDF6 /* GoogleService-Info.plist in Resources */,
 				CD0545D4262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */,
 				CD054588262C9EFC00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,
@@ -2098,6 +2113,7 @@
 			files = (
 				CD0548DD262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */,
 				CD51D4772642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */,
+				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CD0546F1262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
@@ -2117,10 +2133,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9AD734267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD9AD731267C827A0095FDF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${BUILD_DIR%Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD0CC53625FA6BD400731EDA /* Sources */ = {
@@ -2376,7 +2415,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2463,8 +2502,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FakeAChip/FakeAChip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"FakeAChip/Preview Content\"";
 				DEVELOPMENT_TEAM = FAGJTP495D;
 				ENABLE_PREVIEWS = YES;
@@ -2473,6 +2515,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.01;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAChip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -2487,8 +2531,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FakeAChip/FakeAChip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FakeAChip/Preview Content\"";
 				DEVELOPMENT_TEAM = FAGJTP495D;
 				ENABLE_PREVIEWS = YES;
@@ -2497,6 +2543,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.01;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAChip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -2640,6 +2688,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2651,6 +2707,11 @@
 		CD306C77264C2FC20021AA0A /* ZXDB-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ZXDB-SDK";
+		};
+		CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

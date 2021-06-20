@@ -14,8 +14,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
+//               let stateObject = FakeAChipData(.iOS)
+//        let contentView = Text("Boo!")   //IOSMainMenu()
+//                    //.environmentObject(stateObject)
+//        if let windowScene = scene as? UIWindowScene {
+//              let window = UIWindow(windowScene: windowScene)
+//              window.rootViewController = UIHostingController(rootView: contentView)
+//              self.window = window
+//              Sizing.instance.size = window.frame.size
+//              window.makeKeyAndVisible()
+//          }
+        
         #if targetEnvironment(macCatalyst)
+        
         let stateObject = FakeAChipData(.Mac)
         let contentView = MacMainMenu()
             .environmentObject(stateObject)
@@ -26,9 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Sizing.instance.size = window.frame.size
             window.makeKeyAndVisible()
         }
-        
-        
-        
+
+
+
         #else
         let stateObject = FakeAChipData(.iOS)
         let contentView = IOSMainMenu()

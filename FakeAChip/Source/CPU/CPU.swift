@@ -172,6 +172,10 @@ class CPU: CoreDelegate {
         
     }
     
+    func download(url: String) {
+        
+    }
+    
     func reboot() {
         
     }

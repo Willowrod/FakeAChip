@@ -100,6 +100,7 @@ class Speccy: Z80 {
         pauseProcessor = false
         restricted = false
         print("Fast forward")
+ //       fatalError()
     }
     
     override func reboot() {
@@ -214,6 +215,20 @@ class Speccy: Z80 {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    override func download(url: String) {
+                    guard let dlURL = URL(string: url) else {
+                        return
+                    }
+                    Network.common.download(url: dlURL) { (path: String?, error: ZXDBError?) in
+                        if error == nil {
+                            print("Path: \(path!)")
+                            self.unzipFile(path: path)
+                        } else {
+                            print("Error: \(error!.getAllMessages())")
+                        }
+                    }
     }
     
 func asyncDownload() async {
@@ -547,7 +562,7 @@ func asyncDownload() async {
         if (port == 0xfe){ // Change the border colour
  //           DispatchQueue.main.sync {
                 updateBorder(source.value())
-//                clicks = source.value() & 24
+                clicks = source.value() & 24
  //           }
         }
         if (port == 0xfd){ // 128k paging
