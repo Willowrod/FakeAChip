@@ -7,7 +7,13 @@
 
 import Foundation
 
+protocol HeaderDelegate {
+   func changeEnvironment(model: ComputerModel)
+}
+
 class HeaderData: ObservableObject {
+    
+    var delegate: HeaderDelegate? = nil
     
     var tapePlayerData = TapePlayerData()
     
@@ -30,5 +36,10 @@ class HeaderData: ObservableObject {
     
     @Published var debugModel: DebugModel = DebugModel()
     
+    @Published var emulatedSystem: ComputerModel = .Sinclair_Spectrum_48K
+    
+    func changeEnvironment(model: ComputerModel){
+        delegate?.changeEnvironment(model: model)
+    }
     
 }

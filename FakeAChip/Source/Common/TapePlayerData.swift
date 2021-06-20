@@ -11,7 +11,7 @@ import Foundation
 
 class TapePlayerData: ObservableObject {
 
-var tapePlayerState: TapePlayerState = .Empty
+@Published var tapePlayerState: TapePlayerState = .Empty
 
 var currentlyLoadedTape: String? = nil
 

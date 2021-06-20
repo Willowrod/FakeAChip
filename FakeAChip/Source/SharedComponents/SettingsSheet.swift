@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsSheet: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: FakeAChipData
+    @EnvironmentObject var settings: HeaderData
     var body: some View {
         VStack{
             Button("Press to dismiss") {

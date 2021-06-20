@@ -103,6 +103,7 @@
 		CD51D47A2642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */; };
 		CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */; };
+		CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7315D9267F861800A15BD4 /* TapePlayerView.swift */; };
 		CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146825FFBF0B00C75998 /* FlagRegister.swift */; };
@@ -891,6 +892,7 @@
 		CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
 		CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoader.swift; sourceTree = "<group>"; };
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
 		CD89145E25FFBEA800C75998 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CD89146825FFBF0B00C75998 /* FlagRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagRegister.swift; sourceTree = "<group>"; };
 		CD89146925FFBF0B00C75998 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
@@ -1806,6 +1808,7 @@
 				CD89145D25FFBE8100C75998 /* RegistryViews */,
 				CD0CC5E625FF585F00731EDA /* MainHeader.swift */,
 				CDEF9B23261C852200729043 /* SettingsSheet.swift */,
+				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
 			);
 			path = SharedComponents;
 			sourceTree = "<group>";
@@ -2192,6 +2195,7 @@
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
+				CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */,
 				CD0EC68F2668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC59A25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,

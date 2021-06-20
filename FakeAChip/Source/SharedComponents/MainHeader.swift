@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainHeader: View {
-  //  @EnvironmentObject var settings: FakeAChipData
     @ObservedObject var headerData: HeaderData
     @State private var shouldReboot: Bool = false
     let computer: CPU
@@ -52,68 +51,7 @@ struct MainHeader: View {
                 Spacer()
             }
             .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 50, alignment: .center)
-            HStack {
-                Menu("Load Snapshot"){
-                    
-                    ForEach(headerData.tapePlayerData.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
-                        if item.contains("128") {
-                            Button("128K: \(item)"){
-                                loadData(item)
-                            }
-                        } else {
-                            Button(item){
-                                loadData(item)
-                            }
-                        }
-                    }
-                }
-                .padding(20)
-                
-                Spacer()
-                
-                Text("Tape Player:")
-                
-                HStack {
-                    Button("⏪"){
-                        computer.fast()
-                    }
-                    Button("▶️"){
-                        computer.resume()
-                    }
-                    Button("⏩"){
-                        computer.fast()
-                    }
-                    Button("⏸"){
-                        computer.pause()
-                    }
-                    Button("⏏️"){
-                        eject()
-                    }
-                }
-//                Menu("Tape"){
-//                    ForEach(settings.listOfGames(extensions: ["tzx"]), id: \.self){ item in
-//                        if item.contains("128") {
-//                            Button("128K: \(item)"){
-//                                loadData(item)
-//                            }
-//                        } else {
-//                            Button(item){
-//                                loadData(item)
-//                            }
-//                        }
-//                    }
-//                }
-//                .padding(20)
-//
-//                Menu("Download"){
-//                    Button("Aaargh"){
-//                        downloadAaargh()
-//                    }
-//
-//                }
-//                .padding(20)
-            }
-            .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 50, alignment: .leading)
+            TapePlayerView(tapePlayerData: headerData.tapePlayerData, computer: computer)
         }
         .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 120, alignment: .center)
         
@@ -137,15 +75,6 @@ struct MainHeader: View {
                          })
         }
         
-    }
-    
-    func eject(){
-        headerData.tapePlayerData.isShowingTapeSelector = true
-    }
-    
-    func loadData(_ file: String){
-        print("Loading data.......")
-        computer.load(file: file)
     }
     
     func downloadAaargh() {

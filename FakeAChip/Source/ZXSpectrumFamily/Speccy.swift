@@ -537,14 +537,16 @@ func asyncDownload() async {
                 break
             }
 //            byteVal = byteVal.set(bit: 6, value: true)
-            if let data = tape?.fetchData(tState: loadingTStates){
-                byteVal = byteVal.set(bit: 6, value: data.signal)
-                if data.reset {
+            if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
+            if let tapeData = tape?.fetchData(tState: loadingTStates){
+                byteVal = byteVal.set(bit: 6, value: tapeData.signal)
+                if tapeData.reset {
                     loadingTStates = 0
                   //  edgePair.inc()
                 }
             } else {
                 tape = nil
+            }
             }
             destination.inCommand(byte: byteVal)
         } else if port == 0x7f {

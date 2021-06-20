@@ -15,7 +15,7 @@ protocol CoreDelegate {
     func joystickInteraction(key: Int, pressed: Bool)
 }
 
-class FakeAChipData: ObservableObject, DisassemblyDelegate {
+class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     let supportedComputers: [ComputerModel] = [.Sinclair_Spectrum_48K, .Sinclair_Spectrum_128K]
     
@@ -24,8 +24,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     var currentComputerInstance: CPU = EmptyCPU() // = Speccy.instance
     
     var headerData = HeaderData()
-    
-    @Published var emulatedSystem: ComputerModel = .Sinclair_Spectrum_48K
     
     @Published var host: HostSystem
     
@@ -58,12 +56,13 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     
     init(_ host: HostSystem) {
         self.host = host
+        headerData.delegate = self
         changeEnvironment(model: .Sinclair_Spectrum_48K)
     }
     
     func changeEnvironment(model: ComputerModel){
         if supportedComputers.contains(model){
-        emulatedSystem = model
+            headerData.emulatedSystem = model
             bootNewSystem(model: model)
         } else {
             print ("\(model.rawValue) is not currently supported")
@@ -71,8 +70,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate {
     }
     
     func bootNewSystem(model: ComputerModel){
-        // Known supported models!
-   //     let oldModel = currentComputerInstance
         currentComputerInstance.stopProcessing()
         switch model {
         case .Sinclair_Spectrum_48K:

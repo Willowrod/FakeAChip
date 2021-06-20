@@ -114,6 +114,7 @@ struct ZXTapeLoaderView: View {
         } else {
             computer.download(url: "https://spectrumcomputing.co.uk\(path)")
         }
+        tapePlayerData.tapePlayerState = .Paused
         tapePlayerData.isShowingTapeSelector = false
     }
 }
