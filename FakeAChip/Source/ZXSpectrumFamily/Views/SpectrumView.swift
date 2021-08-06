@@ -24,7 +24,7 @@ struct SpectrumView: View {
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
-                    SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy)
+                    SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                 case SystemEnvironment.Disassembly:
                     SpectrumDisassemblyView(disassembly: settings.disassembly, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
@@ -47,22 +47,44 @@ struct SpectrumView: View {
 
 struct SpectrumEmulationView: View {
     let computer: Speccy
-    @EnvironmentObject var settings: FakeAChipData
-
+    let host: HostSystem
+    
+    @State private var orientation = UIDeviceOrientation.unknown
     var body: some View {
-        VStack{
-            SpectrumScreen(screenWidth: Sizing.instance.width())
             
             Group {
-                switch settings.host {
+                switch host {
                 case .iOS:
             Spacer()
-                    ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
+                    Group {
+                        if orientation.isLandscape || orientation.isFlat {
+                        ZStack{
+                            VStack {
+                    SpectrumScreen(screenWidth: Sizing.instance.widthforLandscape())
+                                Spacer()
+                            }
+                            VStack {
+                                Spacer()
+                    ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
+                            }
+                        }
+                    } else {
+                        
+                            VStack{
+                        SpectrumScreen(screenWidth: Sizing.instance.width())
+                        ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
+                            }
+                    }
+                }
+                .onRotate { newOrientation in
+                    orientation = newOrientation
+                }
+       
                 case .Mac:
+                    SpectrumScreen(screenWidth: Sizing.instance.width())
                     Spacer()
             }
             }
-        }
         }
     }
 

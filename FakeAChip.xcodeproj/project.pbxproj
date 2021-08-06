@@ -95,6 +95,8 @@
 		CD3BD82C267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
 		CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
 		CD3BD82F2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
+		CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DD26A0772D0087CFEC /* Orientation.swift */; };
+		CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */; };
 		CD51D4732642B66C003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
 		CD51D4742642B66D003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
 		CD51D4762642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */; };
@@ -888,6 +890,8 @@
 		CD306C75264C2FB10021AA0A /* ZXDB-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ZXDB-SDK"; sourceTree = "<group>"; };
 		CD3BD82A267748C600394AB1 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
 		CD3BD82D2677495000394AB1 /* TapePlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerData.swift; sourceTree = "<group>"; };
+		CD4297DD26A0772D0087CFEC /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
+		CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSettings.swift; sourceTree = "<group>"; };
 		CD51D4722642B66C003C2A9A /* TXZFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXZFormat.swift; sourceTree = "<group>"; };
 		CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
 		CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoader.swift; sourceTree = "<group>"; };
@@ -1925,6 +1929,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA1746D2609253600910C23 /* PressActions.swift */,
+				CD4297DD26A0772D0087CFEC /* Orientation.swift */,
 			);
 			path = "SwiftUI Magic";
 			sourceTree = "<group>";
@@ -1938,6 +1943,7 @@
 				CDEF9BBA261EED5B00729043 /* StandardSprite.swift */,
 				CD3BD82A267748C600394AB1 /* HeaderData.swift */,
 				CD3BD82D2677495000394AB1 /* TapePlayerData.swift */,
+				CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2195,6 +2201,7 @@
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
+				CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */,
 				CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */,
 				CD0EC68F2668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
@@ -2225,6 +2232,7 @@
 				CD0CC59825FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CDEF9BC1261EF3D300729043 /* DisassemblerGraphicSection.swift in Sources */,
 				CD05400226258D5000221FC9 /* Z80BlockDisassembly.swift in Sources */,
+				CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */,
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,

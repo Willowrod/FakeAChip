@@ -30,6 +30,10 @@ struct TapePlayerView: View {
             
             Spacer()
             
+            Text("Tape Block: \(tapePlayerData.blockName)")
+            
+            Spacer()
+            
             Text("Tape Player:")
             
             HStack {
@@ -39,6 +43,7 @@ struct TapePlayerView: View {
                     } else {
                 Button("⏪"){
                     print("Rewind Tape")
+                    tapePlayerData.tape?.rewind()
                 }
                 .foregroundColor(fetchColourForButtonState(state: .Rewound))
                     }
@@ -57,6 +62,7 @@ struct TapePlayerView: View {
                 }
                 Button("⏩"){
                     print("Fast Forward Tape")
+                    tapePlayerData.tape?.fastForward()
                 }
                 .foregroundColor(fetchColourForButtonState(state: .Ended))
                 if buttonSelected(state: .Paused) {

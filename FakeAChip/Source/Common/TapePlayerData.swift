@@ -9,16 +9,20 @@ import Foundation
 
 
 
-class TapePlayerData: ObservableObject {
+class TapePlayerData: ObservableObject, TapeControlDelegate {
+    
 
 @Published var tapePlayerState: TapePlayerState = .Empty
+   
+@Published var blockName: String = "- None -"
 
 var currentlyLoadedTape: String? = nil
 
 var currentTapeSections: [String] = []
 
 var isShowingTapeSelector = false
-
+    
+var tape: TapeDelegate? = nil
     
     
     func listOfGames(extensions: [String]) -> [String] {
@@ -42,5 +46,14 @@ var isShowingTapeSelector = false
         }
         return snapShots
     }
+    
+    
+    func setTapeState(state: TapePlayerState) {
+        tapePlayerState = state
+    }
 
+    func setCurrentBlock(name: String) {
+        blockName = name
+    }
+    
 }

@@ -11,6 +11,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     
     var tzxData: [UInt8] = []
     var blocks: [BaseTZXBlock] = []
+    var dataBlocks: [BaseTZXBlock] = []
     var currentByte: Int = 0
     var currentBlock = 0
     var currentBit = 7
@@ -19,6 +20,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     var onPulseLength: Int = 0
     var offPulseLength: Int = 0
     var isOnPulse = true
+    var controlDelegate: TapeControlDelegate? = nil
     
     
     init(data: [UInt8]){
@@ -37,6 +39,17 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
         }
     }
     
+    func setControlDelegate(del: TapeControlDelegate?) {
+        controlDelegate = del
+        updateBlockName()
+    }
+    
+    func updateBlockName(){
+ //           DispatchQueue.main.sync {
+                controlDelegate?.setCurrentBlock(name: "Block: \(currentBlock)")
+//        }
+    }
+    
     func process(){
         processing = true
         while currentByte < tzxData.count && processing {
@@ -44,9 +57,44 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
         }
         print("TZX file imported")
         currentBlock = 0
-//        let myTapeImporter = TapeLoader.init()
-//        myTapeImporter.tapeDelegate = self
-//        myTapeImporter.initialiseTape()
+        dataBlocks.removeAll()
+        blocks.forEach {block in
+            if block.isCodeBlock {
+                dataBlocks.append(block)
+            }
+        }
+    }
+    
+    func fastForward() {
+        controlDelegate?.setTapeState(state: .Paused)
+        if currentBlock < dataBlocks.count {
+            currentBlock += 1
+            getcurrentBlock()?.reset()
+            updateBlockName()
+        }
+    }
+    
+    func rewind() {
+        controlDelegate?.setTapeState(state: .Paused)
+        if let current = getcurrentBlock() {
+            if current.currentByte > 0 && current.currentBit < 7 {
+                current.reset()
+            } else {
+                backOneTrack()
+            }
+        } else {
+            backOneTrack()
+        }
+      
+    }
+    
+    func backOneTrack(){
+        if currentBlock > 0 {
+            getcurrentBlock()?.reset()
+            currentBlock -= 1
+            getcurrentBlock()?.reset()
+            updateBlockName()
+        }
     }
     
     func readBlock(fromByte: Int){
@@ -71,7 +119,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
                 case 0x11:
                     blocks.append(TZXTurboSpeedBlock.init(data: tzxData[fromByte...], order: currentBlock))
                 case 0x20:
-                    blocks.append(TZXStandardSpeedBlock.init(data: tzxData[fromByte...], order: currentBlock))
+                    blocks.append(TZXPauseBlock.init(data: tzxData[fromByte...], order: currentBlock))
                 case 0x21:
                     blocks.append(TZXGroupStartBlock.init(data: tzxData[fromByte...], order: currentBlock))
                 case 0x22:
@@ -126,28 +174,44 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     // Delegate Methods
     
     
+//    func callNextBlock() -> BaseTZXBlock? {
+//        while currentBlock < blocks.count {
+//            if let block = blocks.first(where: {$0.order == currentBlock}){
+//                if block.isCodeBlock {
+//                    currentBlock += 1
+//                    return block
+//                }
+//            } else {
+//            currentBlock += 1
+//            }
+//        }
+//        return nil
+//    }
+    
     func callNextBlock() -> BaseTZXBlock? {
-        while currentBlock < blocks.count {
-            if let block = blocks.first(where: {$0.order == currentBlock}){
-                if block.isCodeBlock {
-                    currentBlock += 1
-                    return block
+        currentBlock += 1
+        while currentBlock < dataBlocks.count {
+            updateBlockName()
+                    return dataBlocks[currentBlock]
                 }
-            } else {
-            currentBlock += 1
-            }
-        }
         return nil
-    }
+            }
+    
+//    func getcurrentBlock() -> BaseTZXBlock? {
+//        while currentBlock < blocks.count {
+//            if blocks[currentBlock].isCodeBlock {
+//                print("Current block = \(currentBlock)")
+//                return blocks[currentBlock]
+//            }
+//            currentBlock += 1
+//        }
+//        return nil
+//    }
     
     func getcurrentBlock() -> BaseTZXBlock? {
-        while currentBlock < blocks.count {
-            if blocks[currentBlock].isCodeBlock {
-                print("Current block = \(currentBlock)")
-                return blocks[currentBlock]
-            }
-            currentBlock += 1
-        }
+        while currentBlock < dataBlocks.count {
+                    return dataBlocks[currentBlock]
+                }
         return nil
     }
     
@@ -185,6 +249,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
                 } else {
                     currentBlock += 1
                     workingBlock = nil//getcurrentBlock()
+                    updateBlockName()
                 }
                 return(false, true)
             }
@@ -243,6 +308,13 @@ class BaseTZXBlock {
         rawData = Array(data)
         process()
   //      rawData.removeAll()
+    }
+    
+    func reset() {
+        blockCounter = 0
+        currentBit = 7
+    workingByte = 0x00
+    currentByte = 0
     }
     
     func process(){}
@@ -493,6 +565,16 @@ class TZXTextArchiveBlock: TZXMessageStyleBlock {
 }
 
 
+//class TZXPauseBlock: TZXTAPStyleBlock {
+//    override func process() {
+//        blockType = 0x20
+//        blockCounter += 1
+//        pauseLength = fetchWord(byte: blockCounter)
+//        blockData = []
+//        print("Pause block imported - Length: \(pauseLength)ms")
+//    }
+//}
+
 class TZXStandardSpeedBlock: TZXTAPStyleBlock {
     override func process() {
         blockType = 0x10
@@ -516,10 +598,10 @@ class TZXStandardSpeedBlock: TZXTAPStyleBlock {
             dataBlockLength = fetchWord(byte: blockCounter)
             parameter1 = fetchWord(byte: blockCounter)
             parameter2 = fetchWord(byte: blockCounter)
-            print("Header imported - Type: \(headerType()) - Name: \(fileName) - Block Length: \(dataBlockLength) - \(parameter1Details()) - \(parameter2Details()) - Length: \(blockLength) - ")
+            print("Header imported - Type: \(headerType()) - Name: \(fileName) - Block Length: \(dataBlockLength) - \(parameter1Details()) - \(parameter2Details()) - Length: \(blockLength) - Pause: \(pauseLength)")
         } else {
             isHeader = false
-            print ("Standard Speed block imported of length \(blockLength)")
+            print ("Standard Speed block imported of length \(blockLength) - Pause: \(pauseLength)")
         }
  //       printBlockData(data: blockData)
         blockCounter = tempByteCount

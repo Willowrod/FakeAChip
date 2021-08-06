@@ -16,7 +16,7 @@ class Speccy: Z80 {
     
     let beeper = ZXBeeper.sharedInstance
     var borderColour: Color = .black
-    var tape: TapeDelegate? = nil
+   // var tape: TapeDelegate? = nil
     static var instanceSpectrum48: Speccy? = nil
     
     var shouldRestart = false
@@ -33,6 +33,7 @@ class Speccy: Z80 {
     var edgePair = RegisterPair("Edges", highValue: 0x00, lowValue: 0x00, id: -3)
     var rom: [UInt8] = []
     var ram: [UInt8] = []
+    var totalRam: UInt16 = 0xffff - 0x4000
     var keyboard: [UInt8] = Array(repeating: 0xFF, count: 8)
     var kempston: UInt8 = 0x00
     var initPc: UInt16 = 0x5B00
@@ -93,7 +94,7 @@ class Speccy: Z80 {
     override func resume() {
         pauseProcessor = false
         restricted = true
-        print("Un Paused")
+        print("True Speed")
     }
     
     override func fast() {
@@ -106,7 +107,7 @@ class Speccy: Z80 {
     override func reboot() {
         pause()
         PC = 0x00
-        tape = nil
+        data?.headerData.tapePlayerData.tape = nil
         resume()
     }
     
@@ -163,6 +164,9 @@ class Speccy: Z80 {
             ldRom(location: location, value: value)
             return
         }
+//        if location == 23668 {
+//            print("Updating T ADDR with \(value.hex())")
+//        }
         let ramLocation = location - 0x4000
         if ramLocation < ram.count{
             ram[ramLocation] = value
@@ -208,13 +212,13 @@ class Speccy: Z80 {
     //        }
      //   if #available(macCatalyst 15.0, *) {
             
-                  if #available(iOS 15.0, *) {
-            async {
-                await asyncDownload()
-            }
-        } else {
-            // Fallback on earlier versions
-        }
+//                  if #available(iOS 15.0, *) {
+//            async {
+//                await asyncDownload()
+//            }
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
     
     override func download(url: String) {
@@ -231,12 +235,12 @@ class Speccy: Z80 {
                     }
     }
     
-func asyncDownload() async {
-               let availableTitles = try? await ZXDB().asyncSearch("Spellbound")
-    availableTitles?.forEach { item in
-        print(item)
-    }
-    }
+//func asyncDownload() async {
+//               let availableTitles = try? await ZXDB().asyncSearch("Spellbound")
+//    availableTitles?.forEach { item in
+//        print(item)
+//    }
+//    }
     
     override func load(file: String, path: String? = nil){
         
@@ -347,25 +351,39 @@ func asyncDownload() async {
         if let filePath = path, filePath.count > 0 {
         let file = "\(filePath)/\(tzxFile)"
         if let contents = NSData(contentsOfFile: file) {
-            let data = contents as Data
-            let dataString = data.hexString
+            let tzxData = contents as Data
+            let dataString = tzxData.hexString
             let tzx = TZXFormat.init(data: dataString)
             loadingTStates = 0
-            tape = tzx
+            tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
+            data?.headerData.tapePlayerData.tape = tzx
         }
         } else if let filePath = Bundle.main.path(forResource: tzxFile.replacingOccurrences(of: ".tzx", with: ""), ofType: "tzx"){
-      //      pause()
             print("File found - \(filePath)")
             let contents = NSData(contentsOfFile: filePath)
-            let data = contents! as Data
-            let dataString = data.hexString
+            let tzxData = contents! as Data
+            let dataString = tzxData.hexString
             let tzx = TZXFormat.init(data: dataString)
             loadingTStates = 0
-            tape = tzx
+            tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
+            data?.headerData.tapePlayerData.tape = tzx
         } else {
-            //hexView.text = "- - - - - - - -"
             print("file not found")
         }
+    }
+    
+    
+    
+    override func startLoadingProcess() {
+        pause()
+        ram = Array(repeating: 0x00, count: 0xC000)
+        ldRam(location: UInt16(0x5c74), value: UInt8(0xe1))
+        ldRam(location: UInt16(0x2596), value: UInt16(0x221c))
+        BC.ld(value: 0x0022)
+        DE.ld(value: 0x5c92)
+        HL.ld(value: 0x2596)
+        PC = 0x0605
+        resume()
     }
     
     func initialPC() -> UInt16 {
@@ -408,12 +426,17 @@ func asyncDownload() async {
         let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
             if let screen = UIImage.init(bitmap: screenImage){
                 DispatchQueue.main.sync {
-                data?.vdu = VDU(image: screen, border: borderColour)
-                data?.registerPairs = RegisterSetModel(registerPairs: pairs)
+             data?.vdu = VDU(image: screen, border: borderColour)
+            data?.registerPairs = RegisterSetModel(registerPairs: pairs)
+                    
             }
         }
         frameEnds = true
         runInterupt()
+    }
+    
+    func heapSize(_ obj: AnyObject) {
+        NSLog("size of Object: %zd", malloc_size(Unmanaged.passRetained(obj).toOpaque()));
     }
     
     override func process(){
@@ -458,7 +481,12 @@ func asyncDownload() async {
 
                         shouldForceBreak = false
                         self.doAdditionalPreProcessing()
-
+//                        if PC == 0x0605 {
+//                            print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+//                        }
+                     //   if PC < 0x4000{
+                      //      print("Running PC \(PC.hex()) opCode: \(byte)")
+                      //  }
                         opCode(byte: byte)
 //                        edgePair.ld(value: UInt16(PC))
 //
@@ -468,9 +496,10 @@ func asyncDownload() async {
 //
 //                        }
 //
-//                        if PC == 0x05fa{
+    //                    if PC > 0x0600{
+                            
 //                            print("New edge found - TState: \(currentTStates) A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-//                        }
+     //                   }
                         self.doAdditionalPostProcessing()
 
                     }
@@ -538,14 +567,14 @@ func asyncDownload() async {
             }
 //            byteVal = byteVal.set(bit: 6, value: true)
             if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
-            if let tapeData = tape?.fetchData(tState: loadingTStates){
+                if let tapeData = data?.headerData.tapePlayerData.tape?.fetchData(tState: loadingTStates){
                 byteVal = byteVal.set(bit: 6, value: tapeData.signal)
                 if tapeData.reset {
                     loadingTStates = 0
-                  //  edgePair.inc()
                 }
             } else {
-                tape = nil
+                data?.headerData.tapePlayerData.tape = nil
+                resume()
             }
             }
             destination.inCommand(byte: byteVal)

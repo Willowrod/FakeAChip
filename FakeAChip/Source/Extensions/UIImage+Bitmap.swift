@@ -33,9 +33,11 @@ extension UIImage {
         ) else {
             return nil
         }
-
+        
         self.init(cgImage: cgImage)
     }
+    
+
     
     convenience init?(bitmap: StandardSprite) {
         let alphaInfo = CGImageAlphaInfo.premultipliedLast

@@ -34,8 +34,14 @@ struct ZXTapeLoaderView: View {
                     Text(" - \(getPublisher(model: model))")
                 }
                 ForEach(getGoodFiles(model: model), id: \.self){file in
-                    Button("\(getFileName(path: file.path))"){
-                        download(file.path!)
+                    HStack {
+                    Button("Load \(getFileName(path: file.path))"){
+                        download(file.path!, forceLoad: true)
+                    }
+                        Button("Insert Cassette"){
+                            download(file.path!, forceLoad: false)
+                        }
+                        
                     }
                 }
                 }
@@ -47,15 +53,15 @@ struct ZXTapeLoaderView: View {
     }
     
     func hitDL(){
-        if #available(iOS 15.0, *) {
-            async {
-                 sortitems(items: try await ZXDB.shared.asyncSearch(searchItem))
-            }
-        } else {
+//        if #available(iOS 15.0, *) {
+//            async {
+//                 sortitems(items: try await ZXDB.shared.asyncSearch(searchItem))
+//            }
+//        } else {
             ZXDB.shared.search(searchItem) { items in
                 sortitems(items: items)
                   }
-        }
+//        }
         
       
     }
@@ -107,8 +113,10 @@ struct ZXTapeLoaderView: View {
         foundItems = myItems
     }
     
-    func download(_ path: String) {
-        
+    func download(_ path: String, forceLoad: Bool) {
+        if forceLoad {
+            computer.startLoadingProcess()
+        }
         if path.contains("/pub/sinclair") {
             computer.download(url: "https://archive.org/download/World_of_Spectrum_June_2017_Mirror/World%20of%20Spectrum%20June%202017%20Mirror.zip/World%20of%20Spectrum%20June%202017%20Mirror/sinclair\(path.replacingOccurrences(of: "/pub/sinclair", with: ""))")
         } else {

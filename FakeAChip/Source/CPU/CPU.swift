@@ -183,4 +183,8 @@ class CPU: CoreDelegate {
     func fast() {
         
     }
+    
+    func startLoadingProcess() {
+        
+    }
 }

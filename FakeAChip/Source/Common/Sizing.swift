@@ -15,11 +15,18 @@ class Sizing {
     var size: CGSize = .zero
     
     func width() -> CGFloat {
-        return size.width * 0.85
+        
+        return min(size.width, size.height) * 0.85
     }
     
     func height() -> CGFloat {
-        return size.width * 0.9
+        return max(size.width, size.height) * 0.9
     }
+    
+    func widthforLandscape() -> CGFloat {
+        return width() * 0.9
+           // return (width() / 24.0) * 32.0
+    }
+    
     
 }
