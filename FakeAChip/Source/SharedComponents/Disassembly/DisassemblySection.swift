@@ -29,6 +29,10 @@ struct DisassemblySection: View {
                         DisassemblerCodeSection(section: section)
                     case .GRAPHICS:
                         DisassemblerGraphicSection(section: section)
+                    case .DATA:
+                        DisassemblerDataSection(section: section)
+                    case .VALUE:
+                        DisassemblerValueSection(section: section)
                     case .TEXT, .POTENTIALTEXT:
                         DisassemblerTextSection(section: section)
                     case .UNDEFINED:

@@ -11,9 +11,10 @@ enum DataType: String, CaseIterable {
     case CODE = "CODE"
     case DATA = "DATA"
     case TEXT = "TEXT"
+    case VALUE = "VALUE"
     case POTENTIALTEXT = "POTENTIALTEXT"
     case GRAPHICS = "GRAPHICS"
-    case UNUSED = "VALUE"
+    case UNUSED = "UNUSED"
     case UNDEFINED = "UNDEFINED"
 }
 
@@ -33,6 +34,7 @@ extension DataType: Codable {
         case "CODE": self = .CODE
         case "DATA": self = .DATA
         case "TEXT": self = .TEXT
+        case "VALUE": self = .VALUE
         case "GRAPHICS": self = .GRAPHICS
         case "UNUSED": self = .UNUSED
         case "UNDEFINED": self = .UNDEFINED
@@ -60,6 +62,8 @@ extension DataType: Codable {
             try container.encode("UNUSED", forKey: .rawValue)
         case .UNDEFINED:
             try container.encode("UNDEFINED", forKey: .rawValue)
+        case .VALUE:
+            try container.encode("VALUE", forKey: .rawValue)
         }
     }
 }

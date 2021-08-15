@@ -47,6 +47,14 @@ extension String {
         return rom
     }
     
+    func reduce() -> String {
+        if self.count > 1 {
+            var str = self
+            return String(str.removeLast())
+        }
+        return self
+    }
+    
 //    func splitToHeader(separator: Character) -> [CodeByteModel] {
 //        let subStringArray = self.split(separator: separator)
 //        var stringArray: [CodeByteModel] = []

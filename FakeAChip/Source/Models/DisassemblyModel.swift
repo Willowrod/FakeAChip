@@ -99,12 +99,86 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     
     func textOutput() -> String {
         var string = ""
-        lines.forEach{byte in
-            if let ascii = UInt8(byte.code, radix: 16), ascii >= 0x20, ascii <= 0x7C{
-            string = "\(string)\(String(UnicodeScalar(UInt8(ascii))))"
+        bytes.forEach{byte in
+            if byte >= 0x20, byte <= 0x7C{
+            string = "\(string)\(String(UnicodeScalar(UInt8(byte))))"
             } else {
                 string = "\(string)~"
             }
+        }
+        return string
+    }
+    
+    func dataOutput() -> String {
+        var string = ""
+        bytes.forEach{byte in
+            string = "\(string)\(byte.hex()):"
+
+        }
+        if string.count > 1 {
+            string.removeLast()
+        }
+        return string
+    }
+    
+    
+    func valueOutput() -> String {
+        
+        var string = "Byte: \n"
+        var offset0 = "Word: \n"
+        var offset1 = "Word Offset 1: \n"
+        
+        let length = bytes.count
+        
+        var word0: UInt16 = 0x00
+        var word1: UInt16 = 0x00
+        
+        if length % 2 == 1 {
+             offset0 = "Word Offset 0: \n"
+        }
+        var offset = false
+        bytes.forEach{byte in
+            string = "\(string)\(byte),"
+
+            if offset {
+                word0 = word0 &+ UInt16(byte)*265
+                word1 = word1 &+ UInt16(byte)
+                offset0 = "\(offset0)\(word0),"
+                word0 = 0x00
+            } else {
+                word1 = word1 &+ UInt16(byte)*265
+                word0 = word0 &+ UInt16(byte)
+                offset1 = "\(offset1)\(word1),"
+                word1 = 0x00
+            }
+            offset.toggle()
+        }
+        
+        
+        if length % 2 == 1 {
+            offset0 = "\(offset0)\(word0),"
+            return "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
+        }
+        
+        return "\(string.reduce())\n\(offset0.reduce())"
+        
+        
+        
+        return string
+    }
+    
+    
+    func valueOutputWord() -> String {
+        var string = ""
+        if bytes.count % 2 == 1 {
+            string = "Offset 0"
+        }
+        bytes.forEach{byte in
+            string = "\(string)\(byte),"
+
+        }
+        if string.count > 1 {
+            string.removeLast()
         }
         return string
     }
