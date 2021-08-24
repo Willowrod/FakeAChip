@@ -82,6 +82,14 @@
 		CD0EC6902668342100B21E1F /* MediaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC68E2668342100B21E1F /* MediaConstants.swift */; };
 		CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */; };
 		CD0EC6962668358500B21E1F /* ZXTapeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */; };
+		CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */; };
+		CD16BD0626D4FFC900151830 /* Speccy+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */; };
+		CD16BD0726D4FFC900151830 /* Speccy+Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */; };
+		CD16BD0826D4FFC900151830 /* Speccy+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0326D4FFC900151830 /* Speccy+IO.swift */; };
+		CD16BD0926D4FFC900151830 /* Speccy+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0426D4FFC900151830 /* Speccy+Screen.swift */; };
+		CD16BD0B26D5000900151830 /* Speccy+ROM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0A26D5000900151830 /* Speccy+ROM.swift */; };
+		CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0C26D5035000151830 /* SpeccyUnused.swift */; };
+		CD16BD0F26D5048B00151830 /* Speccy+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */; };
 		CD1DE4F72649786100E4FCAD /* Blitz.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD1DE4F62649786100E4FCAD /* Blitz.tzx */; };
 		CD1DE4F82649786100E4FCAD /* Blitz.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD1DE4F62649786100E4FCAD /* Blitz.tzx */; };
 		CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */; };
@@ -889,6 +897,14 @@
 		CD0CC5E625FF585F00731EDA /* MainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeader.swift; sourceTree = "<group>"; };
 		CD0EC68E2668342100B21E1F /* MediaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaConstants.swift; sourceTree = "<group>"; };
 		CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoaderView.swift; sourceTree = "<group>"; };
+		CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+RAM.swift"; sourceTree = "<group>"; };
+		CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+Loading.swift"; sourceTree = "<group>"; };
+		CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+Processing.swift"; sourceTree = "<group>"; };
+		CD16BD0326D4FFC900151830 /* Speccy+IO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+IO.swift"; sourceTree = "<group>"; };
+		CD16BD0426D4FFC900151830 /* Speccy+Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+Screen.swift"; sourceTree = "<group>"; };
+		CD16BD0A26D5000900151830 /* Speccy+ROM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+ROM.swift"; sourceTree = "<group>"; };
+		CD16BD0C26D5035000151830 /* SpeccyUnused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeccyUnused.swift; sourceTree = "<group>"; };
+		CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+Setup.swift"; sourceTree = "<group>"; };
 		CD1DE4F62649786100E4FCAD /* Blitz.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blitz.tzx; sourceTree = "<group>"; };
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
@@ -1084,7 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA172EC2608858E00910C23 /* Debug */,
-				CDA172E32605520100910C23 /* Controlls */,
+				CDA172E32605520100910C23 /* Controls */,
 				CDA1726F260498C500910C23 /* Processor */,
 				CDC8C553260261A10010EBF7 /* Common */,
 				CD8914862600EA5300C75998 /* CPU */,
@@ -1158,12 +1174,20 @@
 		CD0CC58325FA6C4000731EDA /* ZXSpectrumFamily */ = {
 			isa = PBXGroup;
 			children = (
+				CD16BD0326D4FFC900151830 /* Speccy+IO.swift */,
+				CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */,
+				CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */,
+				CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */,
+				CD16BD0426D4FFC900151830 /* Speccy+Screen.swift */,
 				CDA174762609E39200910C23 /* ZXBeeper.swift */,
 				CD0CC5D525FF538E00731EDA /* Views */,
 				CD0CC58425FA6C4000731EDA /* FileFormats */,
 				CD0CC58625FA6C4000731EDA /* Speccy.swift */,
 				CD0CC58725FA6C4000731EDA /* Screen */,
 				CDEF9B33261CB94A00729043 /* Speccy128.swift */,
+				CD16BD0A26D5000900151830 /* Speccy+ROM.swift */,
+				CD16BD0C26D5035000151830 /* SpeccyUnused.swift */,
+				CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */,
 			);
 			path = ZXSpectrumFamily;
 			sourceTree = "<group>";
@@ -1919,12 +1943,12 @@
 			path = Z80;
 			sourceTree = "<group>";
 		};
-		CDA172E32605520100910C23 /* Controlls */ = {
+		CDA172E32605520100910C23 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
 				CDA172E42605521500910C23 /* KeyInputController.swift */,
 			);
-			path = Controlls;
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		CDA172EC2608858E00910C23 /* Debug */ = {
@@ -2186,10 +2210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDEF998E2612642F00729043 /* TargetType.swift in Sources */,
+				CD16BD0F26D5048B00151830 /* Speccy+Setup.swift in Sources */,
 				CDA1746726091D6900910C23 /* ZXKeyboard.swift in Sources */,
 				CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */,
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
+				CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */,
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDEF99A92612676E00729043 /* DataType.swift in Sources */,
 				CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
@@ -2198,11 +2224,15 @@
 				CDA17277260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */,
 				CDEF99E82614C4C900729043 /* DisassemblerCodeSection.swift in Sources */,
 				CD0CC5CA25FBA34200731EDA /* DispatchQueue+backgrounding.swift in Sources */,
+				CD16BD0626D4FFC900151830 /* Speccy+Loading.swift in Sources */,
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CDEF999A261265B000729043 /* CodeListing.swift in Sources */,
+				CD16BD0726D4FFC900151830 /* Speccy+Processing.swift in Sources */,
 				CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */,
 				CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */,
+				CD16BD0926D4FFC900151830 /* Speccy+Screen.swift in Sources */,
 				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
+				CD16BD0B26D5000900151830 /* Speccy+ROM.swift in Sources */,
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
 				CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */,
 				CDA1727D260498C600910C23 /* Z80.swift in Sources */,
@@ -2224,6 +2254,7 @@
 				CD0CC5E725FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914882600EA6800C75998 /* CPU.swift in Sources */,
 				CDA172522603811000910C23 /* RegisterStruct.swift in Sources */,
+				CD16BD0826D4FFC900151830 /* Speccy+IO.swift in Sources */,
 				CDEF98762610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CD0CC5AE25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD2DA78D260CF2500022F4EF /* DisassemblyList.swift in Sources */,
@@ -2263,6 +2294,7 @@
 				CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */,
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
 				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
+				CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */,
 				CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */,
 				CDA17279260498C600910C23 /* Z80+OpcodeED.swift in Sources */,
 				CDEF997C261263CE00729043 /* OpCodeDefs.swift in Sources */,
@@ -2721,7 +2753,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.1.1;
+				minimumVersion = 8.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

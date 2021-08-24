@@ -37,7 +37,6 @@ struct TapePlayerView: View {
             Text("Tape Player:")
             
             HStack {
-                
                     if buttonSelected(state: .Rewound) {
                         Text("🟥")
                     } else {
