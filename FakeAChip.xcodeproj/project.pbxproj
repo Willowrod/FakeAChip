@@ -90,8 +90,9 @@
 		CD16BD0B26D5000900151830 /* Speccy+ROM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0A26D5000900151830 /* Speccy+ROM.swift */; };
 		CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0C26D5035000151830 /* SpeccyUnused.swift */; };
 		CD16BD0F26D5048B00151830 /* Speccy+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */; };
-		CD1DE4F72649786100E4FCAD /* Blitz.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD1DE4F62649786100E4FCAD /* Blitz.tzx */; };
-		CD1DE4F82649786100E4FCAD /* Blitz.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD1DE4F62649786100E4FCAD /* Blitz.tzx */; };
+		CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
+		CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
+		CD26451D26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */; };
 		CD2DA78D260CF2500022F4EF /* DisassemblyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */; };
 		CD2DA78E260CF2500022F4EF /* DisassemblyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */; };
@@ -107,8 +108,6 @@
 		CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */; };
 		CD51D4732642B66C003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
 		CD51D4742642B66D003C2A9A /* TXZFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4722642B66C003C2A9A /* TXZFormat.swift */; };
-		CD51D4762642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */; };
-		CD51D4772642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */ = {isa = PBXBuildFile; fileRef = CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */; };
 		CD51D4792642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD51D47A2642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */; };
@@ -905,7 +904,7 @@
 		CD16BD0A26D5000900151830 /* Speccy+ROM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+ROM.swift"; sourceTree = "<group>"; };
 		CD16BD0C26D5035000151830 /* SpeccyUnused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeccyUnused.swift; sourceTree = "<group>"; };
 		CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+Setup.swift"; sourceTree = "<group>"; };
-		CD1DE4F62649786100E4FCAD /* Blitz.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blitz.tzx; sourceTree = "<group>"; };
+		CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80Type1FormatWrite.swift; sourceTree = "<group>"; };
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
@@ -915,7 +914,6 @@
 		CD4297DD26A0772D0087CFEC /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSettings.swift; sourceTree = "<group>"; };
 		CD51D4722642B66C003C2A9A /* TXZFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXZFormat.swift; sourceTree = "<group>"; };
-		CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket_to_ride.tzx; sourceTree = "<group>"; };
 		CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoader.swift; sourceTree = "<group>"; };
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
@@ -1199,6 +1197,7 @@
 				CDA173162609172E00910C23 /* SNAFormat.swift */,
 				CD0CC58525FA6C4000731EDA /* Z80Format.swift */,
 				CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */,
+				CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */,
 			);
 			path = FileFormats;
 			sourceTree = "<group>";
@@ -1216,8 +1215,6 @@
 		CD0CC5C225FA74B300731EDA /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				CD1DE4F62649786100E4FCAD /* Blitz.tzx */,
-				CD51D4752642B6A1003C2A9A /* ticket_to_ride.tzx */,
 				CD0543B7262C9EEA00221FC9 /* 1st Division Manager (1991)(Codemasters).zip */,
 				CD05423F262C9EC300221FC9 /* 3D Chess (1986)(Psion Software).zip */,
 				CD05443C262C9EF800221FC9 /* 3D Maze (1982)(Impact Software).zip */,
@@ -2133,9 +2130,7 @@
 				CD0548DC262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */,
 				CD0CC54A25FA6BD600731EDA /* LaunchScreen.storyboard in Resources */,
 				CD0CC54725FA6BD600731EDA /* Preview Assets.xcassets in Resources */,
-				CD51D4762642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */,
 				CD0544EE262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */,
-				CD1DE4F72649786100E4FCAD /* Blitz.tzx in Resources */,
 				CDA172672604962100910C23 /* ZX48k.rom in Resources */,
 				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
 				CD0546F0262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
@@ -2155,12 +2150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0548DD262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */,
-				CD51D4772642B6A1003C2A9A /* ticket_to_ride.tzx in Resources */,
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CD0546F1262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
-				CD1DE4F82649786100E4FCAD /* Blitz.tzx in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
 				CD0544EF262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */,
 				CD0545D5262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */,
@@ -2216,6 +2209,7 @@
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */,
+				CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDEF99A92612676E00729043 /* DataType.swift in Sources */,
 				CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
@@ -2395,6 +2389,7 @@
 				CDA173182609172E00910C23 /* SNAFormat.swift in Sources */,
 				CD0CC59325FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC5A925FA6C4000731EDA /* Speccy.swift in Sources */,
+				CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
@@ -2409,6 +2404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0CC56025FA6BD700731EDA /* FakeAChipUITests.swift in Sources */,
+				CD26451D26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CD9CF2D726C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CD9CF2D326C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */,
 			);

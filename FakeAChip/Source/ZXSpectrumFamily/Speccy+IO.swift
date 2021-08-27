@@ -46,6 +46,8 @@ extension Speccy {
                     data?.headerData.tapePlayerData.tapePlayerState = .Paused
                     resume()
                 }
+                
+          //      print("Loading \(destination.name) with \(byteVal.hex())")
             }
             destination.inCommand(byte: byteVal)
         } else if port == 0x7f {
@@ -74,6 +76,7 @@ extension Speccy {
     }
     
     func updateBorder(_ colour: UInt8) {
+        borderColourInt = colour
         borderColour = borderColour(colour)
     }
     

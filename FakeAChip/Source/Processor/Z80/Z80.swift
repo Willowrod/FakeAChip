@@ -14,8 +14,8 @@ import AVFoundation
 
 
 class Z80: CPU {
-    static var F: FlagRegister = FlagRegister(value: 0x00)
-    static var A: Accumilator = Accumilator(value: 0x00)
+    static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
+    static var A: Accumilator = Accumilator(value: 0x00, name: "A")
     var AF = RegisterPair("AF", highValue: 0x00, lowValue: 0x00, id: 0)
     var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
     var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
@@ -26,10 +26,10 @@ class Z80: CPU {
     var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
     var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
     var HL2 = RegisterPair("HL2", highValue: 0x00, lowValue: 0x00, id: 9)
-    var I: Register = Register(value: 0x00)
+    var I: Register = Register(value: 0x00, name: "I")
     var interupt: Bool = true
     var interupt2: Bool = true
-    var R: Register = Refresh(value: 0x00)
+    var R: Register = Refresh(value: 0x00, name: "R")
     var SP: UInt16 = 0
     var MEMPTR: UInt16 = 0
     var pagingByte: UInt8 = 0

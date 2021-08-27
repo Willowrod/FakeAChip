@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MacMainMenu: View {
 //    @StateObject var settings = FakeAChipData(.Mac)
-    @EnvironmentObject var settings: FakeAChipData
+//    @EnvironmentObject var settings: FakeAChipData
     var body: some View {
 //        NavigationView {
 //            VStack {

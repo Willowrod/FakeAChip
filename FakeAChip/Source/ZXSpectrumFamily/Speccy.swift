@@ -15,6 +15,7 @@ class Speccy: Z80 {
     
     let beeper = ZXBeeper.sharedInstance
     var borderColour: Color = .black
+    var borderColourInt: UInt8 = 0x00
     static var instanceSpectrum48: Speccy? = nil
     var shouldRestart = false
     var commandsPerFrame = 0

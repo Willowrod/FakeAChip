@@ -14,7 +14,18 @@ class RegisterPair {
     
     init(_ named: String, highValue: UInt8, lowValue: UInt8, id: Int) {
         name = named
-        registerPair = RegisterPairStruct(high: Register(value: highValue), low: Register(value: lowValue), name: named)
+        var first:String = "U"
+        var last:String = "U"
+        
+        if let firstLetter = named.first{
+            first = String(firstLetter)
+        }
+        
+        if let lastLetter = named.last{
+            last = String(lastLetter)
+        }
+        
+        registerPair = RegisterPairStruct(high: Register(value: highValue, name: first), low: Register(value: lowValue, name: last), name: named)
     }
     
     init(a: Accumilator, f: FlagRegister) {
@@ -23,7 +34,17 @@ class RegisterPair {
         }
     
     init(_ named: String, pair: RegisterPair) {
-        registerPair = RegisterPairStruct(high: Register(value: pair.high()), low: Register(value: pair.low()), name: named)
+        var first:String = "U"
+        var last:String = "U"
+        
+        if let firstLetter = named.first{
+            first = String(firstLetter)
+        }
+        
+        if let lastLetter = named.last{
+            last = String(lastLetter)
+        }
+        registerPair = RegisterPairStruct(high: Register(value: pair.high(), name: first), low: Register(value: pair.low(), name: last), name: named)
         name = named
         }
     
@@ -41,7 +62,7 @@ class RegisterPair {
             Z80.A.ld(value: pair.registerPair.high.value())
             registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
         } else {
-        registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value()), low: Register(value: pair.registerPair.low.value()), name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value(), name: registerPair.high.name), low: Register(value: pair.registerPair.low.value(), name: registerPair.low.name), name: registerPair.name)
         }
     }
     
@@ -53,7 +74,7 @@ class RegisterPair {
             Z80.A.ld(value: high)
             registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
         } else {
-        registerPair = RegisterPairStruct(high: Register(value: high), low: Register(value: low), name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Register(value: high, name: registerPair.high.name), low: Register(value: low, name: registerPair.low.name), name: registerPair.name)
         }
     }
     

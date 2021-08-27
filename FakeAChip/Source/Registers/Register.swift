@@ -9,9 +9,15 @@ import Foundation
 
 class Register {
     var register: RegisterStruct = RegisterStruct(byteValue: 0xFF)
+    var name: String = "Unknown"
     
     init(value: UInt8) {
         register = RegisterStruct(byteValue: value)
+    }
+    
+    init(value: UInt8, name: String) {
+        register = RegisterStruct(byteValue: value)
+        self.name = name
     }
     
     func value() -> UInt8 {

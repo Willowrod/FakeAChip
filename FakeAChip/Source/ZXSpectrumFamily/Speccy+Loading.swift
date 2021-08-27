@@ -81,7 +81,9 @@ extension Speccy {
         }
         jumpPoints.removeAll()
         interupt = true
+   //     writeZ80Internal()
         pauseProcessor = false
+        
     }
     
     func unzipFile(file: String){
@@ -198,4 +200,44 @@ extension Speccy {
         resume()
     }
    
+    func writeZ80Internal() {
+        
+        pause()
+        let snap: Z80Type1FormatWrite = Z80Type1FormatWrite()
+        snap.add(a())
+        snap.add(f())
+        snap.add(BC.value())
+        snap.add(HL.value())
+        snap.add(PC)
+        snap.add(SP)
+        snap.add(I.value())
+        snap.add(R.value())
+        var bit12: UInt8 = 0x00
+        if R.value().set(bit: 7) != 0 {
+            bit12 = 0x01
+        }
+        bit12 = bit12 & (borderColourInt << 1)
+        snap.add(bit12)
+        snap.add(DE.value())
+        snap.add(BC2.value())
+        snap.add(DE2.value())
+        snap.add(HL2.value())
+        snap.add(AF2.value().highByte())
+        snap.add(AF2.value().lowByte())
+        snap.add(IY.value())
+        snap.add(IX.value())
+        if interupt {
+            snap.add(UInt8(0x01))
+        } else {
+            snap.add(UInt8(0x00))
+        }
+        snap.add(UInt8(interuptMode))
+        snap.add(ram)
+        
+        print(snap.write())
+        
+    }
+    
+    
+    
 }
