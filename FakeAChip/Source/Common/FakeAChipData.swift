@@ -25,10 +25,9 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     var headerData = HeaderData()
     
+    var disassemblyData = DisassemblyData()
+    
     @Published var host: HostSystem
-    
-    @Published var disassembly: DisassemblyModel = DisassemblyModel()
-    
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
@@ -84,15 +83,15 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
         }
         currentComputerInstance.addSettings(self)
         currentComputerInstance.startProcessing()
-    //    oldModel.disengage()
     }
     
     func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
         _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
+        disassemblyData.disassembly.snapshot = currentComputerInstance.dumpSnapshot()
     }
     
     func disassemblyComplete(disassembly: DisassemblyModel) {
-        self.disassembly = disassembly
+        disassemblyData.disassembly = disassembly
     }
     
     func keyboardInteraction(key: Int, pressed: Bool){

@@ -32,6 +32,7 @@ class Speccy: Z80 {
     var restricted = true
     let alphaInfo = CGImageAlphaInfo.premultipliedLast
     let bytesPerPixel = MemoryLayout<ZXColor>.stride
+    var currentSnapshot = ""
     
     override init() {
         super.init()
@@ -180,4 +181,16 @@ joystickInteractionInternal(key: key, pressed: pressed)
         doAdditionalPostProcessingInternal()
     }
     
+    override func saveSnapshot() {
+        writeZ80Internal()
+    }
+    
+    override func dumpSnapshot() -> String {
+        saveSnapshot()
+        return currentSnapshot
+    }
+    
+    override func importDisassembly() {
+        importSpectrumDisassemblyInternal()
+    }
 }

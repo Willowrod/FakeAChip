@@ -187,4 +187,16 @@ class CPU: CoreDelegate {
     func startLoadingProcess() {
         
     }
+    
+    func saveSnapshot() {
+        
+    }
+    
+    func dumpSnapshot() -> String {
+        return "DumpSnapshot required overriding"
+    }
+    
+    func importDisassembly() {
+        
+    }
 }

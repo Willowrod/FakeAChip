@@ -161,6 +161,31 @@ extension Speccy {
         performOut(port: 0xfd, map: 0x74, source: spareRegister)
     }
     
+    func loadZ80Internal(data: String){
+        let snapShot = Z80Format(data: data)
+        let banks = snapShot.retrieveRam()
+        if (banks.count > 0){
+            if banks.count == 1{
+                var count = 0
+                banks[0].forEach{ byte in
+                    if count < ram.count {
+                        // print ("count: \(count) - banks[0].count: \(banks[0].count)")
+                        ram[count] = byte
+                        count += 1
+                    } else {
+                        print ("RAM overflow!")
+                    }
+                }
+                print("RAM import complete")
+            }
+        }
+        
+        initialiseRegisters(header: snapShot.registers)
+        header = snapShot.registers
+        spareRegister.ld(value: pagingByte)
+        performOut(port: 0xfd, map: 0x74, source: spareRegister)
+    }
+    
     func importTZX(tzxFile: String, path: String? = nil){
         if let filePath = path, filePath.count > 0 {
             let file = "\(filePath)/\(tzxFile)"
@@ -234,10 +259,33 @@ extension Speccy {
         snap.add(UInt8(interuptMode))
         snap.add(ram)
         
-        print(snap.write())
+        currentSnapshot = snap.write()
         
     }
     
+    func importSpectrumDisassemblyInternal() {
+        
+        let filename = getPath(forFile: "disassembly.json")
+        do {
+            //let contents = try String(contentsOfFile: filename.absoluteString)
+            guard let disassembly = FileManager.default.contents(atPath: filename.path) else {
+                print("Failed to read data")
+                return
+            }
+               // print(contents)
+            let json = try JSONDecoder().decode(DisassemblyModel.self, from: disassembly) //JSONEncoder().encode(self)
+       
+            currentSnapshot = json.snapshot
+            loadZ80Internal(data: currentSnapshot)
+            data?.disassemblyData.disassembly = json
+            resume()
+            
+            } catch {
+                // contents could not be loaded
+            }
+        
+        
+    }
     
     
 }

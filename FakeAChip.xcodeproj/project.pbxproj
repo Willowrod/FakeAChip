@@ -12,20 +12,6 @@
 		CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0540092625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0541D1262B27A800221FC9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD0541D0262B27A800221FC9 /* Zip */; };
-		CD0544EE262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05423F262C9EC300221FC9 /* 3D Chess (1986)(Psion Software).zip */; };
-		CD0544EF262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05423F262C9EC300221FC9 /* 3D Chess (1986)(Psion Software).zip */; };
-		CD054588262C9EFC00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05428C262C9ECA00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip */; };
-		CD054589262C9EFC00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05428C262C9ECA00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip */; };
-		CD0545D4262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542B2262C9ECF00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip */; };
-		CD0545D5262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542B2262C9ECF00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip */; };
-		CD05468A262C9EFC00221FC9 /* 007 - Live and Let Die (1988)(Domark).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054310262C9ED900221FC9 /* 007 - Live and Let Die (1988)(Domark).zip */; };
-		CD05468B262C9EFC00221FC9 /* 007 - Live and Let Die (1988)(Domark).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054310262C9ED900221FC9 /* 007 - Live and Let Die (1988)(Domark).zip */; };
-		CD0546F0262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054343262C9EDF00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip */; };
-		CD0546F1262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054343262C9EDF00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip */; };
-		CD0547D8262C9EFD00221FC9 /* 1st Division Manager (1991)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543B7262C9EEA00221FC9 /* 1st Division Manager (1991)(Codemasters).zip */; };
-		CD0547D9262C9EFD00221FC9 /* 1st Division Manager (1991)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543B7262C9EEA00221FC9 /* 1st Division Manager (1991)(Codemasters).zip */; };
-		CD0548DC262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05443C262C9EF800221FC9 /* 3D Maze (1982)(Impact Software).zip */; };
-		CD0548DD262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05443C262C9EF800221FC9 /* 3D Maze (1982)(Impact Software).zip */; };
 		CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
 		CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
@@ -93,6 +79,233 @@
 		CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451D26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
+		CD26451F26D9FF680072B09F /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
+		CD26452026D9FF680072B09F /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
+		CD26452126D9FF680072B09F /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
+		CD26452226DC0A590072B09F /* Fat Worm Blows a Sparky (1985)(Durell Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054274262C9EC800221FC9 /* Fat Worm Blows a Sparky (1985)(Durell Software).zip */; };
+		CD26452326DC0A590072B09F /* Adventure G - Ground Zero (1984)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054228262C9EC100221FC9 /* Adventure G - Ground Zero (1984)(Artic Computing).zip */; };
+		CD26452426DC0A590072B09F /* Castle Master (1990)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05444B262C9EFA00221FC9 /* Castle Master (1990)(Incentive Software).zip */; };
+		CD26452526DC0A590072B09F /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054207262C9EBE00221FC9 /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip */; };
+		CD26452626DC0A590072B09F /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F2262C9ED600221FC9 /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip */; };
+		CD26452726DC0A590072B09F /* Alchemist (1983)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05435F262C9EE100221FC9 /* Alchemist (1983)(Imagine Software).zip */; };
+		CD26452826DC0A590072B09F /* Faulty Towers (1984)(Harbour Soft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DE262C9EED00221FC9 /* Faulty Towers (1984)(Harbour Soft).zip */; };
+		CD26452926DC0A590072B09F /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542E5262C9ED500221FC9 /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip */; };
+		CD26452A26DC0A590072B09F /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AC262C9EE900221FC9 /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip */; };
+		CD26452B26DC0A590072B09F /* El Dorado (1985)(Atlantis Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054227262C9EC100221FC9 /* El Dorado (1985)(Atlantis Software).zip */; };
+		CD26452C26DC0A590072B09F /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05431A262C9ED900221FC9 /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip */; };
+		CD26452D26DC0A590072B09F /* Back to Skool (1985)(Microsphere).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05441A262C9EF300221FC9 /* Back to Skool (1985)(Microsphere).zip */; };
+		CD26452E26DC0A590072B09F /* Black Lamp (1988)(Firebird Software)[a].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054359262C9EE100221FC9 /* Black Lamp (1988)(Firebird Software)[a].zip */; };
+		CD26452F26DC0A590072B09F /* Adventure A - The Planet of Death (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054400262C9EF100221FC9 /* Adventure A - The Planet of Death (1982)(Artic Computing).zip */; };
+		CD26453026DC0A590072B09F /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054431262C9EF600221FC9 /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip */; };
+		CD26453126DC0A590072B09F /* Creepy Dungeons (1985)(Automata UK).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C7262C9EEB00221FC9 /* Creepy Dungeons (1985)(Automata UK).zip */; };
+		CD26453226DC0A590072B09F /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054424262C9EF400221FC9 /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip */; };
+		CD26453326DC0A590072B09F /* Adventure E - The Golden Apple (1983)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DC262C9EED00221FC9 /* Adventure E - The Golden Apple (1983)(Artic Computing).zip */; };
+		CD26453426DC0A590072B09F /* Bomb Jack II (1987)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05443E262C9EF800221FC9 /* Bomb Jack II (1987)(Elite Systems).zip */; };
+		CD26453526DC0A590072B09F /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054415262C9EF300221FC9 /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip */; };
+		CD26453626DC0A590072B09F /* Batman (1986)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05439C262C9EE700221FC9 /* Batman (1986)(Ocean).zip */; };
+		CD26453726DC0A590072B09F /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054389262C9EE500221FC9 /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip */; };
+		CD26453826DC0A590072B09F /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05425C262C9EC500221FC9 /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip */; };
+		CD26453926DC0A590072B09F /* Gatecrasher (1984)(Quicksilva).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05429B262C9ECD00221FC9 /* Gatecrasher (1984)(Quicksilva).zip */; };
+		CD26453A26DC0A590072B09F /* Head Coach (1986)(Addictive Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054206262C9EBE00221FC9 /* Head Coach (1986)(Addictive Games).zip */; };
+		CD26453B26DC0A590072B09F /* Deflektor (1987)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AB262C9EE900221FC9 /* Deflektor (1987)(Gremlin Graphics Software).zip */; };
+		CD26453C26DC0A590072B09F /* Action Reflex (1986)(Mirrorsoft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543B5262C9EE900221FC9 /* Action Reflex (1986)(Mirrorsoft).zip */; };
+		CD26453D26DC0A590072B09F /* Henry's Hoard (1985)(Alternative Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05430D262C9ED800221FC9 /* Henry's Hoard (1985)(Alternative Software).zip */; };
+		CD26453E26DC0A590072B09F /* Feud (1987)(Bulldog).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542DF262C9ED400221FC9 /* Feud (1987)(Bulldog).zip */; };
+		CD26453F26DC0A590072B09F /* Cookie (1983)(Ultimate Play The Game).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054344262C9EDF00221FC9 /* Cookie (1983)(Ultimate Play The Game).zip */; };
+		CD26454026DC0A590072B09F /* Dark Side (1988)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543D2262C9EEC00221FC9 /* Dark Side (1988)(Incentive Software).zip */; };
+		CD26454126DC0A590072B09F /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05436F262C9EE300221FC9 /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip */; };
+		CD26454226DC0A590072B09F /* 10th Frame (1986)(U.S. Gold).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054279262C9EC800221FC9 /* 10th Frame (1986)(U.S. Gold).zip */; };
+		CD26454326DC0A590072B09F /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432A262C9EDB00221FC9 /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip */; };
+		CD26454426DC0A590072B09F /* Head over Heels (1987)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054220262C9EC100221FC9 /* Head over Heels (1987)(Ocean).zip */; };
+		CD26454526DC0A590072B09F /* Chiller (1985)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054325262C9EDA00221FC9 /* Chiller (1985)(Mastertronic).zip */; };
+		CD26454626DC0A590072B09F /* Bomb Jack (1986)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054392262C9EE600221FC9 /* Bomb Jack (1986)(Elite Systems).zip */; };
+		CD26454726DC0A590072B09F /* Cyrus IS Chess (1983)(Sinclair Research).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05444C262C9EFA00221FC9 /* Cyrus IS Chess (1983)(Sinclair Research).zip */; };
+		CD26454826DC0A590072B09F /* Herbert's Dummy Run (1985)(Mikro-Gen).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543FD262C9EF000221FC9 /* Herbert's Dummy Run (1985)(Mikro-Gen).zip */; };
+		CD26454926DC0A590072B09F /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054204262C9EBE00221FC9 /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip */; };
+		CD26454A26DC0A590072B09F /* Andy Capp (1988)(Mirrorsoft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A8262C9EE800221FC9 /* Andy Capp (1988)(Mirrorsoft).zip */; };
+		CD26454B26DC0A590072B09F /* East Enders (1987)(Macsen Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A3262C9EE800221FC9 /* East Enders (1987)(Macsen Software).zip */; };
+		CD26454C26DC0A590072B09F /* Adventure D - Espionage Island (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054416262C9EF300221FC9 /* Adventure D - Espionage Island (1982)(Artic Computing).zip */; };
+		CD26454D26DC0A590072B09F /* Football Manager 2 (1988)(Addictive Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054354262C9EE000221FC9 /* Football Manager 2 (1988)(Addictive Games).zip */; };
+		CD26454E26DC0A590072B09F /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F5262C9ED600221FC9 /* Forest at World's End, The (1984)(Interceptor Micros Software).zip */; };
+		CD26454F26DC0A590072B09F /* Beyond the Ice Palace (1988)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432E262C9EDC00221FC9 /* Beyond the Ice Palace (1988)(Elite Systems).zip */; };
+		CD26455026DC0A590072B09F /* Go to Hell (1985)(Triple Six).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05428E262C9ECA00221FC9 /* Go to Hell (1985)(Triple Six).zip */; };
+		CD26455126DC0A590072B09F /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054268262C9EC600221FC9 /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip */; };
+		CD26455226DC0A590072B09F /* Adventure H - Robin Hood (1985)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054278262C9EC800221FC9 /* Adventure H - Robin Hood (1985)(Artic Computing).zip */; };
+		CD26455326DC0A590072B09F /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542D4262C9ED300221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */; };
+		CD26455426DC0A590072B09F /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F0262C9EEF00221FC9 /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip */; };
+		CD26455526DC0A590072B09F /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054336262C9EDD00221FC9 /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip */; };
+		CD26455626DC0A5A0072B09F /* Fat Worm Blows a Sparky (1985)(Durell Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054274262C9EC800221FC9 /* Fat Worm Blows a Sparky (1985)(Durell Software).zip */; };
+		CD26455726DC0A5A0072B09F /* Adventure G - Ground Zero (1984)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054228262C9EC100221FC9 /* Adventure G - Ground Zero (1984)(Artic Computing).zip */; };
+		CD26455826DC0A5A0072B09F /* Castle Master (1990)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05444B262C9EFA00221FC9 /* Castle Master (1990)(Incentive Software).zip */; };
+		CD26455926DC0A5A0072B09F /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054207262C9EBE00221FC9 /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip */; };
+		CD26455A26DC0A5A0072B09F /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F2262C9ED600221FC9 /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip */; };
+		CD26455B26DC0A5A0072B09F /* Alchemist (1983)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05435F262C9EE100221FC9 /* Alchemist (1983)(Imagine Software).zip */; };
+		CD26455C26DC0A5A0072B09F /* Faulty Towers (1984)(Harbour Soft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DE262C9EED00221FC9 /* Faulty Towers (1984)(Harbour Soft).zip */; };
+		CD26455D26DC0A5A0072B09F /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542E5262C9ED500221FC9 /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip */; };
+		CD26455E26DC0A5A0072B09F /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AC262C9EE900221FC9 /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip */; };
+		CD26455F26DC0A5A0072B09F /* El Dorado (1985)(Atlantis Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054227262C9EC100221FC9 /* El Dorado (1985)(Atlantis Software).zip */; };
+		CD26456026DC0A5A0072B09F /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05431A262C9ED900221FC9 /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip */; };
+		CD26456126DC0A5A0072B09F /* Back to Skool (1985)(Microsphere).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05441A262C9EF300221FC9 /* Back to Skool (1985)(Microsphere).zip */; };
+		CD26456226DC0A5A0072B09F /* Black Lamp (1988)(Firebird Software)[a].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054359262C9EE100221FC9 /* Black Lamp (1988)(Firebird Software)[a].zip */; };
+		CD26456326DC0A5A0072B09F /* Adventure A - The Planet of Death (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054400262C9EF100221FC9 /* Adventure A - The Planet of Death (1982)(Artic Computing).zip */; };
+		CD26456426DC0A5A0072B09F /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054431262C9EF600221FC9 /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip */; };
+		CD26456526DC0A5A0072B09F /* Creepy Dungeons (1985)(Automata UK).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C7262C9EEB00221FC9 /* Creepy Dungeons (1985)(Automata UK).zip */; };
+		CD26456626DC0A5A0072B09F /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054424262C9EF400221FC9 /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip */; };
+		CD26456726DC0A5A0072B09F /* Adventure E - The Golden Apple (1983)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DC262C9EED00221FC9 /* Adventure E - The Golden Apple (1983)(Artic Computing).zip */; };
+		CD26456826DC0A5A0072B09F /* Bomb Jack II (1987)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05443E262C9EF800221FC9 /* Bomb Jack II (1987)(Elite Systems).zip */; };
+		CD26456926DC0A5A0072B09F /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054415262C9EF300221FC9 /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip */; };
+		CD26456A26DC0A5A0072B09F /* Batman (1986)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05439C262C9EE700221FC9 /* Batman (1986)(Ocean).zip */; };
+		CD26456B26DC0A5A0072B09F /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054389262C9EE500221FC9 /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip */; };
+		CD26456C26DC0A5A0072B09F /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05425C262C9EC500221FC9 /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip */; };
+		CD26456D26DC0A5A0072B09F /* Gatecrasher (1984)(Quicksilva).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05429B262C9ECD00221FC9 /* Gatecrasher (1984)(Quicksilva).zip */; };
+		CD26456E26DC0A5A0072B09F /* Head Coach (1986)(Addictive Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054206262C9EBE00221FC9 /* Head Coach (1986)(Addictive Games).zip */; };
+		CD26456F26DC0A5A0072B09F /* Deflektor (1987)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AB262C9EE900221FC9 /* Deflektor (1987)(Gremlin Graphics Software).zip */; };
+		CD26457026DC0A5A0072B09F /* Action Reflex (1986)(Mirrorsoft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543B5262C9EE900221FC9 /* Action Reflex (1986)(Mirrorsoft).zip */; };
+		CD26457126DC0A5A0072B09F /* Henry's Hoard (1985)(Alternative Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05430D262C9ED800221FC9 /* Henry's Hoard (1985)(Alternative Software).zip */; };
+		CD26457226DC0A5A0072B09F /* Feud (1987)(Bulldog).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542DF262C9ED400221FC9 /* Feud (1987)(Bulldog).zip */; };
+		CD26457326DC0A5A0072B09F /* Cookie (1983)(Ultimate Play The Game).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054344262C9EDF00221FC9 /* Cookie (1983)(Ultimate Play The Game).zip */; };
+		CD26457426DC0A5A0072B09F /* Dark Side (1988)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543D2262C9EEC00221FC9 /* Dark Side (1988)(Incentive Software).zip */; };
+		CD26457526DC0A5A0072B09F /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05436F262C9EE300221FC9 /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip */; };
+		CD26457626DC0A5A0072B09F /* 10th Frame (1986)(U.S. Gold).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054279262C9EC800221FC9 /* 10th Frame (1986)(U.S. Gold).zip */; };
+		CD26457726DC0A5A0072B09F /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432A262C9EDB00221FC9 /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip */; };
+		CD26457826DC0A5A0072B09F /* Head over Heels (1987)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054220262C9EC100221FC9 /* Head over Heels (1987)(Ocean).zip */; };
+		CD26457926DC0A5A0072B09F /* Chiller (1985)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054325262C9EDA00221FC9 /* Chiller (1985)(Mastertronic).zip */; };
+		CD26457A26DC0A5A0072B09F /* Bomb Jack (1986)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054392262C9EE600221FC9 /* Bomb Jack (1986)(Elite Systems).zip */; };
+		CD26457B26DC0A5A0072B09F /* Cyrus IS Chess (1983)(Sinclair Research).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05444C262C9EFA00221FC9 /* Cyrus IS Chess (1983)(Sinclair Research).zip */; };
+		CD26457C26DC0A5A0072B09F /* Herbert's Dummy Run (1985)(Mikro-Gen).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543FD262C9EF000221FC9 /* Herbert's Dummy Run (1985)(Mikro-Gen).zip */; };
+		CD26457D26DC0A5A0072B09F /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054204262C9EBE00221FC9 /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip */; };
+		CD26457E26DC0A5A0072B09F /* Andy Capp (1988)(Mirrorsoft).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A8262C9EE800221FC9 /* Andy Capp (1988)(Mirrorsoft).zip */; };
+		CD26457F26DC0A5A0072B09F /* East Enders (1987)(Macsen Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A3262C9EE800221FC9 /* East Enders (1987)(Macsen Software).zip */; };
+		CD26458026DC0A5A0072B09F /* Adventure D - Espionage Island (1982)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054416262C9EF300221FC9 /* Adventure D - Espionage Island (1982)(Artic Computing).zip */; };
+		CD26458126DC0A5A0072B09F /* Football Manager 2 (1988)(Addictive Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054354262C9EE000221FC9 /* Football Manager 2 (1988)(Addictive Games).zip */; };
+		CD26458226DC0A5A0072B09F /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F5262C9ED600221FC9 /* Forest at World's End, The (1984)(Interceptor Micros Software).zip */; };
+		CD26458326DC0A5A0072B09F /* Beyond the Ice Palace (1988)(Elite Systems).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432E262C9EDC00221FC9 /* Beyond the Ice Palace (1988)(Elite Systems).zip */; };
+		CD26458426DC0A5A0072B09F /* Go to Hell (1985)(Triple Six).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05428E262C9ECA00221FC9 /* Go to Hell (1985)(Triple Six).zip */; };
+		CD26458526DC0A5A0072B09F /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054268262C9EC600221FC9 /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip */; };
+		CD26458626DC0A5A0072B09F /* Adventure H - Robin Hood (1985)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054278262C9EC800221FC9 /* Adventure H - Robin Hood (1985)(Artic Computing).zip */; };
+		CD26458726DC0A5A0072B09F /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542D4262C9ED300221FC9 /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip */; };
+		CD26458826DC0A5A0072B09F /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F0262C9EEF00221FC9 /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip */; };
+		CD26458926DC0A5A0072B09F /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054336262C9EDD00221FC9 /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip */; };
+		CD26458A26DC0AA40072B09F /* Mega Bucks (1986)(Firebird Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054455262C9EFB00221FC9 /* Mega Bucks (1986)(Firebird Software).zip */; };
+		CD26458B26DC0AA40072B09F /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F9262C9EF000221FC9 /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip */; };
+		CD26458C26DC0AA40072B09F /* Moon Cresta (1985)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054401262C9EF100221FC9 /* Moon Cresta (1985)(Incentive Software).zip */; };
+		CD26458D26DC0AA40072B09F /* Jetpac (1983)(Ultimate Play The Game)[16K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054332262C9EDC00221FC9 /* Jetpac (1983)(Ultimate Play The Game)[16K].zip */; };
+		CD26458E26DC0AA40072B09F /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054439262C9EF700221FC9 /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip */; };
+		CD26458F26DC0AA40072B09F /* Matt Lucas (1986)(Players Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05431F262C9EDA00221FC9 /* Matt Lucas (1986)(Players Software).zip */; };
+		CD26459026DC0AA40072B09F /* Movie (1986)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DD262C9EED00221FC9 /* Movie (1986)(Imagine Software).zip */; };
+		CD26459126DC0AA40072B09F /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054428262C9EF500221FC9 /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip */; };
+		CD26459226DC0AA40072B09F /* Manic Miner (1983)(Software Projects).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054429262C9EF500221FC9 /* Manic Miner (1983)(Software Projects).zip */; };
+		CD26459326DC0AA40072B09F /* Moon Buggy (1983)(Anirog Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432D262C9EDC00221FC9 /* Moon Buggy (1983)(Anirog Software).zip */; };
+		CD26459426DC0AA40072B09F /* Hydrofool (1987)(Faster Than Light).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054440262C9EF800221FC9 /* Hydrofool (1987)(Faster Than Light).zip */; };
+		CD26459526DC0AA40072B09F /* Kobyashi Naru (1987)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A1262C9EE800221FC9 /* Kobyashi Naru (1987)(Mastertronic).zip */; };
+		CD26459626DC0AA40072B09F /* How to be a Complete Bastard (1987)(Virgin Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542E3262C9ED500221FC9 /* How to be a Complete Bastard (1987)(Virgin Games).zip */; };
+		CD26459726DC0AA40072B09F /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542EE262C9ED600221FC9 /* Invincible Island (1983)(Richard Shepherd Software).zip */; };
+		CD26459826DC0AA40072B09F /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C1262C9EEB00221FC9 /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip */; };
+		CD26459926DC0AA40072B09F /* Monty on the Run (1985)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05442D262C9EF600221FC9 /* Monty on the Run (1985)(Gremlin Graphics Software).zip */; };
+		CD26459A26DC0AA40072B09F /* Monty is Innocent (1985)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054434262C9EF600221FC9 /* Monty is Innocent (1985)(Gremlin Graphics Software).zip */; };
+		CD26459B26DC0AA40072B09F /* Hobbit, The v1.2 (1982)(Melbourne House).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054288262C9EC900221FC9 /* Hobbit, The v1.2 (1982)(Melbourne House).zip */; };
+		CD26459C26DC0AA40072B09F /* Hunchback (1984)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542BD262C9ED100221FC9 /* Hunchback (1984)(Ocean).zip */; };
+		CD26459D26DC0AA40072B09F /* Jock and the Time Rings (1985)(Atlantis Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05437A262C9EE400221FC9 /* Jock and the Time Rings (1985)(Atlantis Software).zip */; };
+		CD26459E26DC0AA50072B09F /* Mega Bucks (1986)(Firebird Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054455262C9EFB00221FC9 /* Mega Bucks (1986)(Firebird Software).zip */; };
+		CD26459F26DC0AA50072B09F /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F9262C9EF000221FC9 /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip */; };
+		CD2645A026DC0AA50072B09F /* Moon Cresta (1985)(Incentive Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054401262C9EF100221FC9 /* Moon Cresta (1985)(Incentive Software).zip */; };
+		CD2645A126DC0AA50072B09F /* Jetpac (1983)(Ultimate Play The Game)[16K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054332262C9EDC00221FC9 /* Jetpac (1983)(Ultimate Play The Game)[16K].zip */; };
+		CD2645A226DC0AA50072B09F /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054439262C9EF700221FC9 /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip */; };
+		CD2645A326DC0AA50072B09F /* Matt Lucas (1986)(Players Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05431F262C9EDA00221FC9 /* Matt Lucas (1986)(Players Software).zip */; };
+		CD2645A426DC0AA50072B09F /* Movie (1986)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543DD262C9EED00221FC9 /* Movie (1986)(Imagine Software).zip */; };
+		CD2645A526DC0AA50072B09F /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054428262C9EF500221FC9 /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip */; };
+		CD2645A626DC0AA50072B09F /* Manic Miner (1983)(Software Projects).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054429262C9EF500221FC9 /* Manic Miner (1983)(Software Projects).zip */; };
+		CD2645A726DC0AA50072B09F /* Moon Buggy (1983)(Anirog Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05432D262C9EDC00221FC9 /* Moon Buggy (1983)(Anirog Software).zip */; };
+		CD2645A826DC0AA50072B09F /* Hydrofool (1987)(Faster Than Light).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054440262C9EF800221FC9 /* Hydrofool (1987)(Faster Than Light).zip */; };
+		CD2645A926DC0AA50072B09F /* Kobyashi Naru (1987)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A1262C9EE800221FC9 /* Kobyashi Naru (1987)(Mastertronic).zip */; };
+		CD2645AA26DC0AA50072B09F /* How to be a Complete Bastard (1987)(Virgin Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542E3262C9ED500221FC9 /* How to be a Complete Bastard (1987)(Virgin Games).zip */; };
+		CD2645AB26DC0AA50072B09F /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542EE262C9ED600221FC9 /* Invincible Island (1983)(Richard Shepherd Software).zip */; };
+		CD2645AC26DC0AA50072B09F /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C1262C9EEB00221FC9 /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip */; };
+		CD2645AD26DC0AA50072B09F /* Monty on the Run (1985)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05442D262C9EF600221FC9 /* Monty on the Run (1985)(Gremlin Graphics Software).zip */; };
+		CD2645AE26DC0AA50072B09F /* Monty is Innocent (1985)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054434262C9EF600221FC9 /* Monty is Innocent (1985)(Gremlin Graphics Software).zip */; };
+		CD2645AF26DC0AA50072B09F /* Hobbit, The v1.2 (1982)(Melbourne House).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054288262C9EC900221FC9 /* Hobbit, The v1.2 (1982)(Melbourne House).zip */; };
+		CD2645B026DC0AA50072B09F /* Hunchback (1984)(Ocean).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542BD262C9ED100221FC9 /* Hunchback (1984)(Ocean).zip */; };
+		CD2645B126DC0AA50072B09F /* Jock and the Time Rings (1985)(Atlantis Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05437A262C9EE400221FC9 /* Jock and the Time Rings (1985)(Atlantis Software).zip */; };
+		CD2645B226DC0AB20072B09F /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054235262C9EC200221FC9 /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip */; };
+		CD2645B326DC0AB20072B09F /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AA262C9EE800221FC9 /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip */; };
+		CD2645B426DC0AB20072B09F /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054407262C9EF100221FC9 /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip */; };
+		CD2645B526DC0AB20072B09F /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05421B262C9EC000221FC9 /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip */; };
+		CD2645B626DC0AB20072B09F /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F2262C9EEF00221FC9 /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip */; };
+		CD2645B726DC0AB20072B09F /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C0262C9EEB00221FC9 /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip */; };
+		CD2645B826DC0AB20072B09F /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541FD262C9EBD00221FC9 /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip */; };
+		CD2645B926DC0AB20072B09F /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C5262C9EEB00221FC9 /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip */; };
+		CD2645BA26DC0AB20072B09F /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05440B262C9EF200221FC9 /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip */; };
+		CD2645BB26DC0AB20072B09F /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054412262C9EF200221FC9 /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip */; };
+		CD2645BC26DC0AB20072B09F /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054213262C9EBF00221FC9 /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip */; };
+		CD2645BD26DC0AB30072B09F /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054235262C9EC200221FC9 /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip */; };
+		CD2645BE26DC0AB30072B09F /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543AA262C9EE800221FC9 /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip */; };
+		CD2645BF26DC0AB30072B09F /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054407262C9EF100221FC9 /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip */; };
+		CD2645C026DC0AB30072B09F /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05421B262C9EC000221FC9 /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip */; };
+		CD2645C126DC0AB30072B09F /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543F2262C9EEF00221FC9 /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip */; };
+		CD2645C226DC0AB30072B09F /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C0262C9EEB00221FC9 /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip */; };
+		CD2645C326DC0AB30072B09F /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541FD262C9EBD00221FC9 /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip */; };
+		CD2645C426DC0AB30072B09F /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543C5262C9EEB00221FC9 /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip */; };
+		CD2645C526DC0AB30072B09F /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05440B262C9EF200221FC9 /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip */; };
+		CD2645C626DC0AB30072B09F /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054412262C9EF200221FC9 /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip */; };
+		CD2645C726DC0AB30072B09F /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054213262C9EBF00221FC9 /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip */; };
+		CD2645C826DC0B160072B09F /* Young Ones, The (1986)(Orpheus).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543D3262C9EEC00221FC9 /* Young Ones, The (1986)(Orpheus).zip */; };
+		CD2645C926DC0B160072B09F /* ZX Trek (1982)(Impact Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542DC262C9ED400221FC9 /* ZX Trek (1982)(Impact Software).zip */; };
+		CD2645CA26DC0B160072B09F /* Three Weeks in Paradise (1985)(Mikro-Gen).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05420C262C9EBF00221FC9 /* Three Weeks in Paradise (1985)(Mikro-Gen).zip */; };
+		CD2645CB26DC0B160072B09F /* Sherlock (1984)(Melbourne House).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054237262C9EC200221FC9 /* Sherlock (1984)(Melbourne House).zip */; };
+		CD2645CC26DC0B160072B09F /* Necris Dome (1987)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A4262C9EE800221FC9 /* Necris Dome (1987)(Codemasters).zip */; };
+		CD2645CD26DC0B160072B09F /* Stop the Express (1983)(Sinclair Research).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541F6262C9EBC00221FC9 /* Stop the Express (1983)(Sinclair Research).zip */; };
+		CD2645CE26DC0B160072B09F /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05427C262C9EC800221FC9 /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip */; };
+		CD2645CF26DC0B160072B09F /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543CA262C9EEC00221FC9 /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip */; };
+		CD2645D026DC0B160072B09F /* Underwurlde (1984)(Ultimate Play The Game).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054451262C9EFA00221FC9 /* Underwurlde (1984)(Ultimate Play The Game).zip */; };
+		CD2645D126DC0B160072B09F /* Zzzz (1986)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054358262C9EE100221FC9 /* Zzzz (1986)(Mastertronic).zip */; };
+		CD2645D226DC0B160072B09F /* Repton 2 (1989)(Alligata Software)[b].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054260262C9EC600221FC9 /* Repton 2 (1989)(Alligata Software)[b].zip */; };
+		CD2645D326DC0B160072B09F /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054225262C9EC100221FC9 /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip */; };
+		CD2645D426DC0B160072B09F /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E0262C9EEE00221FC9 /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip */; };
+		CD2645D526DC0B160072B09F /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054396262C9EE700221FC9 /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip */; };
+		CD2645D626DC0B160072B09F /* Tai-Pan (1987)(Ocean)[128K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05420B262C9EBF00221FC9 /* Tai-Pan (1987)(Ocean)[128K].zip */; };
+		CD2645D726DC0B160072B09F /* Ski Star 2000 (1985)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054427262C9EF500221FC9 /* Ski Star 2000 (1985)(Richard Shepherd Software).zip */; };
+		CD2645D826DC0B160072B09F /* Rebel Planet (1986)(U.S. Gold).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E9262C9EEE00221FC9 /* Rebel Planet (1986)(U.S. Gold).zip */; };
+		CD2645D926DC0B160072B09F /* Technician Ted (1984)(Hewson Consultants).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E4262C9EEE00221FC9 /* Technician Ted (1984)(Hewson Consultants).zip */; };
+		CD2645DA26DC0B170072B09F /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054408262C9EF100221FC9 /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip */; };
+		CD2645DB26DC0B170072B09F /* Tir Na Nog (1984)(Gargoyle Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E6262C9EEE00221FC9 /* Tir Na Nog (1984)(Gargoyle Games).zip */; };
+		CD2645DC26DC0B170072B09F /* Wild Bunch, The (1984)(Firebird Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054338262C9EDD00221FC9 /* Wild Bunch, The (1984)(Firebird Software).zip */; };
+		CD2645DD26DC0B170072B09F /* Test Match (1983)(CRL Group).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054361262C9EE100221FC9 /* Test Match (1983)(CRL Group).zip */; };
+		CD2645DE26DC0B170072B09F /* Zzoom (1983)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054314262C9ED900221FC9 /* Zzoom (1983)(Imagine Software).zip */; };
+		CD2645DF26DC0B170072B09F /* Ship of the Line (1982)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054224262C9EC100221FC9 /* Ship of the Line (1982)(Richard Shepherd Software).zip */; };
+		CD2645E026DC0B170072B09F /* Rogue (1988)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054380262C9EE400221FC9 /* Rogue (1988)(Mastertronic).zip */; };
+		CD2645E126DC0B170072B09F /* Robin of the Wood (1985)(Odin Computer Graphics).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542FD262C9ED700221FC9 /* Robin of the Wood (1985)(Odin Computer Graphics).zip */; };
+		CD2645E226DC0B170072B09F /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A9262C9EE800221FC9 /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip */; };
+		CD2645E326DC0B170072B09F /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F0262C9ED600221FC9 /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip */; };
+		CD2645E426DC0B170072B09F /* Young Ones, The (1986)(Orpheus).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543D3262C9EEC00221FC9 /* Young Ones, The (1986)(Orpheus).zip */; };
+		CD2645E526DC0B170072B09F /* ZX Trek (1982)(Impact Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542DC262C9ED400221FC9 /* ZX Trek (1982)(Impact Software).zip */; };
+		CD2645E626DC0B170072B09F /* Three Weeks in Paradise (1985)(Mikro-Gen).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05420C262C9EBF00221FC9 /* Three Weeks in Paradise (1985)(Mikro-Gen).zip */; };
+		CD2645E726DC0B170072B09F /* Sherlock (1984)(Melbourne House).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054237262C9EC200221FC9 /* Sherlock (1984)(Melbourne House).zip */; };
+		CD2645E826DC0B170072B09F /* Necris Dome (1987)(Codemasters).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A4262C9EE800221FC9 /* Necris Dome (1987)(Codemasters).zip */; };
+		CD2645E926DC0B170072B09F /* Stop the Express (1983)(Sinclair Research).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0541F6262C9EBC00221FC9 /* Stop the Express (1983)(Sinclair Research).zip */; };
+		CD2645EA26DC0B170072B09F /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05427C262C9EC800221FC9 /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip */; };
+		CD2645EB26DC0B170072B09F /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543CA262C9EEC00221FC9 /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip */; };
+		CD2645EC26DC0B170072B09F /* Underwurlde (1984)(Ultimate Play The Game).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054451262C9EFA00221FC9 /* Underwurlde (1984)(Ultimate Play The Game).zip */; };
+		CD2645ED26DC0B170072B09F /* Zzzz (1986)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054358262C9EE100221FC9 /* Zzzz (1986)(Mastertronic).zip */; };
+		CD2645EE26DC0B170072B09F /* Repton 2 (1989)(Alligata Software)[b].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054260262C9EC600221FC9 /* Repton 2 (1989)(Alligata Software)[b].zip */; };
+		CD2645EF26DC0B170072B09F /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054225262C9EC100221FC9 /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip */; };
+		CD2645F026DC0B170072B09F /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E0262C9EEE00221FC9 /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip */; };
+		CD2645F126DC0B170072B09F /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054396262C9EE700221FC9 /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip */; };
+		CD2645F226DC0B170072B09F /* Tai-Pan (1987)(Ocean)[128K].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD05420B262C9EBF00221FC9 /* Tai-Pan (1987)(Ocean)[128K].zip */; };
+		CD2645F326DC0B170072B09F /* Ski Star 2000 (1985)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054427262C9EF500221FC9 /* Ski Star 2000 (1985)(Richard Shepherd Software).zip */; };
+		CD2645F426DC0B170072B09F /* Rebel Planet (1986)(U.S. Gold).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E9262C9EEE00221FC9 /* Rebel Planet (1986)(U.S. Gold).zip */; };
+		CD2645F526DC0B170072B09F /* Technician Ted (1984)(Hewson Consultants).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E4262C9EEE00221FC9 /* Technician Ted (1984)(Hewson Consultants).zip */; };
+		CD2645F626DC0B170072B09F /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054408262C9EF100221FC9 /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip */; };
+		CD2645F726DC0B170072B09F /* Tir Na Nog (1984)(Gargoyle Games).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543E6262C9EEE00221FC9 /* Tir Na Nog (1984)(Gargoyle Games).zip */; };
+		CD2645F826DC0B170072B09F /* Wild Bunch, The (1984)(Firebird Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054338262C9EDD00221FC9 /* Wild Bunch, The (1984)(Firebird Software).zip */; };
+		CD2645F926DC0B170072B09F /* Test Match (1983)(CRL Group).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054361262C9EE100221FC9 /* Test Match (1983)(CRL Group).zip */; };
+		CD2645FA26DC0B170072B09F /* Zzoom (1983)(Imagine Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054314262C9ED900221FC9 /* Zzoom (1983)(Imagine Software).zip */; };
+		CD2645FB26DC0B170072B09F /* Ship of the Line (1982)(Richard Shepherd Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054224262C9EC100221FC9 /* Ship of the Line (1982)(Richard Shepherd Software).zip */; };
+		CD2645FC26DC0B170072B09F /* Rogue (1988)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD054380262C9EE400221FC9 /* Rogue (1988)(Mastertronic).zip */; };
+		CD2645FD26DC0B170072B09F /* Robin of the Wood (1985)(Odin Computer Graphics).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542FD262C9ED700221FC9 /* Robin of the Wood (1985)(Odin Computer Graphics).zip */; };
+		CD2645FE26DC0B170072B09F /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0543A9262C9EE800221FC9 /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip */; };
+		CD2645FF26DC0B170072B09F /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip in Resources */ = {isa = PBXBuildFile; fileRef = CD0542F0262C9ED600221FC9 /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip */; };
+		CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */; };
+		CD26460426DD6AA00072B09F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26460326DD6AA00072B09F /* Helpers.swift */; };
 		CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */; };
 		CD2DA78D260CF2500022F4EF /* DisassemblyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */; };
 		CD2DA78E260CF2500022F4EF /* DisassemblyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */; };
@@ -905,6 +1118,9 @@
 		CD16BD0C26D5035000151830 /* SpeccyUnused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeccyUnused.swift; sourceTree = "<group>"; };
 		CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+Setup.swift"; sourceTree = "<group>"; };
 		CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80Type1FormatWrite.swift; sourceTree = "<group>"; };
+		CD26451E26D9FF680072B09F /* DisassemblyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyData.swift; sourceTree = "<group>"; };
+		CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyHeaderView.swift; sourceTree = "<group>"; };
+		CD26460326DD6AA00072B09F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
@@ -1097,6 +1313,7 @@
 		CD0CC57025FA6C3F00731EDA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CD26460226DD6A8A0072B09F /* HelperFunctions */,
 				CDA172EC2608858E00910C23 /* Debug */,
 				CDA172E32605520100910C23 /* Controls */,
 				CDA1726F260498C500910C23 /* Processor */,
@@ -1842,8 +2059,17 @@
 				CD0CC5E625FF585F00731EDA /* MainHeader.swift */,
 				CDEF9B23261C852200729043 /* SettingsSheet.swift */,
 				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
+				CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */,
 			);
 			path = SharedComponents;
+			sourceTree = "<group>";
+		};
+		CD26460226DD6A8A0072B09F /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				CD26460326DD6AA00072B09F /* Helpers.swift */,
+			);
+			path = HelperFunctions;
 			sourceTree = "<group>";
 		};
 		CD2DA786260CF1FF0022F4EF /* Disassembly */ = {
@@ -1975,6 +2201,7 @@
 				CD3BD82A267748C600394AB1 /* HeaderData.swift */,
 				CD3BD82D2677495000394AB1 /* TapePlayerData.swift */,
 				CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */,
+				CD26451E26D9FF680072B09F /* DisassemblyData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2126,22 +2353,126 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0547D8262C9EFD00221FC9 /* 1st Division Manager (1991)(Codemasters).zip in Resources */,
-				CD0548DC262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */,
 				CD0CC54A25FA6BD600731EDA /* LaunchScreen.storyboard in Resources */,
+				CD2645DC26DC0B170072B09F /* Wild Bunch, The (1984)(Firebird Software).zip in Resources */,
+				CD26459126DC0AA40072B09F /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip in Resources */,
+				CD26453D26DC0A590072B09F /* Henry's Hoard (1985)(Alternative Software).zip in Resources */,
+				CD2645C826DC0B160072B09F /* Young Ones, The (1986)(Orpheus).zip in Resources */,
+				CD2645B626DC0AB20072B09F /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip in Resources */,
+				CD26453226DC0A590072B09F /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip in Resources */,
+				CD26454826DC0A590072B09F /* Herbert's Dummy Run (1985)(Mikro-Gen).zip in Resources */,
+				CD26452626DC0A590072B09F /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip in Resources */,
+				CD26458A26DC0AA40072B09F /* Mega Bucks (1986)(Firebird Software).zip in Resources */,
+				CD26454026DC0A590072B09F /* Dark Side (1988)(Incentive Software).zip in Resources */,
+				CD26454A26DC0A590072B09F /* Andy Capp (1988)(Mirrorsoft).zip in Resources */,
+				CD2645D126DC0B160072B09F /* Zzzz (1986)(Mastertronic).zip in Resources */,
+				CD2645CC26DC0B160072B09F /* Necris Dome (1987)(Codemasters).zip in Resources */,
+				CD26454D26DC0A590072B09F /* Football Manager 2 (1988)(Addictive Games).zip in Resources */,
+				CD2645D426DC0B160072B09F /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip in Resources */,
+				CD26459626DC0AA40072B09F /* How to be a Complete Bastard (1987)(Virgin Games).zip in Resources */,
 				CD0CC54725FA6BD600731EDA /* Preview Assets.xcassets in Resources */,
-				CD0544EE262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */,
+				CD26455326DC0A590072B09F /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
+				CD2645D826DC0B160072B09F /* Rebel Planet (1986)(U.S. Gold).zip in Resources */,
+				CD2645D026DC0B160072B09F /* Underwurlde (1984)(Ultimate Play The Game).zip in Resources */,
+				CD2645E026DC0B170072B09F /* Rogue (1988)(Mastertronic).zip in Resources */,
+				CD26453F26DC0A590072B09F /* Cookie (1983)(Ultimate Play The Game).zip in Resources */,
+				CD26458F26DC0AA40072B09F /* Matt Lucas (1986)(Players Software).zip in Resources */,
+				CD2645CA26DC0B160072B09F /* Three Weeks in Paradise (1985)(Mikro-Gen).zip in Resources */,
+				CD26453726DC0A590072B09F /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip in Resources */,
+				CD2645E226DC0B170072B09F /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip in Resources */,
+				CD26453126DC0A590072B09F /* Creepy Dungeons (1985)(Automata UK).zip in Resources */,
 				CDA172672604962100910C23 /* ZX48k.rom in Resources */,
+				CD26455126DC0A590072B09F /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip in Resources */,
+				CD26452926DC0A590072B09F /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip in Resources */,
+				CD2645B326DC0AB20072B09F /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip in Resources */,
+				CD2645D926DC0B160072B09F /* Technician Ted (1984)(Hewson Consultants).zip in Resources */,
+				CD26459526DC0AA40072B09F /* Kobyashi Naru (1987)(Mastertronic).zip in Resources */,
+				CD26459726DC0AA40072B09F /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */,
 				CDA172632604962100910C23 /* ZX128k.rom in Resources */,
-				CD0546F0262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
-				CD05468A262C9EFC00221FC9 /* 007 - Live and Let Die (1988)(Domark).zip in Resources */,
 				CD9AD732267C88E80095FDF6 /* GoogleService-Info.plist in Resources */,
-				CD0545D4262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */,
-				CD054588262C9EFC00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip in Resources */,
+				CD26453526DC0A590072B09F /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip in Resources */,
+				CD26452B26DC0A590072B09F /* El Dorado (1985)(Atlantis Software).zip in Resources */,
+				CD26459B26DC0AA40072B09F /* Hobbit, The v1.2 (1982)(Melbourne House).zip in Resources */,
+				CD2645DF26DC0B170072B09F /* Ship of the Line (1982)(Richard Shepherd Software).zip in Resources */,
+				CD26459026DC0AA40072B09F /* Movie (1986)(Imagine Software).zip in Resources */,
+				CD26458B26DC0AA40072B09F /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip in Resources */,
+				CD26454E26DC0A590072B09F /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,
+				CD26453A26DC0A590072B09F /* Head Coach (1986)(Addictive Games).zip in Resources */,
+				CD26453826DC0A590072B09F /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip in Resources */,
+				CD26452826DC0A590072B09F /* Faulty Towers (1984)(Harbour Soft).zip in Resources */,
+				CD2645D526DC0B160072B09F /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip in Resources */,
+				CD26453926DC0A590072B09F /* Gatecrasher (1984)(Quicksilva).zip in Resources */,
+				CD26454F26DC0A590072B09F /* Beyond the Ice Palace (1988)(Elite Systems).zip in Resources */,
+				CD26453426DC0A590072B09F /* Bomb Jack II (1987)(Elite Systems).zip in Resources */,
+				CD26459426DC0AA40072B09F /* Hydrofool (1987)(Faster Than Light).zip in Resources */,
+				CD26453E26DC0A590072B09F /* Feud (1987)(Bulldog).zip in Resources */,
+				CD26454326DC0A590072B09F /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip in Resources */,
+				CD26454526DC0A590072B09F /* Chiller (1985)(Mastertronic).zip in Resources */,
+				CD26452A26DC0A590072B09F /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip in Resources */,
+				CD2645D626DC0B160072B09F /* Tai-Pan (1987)(Ocean)[128K].zip in Resources */,
+				CD26459926DC0AA40072B09F /* Monty on the Run (1985)(Gremlin Graphics Software).zip in Resources */,
+				CD2645CF26DC0B160072B09F /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip in Resources */,
+				CD2645B826DC0AB20072B09F /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip in Resources */,
+				CD26455526DC0A590072B09F /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip in Resources */,
+				CD2645B726DC0AB20072B09F /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip in Resources */,
+				CD26453026DC0A590072B09F /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip in Resources */,
+				CD26455026DC0A590072B09F /* Go to Hell (1985)(Triple Six).zip in Resources */,
+				CD2645D726DC0B160072B09F /* Ski Star 2000 (1985)(Richard Shepherd Software).zip in Resources */,
+				CD26453626DC0A590072B09F /* Batman (1986)(Ocean).zip in Resources */,
+				CD2645CB26DC0B160072B09F /* Sherlock (1984)(Melbourne House).zip in Resources */,
+				CD26452426DC0A590072B09F /* Castle Master (1990)(Incentive Software).zip in Resources */,
+				CD2645CE26DC0B160072B09F /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */,
+				CD26459D26DC0AA40072B09F /* Jock and the Time Rings (1985)(Atlantis Software).zip in Resources */,
+				CD26458E26DC0AA40072B09F /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip in Resources */,
+				CD26459C26DC0AA40072B09F /* Hunchback (1984)(Ocean).zip in Resources */,
+				CD2645E326DC0B170072B09F /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip in Resources */,
+				CD26452D26DC0A590072B09F /* Back to Skool (1985)(Microsphere).zip in Resources */,
+				CD26455426DC0A590072B09F /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip in Resources */,
+				CD2645DE26DC0B170072B09F /* Zzoom (1983)(Imagine Software).zip in Resources */,
+				CD2645B226DC0AB20072B09F /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip in Resources */,
+				CD2645B926DC0AB20072B09F /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip in Resources */,
 				CDA172652604962100910C23 /* ZX128k+2.rom in Resources */,
+				CD26452526DC0A590072B09F /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip in Resources */,
 				CDA172612604962100910C23 /* ZX128k+3.rom in Resources */,
+				CD26453C26DC0A590072B09F /* Action Reflex (1986)(Mirrorsoft).zip in Resources */,
+				CD26459826DC0AA40072B09F /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */,
+				CD26452C26DC0A590072B09F /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip in Resources */,
+				CD26459A26DC0AA40072B09F /* Monty is Innocent (1985)(Gremlin Graphics Software).zip in Resources */,
+				CD26454226DC0A590072B09F /* 10th Frame (1986)(U.S. Gold).zip in Resources */,
+				CD26458C26DC0AA40072B09F /* Moon Cresta (1985)(Incentive Software).zip in Resources */,
+				CD2645B426DC0AB20072B09F /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip in Resources */,
+				CD2645DA26DC0B170072B09F /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip in Resources */,
+				CD2645BC26DC0AB20072B09F /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip in Resources */,
+				CD26454126DC0A590072B09F /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip in Resources */,
+				CD26452326DC0A590072B09F /* Adventure G - Ground Zero (1984)(Artic Computing).zip in Resources */,
+				CD2645BB26DC0AB20072B09F /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip in Resources */,
+				CD26454726DC0A590072B09F /* Cyrus IS Chess (1983)(Sinclair Research).zip in Resources */,
+				CD26453B26DC0A590072B09F /* Deflektor (1987)(Gremlin Graphics Software).zip in Resources */,
+				CD2645CD26DC0B160072B09F /* Stop the Express (1983)(Sinclair Research).zip in Resources */,
+				CD26459326DC0AA40072B09F /* Moon Buggy (1983)(Anirog Software).zip in Resources */,
+				CD2645B526DC0AB20072B09F /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip in Resources */,
+				CD26452E26DC0A590072B09F /* Black Lamp (1988)(Firebird Software)[a].zip in Resources */,
+				CD2645C926DC0B160072B09F /* ZX Trek (1982)(Impact Software).zip in Resources */,
+				CD26452F26DC0A590072B09F /* Adventure A - The Planet of Death (1982)(Artic Computing).zip in Resources */,
+				CD2645D326DC0B160072B09F /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip in Resources */,
+				CD2645DD26DC0B170072B09F /* Test Match (1983)(CRL Group).zip in Resources */,
+				CD26453326DC0A590072B09F /* Adventure E - The Golden Apple (1983)(Artic Computing).zip in Resources */,
+				CD26452226DC0A590072B09F /* Fat Worm Blows a Sparky (1985)(Durell Software).zip in Resources */,
 				CD0EC68C26682D9000B21E1F /* Action Biker (1985)(Mastertronic).zip in Resources */,
+				CD26454426DC0A590072B09F /* Head over Heels (1987)(Ocean).zip in Resources */,
+				CD26454C26DC0A590072B09F /* Adventure D - Espionage Island (1982)(Artic Computing).zip in Resources */,
+				CD26454626DC0A590072B09F /* Bomb Jack (1986)(Elite Systems).zip in Resources */,
+				CD2645DB26DC0B170072B09F /* Tir Na Nog (1984)(Gargoyle Games).zip in Resources */,
+				CD26455226DC0A590072B09F /* Adventure H - Robin Hood (1985)(Artic Computing).zip in Resources */,
+				CD2645D226DC0B160072B09F /* Repton 2 (1989)(Alligata Software)[b].zip in Resources */,
+				CD2645BA26DC0AB20072B09F /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip in Resources */,
+				CD26452726DC0A590072B09F /* Alchemist (1983)(Imagine Software).zip in Resources */,
+				CD26454B26DC0A590072B09F /* East Enders (1987)(Macsen Software).zip in Resources */,
+				CD26454926DC0A590072B09F /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip in Resources */,
+				CD26458D26DC0AA40072B09F /* Jetpac (1983)(Ultimate Play The Game)[16K].zip in Resources */,
+				CD26459226DC0AA40072B09F /* Manic Miner (1983)(Software Projects).zip in Resources */,
+				CD2645E126DC0B170072B09F /* Robin of the Wood (1985)(Odin Computer Graphics).zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2149,19 +2480,123 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0548DD262C9EFE00221FC9 /* 3D Maze (1982)(Impact Software).zip in Resources */,
+				CD26456E26DC0A5A0072B09F /* Head Coach (1986)(Addictive Games).zip in Resources */,
+				CD26455726DC0A5A0072B09F /* Adventure G - Ground Zero (1984)(Artic Computing).zip in Resources */,
+				CD2645FE26DC0B170072B09F /* Time and Magik II - Red Moon (1988)(Mandarin Software).zip in Resources */,
+				CD2645F126DC0B170072B09F /* Stormbringer (1987)(Mastertronic Added Dimension)[Magic Knight 4].zip in Resources */,
+				CD26456C26DC0A5A0072B09F /* Adventure Number 13 - Sorcerer of Claymorgue Castle (1985)(Adventure International).zip in Resources */,
+				CD26457E26DC0A5A0072B09F /* Andy Capp (1988)(Mirrorsoft).zip in Resources */,
+				CD2645EC26DC0B170072B09F /* Underwurlde (1984)(Ultimate Play The Game).zip in Resources */,
+				CD26458326DC0A5A0072B09F /* Beyond the Ice Palace (1988)(Elite Systems).zip in Resources */,
+				CD26456B26DC0A5A0072B09F /* Adventure Number 04 - Voodoo Castle (1985)(Adventure International).zip in Resources */,
+				CD26458726DC0A5A0072B09F /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
+				CD26456926DC0A5A0072B09F /* Adventure Number 10 - Savage Island Part 1 (1985)(Adventure International).zip in Resources */,
+				CD2645A026DC0AA50072B09F /* Moon Cresta (1985)(Incentive Software).zip in Resources */,
+				CD2645A226DC0AA50072B09F /* Incredible Shrinking Fireman, The (1986)(Mastertronic).zip in Resources */,
+				CD26455926DC0A5A0072B09F /* Adventure C - The Ship of Doom (1982)(Artic Computing).zip in Resources */,
+				CD2645FB26DC0B170072B09F /* Ship of the Line (1982)(Richard Shepherd Software).zip in Resources */,
+				CD26457B26DC0A5A0072B09F /* Cyrus IS Chess (1983)(Sinclair Research).zip in Resources */,
+				CD2645A826DC0AA50072B09F /* Hydrofool (1987)(Faster Than Light).zip in Resources */,
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
+				CD2645BD26DC0AB30072B09F /* Mysterious Adventures No. 11 - Waxworks (1983)(Channel 8 Software).zip in Resources */,
+				CD2645EF26DC0B170072B09F /* Time and Magik I - Lords of Time (1988)(Mandarin Software).zip in Resources */,
+				CD26455D26DC0A5A0072B09F /* Adventure Number 03 - Secret Mission (1985)(Adventure International).zip in Resources */,
+				CD2645E826DC0B170072B09F /* Necris Dome (1987)(Codemasters).zip in Resources */,
+				CD2645B126DC0AA50072B09F /* Jock and the Time Rings (1985)(Atlantis Software).zip in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
-				CD0546F1262C9EFD00221FC9 /* 3D Snooker (1990)(Players Premier Software).zip in Resources */,
+				CD2645FA26DC0B170072B09F /* Zzoom (1983)(Imagine Software).zip in Resources */,
+				CD2645FF26DC0B170072B09F /* Retarded Creatures & Caverns (1989)(Zenobi Software).zip in Resources */,
+				CD2645E426DC0B170072B09F /* Young Ones, The (1986)(Orpheus).zip in Resources */,
+				CD26456426DC0A5A0072B09F /* Adventure Number 02 - Pirate Adventure (1985)(Adventure International).zip in Resources */,
+				CD2645E726DC0B170072B09F /* Sherlock (1984)(Melbourne House).zip in Resources */,
+				CD26456A26DC0A5A0072B09F /* Batman (1986)(Ocean).zip in Resources */,
+				CD2645E926DC0B170072B09F /* Stop the Express (1983)(Sinclair Research).zip in Resources */,
+				CD26457626DC0A5A0072B09F /* 10th Frame (1986)(U.S. Gold).zip in Resources */,
+				CD26455826DC0A5A0072B09F /* Castle Master (1990)(Incentive Software).zip in Resources */,
+				CD2645E626DC0B170072B09F /* Three Weeks in Paradise (1985)(Mikro-Gen).zip in Resources */,
+				CD2645AD26DC0AA50072B09F /* Monty on the Run (1985)(Gremlin Graphics Software).zip in Resources */,
+				CD26458526DC0A5A0072B09F /* Barry McGuigan World Championship Boxing (1985)(Gamestar).zip in Resources */,
+				CD26456226DC0A5A0072B09F /* Black Lamp (1988)(Firebird Software)[a].zip in Resources */,
+				CD26457926DC0A5A0072B09F /* Chiller (1985)(Mastertronic).zip in Resources */,
+				CD26456D26DC0A5A0072B09F /* Gatecrasher (1984)(Quicksilva).zip in Resources */,
+				CD2645AB26DC0AA50072B09F /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */,
+				CD26456026DC0A5A0072B09F /* ATV Simulator - All Terrain Vehicle (1987)(Codemasters).zip in Resources */,
+				CD26457F26DC0A5A0072B09F /* East Enders (1987)(Macsen Software).zip in Resources */,
+				CD2645F726DC0B170072B09F /* Tir Na Nog (1984)(Gargoyle Games).zip in Resources */,
+				CD2645E526DC0B170072B09F /* ZX Trek (1982)(Impact Software).zip in Resources */,
+				CD2645A526DC0AA50072B09F /* Knight Tyme (1986)(Mastertronic Added Dimension)[a][Magic Knight 3].zip in Resources */,
+				CD2645AE26DC0AA50072B09F /* Monty is Innocent (1985)(Gremlin Graphics Software).zip in Resources */,
+				CD2645A626DC0AA50072B09F /* Manic Miner (1983)(Software Projects).zip in Resources */,
+				CD26456826DC0A5A0072B09F /* Bomb Jack II (1987)(Elite Systems).zip in Resources */,
+				CD2645BE26DC0AB30072B09F /* Mysterious Adventures No. 09 - Perseus and Andromeda (1983)(Channel 8 Software).zip in Resources */,
+				CD2645F626DC0B170072B09F /* Steve Davis Snooker (1984)(CDS Microsystems)[speech].zip in Resources */,
+				CD2645AF26DC0AA50072B09F /* Hobbit, The v1.2 (1982)(Melbourne House).zip in Resources */,
+				CD2645B026DC0AA50072B09F /* Hunchback (1984)(Ocean).zip in Resources */,
+				CD2645C726DC0AB30072B09F /* Mysterious Adventures No. 08 - Wizard of Akyrz (1983)(Channel 8 Software).zip in Resources */,
+				CD2645EE26DC0B170072B09F /* Repton 2 (1989)(Alligata Software)[b].zip in Resources */,
+				CD2645EB26DC0B170072B09F /* Spellbound (1985)(Mastertronic Added Dimension)[a][Magic Knight 2].zip in Resources */,
+				CD26459F26DC0AA50072B09F /* Meta-Galactic Llamas Battle at the Edge of Time (1984)(Salamander Software).zip in Resources */,
+				CD26458426DC0A5A0072B09F /* Go to Hell (1985)(Triple Six).zip in Resources */,
+				CD26455F26DC0A5A0072B09F /* El Dorado (1985)(Atlantis Software).zip in Resources */,
+				CD2645BF26DC0AB30072B09F /* Mysterious Adventures No. 05 - Feasibility Experiment (1983)(Channel 8 Software).zip in Resources */,
+				CD2645C026DC0AB30072B09F /* Mysterious Adventures No. 01 - Golden Baton (1983)(Channel 8 Software).zip in Resources */,
+				CD26457326DC0A5A0072B09F /* Cookie (1983)(Ultimate Play The Game).zip in Resources */,
+				CD2645C626DC0AB30072B09F /* Mysterious Adventures No. 02 - Arrow of Death - Part 1 (1983)(Channel 8 Software).zip in Resources */,
+				CD2645A726DC0AA50072B09F /* Moon Buggy (1983)(Anirog Software).zip in Resources */,
+				CD26457526DC0A5A0072B09F /* Dizzy VI - Prince of the Yolkfolk (1991)(Codemasters).zip in Resources */,
+				CD2645C526DC0AB30072B09F /* Mysterious Adventures No. 04 - Escape from Pulsar 7 (1983)(Channel 8 Software).zip in Resources */,
+				CD2645C426DC0AB30072B09F /* Mysterious Adventures No. 10 - Ten Little Indians (1983)(Channel 8 Software).zip in Resources */,
+				CD26457826DC0A5A0072B09F /* Head over Heels (1987)(Ocean).zip in Resources */,
+				CD2645C326DC0AB30072B09F /* Mysterious Adventures No. 07 - Circus (1983)(Channel 8 Software).zip in Resources */,
+				CD2645C226DC0AB30072B09F /* Mysterious Adventures No. 06 - The Time Machine (1983)(Channel 8 Software).zip in Resources */,
+				CD2645AA26DC0AA50072B09F /* How to be a Complete Bastard (1987)(Virgin Games).zip in Resources */,
+				CD26457026DC0A5A0072B09F /* Action Reflex (1986)(Mirrorsoft).zip in Resources */,
+				CD26457C26DC0A5A0072B09F /* Herbert's Dummy Run (1985)(Mikro-Gen).zip in Resources */,
+				CD26458626DC0A5A0072B09F /* Adventure H - Robin Hood (1985)(Artic Computing).zip in Resources */,
+				CD26457D26DC0A5A0072B09F /* Adventure Number 06 - Strange Odyssey (1985)(Adventure International).zip in Resources */,
+				CD26457726DC0A5A0072B09F /* Adventure B - Inca Curse (1982)(Artic Computing)[16K].zip in Resources */,
+				CD26456326DC0A5A0072B09F /* Adventure A - The Planet of Death (1982)(Artic Computing).zip in Resources */,
+				CD2645C126DC0AB30072B09F /* Mysterious Adventures No. 03 - Arrow of Death - Part 2 (1983)(Channel 8 Software).zip in Resources */,
+				CD26455C26DC0A5A0072B09F /* Faulty Towers (1984)(Harbour Soft).zip in Resources */,
+				CD26455B26DC0A5A0072B09F /* Alchemist (1983)(Imagine Software).zip in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
+				CD26459E26DC0AA50072B09F /* Mega Bucks (1986)(Firebird Software).zip in Resources */,
+				CD26457126DC0A5A0072B09F /* Henry's Hoard (1985)(Alternative Software).zip in Resources */,
+				CD26456F26DC0A5A0072B09F /* Deflektor (1987)(Gremlin Graphics Software).zip in Resources */,
+				CD2645ED26DC0B170072B09F /* Zzzz (1986)(Mastertronic).zip in Resources */,
+				CD2645A426DC0AA50072B09F /* Movie (1986)(Imagine Software).zip in Resources */,
+				CD26455E26DC0A5A0072B09F /* Dr. Jackle and Mr. Wide (1987)(Bulldog).zip in Resources */,
+				CD2645FC26DC0B170072B09F /* Rogue (1988)(Mastertronic).zip in Resources */,
+				CD26456126DC0A5A0072B09F /* Back to Skool (1985)(Microsphere).zip in Resources */,
+				CD26456526DC0A5A0072B09F /* Creepy Dungeons (1985)(Automata UK).zip in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
-				CD0544EF262C9EFB00221FC9 /* 3D Chess (1986)(Psion Software).zip in Resources */,
-				CD0545D5262C9EFC00221FC9 /* 3D Pyramid (1983)(Green Fish Software Enterprise).zip in Resources */,
-				CD054589262C9EFC00221FC9 /* 007 - Licence to Kill (1989)(Domark).zip in Resources */,
-				CD0547D9262C9EFD00221FC9 /* 1st Division Manager (1991)(Codemasters).zip in Resources */,
+				CD26458226DC0A5A0072B09F /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */,
+				CD2645FD26DC0B170072B09F /* Robin of the Wood (1985)(Odin Computer Graphics).zip in Resources */,
+				CD26455626DC0A5A0072B09F /* Fat Worm Blows a Sparky (1985)(Durell Software).zip in Resources */,
 				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
-				CD05468B262C9EFC00221FC9 /* 007 - Live and Let Die (1988)(Domark).zip in Resources */,
 				CD0EC68D26682D9100B21E1F /* Action Biker (1985)(Mastertronic).zip in Resources */,
+				CD2645A926DC0AA50072B09F /* Kobyashi Naru (1987)(Mastertronic).zip in Resources */,
+				CD26457A26DC0A5A0072B09F /* Bomb Jack (1986)(Elite Systems).zip in Resources */,
+				CD26458926DC0A5A0072B09F /* Adventure F - The Eye of Bain (1984)(Artic Computing).zip in Resources */,
+				CD2645A126DC0AA50072B09F /* Jetpac (1983)(Ultimate Play The Game)[16K].zip in Resources */,
+				CD26456626DC0A5A0072B09F /* Dizzy III - Fantasy World Dizzy (1989)(Codemasters).zip in Resources */,
+				CD26455A26DC0A5A0072B09F /* Dizzy VII - Crystal Kingdom Dizzy (1992)(Codemasters).zip in Resources */,
+				CD2645F426DC0B170072B09F /* Rebel Planet (1986)(U.S. Gold).zip in Resources */,
+				CD26457226DC0A5A0072B09F /* Feud (1987)(Bulldog).zip in Resources */,
+				CD26456726DC0A5A0072B09F /* Adventure E - The Golden Apple (1983)(Artic Computing).zip in Resources */,
+				CD2645AC26DC0AA50072B09F /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */,
+				CD2645A326DC0AA50072B09F /* Matt Lucas (1986)(Players Software).zip in Resources */,
+				CD2645F226DC0B170072B09F /* Tai-Pan (1987)(Ocean)[128K].zip in Resources */,
+				CD2645F326DC0B170072B09F /* Ski Star 2000 (1985)(Richard Shepherd Software).zip in Resources */,
+				CD26457426DC0A5A0072B09F /* Dark Side (1988)(Incentive Software).zip in Resources */,
+				CD2645F826DC0B170072B09F /* Wild Bunch, The (1984)(Firebird Software).zip in Resources */,
+				CD2645EA26DC0B170072B09F /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */,
+				CD26458026DC0A5A0072B09F /* Adventure D - Espionage Island (1982)(Artic Computing).zip in Resources */,
+				CD26458826DC0A5A0072B09F /* Adventure Number 01 - Adventureland (1985)(Adventure International).zip in Resources */,
+				CD2645F526DC0B170072B09F /* Technician Ted (1984)(Hewson Consultants).zip in Resources */,
+				CD26458126DC0A5A0072B09F /* Football Manager 2 (1988)(Addictive Games).zip in Resources */,
+				CD2645F026DC0B170072B09F /* Wanted! Monty Mole (1984)(Gremlin Graphics Software).zip in Resources */,
+				CD2645F926DC0B170072B09F /* Test Match (1983)(CRL Group).zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2209,6 +2644,7 @@
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */,
+				CD26451F26D9FF680072B09F /* DisassemblyData.swift in Sources */,
 				CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDEF99A92612676E00729043 /* DataType.swift in Sources */,
@@ -2259,6 +2695,7 @@
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */,
+				CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */,
 				CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
@@ -2272,6 +2709,7 @@
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
+				CD26460426DD6AA00072B09F /* Helpers.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
 				CDEF9BBB261EED5B00729043 /* StandardSprite.swift in Sources */,
 				CDA1727F260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
@@ -2335,6 +2773,7 @@
 				CDA172DF2605016F00910C23 /* VDU.swift in Sources */,
 				CD0CC5A725FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5A125FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
+				CD26452026D9FF680072B09F /* DisassemblyData.swift in Sources */,
 				CDA172A82604B37000910C23 /* allTests80toca.swift in Sources */,
 				CDA1727E260498C600910C23 /* Z80.swift in Sources */,
 				CDEF9B25261C852200729043 /* SettingsSheet.swift in Sources */,
@@ -2405,6 +2844,7 @@
 			files = (
 				CD0CC56025FA6BD700731EDA /* FakeAChipUITests.swift in Sources */,
 				CD26451D26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
+				CD26452126D9FF680072B09F /* DisassemblyData.swift in Sources */,
 				CD9CF2D726C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CD9CF2D326C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */,
 			);

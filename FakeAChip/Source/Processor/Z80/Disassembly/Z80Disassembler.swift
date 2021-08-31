@@ -443,9 +443,29 @@ class Z80Disassembler {
             opCodeSet.append(unknownOpCode)
             count += 1
         }
-        let title = "\(UInt16(startChunk).hex()) - \(UInt16(startChunk + data.count - 1).hex()) - \(type.rawValue.capitalized)"
+        var title = "\(UInt16(startChunk).hex()) - \(UInt16(startChunk + data.count - 1).hex()) - "
+        if type == .POTENTIALTEXT || type == .TEXT {
+            title += textOutput(opCodeSet: opCodeSet)
+        } else {
+            title += type.rawValue.capitalized
+        }
         allRoutines.append(CodeRoutine(startLine: startChunk, length: chunkEnd - startChunk, code: opCodeSet, description: "", title: title, type: type))
 //        print("Found routine \(title)")
+    }
+    
+    func textOutput(opCodeSet: [OpCode]) -> String {
+        var string = ""
+        opCodeSet.forEach{opcode in
+            if opcode.opCodeArray.count > 0{
+            let byte = opcode.opCodeArray[0]
+            if byte >= 0x20, byte <= 0x7C{
+            string = "\(string)\(String(UnicodeScalar(UInt8(byte))))"
+            } else {
+                string = "\(string)~"
+            }
+            }
+        }
+        return string
     }
     
     func sweep3(){

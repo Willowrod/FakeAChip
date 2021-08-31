@@ -51,7 +51,21 @@ struct MainHeader: View {
                 Spacer()
             }
             .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 50, alignment: .center)
-            TapePlayerView(tapePlayerData: headerData.tapePlayerData, computer: computer)
+            
+//            Group {
+//                switch headerData.environment {
+//                case SystemEnvironment.Emulation:
+//                    SpectrumEmulationView(computer: computer as! Speccy, host: settings.host)
+//                case SystemEnvironment.Disassembly:
+//                    SpectrumDisassemblyView(disassembly: settings.disassembly, computer: computer as! Speccy)
+//                case SystemEnvironment.Code:
+//                    SpectrumCodeView(computer: computer as! Speccy)
+//                
+//                }
+//            }
+            
+            
+//            TapePlayerView(tapePlayerData: headerData.tapePlayerData, computer: computer)
         }
         .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 120, alignment: .center)
         

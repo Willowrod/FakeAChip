@@ -12,16 +12,25 @@ struct DisassemblySection: View {
     let undefinedType: DataType
     var body: some View {
      
-
         VStack{
             Section(header:
+                        VStack{
                         HStack{
-                            TextField("ID: ", text: $section.title)
-                            Spacer()
-                            TypeSelector(section: section)
-                            Spacer()
-                            Toggle("Showing:", isOn: $section.isShowing)
+                            Text("\(section.startingLine.hex())")
+                            
+                TypeSelector(section: section)
+                Spacer()
+                HStack{
+                    Text("Showing:")
+                    Toggle("", isOn: $section.isShowing).labelsHidden()
+                }
                         }
+                
+                
+                            TextField("ID: ", text: $section.title)
+                    .border(Color.blue)
+                
+            }
             ){
                 if (section.isShowing){
                     switch section.type {

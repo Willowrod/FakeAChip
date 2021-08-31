@@ -20,13 +20,14 @@ struct SpectrumView: View {
       return GeometryReader { geometry in
         VStack{
             MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
-            Spacer()
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
+                    TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
                     SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(disassembly: settings.disassembly, computer: settings.currentComputerInstance as! Speccy)
+                    DisassemblyHeaderView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance)
+                    SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
                     SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
                 
@@ -94,9 +95,9 @@ struct SpectrumDisassemblyView: View {
     let computer: Speccy
     var body: some View {
         VStack{
-            Button("Show Sheet") {
-            showingSheet.toggle()
-        }
+//            Button("Show Sheet") {
+//            showingSheet.toggle()
+//        }
             HStack{
             SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
             

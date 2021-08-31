@@ -13,8 +13,10 @@ class DisassemblyModel: ObservableObject, Codable {
    @Published var showing: DataType? = nil
     @Published var undefinedDataShownAs: DataType = .UNDEFINED
     
+    var snapshot: String = "x"
+    
     enum CodingKeys: CodingKey {
-        case sections
+        case sections, snapshot
     }
     
     init(){
@@ -24,11 +26,13 @@ class DisassemblyModel: ObservableObject, Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         sections = try container.decode(Array.self, forKey: .sections)
+        snapshot = try container.decode(String.self, forKey: .snapshot)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sections, forKey: .sections)
+        try container.encode(snapshot, forKey: .snapshot)
     }
     
     func showingValue() -> String {
@@ -39,16 +43,19 @@ class DisassemblyModel: ObservableObject, Codable {
     }
     
     func export() {
-//        sections.forEach{section in
-//            print (section.title)
-//            section.lines.forEach{line in
-//                print("\(line.title) \(line.id.uuidString)")
-//            }
-//        }
         do {
             let json = try JSONEncoder().encode(self)
-            let jsonString = String(data: json, encoding: .utf8)
+            if let jsonString = String(data: json, encoding: .utf8){
             print("JSON: \(jsonString)")
+            let filename = getPath(forFile: "disassembly.json")
+            do {
+                try jsonString.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("Could not write to \(filename.absoluteString)")
+                print("Error: \(error.localizedDescription)")
+                // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+            }
+            }
         } catch {
             print("JSON encoding failed - \(error.localizedDescription)")
         }
@@ -70,10 +77,16 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         }
     }
     @Published var textOffset = 0
-    @Published var isShowing = false
+    @Published var isShowing = false {
+        didSet {
+            print("is showing: \(isShowing)")
+        }
+    }
     var bytes: [UInt8] = []
     var lines: [DisassemblyLineModel] = [] //DisassemblyLineModel(), DisassemblyLineModel(), DisassemblyLineModel()
     var temporaryDisassembly: [DisassemblyLineModel] = []
+    
+    
 
     enum CodingKeys: CodingKey {
         case title, lines, id
