@@ -12,7 +12,11 @@ class RegisterPair {
     var registerPair: RegisterPairStruct
     let name: String
     
-    init(_ named: String, highValue: UInt8, lowValue: UInt8, id: Int) {
+    let flagRegister: FlagRegister
+    
+    
+    init(_ named: String, highValue: UInt8, lowValue: UInt8, id: Int, flag: FlagRegister = Z80.F) {
+        flagRegister = flag
         name = named
         var first:String = "U"
         var last:String = "U"
@@ -25,15 +29,17 @@ class RegisterPair {
             last = String(lastLetter)
         }
         
-        registerPair = RegisterPairStruct(high: Register(value: highValue, name: first), low: Register(value: lowValue, name: last), name: named)
+        registerPair = RegisterPairStruct(high: Register(value: highValue, name: first, flag: flagRegister), low: Register(value: lowValue, name: last, flag: flagRegister), name: named)
     }
     
-    init(a: Accumilator, f: FlagRegister) {
+    init(a: Accumilator, f: FlagRegister, flag: FlagRegister = Z80.F) {
+        flagRegister = flag
         registerPair = RegisterPairStruct(high: a, low: f, name: "AF")
         name = "AF"
         }
     
-    init(_ named: String, pair: RegisterPair) {
+    init(_ named: String, pair: RegisterPair, flag: FlagRegister = Z80.F) {
+        flagRegister = flag
         var first:String = "U"
         var last:String = "U"
         
@@ -44,7 +50,7 @@ class RegisterPair {
         if let lastLetter = named.last{
             last = String(lastLetter)
         }
-        registerPair = RegisterPairStruct(high: Register(value: pair.high(), name: first), low: Register(value: pair.low(), name: last), name: named)
+        registerPair = RegisterPairStruct(high: Register(value: pair.high(), name: first, flag: flagRegister), low: Register(value: pair.low(), name: last, flag: flagRegister), name: named)
         name = named
         }
     
@@ -58,11 +64,11 @@ class RegisterPair {
     
     func ld(pair: RegisterPair){
         if (name == "AF"){
-            Z80.F.ld(value: pair.registerPair.low.value())
+            flagRegister.ld(value: pair.registerPair.low.value())
             Z80.A.ld(value: pair.registerPair.high.value())
-            registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Z80.A, low: flagRegister, name: registerPair.name)
         } else {
-            registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value(), name: registerPair.high.name), low: Register(value: pair.registerPair.low.value(), name: registerPair.low.name), name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value(), name: registerPair.high.name, flag: flagRegister), low: Register(value: pair.registerPair.low.value(), name: registerPair.low.name, flag: flagRegister), name: registerPair.name)
         }
     }
     
@@ -70,11 +76,11 @@ class RegisterPair {
         let high = UInt8(value / 256)
         let low = UInt8(value - UInt16(high) * 256)
         if (name == "AF"){
-            Z80.F.ld(value: low)
+            flagRegister.ld(value: low)
             Z80.A.ld(value: high)
-            registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Z80.A, low: flagRegister, name: registerPair.name)
         } else {
-            registerPair = RegisterPairStruct(high: Register(value: high, name: registerPair.high.name), low: Register(value: low, name: registerPair.low.name), name: registerPair.name)
+            registerPair = RegisterPairStruct(high: Register(value: high, name: registerPair.high.name, flag: flagRegister), low: Register(value: low, name: registerPair.low.name, flag: flagRegister), name: registerPair.name)
         }
     }
     
@@ -88,50 +94,50 @@ class RegisterPair {
     
     func sbc(diff: UInt16){
         let oldValue:UInt16 = value()
-        let carry: UInt16 = UInt16(Z80.F.value()) & 1
+        let carry: UInt16 = UInt16(flagRegister.value()) & 1
         let actualDiff = diff &+ carry
         ld(value: oldValue &- actualDiff)
-        Z80.F.sign(passedValue: value())
-        Z80.F.carrySB(passedValue: actualDiff, oldValue: oldValue)
-        Z80.F.bits5And3(calculatedValue: value().highByte())
-        Z80.F.zero(passedValue: value())
-        Z80.F.overFlowSB(passedValue: actualDiff.highByte(), oldValue: oldValue.highByte(), newValue: value().highByte())
-        Z80.F.halfCarrySB(passedValue: actualDiff, oldValue: oldValue)
-        Z80.F.negative()
+        flagRegister.sign(passedValue: value())
+        flagRegister.carrySB(passedValue: actualDiff, oldValue: oldValue)
+        flagRegister.bits5And3(calculatedValue: value().highByte())
+        flagRegister.zero(passedValue: value())
+        flagRegister.overFlowSB(passedValue: actualDiff.highByte(), oldValue: oldValue.highByte(), newValue: value().highByte())
+        flagRegister.halfCarrySB(passedValue: actualDiff, oldValue: oldValue)
+        flagRegister.negative()
     }
     
     func adc(diff: UInt16){
         let current:UInt16 = value()
         var actualDiff = diff
-        if (Z80.F.readBit(bit: Flag.CARRY)){
+        if (flagRegister.readBit(bit: Flag.CARRY)){
             ld(value: current &+ 1 &+ diff)
             actualDiff = actualDiff &+ 1
         } else {
             ld(value: current &+ diff)
         }
-        Z80.F.set(bit: Flag.CARRY, value: current > value())
+        flagRegister.set(bit: Flag.CARRY, value: current > value())
         registerPair.high.value().s53()
-        Z80.F.set(bit: Flag.ZERO, value: value() == 0)
-        Z80.F.set(bit: Flag.OVERFLOW, value: current.highByte().isSet(bit: 7) != registerPair.high.value().isSet(bit: 7))
-        Z80.F.halfCarry(passedValue: actualDiff.highByte(), oldValue: current.highByte())
-        Z80.F.positive()
+        flagRegister.set(bit: Flag.ZERO, value: value() == 0)
+        flagRegister.set(bit: Flag.OVERFLOW, value: current.highByte().isSet(bit: 7) != registerPair.high.value().isSet(bit: 7))
+        flagRegister.halfCarry(passedValue: actualDiff.highByte(), oldValue: current.highByte())
+        flagRegister.positive()
     }
     
     func sub(diff: UInt16){
         let current:UInt16 = value()
         ld(value: value() &- diff)
-        Z80.F.set(bit: Flag.CARRY, value: current < value())
-        Z80.F.set(bit: Flag.SUBTRACT)
+        flagRegister.set(bit: Flag.CARRY, value: current < value())
+        flagRegister.set(bit: Flag.SUBTRACT)
     }
     //
     func add(diff: UInt16){
         let current:UInt16 = value()
         let newValue: UInt32 = UInt32(value()) &+ UInt32(diff)
         ld(value: UInt16(newValue & 0xffff))
-        Z80.F.positive()
-        Z80.F.halfCarry(passedValue: diff, oldValue: current)
-        Z80.F.carry(upperByte: UInt8(newValue >> 16))
-        Z80.F.bits5And3(calculatedValue: value())
+        flagRegister.positive()
+        flagRegister.halfCarry(passedValue: diff, oldValue: current)
+        flagRegister.carry(upperByte: UInt8(newValue >> 16))
+        flagRegister.bits5And3(calculatedValue: value())
     }
     
     func ld(high: UInt8, low: UInt8){

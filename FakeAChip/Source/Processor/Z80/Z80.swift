@@ -70,7 +70,7 @@ class Z80: CPU {
         return Z80.A
     }
     
-    static func flag() -> Register{
+    static func flag() -> Base8BitRegister{
         return F
     }
     
@@ -78,7 +78,7 @@ class Z80: CPU {
         return Z80.A
     }
     
-    static func fR() -> Register{
+    static func fR() -> Base8BitRegister{
         return F
     }
     
@@ -87,7 +87,11 @@ class Z80: CPU {
     }
     
     func lR() -> Register{
-        return HL.registerPair.low
+        if let low = HL.registerPair.low as? Register{
+            return low
+        }
+        print("RETURNING F INSTEAD OF L")
+        return Register(value: 0x00)
     }
     
     func bR() -> Register{
@@ -95,7 +99,11 @@ class Z80: CPU {
     }
     
     func cR() -> Register{
-        return BC.registerPair.low
+        if let low = BC.registerPair.low as? Register{
+            return low
+        }
+        print("RETURNING F INSTEAD OF C")
+        return Register(value: 0x00)
     }
     
     func dR() -> Register{
@@ -103,7 +111,11 @@ class Z80: CPU {
     }
     
     func eR() -> Register{
-        return DE.registerPair.low
+        if let low = DE.registerPair.low as? Register{
+            return low
+        }
+        print("RETURNING F INSTEAD OF E")
+        return Register(value: 0x00)
     }
     
     func a() -> UInt8{

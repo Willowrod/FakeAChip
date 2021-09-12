@@ -32,7 +32,7 @@ class CPU: CoreDelegate {
     var processing = false
     
     // Registers
-    var spareRegister: Register = Register(value: 0x00, name: "Spare")
+    var spareRegister: Register = Register(value: 0x00, name: "Spare", flag: FlagRegister(value: 0x00, name: "Empty"))
     
     
     // Processor

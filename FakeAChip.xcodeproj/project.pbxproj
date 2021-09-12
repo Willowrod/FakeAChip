@@ -347,6 +347,9 @@
 		CD9AD732267C88E80095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
 		CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
 		CD9AD734267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
+		CD9C68D926EBA91B004C9C8E /* MOS6502.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C68D826EBA91B004C9C8E /* MOS6502.swift */; };
+		CD9C68DB26EBB23E004C9C8E /* MOS6502+OpCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C68DA26EBB23E004C9C8E /* MOS6502+OpCodes.swift */; };
+		CD9C68DC26EBB23E004C9C8E /* MOS6502+OpCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C68DA26EBB23E004C9C8E /* MOS6502+OpCodes.swift */; };
 		CD9CF2D126C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D326C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
@@ -406,6 +409,8 @@
 		CDA1746F2609253600910C23 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
 		CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA174762609E39200910C23 /* ZXBeeper.swift */; };
 		CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA174762609E39200910C23 /* ZXBeeper.swift */; };
+		CDAA066526EDEA7600D66BA0 /* Base8BitRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066426EDEA7600D66BA0 /* Base8BitRegister.swift */; };
+		CDAA066626EDEA7600D66BA0 /* Base8BitRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066426EDEA7600D66BA0 /* Base8BitRegister.swift */; };
 		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
@@ -1143,6 +1148,8 @@
 		CD8914872600EA6800C75998 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		CD891490260202FD00C75998 /* RegisterSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetModel.swift; sourceTree = "<group>"; };
 		CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CD9C68D826EBA91B004C9C8E /* MOS6502.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOS6502.swift; sourceTree = "<group>"; };
+		CD9C68DA26EBB23E004C9C8E /* MOS6502+OpCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOS6502+OpCodes.swift"; sourceTree = "<group>"; };
 		CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerDataSection.swift; sourceTree = "<group>"; };
 		CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerValueSection.swift; sourceTree = "<group>"; };
 		CDA172512603811000910C23 /* RegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStruct.swift; sourceTree = "<group>"; };
@@ -1178,6 +1185,7 @@
 		CDA1746626091D6900910C23 /* ZXKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKeyboard.swift; sourceTree = "<group>"; };
 		CDA1746D2609253600910C23 /* PressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressActions.swift; sourceTree = "<group>"; };
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
+		CDAA066426EDEA7600D66BA0 /* Base8BitRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base8BitRegister.swift; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 		CDEF98752610AF0F00729043 /* DisassemblySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblySection.swift; sourceTree = "<group>"; };
@@ -2117,6 +2125,7 @@
 				CD89146C25FFBF0B00C75998 /* RegisterPair.swift */,
 				CDA172512603811000910C23 /* RegisterStruct.swift */,
 				CDA172562603828000910C23 /* RegisterPairStruct.swift */,
+				CDAA066426EDEA7600D66BA0 /* Base8BitRegister.swift */,
 			);
 			path = Registers;
 			sourceTree = "<group>";
@@ -2127,6 +2136,15 @@
 				CD8914872600EA6800C75998 /* CPU.swift */,
 			);
 			path = CPU;
+			sourceTree = "<group>";
+		};
+		CD9C68D726EBA8F4004C9C8E /* 650x */ = {
+			isa = PBXGroup;
+			children = (
+				CD9C68D826EBA91B004C9C8E /* MOS6502.swift */,
+				CD9C68DA26EBB23E004C9C8E /* MOS6502+OpCodes.swift */,
+			);
+			path = 650x;
 			sourceTree = "<group>";
 		};
 		CDA1725B260495EE00910C23 /* Roms */ = {
@@ -2151,6 +2169,7 @@
 		CDA1726F260498C500910C23 /* Processor */ = {
 			isa = PBXGroup;
 			children = (
+				CD9C68D726EBA8F4004C9C8E /* 650x */,
 				CDA17270260498C500910C23 /* Z80 */,
 			);
 			path = Processor;
@@ -2670,8 +2689,10 @@
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
+				CD9C68DB26EBB23E004C9C8E /* MOS6502+OpCodes.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
 				CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */,
+				CDAA066526EDEA7600D66BA0 /* Base8BitRegister.swift in Sources */,
 				CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */,
 				CD0EC68F2668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
@@ -2701,6 +2722,7 @@
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
 				CDEF9B34261CB94A00729043 /* Speccy128.swift in Sources */,
 				CDEF99A32612674800729043 /* ComputerModel.swift in Sources */,
+				CD9C68D926EBA91B004C9C8E /* MOS6502.swift in Sources */,
 				CDA172E52605521500910C23 /* KeyInputController.swift in Sources */,
 				CD0CC59825FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CDEF9BC1261EF3D300729043 /* DisassemblerGraphicSection.swift in Sources */,
@@ -2781,6 +2803,7 @@
 				CD89147625FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CD0CC58D25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CD51D47A2642B968003C2A9A /* ZXTapeLoader.swift in Sources */,
+				CDAA066626EDEA7600D66BA0 /* Base8BitRegister.swift in Sources */,
 				CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CD0CC5E825FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914892600EA6800C75998 /* CPU.swift in Sources */,
@@ -2832,6 +2855,7 @@
 				CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
+				CD9C68DC26EBB23E004C9C8E /* MOS6502+OpCodes.swift in Sources */,
 				CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
 				CDEF9BBC261EED5B00729043 /* StandardSprite.swift in Sources */,
 				CDA172B22604B37000910C23 /* allTestsP_DD80toff.swift in Sources */,

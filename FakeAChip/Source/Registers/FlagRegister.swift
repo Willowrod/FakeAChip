@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class FlagRegister: Register {
+class FlagRegister: Base8BitRegister {
     private let FLAG_CARRY: UInt8 = 1
     private let FLAG_NEGATIVE: UInt8 = 2
     private let FLAG_PARITYOVERFLOW: UInt8 = 4
@@ -16,8 +16,7 @@ class FlagRegister: Register {
     private let FLAG_35: UInt8 = 40
     private let FLAG_ZERO: UInt8 = 64
     private let FLAG_SIGN: UInt8 = 128
-    
-    
+
     
     override func ld(value: UInt8){
         register = RegisterStruct(byteValue: value)

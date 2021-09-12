@@ -9,6 +9,6 @@ import Foundation
 
 struct RegisterPairStruct {
     let high: Register
-    let low: Register
+    let low: Base8BitRegister
     let name: String
 }
