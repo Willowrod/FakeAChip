@@ -196,21 +196,28 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         return string
     }
     
-    func graphicOutput(offset: Int = 0) -> [UIImage] {
-        var returner: [UIImage] = []
+    func graphicOutput(offset: Int = 0) -> [StandardSprite] {
+        var returner: [StandardSprite] = []
         var count = 0
         var graphicBlock: [UInt8] = []
         lines.forEach{byte in
             if count >= offset {
                 if let uint8 = UInt8(byte.code, radix: 16){
                 graphicBlock.append(uint8)
-                if graphicBlock.count == 8 {
-                    let newImage = StandardSprite(bytes: graphicBlock)
-                    if let image = UIImage(bitmap: newImage){
-                   returner.append(image)
-                    }
-                    graphicBlock.removeAll()
-                }
+//                if graphicBlock.count == 8 {
+//                    let newImage = StandardSprite(bytes: graphicBlock)
+//                    if let image = UIImage(){
+//                   returner.append(image)
+//                    }
+//                    graphicBlock.removeAll()
+//                }
+                                    if graphicBlock.count == 8 {
+                                       returner.append(StandardSprite(bytes: graphicBlock))
+                                       // if let image = UIImage(){
+                                      // returner.append(image)
+                                       // }
+                                        graphicBlock.removeAll()
+                                    }
                 }
             }
             count += 1

@@ -13,7 +13,8 @@ struct SpectrumScreen: View { //, KeyInput
     var body: some View {
         HStack{
             VStack{
-            Image(uiImage: settings.vdu.image).resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+            //Image(uiImage: settings.vdu.image).resizable().frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+                SpectrumCanvas(grid: settings.vdu.map).frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
             }
             .padding(screenWidth / 18)
         }

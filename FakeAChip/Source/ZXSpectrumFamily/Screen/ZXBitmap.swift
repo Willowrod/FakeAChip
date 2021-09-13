@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
+
 struct ZXBitmap {
     let width: Int
-    var pixels: [ZXColor]
-    var paper: [ZXColor]
-    var ink: [ZXColor]
+    //var pixels: [ZXColor]
+    var pixels: [Color]
+    var paper: [Color]
+    var ink: [Color]
     var lastData: [Int]
     var positions: Dictionary<Int, Int> = Dictionary()
     var attributes: Dictionary<Int, Int> = Dictionary()
@@ -18,7 +21,7 @@ struct ZXBitmap {
         pixels.count / width
     }
     
-    init(width: Int, height: Int, color: ZXColor) {
+    init(width: Int, height: Int, color: Color) {
         self.width = width
         pixels = Array(repeating: color, count: 49152)
         paper = Array(repeating: ZXColor.white, count: 768)
@@ -27,7 +30,7 @@ struct ZXBitmap {
         setupPositions()
     }
     
-    subscript(x: Int, y: Int) -> ZXColor {
+    subscript(x: Int, y: Int) -> Color {
         get { pixels[y * width + x] }
         set { pixels[y * width + x] = newValue }
     }
@@ -36,8 +39,8 @@ struct ZXBitmap {
         var indicator = 0
         bytes.forEach { byte in
             let isFlashing = byte.isSet(bit: 7) && flashing
-            let paperValue: ZXColor = byte.paper()
-            let inkValue: ZXColor = byte.ink()
+            let paperValue: Color = byte.paper()
+            let inkValue: Color = byte.ink()
             if (isFlashing){
                 paper[indicator] = inkValue
                 ink[indicator] = paperValue

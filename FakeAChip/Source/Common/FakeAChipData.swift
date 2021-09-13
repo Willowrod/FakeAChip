@@ -31,7 +31,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
-    @Published var vdu: VDU = VDU(image: UIImage()){
+    @Published var vdu: VDU = VDU(map: []){
         didSet{
             frames += 1
             let timeNow = Date().timeIntervalSince1970

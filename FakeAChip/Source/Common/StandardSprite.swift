@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwiftUI
 
-struct StandardSprite {
+struct StandardSprite: Hashable {
     let widthOfSprite: Int
     let heightOfSprite: Int
     let pixelsPerSpriteX = 8
@@ -16,7 +17,7 @@ struct StandardSprite {
     let pixelCount: Int
     let width: Int
     let height: Int
-    var pixels: [ZXColor]
+    var pixels: [Color]
     let myInk = ZXColor.black
     let myPaper = ZXColor.white
     
@@ -24,7 +25,7 @@ struct StandardSprite {
         self.widthOfSprite = 1
         self.heightOfSprite = 1
         self.pixelCount = pixelsPerSprite
-        pixels = Array(repeating: ZXColor.white, count: pixelsPerSprite)
+        pixels = Array(repeating: Color.white, count: pixelsPerSprite)
         var position = 0
         self.width = pixelsPerSpriteX * widthOfSprite
         self.height = pixelsPerSpriteY * heightOfSprite
@@ -59,7 +60,7 @@ struct StandardSprite {
         self.height = pixelsPerSpriteY * heightOfSprite
     }
     
-    subscript(x: Int, y: Int) -> ZXColor {
+    subscript(x: Int, y: Int) -> Color {
         get { pixels[y * width + x] }
         set { pixels[y * width + x] = newValue }
     }

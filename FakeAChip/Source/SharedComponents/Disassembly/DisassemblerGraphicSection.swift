@@ -13,57 +13,49 @@ struct DisassemblerGraphicSection: View {
         VStack{
         HStack{
         ForEach(section.graphicOutput(offset: 0), id: \.self){image in
-            Image(uiImage: image)
-                .resizable()
+            SpectrumSprite(sprite: image)
                 .frame(width: 32, height: 32, alignment: .center)
         }
         }
             HStack{
             ForEach(section.graphicOutput(offset: 1), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 2), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 3), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 4), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 5), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 6), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }
             HStack{
             ForEach(section.graphicOutput(offset: 7), id: \.self){image in
-                Image(uiImage: image)
-                    .resizable()
+                SpectrumSprite(sprite: image)
                     .frame(width: 32, height: 32, alignment: .center)
             }
             }

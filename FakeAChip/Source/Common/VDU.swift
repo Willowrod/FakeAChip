@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VDU {
-    let image: UIImage
+    //let image: UIImage
     var border: Color?
+    let map: [Color]
 }

@@ -27,7 +27,7 @@ class Speccy: Z80 {
     var keyboard: [UInt8] = Array(repeating: 0xFF, count: 8)
     var kempston: UInt8 = 0x00
     var initPc: UInt16 = 0x5B00
-    var screenImage = ZXBitmap(width: 256, height: 192, color: .blue)
+    var screenImage = ZXBitmap(width: 256, height: 192, color: ZXColor.blue)
     var cgImage: CGImage? = nil
     var restricted = true
     let alphaInfo = CGImageAlphaInfo.premultipliedLast

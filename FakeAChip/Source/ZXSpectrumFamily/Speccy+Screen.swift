@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension Speccy {
     func blitScreenInternal(){
@@ -47,12 +48,12 @@ extension Speccy {
 //        guard let cgImage = cgImage else {
 //            return
 //        }
-        if let screen = UIImage.init(bitmap: screenImage) {
+       // if let screen = UIImage.init(bitmap: screenImage) {
         DispatchQueue.main.sync {
-            data?.vdu = VDU(image: screen, border: borderColour)
+            data?.vdu = VDU(border: borderColour, map: screenImage.pixels)
             data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
-        }
+      //  }
         frameEnds = true
         runInterupt()
     }

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension UInt8 {
-    func ink() -> ZXColor {
+    func ink() -> Color {
         let bright = self.isSet(bit: 6)
         switch (self & 0b00000111){
         case 0:
@@ -31,7 +32,7 @@ extension UInt8 {
             return ZXColor.black
         }
 }
-    func paper() -> ZXColor {
+    func paper() -> Color {
         let bright = self.isSet(bit: 6)
         switch ((self & 0b00111000) >> 3){
         case 0:
@@ -55,7 +56,7 @@ extension UInt8 {
         }
 }
     
-    func border() -> ZXColor {
+    func border() -> Color {
         switch (self & 0b00000111){
         case 0:
             return ZXColor.black

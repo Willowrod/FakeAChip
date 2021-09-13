@@ -71,8 +71,9 @@ extension Speccy {
     }
     
     func borderColour(_ colour: UInt8) -> Color {
-        let zxColour = colour.border()
-        return Color(red: Double(zxColour.r), green: Double(zxColour.g), blue: Double(zxColour.b), opacity: 1)
+//        let zxColour = colour.border()
+//        return Color(red: Double(zxColour.r), green: Double(zxColour.g), blue: Double(zxColour.b), opacity: 1)
+        return colour.border()
     }
     
     func updateBorder(_ colour: UInt8) {
