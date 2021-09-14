@@ -98,6 +98,38 @@
             endingLineNumber = "15"
             landmarkName = "init(value:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "05D08650-B4A0-4FB7-91BB-CB7ED8747581 - 38e4f198d6ee75b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FakeAChip.Register.init(value: Swift.UInt8) -&gt; FakeAChip.Register"
+                  moduleName = "FakeAChip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikehall/Src/Willowrod/Willowrod/FakeAChip/FakeAChip/Source/Registers/Register.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "05D08650-B4A0-4FB7-91BB-CB7ED8747581 - 34f340f25dc57d0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FakeAChipTests.Register.init(value: Swift.UInt8) -&gt; FakeAChipTests.Register"
+                  moduleName = "FakeAChipTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikehall/Src/Willowrod/Willowrod/FakeAChip/FakeAChip/Source/Registers/Register.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
