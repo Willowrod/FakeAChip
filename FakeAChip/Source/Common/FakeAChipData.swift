@@ -27,6 +27,8 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     var disassemblyData = DisassemblyData()
     
+    var emulatorData = EmulatorData()
+    
     @Published var host: HostSystem
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])

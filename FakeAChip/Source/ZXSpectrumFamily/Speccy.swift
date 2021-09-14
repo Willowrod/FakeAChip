@@ -10,6 +10,7 @@ import UIKit
 import Zip
 import SwiftUI
 import ZXDB_SDK
+import GameController
 
 class Speccy: Z80 {
     
@@ -193,4 +194,5 @@ joystickInteractionInternal(key: key, pressed: pressed)
     override func importDisassembly() {
         importSpectrumDisassemblyInternal()
     }
+
 }

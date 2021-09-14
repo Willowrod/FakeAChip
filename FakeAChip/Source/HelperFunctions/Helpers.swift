@@ -18,6 +18,6 @@ func getDocumentsDirectory() -> URL {
 
 func getPath(forFile: String) -> URL {
     let path = getDocumentsDirectory().appendingPathComponent(forFile)
-    print (path.path)
+   // print (path.path)
     return path
 }

@@ -19,9 +19,14 @@ struct ZXKeyboard: View {
     let bank5: [String] = ["Q", "W", "E", "R", "T"]
     let bank6: [String] = ["A", "S", "D", "F", "G"]
     let bank7: [String] = ["CS", "Z", "X", "C", "V"]
+    
+    
+    var controller = Controller()
 
     var body: some View {
         VStack{
+            if settings.emulatorData.keyboardShowing {
+                Spacer()
             HStack{
                 ForEach(bank4.indices, id: \.self){ key in
                     HStack{
@@ -43,12 +48,12 @@ struct ZXKeyboard: View {
                     Spacer()
                     }
                 }
-                
+
             }
             .padding(2)
-            
+
             HStack{
-                
+
                 ForEach(bank5.indices, id: \.self){ key in
                     HStack{
                         Spacer()
@@ -69,10 +74,10 @@ struct ZXKeyboard: View {
                     Spacer()
                     }
                 }
-                
+
             }
             .padding(2)
-            
+
             HStack{
                 ForEach(bank6.indices, id: \.self){ key in
                     HStack{
@@ -94,10 +99,10 @@ struct ZXKeyboard: View {
                     Spacer()
                     }
                 }
-                
+
             }
             .padding(2)
-            
+
             HStack{
                 ForEach(bank7.indices, id: \.self){ key in
                     HStack{
@@ -119,53 +124,72 @@ struct ZXKeyboard: View {
                     Spacer()
                     }
                 }
-                
+
             }
             .padding(2)
-            
-            HStack{
-                Button("⏫"){}
-                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
-                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                    .border(Color.blue, width: 1)
-                
-                    Button("◀️"){}
-                        .pressAction(onPress: {pressStick(bit: 0, pressed: true)}, onRelease: {pressStick(bit: 0, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                 
-    
-                    Button("▶️"){}
-                        .pressAction(onPress: {pressStick(bit: 1, pressed: true)}, onRelease: {pressStick(bit: 1, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                 
+            } else {
+                VStack{
             Spacer()
-            VStack{
-                Button("🔼"){}
-                    .pressAction(onPress: {pressStick(bit: 2, pressed: true)}, onRelease: {pressStick(bit: 2, pressed: false)})
-                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                    .border(Color.blue, width: 1)
-                    .padding(10)
-           
-
-                Button("🔽"){}
-                    .pressAction(onPress: {pressStick(bit: 3, pressed: true)}, onRelease: {pressStick(bit: 3, pressed: false)})
-                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                    .border(Color.blue, width: 1)
-                    .padding(10)
-           
                 }
-                
-                Button("⏫"){}
-                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
-                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                    .border(Color.blue, width: 1)
-                
+                .onDisappear(perform: {
+                    controller.disconnect()
+            
+                  })
+                  .onAppear(perform: {
+                //      if !settings.emulatorData.keyboardShowing {
+                      controller.connect()
+                      controller.handleLeftPad = settings.handleVirtualController
+                      controller.handleAButton = settings.handleButtonAPressed
+//                      } else {
+//                          controller.disconnect()
+//                      }
+                  })
             }
-            .padding(20)
+            
+//            HStack{
+//                Button("⏫"){}
+//                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
+//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                    .border(Color.blue, width: 1)
+//                
+//                    Button("◀️"){}
+//                        .pressAction(onPress: {pressStick(bit: 0, pressed: true)}, onRelease: {pressStick(bit: 0, pressed: false)})
+//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                        .border(Color.blue, width: 1)
+//                 
+//    
+//                    Button("▶️"){}
+//                        .pressAction(onPress: {pressStick(bit: 1, pressed: true)}, onRelease: {pressStick(bit: 1, pressed: false)})
+//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                        .border(Color.blue, width: 1)
+//                 
+//            Spacer()
+//            VStack{
+//                Button("🔼"){}
+//                    .pressAction(onPress: {pressStick(bit: 2, pressed: true)}, onRelease: {pressStick(bit: 2, pressed: false)})
+//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                    .border(Color.blue, width: 1)
+//                    .padding(10)
+//           
+//
+//                Button("🔽"){}
+//                    .pressAction(onPress: {pressStick(bit: 3, pressed: true)}, onRelease: {pressStick(bit: 3, pressed: false)})
+//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                    .border(Color.blue, width: 1)
+//                    .padding(10)
+//           
+//                }
+//                
+//                Button("⏫"){}
+//                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
+//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                    .border(Color.blue, width: 1)
+//                
+//            }
+//            .padding(20)
                 
         }
+
         }
     
     func pressKey(bank: Int, bit: Int, pressed: Bool) {

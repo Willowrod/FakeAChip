@@ -23,6 +23,7 @@ struct SpectrumView: View {
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
+                    EmulatorHeaderView(emulatorData: settings.emulatorData)
                     TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
                     SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                 case SystemEnvironment.Disassembly:

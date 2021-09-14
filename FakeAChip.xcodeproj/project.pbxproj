@@ -413,6 +413,13 @@
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
 		CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
 		CDD5FCE526EFF3D6009C3822 /* SpectrumSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FCE426EFF3D6009C3822 /* SpectrumSprite.swift */; };
+		CDD5FD0326F0E94C009C3822 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0226F0E94C009C3822 /* Controller.swift */; };
+		CDD5FD0526F0EB3D009C3822 /* FakeAChipData+Spectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0426F0EB3D009C3822 /* FakeAChipData+Spectrum.swift */; };
+		CDD5FD0626F0EB3E009C3822 /* FakeAChipData+Spectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0426F0EB3D009C3822 /* FakeAChipData+Spectrum.swift */; };
+		CDD5FD0826F11E46009C3822 /* EmulatorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */; };
+		CDD5FD0926F11E46009C3822 /* EmulatorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */; };
+		CDD5FD0B26F11EAE009C3822 /* EmulatorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */; };
+		CDD5FD0C26F11EAE009C3822 /* EmulatorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */; };
 		CDEF98762610AF0F00729043 /* DisassemblySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF98752610AF0F00729043 /* DisassemblySection.swift */; };
 		CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF98752610AF0F00729043 /* DisassemblySection.swift */; };
 		CDEF9973261263BD00729043 /* Z80Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9972261263BC00729043 /* Z80Disassembler.swift */; };
@@ -1185,6 +1192,10 @@
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 		CDD5FCE426EFF3D6009C3822 /* SpectrumSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumSprite.swift; sourceTree = "<group>"; };
+		CDD5FD0226F0E94C009C3822 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		CDD5FD0426F0EB3D009C3822 /* FakeAChipData+Spectrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FakeAChipData+Spectrum.swift"; sourceTree = "<group>"; };
+		CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorHeaderView.swift; sourceTree = "<group>"; };
+		CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorData.swift; sourceTree = "<group>"; };
 		CDEF98752610AF0F00729043 /* DisassemblySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblySection.swift; sourceTree = "<group>"; };
 		CDEF9972261263BC00729043 /* Z80Disassembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Z80Disassembler.swift; sourceTree = "<group>"; };
 		CDEF997B261263CE00729043 /* OpCodeDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpCodeDefs.swift; sourceTree = "<group>"; };
@@ -2067,6 +2078,7 @@
 				CDEF9B23261C852200729043 /* SettingsSheet.swift */,
 				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
 				CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */,
+				CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */,
 			);
 			path = SharedComponents;
 			sourceTree = "<group>";
@@ -2201,6 +2213,7 @@
 		CDC8C553260261A10010EBF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CDD5FD0226F0E94C009C3822 /* Controller.swift */,
 				CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */,
 				CDC8C554260261BA0010EBF7 /* Sizing.swift */,
 				CDA172DD2605016F00910C23 /* VDU.swift */,
@@ -2209,6 +2222,8 @@
 				CD3BD82D2677495000394AB1 /* TapePlayerData.swift */,
 				CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */,
 				CD26451E26D9FF680072B09F /* DisassemblyData.swift */,
+				CDD5FD0426F0EB3D009C3822 /* FakeAChipData+Spectrum.swift */,
+				CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2652,6 +2667,7 @@
 				CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */,
 				CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */,
 				CD26451F26D9FF680072B09F /* DisassemblyData.swift in Sources */,
+				CDD5FD0526F0EB3D009C3822 /* FakeAChipData+Spectrum.swift in Sources */,
 				CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDEF99A92612676E00729043 /* DataType.swift in Sources */,
@@ -2677,6 +2693,7 @@
 				CDAA066826EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */,
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
+				CDD5FD0826F11E46009C3822 /* EmulatorHeaderView.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
 				CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */,
@@ -2699,6 +2716,7 @@
 				CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CDEF99EE2614C53900729043 /* DisassemblerTextSection.swift in Sources */,
 				CDA1728A26049ADA00910C23 /* Flag.swift in Sources */,
+				CDD5FD0326F0E94C009C3822 /* Controller.swift in Sources */,
 				CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
@@ -2742,6 +2760,7 @@
 				CDA1727B260498C600910C23 /* Z80+Opcode.swift in Sources */,
 				CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */,
 				CD89146F25FFBF0B00C75998 /* Refresh.swift in Sources */,
+				CDD5FD0B26F11EAE009C3822 /* EmulatorData.swift in Sources */,
 				CDA172DE2605016F00910C23 /* VDU.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2752,6 +2771,7 @@
 			files = (
 				CDEF9B35261CB94A00729043 /* Speccy128.swift in Sources */,
 				CDEF99E32614BF7A00729043 /* TypeSelector.swift in Sources */,
+				CDD5FD0C26F11EAE009C3822 /* EmulatorData.swift in Sources */,
 				CDEF99A42612674800729043 /* ComputerModel.swift in Sources */,
 				CD51D4742642B66D003C2A9A /* TXZFormat.swift in Sources */,
 				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
@@ -2783,6 +2803,7 @@
 				CD0CC5A725FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5A125FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
 				CDAA066926EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */,
+				CDD5FD0926F11E46009C3822 /* EmulatorHeaderView.swift in Sources */,
 				CD26452026D9FF680072B09F /* DisassemblyData.swift in Sources */,
 				CDA172A82604B37000910C23 /* allTests80toca.swift in Sources */,
 				CDA1727E260498C600910C23 /* Z80.swift in Sources */,
@@ -2825,6 +2846,7 @@
 				CDEF998F2612642F00729043 /* TargetType.swift in Sources */,
 				CD0CC5A525FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CDEF9999261265B000729043 /* CodeRoutine.swift in Sources */,
+				CDD5FD0626F0EB3E009C3822 /* FakeAChipData+Spectrum.swift in Sources */,
 				CDA1727C260498C600910C23 /* Z80+Opcode.swift in Sources */,
 				CDA172AA2604B37000910C23 /* allTestsP_CB00to7f.swift in Sources */,
 				CD0CC5DB25FF54F500731EDA /* SystemConstants.swift in Sources */,
@@ -3017,6 +3039,7 @@
 				DEVELOPMENT_TEAM = FAGJTP495D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3045,6 +3068,7 @@
 				DEVELOPMENT_TEAM = FAGJTP495D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
