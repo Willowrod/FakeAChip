@@ -50,11 +50,12 @@ extension Speccy {
 //        }
        // if let screen = UIImage.init(bitmap: screenImage) {
         DispatchQueue.main.sync {
-            data?.vdu = VDU(border: borderColour, map: screenImage.pixels)
+            data?.vdu = VDU(screen: screenImage, border: borderColour)//map: screenImage.pixels)
             data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
       //  }
         frameEnds = true
         runInterupt()
     }
+    
 }

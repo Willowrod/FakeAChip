@@ -19,6 +19,8 @@ class HeaderData: ObservableObject {
     
     var isShowingSettings = false
     
+    var shouldResetPixels = false
+    
     @Published var environment: SystemEnvironment = .Emulation
     var environmentTag: Int = 0 {
         didSet {
@@ -30,6 +32,7 @@ class HeaderData: ObservableObject {
             default:
                 environment = .Code
             }
+            shouldResetPixels = true
         }
     }
     

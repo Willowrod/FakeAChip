@@ -76,6 +76,7 @@
 		CD16BD0B26D5000900151830 /* Speccy+ROM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0A26D5000900151830 /* Speccy+ROM.swift */; };
 		CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0C26D5035000151830 /* SpeccyUnused.swift */; };
 		CD16BD0F26D5048B00151830 /* Speccy+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */; };
+		CD21039726FA07CE000BD55F /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21039626FA07CE000BD55F /* MetalView.swift */; };
 		CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451F26D9FF680072B09F /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
@@ -311,6 +312,8 @@
 		CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD2DA798260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD306C77264C2FC20021AA0A /* ZXDB-SDK */; };
+		CD34EEDE26FB159D00597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
+		CD34EEDF26FB1CB900597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
 		CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
 		CD3BD82C267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
 		CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
@@ -404,6 +407,10 @@
 		CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA174762609E39200910C23 /* ZXBeeper.swift */; };
 		CDAA066826EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
 		CDAA066926EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
+		CDC5C25326FA15EC00DD1CFE /* PixelShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */; };
+		CDC5C25426FA15EC00DD1CFE /* PixelShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */; };
+		CDC5C25626FA17C800DD1CFE /* VertexIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25526FA17C800DD1CFE /* VertexIn.swift */; };
+		CDC5C25726FA17C900DD1CFE /* VertexIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25526FA17C800DD1CFE /* VertexIn.swift */; };
 		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
@@ -1142,6 +1149,7 @@
 		CD16BD0A26D5000900151830 /* Speccy+ROM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+ROM.swift"; sourceTree = "<group>"; };
 		CD16BD0C26D5035000151830 /* SpeccyUnused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeccyUnused.swift; sourceTree = "<group>"; };
 		CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+Setup.swift"; sourceTree = "<group>"; };
+		CD21039626FA07CE000BD55F /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80Type1FormatWrite.swift; sourceTree = "<group>"; };
 		CD26451E26D9FF680072B09F /* DisassemblyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyData.swift; sourceTree = "<group>"; };
 		CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyHeaderView.swift; sourceTree = "<group>"; };
@@ -1150,6 +1158,7 @@
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
 		CD306C75264C2FB10021AA0A /* ZXDB-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ZXDB-SDK"; sourceTree = "<group>"; };
+		CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ZXColour.swift"; sourceTree = "<group>"; };
 		CD3BD82A267748C600394AB1 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
 		CD3BD82D2677495000394AB1 /* TapePlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerData.swift; sourceTree = "<group>"; };
 		CD4297DD26A0772D0087CFEC /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
@@ -1204,6 +1213,8 @@
 		CDA1746D2609253600910C23 /* PressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressActions.swift; sourceTree = "<group>"; };
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
 		CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumCanvas.swift; sourceTree = "<group>"; };
+		CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = PixelShader.metal; sourceTree = "<group>"; };
+		CDC5C25526FA17C800DD1CFE /* VertexIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexIn.swift; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
 		CDD5FCE426EFF3D6009C3822 /* SpectrumSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumSprite.swift; sourceTree = "<group>"; };
@@ -1287,6 +1298,7 @@
 		CD0CC53C25FA6BD400731EDA /* FakeAChip */ = {
 			isa = PBXGroup;
 			children = (
+				CDC5C25126FA15C200DD1CFE /* Metal */,
 				CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */,
 				CDEF9B29261C943100729043 /* EmptyCPU */,
 				CDA1746C2609251500910C23 /* SwiftUI Magic */,
@@ -1404,6 +1416,7 @@
 				CD0CC57D25FA6C3F00731EDA /* Data+String.swift */,
 				CD0CC57E25FA6C3F00731EDA /* UInt16+Bitwise.swift */,
 				CD0CC57F25FA6C3F00731EDA /* UInt8+Z80.swift */,
+				CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2225,6 +2238,16 @@
 			path = "SwiftUI Magic";
 			sourceTree = "<group>";
 		};
+		CDC5C25126FA15C200DD1CFE /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				CD21039626FA07CE000BD55F /* MetalView.swift */,
+				CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */,
+				CDC5C25526FA17C800DD1CFE /* VertexIn.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		CDC8C553260261A10010EBF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2710,12 +2733,14 @@
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
 				CDD5FD0826F11E46009C3822 /* EmulatorHeaderView.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
+				CDC5C25626FA17C800DD1CFE /* VertexIn.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
 				CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */,
 				CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */,
 				CD0EC68F2668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */,
 				CD0CC59A25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
+				CD34EEDE26FB159D00597392 /* Color+ZXColour.swift in Sources */,
 				CD0CC5AC25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD9CF2D526C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CDEF99F4261A602700729043 /* DisassemblySheet.swift in Sources */,
@@ -2730,6 +2755,7 @@
 				CD2DA78D260CF2500022F4EF /* DisassemblyList.swift in Sources */,
 				CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */,
 				CDEF99EE2614C53900729043 /* DisassemblerTextSection.swift in Sources */,
+				CD21039726FA07CE000BD55F /* MetalView.swift in Sources */,
 				CDA1728A26049ADA00910C23 /* Flag.swift in Sources */,
 				CDD5FD0326F0E94C009C3822 /* Controller.swift in Sources */,
 				CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
@@ -2766,6 +2792,7 @@
 				CD89147525FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CDEF9985261263FA00729043 /* OpCode.swift in Sources */,
 				CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */,
+				CDC5C25326FA15EC00DD1CFE /* PixelShader.metal in Sources */,
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
 				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
 				CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */,
@@ -2791,6 +2818,7 @@
 				CD51D4742642B66D003C2A9A /* TXZFormat.swift in Sources */,
 				CDA172A22604B37000910C23 /* allTestsP_FDCB00to7f.swift in Sources */,
 				CD0540092625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
+				CD34EEDF26FB1CB900597392 /* Color+ZXColour.swift in Sources */,
 				CD0CC59925FA6C4000731EDA /* UInt8+Bitwise.swift in Sources */,
 				CDD5FD1926F12AB2009C3822 /* Speccy+Loading.swift in Sources */,
 				CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */,
@@ -2805,6 +2833,7 @@
 				CDA172EF2608859F00910C23 /* DebugModel.swift in Sources */,
 				CDD5FD1126F12A8E009C3822 /* Controller.swift in Sources */,
 				CD0CC5A325FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
+				CDC5C25726FA17C900DD1CFE /* VertexIn.swift in Sources */,
 				CDD5FD1F26F12ACA009C3822 /* AppDelegate.swift in Sources */,
 				CDEF9974261263BD00729043 /* Z80Disassembler.swift in Sources */,
 				CD2DA78E260CF2500022F4EF /* DisassemblyList.swift in Sources */,
@@ -2865,6 +2894,7 @@
 				CD0CC5E125FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CDA172B42604B37000910C23 /* allTestP_ED_ALL.swift in Sources */,
 				CDA17282260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
+				CDC5C25426FA15EC00DD1CFE /* PixelShader.metal in Sources */,
 				CD89147425FFBF0B00C75998 /* Register.swift in Sources */,
 				CDA172C22604B44000910C23 /* RegisterPairStruct.swift in Sources */,
 				CD89147F25FFC22500C75998 /* RegisterSetView.swift in Sources */,
@@ -3070,6 +3100,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3099,6 +3130,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3128,6 +3160,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAChipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -3150,6 +3183,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAChipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -33,7 +33,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
-    @Published var vdu: VDU = VDU(map: []){
+    @Published var vdu: VDU = VDU(screen: ZXBitmap(width: 1, height: 1, color: Color.white)){
         didSet{
             frames += 1
             let timeNow = Date().timeIntervalSince1970
@@ -108,5 +108,12 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
         delegate?.keyboardInteraction(bank: bank, bit: bit, pressed: pressed)
     }
     
+    func saveSnapshot() {
+
+    }
+    
+    func loadSnapshot() {
+        
+    }
 
 }

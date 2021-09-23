@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, macCatalyst 15.0, *)
 struct ZXKeyboard: View {
     @EnvironmentObject var settings: FakeAChipData
     let keyWidth: CGFloat
@@ -204,6 +205,10 @@ func pressStick(bit: Int, pressed: Bool) {
 
 struct ZXKeyboard_Previews: PreviewProvider {
     static var previews: some View {
-        ZXKeyboard(keyWidth: 60, keyHeight: 40)
+        if #available(macCatalyst 15.0, *) {
+            ZXKeyboard(keyWidth: 60, keyHeight: 40)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

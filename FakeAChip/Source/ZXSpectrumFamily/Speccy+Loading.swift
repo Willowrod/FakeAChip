@@ -233,7 +233,7 @@ extension Speccy {
         snap.add(f())
         snap.add(BC.value())
         snap.add(HL.value())
-        snap.add(PC)
+        snap.add(PC)  //(UInt16(0x00))
         snap.add(SP)
         snap.add(I.value())
         snap.add(R.value())
@@ -242,25 +242,27 @@ extension Speccy {
             bit12 = 0x01
         }
         bit12 = bit12 & (borderColourInt << 1)
-        snap.add(bit12)
+        snap.add(bit12) // Bit 12
         snap.add(DE.value())
-        snap.add(BC2.value())
+        snap.add(BC2.value())  // Bit 15
         snap.add(DE2.value())
-        snap.add(HL2.value())
+        snap.add(HL2.value())  // Bit 19
         snap.add(AF2.value().highByte())
-        snap.add(AF2.value().lowByte())
+        snap.add(AF2.value().lowByte())  // Bit 23
         snap.add(IY.value())
         snap.add(IX.value())
-        if interupt {
+        if interupt {           // Bit 27
             snap.add(UInt8(0x01))
         } else {
             snap.add(UInt8(0x00))
         }
-        snap.add(UInt8(interuptMode))
+        snap.add(UInt8(interuptMode))  // Bit 28
+        snap.add(UInt8(0x00))          // bit 29
+
+        
         snap.add(ram)
         
         currentSnapshot = snap.write()
-        
     }
     
     func importSpectrumDisassemblyInternal() {
@@ -283,9 +285,29 @@ extension Speccy {
             } catch {
                 // contents could not be loaded
             }
-        
-        
     }
     
+     func loadEmulationInternal() {
+         pause()
+            let filename = getPath(forFile: "emulation.json")
+            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
+                print("Failed to read data")
+                return
+            }
+                print(snappy)
+            loadZ80Internal(data: snappy)
+            resume()
+    }
+    
+     func saveEmulationInternal() {
+            let snappy = dumpSnapshot()
+            let filename = getPath(forFile: "emulation.json")
+                        do {
+                            try snappy.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+                        } catch {
+                            print("Could not write to \(filename.absoluteString)")
+                            print("Error: \(error.localizedDescription)")
+                        }
+    }
     
 }

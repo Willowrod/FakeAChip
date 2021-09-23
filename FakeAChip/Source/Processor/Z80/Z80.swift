@@ -225,6 +225,9 @@ print("Writing nothing to RAM....")
     }
     
     func instructionComplete(states: Int, length: UInt16 = 1) {
+        if (states == 0) {
+            print("That ain't right!")
+        }
         currentTStates += states
         loadingTStates += states
         PC = PC &+ length

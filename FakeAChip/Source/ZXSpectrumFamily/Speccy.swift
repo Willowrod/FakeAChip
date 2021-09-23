@@ -37,6 +37,7 @@ class Speccy: Z80 {
     
     override init() {
         super.init()
+   //     createScreen()
         loadRom()
         beeper.ticksPerFrame = tStatesPerFrame
         ram = Array(repeating: 0x00, count: 0xC000)
@@ -195,4 +196,12 @@ joystickInteractionInternal(key: key, pressed: pressed)
         importSpectrumDisassemblyInternal()
     }
 
+    override func loadEmulation() {
+        loadEmulationInternal()
+    }
+    
+    override func saveEmulation() {
+        saveEmulationInternal()
+    }
+    
 }

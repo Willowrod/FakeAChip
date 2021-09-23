@@ -11,9 +11,7 @@ import SwiftUI
 
 extension Speccy {
     func performInInternal(port: UInt8, map: UInt8, destination: Register){
-
         if (port == 0xfe){
-            
             var byteVal: UInt8 = 0x1f
             switch map{
             case 0xfe:
@@ -35,20 +33,21 @@ extension Speccy {
             default:
                 break
             }
-            if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
-                if let tapeData = data?.headerData.tapePlayerData.tape?.fetchData(tState: loadingTStates){
-                    byteVal = byteVal.set(bit: 6, value: tapeData.signal)
-                    if tapeData.reset {
-                        loadingTStates = 0
-                    }
-                } else {
-                    data?.headerData.tapePlayerData.tape = nil
-                    data?.headerData.tapePlayerData.tapePlayerState = .Paused
-                    resume()
-                }
-                
-          //      print("Loading \(destination.name) with \(byteVal.hex())")
-            }
+//            if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
+//                if let tapeData = data?.headerData.tapePlayerData.tape?.fetchData(tState: loadingTStates){
+//                    byteVal = byteVal.set(bit: 6, value: tapeData.signal)
+//                    if tapeData.reset {
+//                        loadingTStates = 0
+//                    }
+//                } else {
+//                    data?.headerData.tapePlayerData.tape = nil
+//                    data?.headerData.tapePlayerData.tapePlayerState = .Paused
+//
+//                    resume()
+//                }
+//
+//          //      print("Loading \(destination.name) with \(byteVal.hex())")
+//            }
             destination.inCommand(byte: byteVal)
         } else if port == 0x7f {
             //           print("Checking for Fuller Joystick")
@@ -222,6 +221,7 @@ extension Speccy {
     
     func joystickInteractionInternal(key: Int, pressed: Bool){
         // Kempston 000FUDLR
+        return
         switch key{
         case 0: // Left
             kempston = pressed ? kempston.set(bit: 1) : kempston.clear(bit: 1)

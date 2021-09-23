@@ -199,4 +199,12 @@ class CPU: CoreDelegate {
     func importDisassembly() {
         
     }
+    
+    func loadEmulation() {
+        
+    }
+    
+    func saveEmulation() {
+        
+    }
 }

@@ -23,7 +23,7 @@ struct SpectrumView: View {
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
-                    EmulatorHeaderView(emulatorData: settings.emulatorData)
+                    EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
                     TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
                     SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                 case SystemEnvironment.Disassembly:
@@ -67,14 +67,22 @@ struct SpectrumEmulationView: View {
                             }
                             VStack {
                                 Spacer()
-                    ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
+                                if #available(macCatalyst 15.0, *) {
+                                    ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
+                                } else {
+                                    // Fallback on earlier versions
+                                }
                             }
                         }
                     } else {
                         
                             VStack{
                         SpectrumScreen(screenWidth: Sizing.instance.width())
-                        ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
+                                if #available(macCatalyst 15.0, *) {
+                                    ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
+                                } else {
+                                    // Fallback on earlier versions
+                                }
                             }
                     }
                 }

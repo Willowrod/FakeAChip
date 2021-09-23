@@ -7,6 +7,7 @@
 
 import GameController
 
+@available(iOS 15.0, macCatalyst 15.0, *)
 class Controller {
     var controller: GCVirtualController
     

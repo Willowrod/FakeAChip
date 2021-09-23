@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VDU {
     //let image: UIImage
+    let screen: ZXBitmap
     var border: Color?
-    let map: [Color]
+    //let map: [Color]
 }

@@ -32,7 +32,9 @@ class Z80Format: BaseFileFormat {
         
         importDataFromString(data: dataString)
         process()
+        if (registers.registerPC == 0x00){
         registers.shouldReturn = true
+        }
     }
     
     

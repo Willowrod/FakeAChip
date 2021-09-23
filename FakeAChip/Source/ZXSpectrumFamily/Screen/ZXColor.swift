@@ -8,10 +8,26 @@
 import Foundation
 import SwiftUI
 
-//struct ZXColor {
-//    var r, g, blue: UInt8
-//    var a: UInt8 = 255
-//}
+struct ZXColour {
+    var r, g, b: UInt8
+    var a: UInt8 = 255
+    
+        func toUIColor() -> UIColor {
+            let red: CGFloat = CGFloat(r) / 255.0
+            let green: CGFloat = CGFloat(g) / 255.0
+            let blue: CGFloat = CGFloat(b) / 255.0
+    
+            return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
+        }
+    
+        func toColor() -> Color {
+            let red: CGFloat = CGFloat(r) / 255.0
+            let green: CGFloat = CGFloat(g) / 255.0
+            let blue: CGFloat = CGFloat(b) / 255.0
+            return Color(red: red, green: green, blue: blue)
+            //return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
+        }
+}
 
 class ZXColor {
     static let black = Color(red: 0, green: 0, blue: 0)
@@ -32,21 +48,6 @@ class ZXColor {
     static let bright_yellow = Color(red: 0, green: 255, blue: 255)
     static let bright_white = Color(red: 255, green: 255, blue: 255)
     
-//    func toUIColor() -> UIColor {
-//        let red: CGFloat = CGFloat(r) / 255.0
-//        let green: CGFloat = CGFloat(g) / 255.0
-//        let blue: CGFloat = CGFloat(b) / 255.0
-//
-//        return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
-//    }
-//
-//    func toColor() -> Color {
-//        let red: CGFloat = CGFloat(r) / 255.0
-//        let green: CGFloat = CGFloat(g) / 255.0
-//        let blue: CGFloat = CGFloat(b) / 255.0
-//        return Color(red: red, green: green, blue: blue)
-//        //return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
-//    }
 }
 
 

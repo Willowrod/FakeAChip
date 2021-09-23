@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ZXBitmap {
     let width: Int
-    //var pixels: [ZXColor]
+    var pixelsOld: [ZXColour]
     var pixels: [Color]
     var paper: [Color]
     var ink: [Color]
@@ -24,6 +24,7 @@ struct ZXBitmap {
     init(width: Int, height: Int, color: Color) {
         self.width = width
         pixels = Array(repeating: color, count: 49152)
+        pixelsOld = Array(repeating: color.toZXColour(), count: 49152)
         paper = Array(repeating: ZXColor.white, count: 768)
         ink = Array(repeating: ZXColor.black, count: 768)
         lastData = Array(repeating: -1, count: 49152)
@@ -54,6 +55,8 @@ struct ZXBitmap {
     
     mutating func blit(bytes: ArraySlice<UInt8>){
         var indicator = 16384
+        
+            if #available(iOS 15.0, macOS 12.0, *) {
         bytes.forEach { byte in
             let position = positions[indicator] ?? 0
             let colPos = attributes[indicator] ?? 0
@@ -69,6 +72,23 @@ struct ZXBitmap {
             pixels[position + 7] = (byte & 0x01) > 0 ? myInk : myPaper
             indicator += 1
         }
+            } else {
+                bytes.forEach { byte in
+                    let position = positions[indicator] ?? 0
+                    let colPos = attributes[indicator] ?? 0
+                    let myInk = ink[colPos].toZXColour()
+                    let myPaper = paper[colPos].toZXColour()
+                    pixelsOld[position] = (byte & 0x80) > 0 ? myInk : myPaper
+                    pixelsOld[position + 1] = (byte & 0x40) > 0 ? myInk : myPaper
+                    pixelsOld[position + 2] = (byte & 0x20) > 0 ? myInk : myPaper
+                    pixelsOld[position + 3] = (byte & 0x10) > 0 ? myInk : myPaper
+                    pixelsOld[position + 4] = (byte & 0x08) > 0 ? myInk : myPaper
+                    pixelsOld[position + 5] = (byte & 0x04) > 0 ? myInk : myPaper
+                    pixelsOld[position + 6] = (byte & 0x02) > 0 ? myInk : myPaper
+                    pixelsOld[position + 7] = (byte & 0x01) > 0 ? myInk : myPaper
+                    indicator += 1
+                }
+            }
     }
     
     mutating func setupPositions(){
