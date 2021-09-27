@@ -16,7 +16,7 @@ import AVFoundation
 class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")
-    var AF = RegisterPair("AF", highValue: 0x00, lowValue: 0x00, id: 0)
+    var AF = AFRegisterPair("AF", highValue: 0x00, lowValue: 0x00, id: 0)
     var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
     var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
     var HL = RegisterPair("HL", highValue: 0x00, lowValue: 0x00, id: 3)
@@ -54,7 +54,7 @@ class Z80: CPU {
         super.init()
         allocateMemory()
         breakPoints = Array()
-        AF = RegisterPair(a: Z80.A, f: Z80.F)
+        AF = AFRegisterPair(a: Z80.A, f: Z80.F)
         bc().setPairs(h: b(), l: c())
         de().setPairs(h: d(), l: e())
         hl().setPairs(h: h(), l: l())

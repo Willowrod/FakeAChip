@@ -328,7 +328,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1F9D2514-5535-4821-985E-2719F3F59FE7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FakeAChip/Source/Processor/Z80/Z80.swift"
@@ -337,22 +337,6 @@
             startingLineNumber = "229"
             endingLineNumber = "229"
             landmarkName = "instructionComplete(states:length:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B7A7DA5-19C2-4DB5-AEFB-5A62C9022C76"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/ZXSpectrumFamily/Speccy+IO.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "joystickInteractionInternal(key:pressed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -369,6 +353,38 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "performInInternal(port:map:destination:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC4D41D5-9C02-4803-8F4C-67218875F84C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FakeAChip/Source/ZXSpectrumFamily/Speccy+Processing.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "processInternal()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C686B74A-7E07-4299-BF8D-AD45E8192301"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FakeAChip/Source/ZXSpectrumFamily/Speccy+Processing.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "processInternal()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

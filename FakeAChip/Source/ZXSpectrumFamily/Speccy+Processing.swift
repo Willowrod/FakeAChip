@@ -55,7 +55,7 @@ extension Speccy {
                     }
                     if (halt){
                         instructionComplete(states: 4, length: 0)
-                        halt = false
+                       // halt = false
                     } else {
                         let byte = fetchRam(location: PC)
                         shouldBreak = breakPoints.contains(PC) || shouldStep || shouldForceBreak
@@ -70,9 +70,12 @@ extension Speccy {
                         
                         shouldForceBreak = false
                         self.doAdditionalPreProcessing()
-                        //                        if PC == 0x0605 {
-                        //                            print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                        //                        }
+//                                                if PC == 0x9c26 {
+//                                                    print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+//                                                }
+                        
+                        
+              //          print("\(UInt16(PC).hex()) - A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
                         //   if PC < 0x4000{
                         //      print("Running PC \(PC.hex()) opCode: \(byte)")
                         //  }
