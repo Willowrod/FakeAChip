@@ -15,6 +15,7 @@ protocol DisassemblyDelegate {
 class Z80Disassembler {
     
     var currentPC: Int = 0
+    var lastPC: Int = 0
     var memoryDump: [UInt8] = []
     var disassembly: [OpCode] = []
     var entryPoints: [Int] = []
@@ -28,7 +29,7 @@ class Z80Disassembler {
     var maxUnknownSectionLength = 256
     var minimumTextLength = 6
     
-    init(withData: [UInt8], knownJumpPoints: [UInt16], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
+    init(withData: [UInt8], knownJumpPoints: [UInt16], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeSystemVariables: Bool = false, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
         memoryDump = withData
         currentPC = fromPC
         self.delegate = delegate
@@ -36,10 +37,25 @@ class Z80Disassembler {
         entryPoints.append(contentsOf: knownJumpPoints.map({Int($0)}))
         if !shouldIncludeRom {
             for a in 0x0000...0x3FFF {
+                entryPoints.removeAll(where: {$0 < 0x4000})
             alreadyAdded.append(a)
                 linesAdded.append(a)
             }
         }
+        if !shouldIncludeSystemVariables {
+            entryPoints.removeAll(where: {$0 < 0x5ccb && $0 > 0x5aff})
+            for a in 0x5aff...0x5ccb {
+            alreadyAdded.append(a)
+                linesAdded.append(a)
+            }
+        }
+        
+        entryPoints.removeAll(where: {$0 > 0x3fff && $0 < 0x5b00})
+        for a in 0x3fff...0x5b00 {
+        alreadyAdded.append(a)
+            linesAdded.append(a)
+        }
+        
         disassemble(shouldIncludeScreen: shouldIncludeScreen)
     }
     
@@ -49,14 +65,21 @@ class Z80Disassembler {
         sweep0()
         }
         // First sweep - Add all known opcodes
+        print ("0")
         sweep1()
+        print ("1")
         disassembly.sort{$0.line < $1.line}
+        print ("2")
         allRoutines.sort{$0.startLine < $1.startLine}
+        print ("3")
         // Second Sweep - try to find unclaimed sections of data
         sweep2()
+        print ("4")
         allRoutines.sort{$0.startLine < $1.startLine}
+        print ("5")
         // Third sweep - compile 'allRoutines' array
         sweep3()
+        print ("6")
         // Send result back to delegate
         //delegate?.disassemblyComplete(disassembly: disassembly)
         let disassembly = DisassemblyModel()
@@ -81,14 +104,26 @@ class Z80Disassembler {
             disassembly.sections.append(disassemblySection)
         }
         
+        print ("7")
         delegate?.disassemblyComplete(disassembly: disassembly)
     }
     
     func increasePC(){
+        if currentPC <= 5 {
+            print("No....")
+        }
+        if currentPC < lastPC {
+            print("No....")
+        }
         if !alreadyAdded.contains(currentPC){
             alreadyAdded.append(currentPC)
         }
+        let oldPC = currentPC
         currentPC += 1
+        lastPC = currentPC
+        if oldPC > currentPC {
+            print("No....")
+        }
     }
     
     func getCodeByteHex() -> String {

@@ -10,6 +10,12 @@ import SwiftUI
 @available(iOS 15.0, macCatalyst 15.0, *)
 struct ZXKeyboard: View {
     @EnvironmentObject var settings: FakeAChipData
+    
+    var symbolLocked: Bool = false
+    
+    
+    @State var symButtonText = "SLock\nOFF"
+    
     let keyWidth: CGFloat
     let keyHeight: CGFloat
     let bank0: [String] = ["SP", "SS", "M", "N", "B"]
@@ -28,7 +34,22 @@ struct ZXKeyboard: View {
         VStack{
             if settings.emulatorData.keyboardShowing {
                 Spacer()
+                HStack{ //'Magic' keys
+                    Spacer()
+                    Button(symButtonText){
+                        pressSymbolLock()
+                    }
+                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                    .border(Color.blue, width: 1)
+                    
+                        Spacer()
+                }
+                
+                
             HStack{
+                
+                
+                
                 ForEach(bank4.indices, id: \.self){ key in
                     HStack{
                         Spacer()
@@ -134,67 +155,18 @@ struct ZXKeyboard: View {
                 }
                 .onDisappear(perform: {
                     controller.disconnect()
-            
-                  })
-                  .onAppear(perform: {
-                //      if !settings.emulatorData.keyboardShowing {
-                      controller.connect()
-                      controller.handleLeftPad = settings.handleVirtualController
-                      controller.handleAButton = settings.handleButtonAPressed
-//                      } else {
-//                          controller.disconnect()
-//                      }
                   })
             }
-            
-//            HStack{
-//                Button("⏫"){}
-//                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
-//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                    .border(Color.blue, width: 1)
-//                
-//                    Button("◀️"){}
-//                        .pressAction(onPress: {pressStick(bit: 0, pressed: true)}, onRelease: {pressStick(bit: 0, pressed: false)})
-//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                        .border(Color.blue, width: 1)
-//                 
-//    
-//                    Button("▶️"){}
-//                        .pressAction(onPress: {pressStick(bit: 1, pressed: true)}, onRelease: {pressStick(bit: 1, pressed: false)})
-//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                        .border(Color.blue, width: 1)
-//                 
-//            Spacer()
-//            VStack{
-//                Button("🔼"){}
-//                    .pressAction(onPress: {pressStick(bit: 2, pressed: true)}, onRelease: {pressStick(bit: 2, pressed: false)})
-//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                    .border(Color.blue, width: 1)
-//                    .padding(10)
-//           
-//
-//                Button("🔽"){}
-//                    .pressAction(onPress: {pressStick(bit: 3, pressed: true)}, onRelease: {pressStick(bit: 3, pressed: false)})
-//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                    .border(Color.blue, width: 1)
-//                    .padding(10)
-//           
-//                }
-//                
-//                Button("⏫"){}
-//                    .pressAction(onPress: {pressStick(bit: 4, pressed: true)}, onRelease: {pressStick(bit: 4, pressed: false)})
-//                .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                    .border(Color.blue, width: 1)
-//                
-//            }
-//            .padding(20)
-                
         }
 
         }
     
     func pressKey(bank: Int, bit: Int, pressed: Bool) {
         settings.keyboardInteraction(bank: bank, bit: bit, pressed: pressed)
+    }
+    
+    func pressSymbolLock() {
+        
     }
 
 func pressStick(bit: Int, pressed: Bool) {
