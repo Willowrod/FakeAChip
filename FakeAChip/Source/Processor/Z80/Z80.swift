@@ -26,6 +26,7 @@ class Z80: CPU {
     var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
     var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
     var HL2 = RegisterPair("HL2", highValue: 0x00, lowValue: 0x00, id: 9)
+    var sparePair = RegisterPair("Spare", highValue: 0x00, lowValue: 0x00, id: 10)
     var I: Register = Register(value: 0x00, name: "I")
     var interupt: Bool = true
     var interupt2: Bool = true
@@ -54,8 +55,14 @@ class Z80: CPU {
     var postProcessorDebug = false
     var memDebug = false
     var miscDebug = false
+    let tState = Double(1) / Double(3494400)
     
     var currentOpCode = ""
+    
+    var tick: TimeInterval = 0
+    var averageTStateInOp: Double = 0.0
+    var goodOps: Int = 0
+    
     
     override init() {
         super.init()
@@ -190,10 +197,9 @@ class Z80: CPU {
     }
     
     func exchange(working: RegisterPair, spare: RegisterPair){
-        let sparePair = RegisterPair("Spare", pair: working)
-    //    sparePair.swap(spare: working)
-        working.swap(spare: spare)
-        spare.swap(spare: sparePair)
+        sparePair.ld(pair: working)
+        working.ld(pair: spare)
+        spare.ld(pair: sparePair)
     }
     
     func exchangeAll(){
@@ -235,6 +241,11 @@ print("Writing nothing to RAM....")
         if (states == 0) {
             print("That ain't right!")
         }
+        let now = CFAbsoluteTimeGetCurrent()//Date().timeIntervalSince1970
+        averageTStateInOp = (now - tick) / Double(states)
+//        if averageTStateInOp > tState {
+//            print
+//        }
         currentTStates += states
         loadingTStates += states
         PC = PC &+ length

@@ -15,6 +15,7 @@ extension Z80 {
         let byte1: UInt8 = fetchRam(location: PC &+ 1)
         let byte2: UInt8 = fetchRam(location: PC &+ 2)
         let word: UInt16 = (UInt16(byte2) * 256) + UInt16(byte1)
+        tick = CFAbsoluteTimeGetCurrent()//Date().timeIntervalSince1970
         let oldA = a()
         switch byte {
         
@@ -211,11 +212,11 @@ extension Z80 {
         case 0x28:
             if (f().isSet(bit: Flag.ZERO)){
                 relativeJump(twos: byte1)
-                currentOpCode = "JP, Z (Zero flag set, Jump by \(byte1.hex()) to \(PC.hex()))"
                 instructionComplete(states: 12, length: 0)
+                currentOpCode = "JP, Z (Zero flag set, Jump by \(byte1.hex()) to \(PC.hex()))"
             } else {
-                currentOpCode = "JP, Z (Zero flag set, no jump)"
                 instructionComplete(states: 7, length: 2)
+                currentOpCode = "JP, Z (Zero flag set, no jump)"
             }
         case 0x29:
             let oldval = HL
@@ -748,8 +749,8 @@ extension Z80 {
             instructionComplete(states: 7) //returnOpCode(v: code, c: "AND (HL)", m: " ", l: 1)
         case 0xA7:
             aR().aND()
-            currentOpCode = "AND A,A (\(oldA.hex()) & \(oldA.hex()) = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "AND A", m: " ", l: 1)
+            currentOpCode = "AND A,A (\(oldA.hex()) & \(oldA.hex()) = \(a().hex()))"
         case 0xA8:
             aR().xOR(byte: b())
             currentOpCode = "XOR A,B (\(oldA.hex()) ^ \(b().hex()) = \(a().hex()))"
@@ -1000,8 +1001,8 @@ extension Z80 {
             } //returnOpCode(v: code, c: "RET C", m: " ", l: 1)
         case 0xD9:
             exchangeAll()
-            currentOpCode = "EXX - Exchange registers for spares"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "EXX", m: " ", l: 1)
+            currentOpCode = "EXX - Exchange registers for spares"
         case 0xDA:
             if (Z80.F.isSet(bit: Flag.CARRY)){
                 jump(location: word)
@@ -1013,25 +1014,25 @@ extension Z80 {
             } //returnOpCode(v: code, c: "JP C,$$", m: " ", l: 3, t: .CODE)
         case 0xDB: // TODO: IN
        performIn(port: byte1, map: a(), destination: aR())
-            currentOpCode = "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
             instructionComplete(states: 11, length: 2)
+            currentOpCode = "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
         case 0xDC:
             if (Z80.F.isSet(bit: Flag.CARRY)){
                 call(location: word, length: 3)
-                currentOpCode = "CALL C - Carry flag set, Call \(PC.hex())"
                 instructionComplete(states: 17, length: 0)
+                currentOpCode = "CALL C - Carry flag set, Call \(PC.hex())"
             } else {
                 instructionComplete(states: 10, length: 3)
                 currentOpCode = "CALL C - Carry flag not set, No Call"
             } //returnOpCode(v: code, c: "CALL C,$$", m: " ", l: 3, t: .CODE)
         case 0xDE:
             aR().sBC(diff: byte1)
-            currentOpCode = "SBC A,n (\(oldA.hex()) - (with carry) \(byte1.hex()) = \(a().hex()))"
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "SBC A,±", m: " ", l: 2)
+            currentOpCode = "SBC A,n (\(oldA.hex()) - (with carry) \(byte1.hex()) = \(a().hex()))"
         case 0xDF:
             call(location: 0x0018)
-            currentOpCode = "RST $18 (Call 0x0018)"
             instructionComplete(states: 11, length: 0) //returnOpCode(v: code, c: "RST &18", m: " ", l: 1)
+            currentOpCode = "RST $18 (Call 0x0018)"
         case 0xE0:
             if (!Z80.F.isSet(bit: Flag.PARITY)){
                 ret()
@@ -1204,6 +1205,16 @@ extension Z80 {
             instructionComplete(states: 4, length: 0)
         }
         R.inc()
+        if averageTStateInOp > tState {
+            print("TState error - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
+        } else {
+            //print("TState Good - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
+            goodOps += 1
+            if goodOps > 10000 {
+                print("10000 good ops done")
+                goodOps = 0
+            }
+        }
         return currentOpCode
     }
     
