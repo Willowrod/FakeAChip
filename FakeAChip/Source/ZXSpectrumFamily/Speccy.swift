@@ -116,6 +116,7 @@ loadInternal(file: file, path: path)
     }
     
     override func renderFrame(){
+        updateDebugStatus()
         renderFrameInternal()
     }
     

@@ -108,6 +108,8 @@ struct SpectrumDisassemblyView: View {
 //            showingSheet.toggle()
 //        }
             HStack{
+//                LoggingView()
+//                    .frame(width: Sizing.instance.size.width / 3, height: (Sizing.instance.size.width / 12) * 3, alignment: .leading)
             SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
             
             RegisterSetView()

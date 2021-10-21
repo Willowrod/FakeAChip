@@ -35,6 +35,13 @@ extension UInt8 {
         return (self & 240) >> 4
     }
     
+    func twosComplimentString() -> String {
+        if self.isSet(bit: 7){
+            return "-\(self.twosCompliment())"
+        } else {
+            return "\(self)"
+        }
+    }
   
     
     func hex() -> String {

@@ -29,6 +29,8 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     var emulatorData = EmulatorData()
     
+    var diagnosticData = DiagnosticData()
+    
     @Published var host: HostSystem
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
@@ -114,6 +116,10 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     func loadSnapshot() {
         
+    }
+    
+    func logToScreen(log: String) {
+        diagnosticData.addLog(itemToLog: log)
     }
 
 }

@@ -33,17 +33,17 @@ struct ZXKeyboard: View {
     var body: some View {
         VStack{
             if settings.emulatorData.keyboardShowing {
-                Spacer()
-                HStack{ //'Magic' keys
-                    Spacer()
-                    Button(symButtonText){
-                        pressSymbolLock()
-                    }
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                    .border(Color.blue, width: 1)
-                    
-                        Spacer()
-                }
+//                Spacer()
+//                HStack{ //'Magic' keys
+//                    Spacer()
+//                    Button(symButtonText){
+//                        pressSymbolLock()
+//                    }
+//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
+//                    .border(Color.blue, width: 1)
+//
+//                        Spacer()
+//                }
                 
                 
             HStack{
@@ -156,6 +156,11 @@ struct ZXKeyboard: View {
                 .onDisappear(perform: {
                     controller.disconnect()
                   })
+                .onAppear(perform: {
+                                     controller.connect()
+                                     controller.handleLeftPad = settings.handleVirtualController
+                                     controller.handleAButton = settings.handleButtonAPressed
+                                 })
             }
         }
 

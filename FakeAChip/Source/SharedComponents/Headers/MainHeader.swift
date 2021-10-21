@@ -70,7 +70,7 @@ struct MainHeader: View {
         .frame(minWidth: 600, idealWidth: 600, maxWidth: .infinity, minHeight: 60, idealHeight: 60, maxHeight: 120, alignment: .center)
         
         .sheet(isPresented: $headerData.isShowingSettings) {
-            SettingsSheet().environmentObject(headerData)
+            SettingsSheet( settings:headerData)
         }
         
         .sheet(isPresented: $headerData.tapePlayerData.isShowingTapeSelector) {

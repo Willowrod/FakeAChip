@@ -9,7 +9,7 @@ import Foundation
 
 protocol DisassemblyDelegate {
     func disassemblyComplete(disassembly: DisassemblyModel) //[OpCode])
-  //  func disassemblyComplete(codeRoutines: [CodeRoutine])
+    func logToScreen(log: String)
 }
 
 class Z80Disassembler {
@@ -30,6 +30,7 @@ class Z80Disassembler {
     var minimumTextLength = 6
     
     init(withData: [UInt8], knownJumpPoints: [UInt16], fromPC: Int, delegate: DisassemblyDelegate, shouldIncludeSystemVariables: Bool = false, shouldIncludeRom: Bool = false, shouldIncludeScreen: Bool = false){
+        
         memoryDump = withData
         currentPC = fromPC
         self.delegate = delegate
@@ -64,9 +65,11 @@ class Z80Disassembler {
         if shouldIncludeScreen {
         sweep0()
         }
+        delegate?.logToScreen(log: "Beginning disassembly")
         // First sweep - Add all known opcodes
         print ("0")
         sweep1()
+        delegate?.logToScreen(log: "Main sweep complete")
         print ("1")
         disassembly.sort{$0.line < $1.line}
         print ("2")
@@ -106,6 +109,7 @@ class Z80Disassembler {
         
         print ("7")
         delegate?.disassemblyComplete(disassembly: disassembly)
+        delegate?.logToScreen(log: "Finished disassembly")
     }
     
     func increasePC(){
@@ -523,6 +527,7 @@ class Z80Disassembler {
   //
   //                } else
             if !alreadyAdded.contains(nextEP){
+                delegate?.logToScreen(log: "Moving to Jump Point \(nextEP)")
             currentPC = entryPoints[currentEntryPoint]
             return true
             }

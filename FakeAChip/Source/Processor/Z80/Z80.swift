@@ -50,6 +50,13 @@ class Z80: CPU {
     var clicks: UInt8 = 0
     var header: RegisterModel = RegisterModel()
     
+    var preProcessorDebug = false
+    var postProcessorDebug = false
+    var memDebug = false
+    var miscDebug = false
+    
+    var currentOpCode = ""
+    
     override init() {
         super.init()
         allocateMemory()
@@ -210,7 +217,7 @@ print("Writing nothing to RAM....")
     }
     
     func renderFrame(){
-
+        
     }
     
     func blitScreen(){
@@ -283,6 +290,15 @@ print("Writing nothing to RAM....")
             return iy().value() &- UInt16(comp)
         } else {
             return iy().value() &+ UInt16(twos)
+        }
+    }
+    
+    func updateDebugStatus() {
+        if let data = data {
+            preProcessorDebug = data.headerData.debugPreProcessing
+            postProcessorDebug = data.headerData.debugPostProcessor
+            memDebug = data.headerData.debugMemoryData
+            miscDebug = data.headerData.debugMiscellaneousData
         }
     }
     

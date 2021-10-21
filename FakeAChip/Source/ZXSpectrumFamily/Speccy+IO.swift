@@ -31,7 +31,7 @@ extension Speccy {
             case 0x7f:
                 byteVal = keyboard[0]
             default:
-                break
+                byteVal = keyboard[0] & keyboard[1] & keyboard[2] & keyboard[3] & keyboard[4] & keyboard[5] & keyboard[6] & keyboard[7]
             }
             if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
                 if let tapeData = data?.headerData.tapePlayerData.tape?.fetchData(tState: loadingTStates){

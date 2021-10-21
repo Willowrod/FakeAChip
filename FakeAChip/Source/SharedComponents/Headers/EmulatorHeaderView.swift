@@ -25,6 +25,7 @@ struct EmulatorHeaderView: View {
             Text("Show Keyboard:")
             Toggle("", isOn: $emulatorData.keyboardShowing).labelsHidden()
         }
+        .padding(20)
     }
     
     func saveEmulation() {

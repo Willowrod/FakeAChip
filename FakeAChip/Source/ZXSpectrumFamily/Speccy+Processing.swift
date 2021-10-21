@@ -40,6 +40,9 @@ extension Speccy {
                         interupt = false
                         interupt2 = false
                         push(value: PC)
+                        if miscDebug {
+                            print("Interupt IM\(interuptMode) called")
+                        }
                         switch interuptMode {
                         case 0:
                             PC = 0x0066
@@ -48,6 +51,9 @@ extension Speccy {
                         default:
                             let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
                             PC = fetchRamWord(location: intAddress)
+                            if miscDebug {
+                                print("IM2 triggered at \(intAddress.hex()) and processes from \(PC.hex())")
+                            }
                             
                         }
                         halt = false
@@ -79,7 +85,15 @@ extension Speccy {
                         //   if PC < 0x4000{
                         //      print("Running PC \(PC.hex()) opCode: \(byte)")
                         //  }
-                        opCode(byte: byte)
+                        
+                        let oldPC = PC
+                      let opcode = opCode(byte: byte)
+                        if preProcessorDebug {
+                            print("\(oldPC.hex()) - \(opcode)")
+                        }
+                        if postProcessorDebug {
+                         print("\(UInt16(PC).hex()) - A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+                       //
                         //                        edgePair.ld(value: UInt16(PC))
                         //
                         //                        if PC > 0x4000{
@@ -91,7 +105,9 @@ extension Speccy {
                         //                    if PC > 0x0600{
                         
                         //                            print("New edge found - TState: \(currentTStates) A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                        //                   }
+                        //
+                            
+                        }
                         self.doAdditionalPostProcessing()
                         
                     }

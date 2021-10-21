@@ -274,7 +274,8 @@ extension Speccy {
                 print("Failed to read data")
                 return
             }
-               // print(contents)
+        //    let contents = String(data: disassembly, encoding: .utf8)
+        //    print(contents)
             let json = try JSONDecoder().decode(DisassemblyModel.self, from: disassembly) //JSONEncoder().encode(self)
        
             currentSnapshot = json.snapshot

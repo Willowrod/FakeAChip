@@ -21,6 +21,14 @@ class HeaderData: ObservableObject {
     
     var shouldResetPixels = false
     
+    var debugPreProcessing = false
+    
+    var debugPostProcessor = false
+    
+    var debugMemoryData = false
+    
+    var debugMiscellaneousData = false
+    
     @Published var environment: SystemEnvironment = .Emulation
     var environmentTag: Int = 0 {
         didSet {
