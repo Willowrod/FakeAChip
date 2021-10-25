@@ -33,7 +33,8 @@ class Register {
     }
     
     func ld(value: UInt8){
-        register = RegisterStruct(byteValue: value)
+       // register = RegisterStruct(byteValue: value)
+        register.byteValue = value
     }
     
     func setBit(bit: Int) {
@@ -45,11 +46,13 @@ class Register {
     }
     
     func set(bit: Int) {
-        register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
+        //register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
+        register.byteValue = register.byteValue | 1 << bit
     }
     
     func clear(bit: Int) {
-        register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
+        //register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
+        register.byteValue = register.byteValue & ~(1 << bit)
     }
     
     func set(bit: Int, value: Bool) {

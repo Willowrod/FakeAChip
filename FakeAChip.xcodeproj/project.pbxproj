@@ -321,6 +321,8 @@
 		CDAA066826EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
 		CDAA066926EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
 		CDB0FDAB26FDBA03002F3964 /* AFRegisterPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */; };
+		CDC3E8E22722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */; };
+		CDC3E8E32722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */; };
 		CDC5C25326FA15EC00DD1CFE /* PixelShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */; };
 		CDC5C25426FA15EC00DD1CFE /* PixelShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */; };
 		CDC5C25626FA17C800DD1CFE /* VertexIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5C25526FA17C800DD1CFE /* VertexIn.swift */; };
@@ -1131,6 +1133,7 @@
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
 		CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumCanvas.swift; sourceTree = "<group>"; };
 		CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFRegisterPair.swift; sourceTree = "<group>"; };
+		CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeDebug.swift"; sourceTree = "<group>"; };
 		CDC5C25226FA15EC00DD1CFE /* PixelShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = PixelShader.metal; sourceTree = "<group>"; };
 		CDC5C25526FA17C800DD1CFE /* VertexIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexIn.swift; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
@@ -2183,6 +2186,14 @@
 			path = "SwiftUI Magic";
 			sourceTree = "<group>";
 		};
+		CDC3E8E02722A01000B8796A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		CDC5C25126FA15C200DD1CFE /* Metal */ = {
 			isa = PBXGroup;
 			children = (
@@ -2215,6 +2226,7 @@
 		CDEF99702612636600729043 /* OpCodes */ = {
 			isa = PBXGroup;
 			children = (
+				CDC3E8E02722A01000B8796A /* Debug */,
 				CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */,
 				CDA17272260498C600910C23 /* Z80+OpcodeED.swift */,
 				CDA17273260498C600910C23 /* Z80+Opcode.swift */,
@@ -2567,6 +2579,7 @@
 				CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */,
 				CDEF99A92612676E00729043 /* DataType.swift in Sources */,
 				CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */,
+				CDC3E8E22722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */,
 				CD55A3F02721F848001A5844 /* Double+Precision.swift in Sources */,
 				CDEF9973261263BD00729043 /* Z80Disassembler.swift in Sources */,
 				CD0CC5AA25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
@@ -2752,6 +2765,7 @@
 				CD0CC5AD25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD0CC5E125FF556200731EDA /* FakeAChipData.swift in Sources */,
+				CDC3E8E32722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */,
 				CDA172B42604B37000910C23 /* allTestP_ED_ALL.swift in Sources */,
 				CDA17282260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
 				CDC5C25426FA15EC00DD1CFE /* PixelShader.metal in Sources */,

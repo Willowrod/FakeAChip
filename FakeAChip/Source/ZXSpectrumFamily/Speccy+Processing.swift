@@ -37,6 +37,7 @@ extension Speccy {
             if !pauseProcessor {
                 if (!frameEnds) {
                     if (shouldRunInterupt){
+// Run interupt (if enabled) after every frame
                         interupt = false
                         interupt2 = false
                         push(value: PC)
@@ -60,62 +61,27 @@ extension Speccy {
                         shouldRunInterupt = false
                     }
                     if (halt){
+// NOP until next interupt
                         instructionComplete(states: 4, length: 0)
-                       // halt = false
                     } else {
+// Actual processor
+                        // TODO: checkForBreakPoint()
                         let byte = fetchRam(location: PC)
-                        shouldBreak = breakPoints.contains(PC) || shouldStep || shouldForceBreak
-                        if (shouldBreak){
-                            DispatchQueue.main.sync {
-                                //                        delegate?.updateRegisters()
-                                //                        delegate?.updateDebug(line: PC)
-                            }
-                            while shouldBreak {
-                            }
-                        }
-                        
-                        shouldForceBreak = false
                         self.doAdditionalPreProcessing()
-//                                                if PC == 0x9c26 {
-//                                                    print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-//                                                }
-                        
-                        
-              //          print("\(UInt16(PC).hex()) - A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                        //   if PC < 0x4000{
-                        //      print("Running PC \(PC.hex()) opCode: \(byte)")
-                        //  }
-                        
-                        let oldPC = PC
-                      let opcode = opCode(byte: byte)
-                        if preProcessorDebug {
-                            print("\(oldPC.hex()) - \(opcode)")
-                        }
-                        if postProcessorDebug {
-                         print("\(UInt16(PC).hex()) - A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                       //
-                        //                        edgePair.ld(value: UInt16(PC))
-                        //
-                        //                        if PC > 0x4000{
-                        //                            print("Running snapshot")
-                        //                        } else {
-                        //
-                        //                        }
-                        //
-                        //                    if PC > 0x0600{
-                        
-                        //                            print("New edge found - TState: \(currentTStates) A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-                        //
-                            
+                        if isDebugging {
+                            opCodeDebug(byte: byte)
+                        } else {
+                            opCode(byte: byte)
                         }
                         self.doAdditionalPostProcessing()
-                        
                     }
                     if currentTStates >= tStatesPerFrame {
+// Render screen after TStates max reached
                         currentTStates = 0
                         renderFrame()
                     }
                 } else {
+// Wait for frame to elapse
                     let time = Date().timeIntervalSince1970
                     if (!restricted || frameStarted + 0.02 <= time){
                         frameStarted = time
@@ -126,8 +92,23 @@ extension Speccy {
         }
     }
     
+    func checkForBreakPoint(){
+        shouldBreak = breakPoints.contains(PC) || shouldStep || shouldForceBreak
+        if (shouldBreak){
+            DispatchQueue.main.sync {
+//                delegate?.updateRegisters()
+//                delegate?.updateDebug(line: PC)
+            }
+            while shouldBreak {
+            }
+        }
+        shouldForceBreak = false
+    }
+    
     func doAdditionalPreProcessingInternal(){
-        
+        //                                                if PC == 0x9c26 {
+        //                                                    print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+        //                                                }
     }
     
     func doAdditionalPostProcessingInternal(){

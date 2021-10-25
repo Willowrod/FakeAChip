@@ -8,5 +8,5 @@
 import Foundation
 
 struct RegisterStruct {
-    let byteValue: UInt8
+    var byteValue: UInt8
 }

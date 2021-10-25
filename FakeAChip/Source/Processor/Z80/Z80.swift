@@ -55,6 +55,9 @@ class Z80: CPU {
     var postProcessorDebug = false
     var memDebug = false
     var miscDebug = false
+    
+    var isDebugging = false
+    
     let tState = Double(1) / Double(3494400)
     
     var currentOpCode = ""
@@ -310,6 +313,7 @@ print("Writing nothing to RAM....")
             postProcessorDebug = data.headerData.debugPostProcessor
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
+            isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
         }
     }
     
