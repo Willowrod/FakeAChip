@@ -12,65 +12,77 @@ struct ZXTapeLoaderView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
     @State private var searchItem: String = ""
     @State private var foundItems: [SearchItem] = []
+    var offset = 0
     let computer: CPU
     var body: some View {
         VStack{
             HStack{
                 Spacer()
-            Button("Close"){
-                tapePlayerData.isShowingTapeSelector = false}
+                Button("Close"){
+                    tapePlayerData.isShowingTapeSelector = false}
             }
             Text("ZX Spectrum Tape Loader").padding(20)
             tapePlayerData.currentlyLoadedTape.map( {Text("Currently Loaded: \($0)")} ).padding(20)
             
             TextField("Search For:", text: $searchItem)
+            HStack{
             Button("Search"){
-                hitDL()}
-            
+                hitDL()
+            }
+                Spacer()
+                
+                Button("Previous"){
+                    hitPrev()
+                }
+                
+                Button("Next"){
+                    hitNext()
+                }
+            }
             ForEach(foundItems, id: \.self){model in
                 VStack {
-                HStack{
-                    Text(model.data.title ?? "Unknown")
-                    Text(" - \(getPublisher(model: model))")
-                }
-                ForEach(getGoodFiles(model: model), id: \.self){file in
-                    HStack {
-                    Button("Load \(getFileName(path: file.path))"){
-                        download(file.path!, forceLoad: true)
+                    HStack{
+                        Text(model.data.title ?? "Unknown")
+                        Text(" - \(getPublisher(model: model))")
                     }
-                        Button("Insert Cassette"){
-                            download(file.path!, forceLoad: false)
+                    ForEach(getGoodFiles(model: model), id: \.self){file in
+                        HStack {
+                            Button("Load \(getFileName(path: file.path))"){
+                                download(file.path!, forceLoad: true)
+                            }
+                            Button("Insert Cassette"){
+                                download(file.path!, forceLoad: false)
+                            }
                         }
-                        
                     }
                 }
-                }
-            
-        }
-
-
+            }
         }
     }
     
     func hitDL(){
-//        if #available(iOS 15.0, *) {
-//            async {
-//                 sortitems(items: try await ZXDB.shared.asyncSearch(searchItem))
-//            }
-//        } else {
-            ZXDB.shared.search(searchItem) { items in
-                sortitems(items: items)
-                  }
-//        }
-        
-      
+        ZXDB.shared.search(searchItem) { items in
+            sortitems(items: items)
+        }
+    }
+    
+    func hitPrev(){
+        ZXDB.shared.previous() { items in
+            sortitems(items: items)
+        }
+    }
+    
+    func hitNext(){
+        ZXDB.shared.next() { items in
+            sortitems(items: items)
+        }
     }
     
     func getFileName(path: String?) -> String {
         if let realPath = path {
             let split = realPath.split(separator: "/")
             if split.count > 0 {
-            return split.last!.replacingOccurrences(of: ".tzx.zip", with: "")
+                return split.last!.replacingOccurrences(of: ".tzx.zip", with: "")
             }
         }
         return "Unknown"
@@ -93,7 +105,7 @@ struct ZXTapeLoaderView: View {
         }
         return ""
     }
-
+    
     func getPublisher (model: SearchItem) -> String{
         if model.data.releases.count > 0 {
             if model.data.releases[0].publishers.count > 0 {

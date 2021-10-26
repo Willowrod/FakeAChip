@@ -14,9 +14,13 @@ class Sizing {
     
     var size: CGSize = .zero
     
+    func actualWidth() -> CGFloat {
+        return min(size.width, size.height)
+    }
+    
     func width() -> CGFloat {
-        
-        return min(size.width, size.height) * 0.85
+        let maxWidth = actualWidth() * 0.85
+        return CGFloat(Int(maxWidth / 256) * 256)
     }
     
     func height() -> CGFloat {
@@ -24,8 +28,9 @@ class Sizing {
     }
     
     func widthforLandscape() -> CGFloat {
-        return width() * 0.9
-           // return (width() / 24.0) * 32.0
+        let maxWidth = actualWidth() * 0.765
+        return CGFloat(Int(maxWidth / 256) * 256)
+         
     }
     
     

@@ -31,11 +31,12 @@ struct SpectrumCanvas: View {
 
                         // Fill path
                             emulatorData.emulatorPixels.append(path)
-                        context.fill(path, with: .color(pixel))
+                          context.fill(path, with: .color(pixel))
+                            //   context.stroke(path, with: .color(pixel))
                     x += pixelSize
                                      count += 1
                                      if count > 255 {
-                            y += pixelSize
+                                         y += pixelSize
                             x = 0
                             count = 0
                         }
@@ -45,7 +46,10 @@ struct SpectrumCanvas: View {
                 else {
                     for a in 0...(emulatorData.emulatorPixels.count - 1){
                     // Fill path
-                    context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
+                 context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
+                        //    context.stroke(emulatorData.emulatorPixels[a], with: .color(grid[a]), lineWidth: 4.0)
+                  
+                      
                     }
                 }
             }
