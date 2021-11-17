@@ -348,6 +348,7 @@
 		CD55A3EF2721F847001A5844 /* Double+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Precision.swift"; sourceTree = "<group>"; };
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawZ80Processor.swift; sourceTree = "<group>"; };
+		CD67917F2744FF5400B4C810 /* ZXDBSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZXDBSDK; path = ../ZXDBSDK; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
 		CD89145E25FFBEA800C75998 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CD89146825FFBF0B00C75998 /* FlagRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagRegister.swift; sourceTree = "<group>"; };
@@ -736,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				CD34F5C226FD329B00597392 /* ZXDB-SDK */,
+				CD67917F2744FF5400B4C810 /* ZXDBSDK */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

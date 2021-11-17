@@ -10,10 +10,9 @@ import XCTest
 class BaseTest: XCTestCase {
     
     
-    let z80 = Speccy()
+    let z80 = RawZ80Processor()
 
     override func setUpWithError() throws {
-        z80.testMode = true
     }
 
     override func tearDownWithError() throws {
@@ -39,10 +38,6 @@ class BaseTest: XCTestCase {
             count += 1
         }
     }
-    
-    func testTestModeIsOn() throws {
-        // TEST MODE SHOULD BE TURNED ON IN CPU() TO RUN TESTS
-        XCTAssert(z80.testMode)
-    }
+
   
 }
