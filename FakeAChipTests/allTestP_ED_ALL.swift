@@ -2742,7 +2742,9 @@ class allTestP_ED_ALL: BaseTest {
     z80.PC = 0x0000
     z80.SP = 0x0000
     z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
     z80.opCode(byte: 0xed)
+        }
     XCTAssert(z80.af().value() == 0x1049)
     XCTAssert(z80.bc().value() == 0x0000)
     XCTAssert(z80.de().value() == 0xaae8)
@@ -2789,7 +2791,9 @@ class allTestP_ED_ALL: BaseTest {
     z80.PC = 0x4000
     z80.SP = 0x0000
     z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
     z80.opCode(byte: 0xed)
+        }
     XCTAssert(z80.af().value() == 0x0000)
     XCTAssert(z80.bc().value() == 0x0000)
     XCTAssert(z80.de().value() == 0xc002)
@@ -2820,7 +2824,9 @@ class allTestP_ED_ALL: BaseTest {
     z80.PC = 0x4000
     z80.SP = 0x0000
     z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
     z80.opCode(byte: 0xed)
+        }
     XCTAssert(z80.af().value() == 0x0020)
     XCTAssert(z80.bc().value() == 0x0000)
     XCTAssert(z80.de().value() == 0xc001)
@@ -2852,8 +2858,11 @@ class allTestP_ED_ALL: BaseTest {
     z80.PC = 0x0000
     z80.SP = 0x0000
     z80.MEMPTR = 0x0000
+        
+        while z80.c() == 8 || (z80.c() != 0 && !Z80.F.isSet(bit: Flag.ZERO)){
     z80.opCode(byte: 0xed)
-    XCTAssert(z80.af().value() == 0xf447)
+        }
+        XCTAssert(z80.af().value().ignore3And5() == UInt16(0xf447).ignore3And5())
     XCTAssert(z80.bc().value() == 0x0004)
     XCTAssert(z80.de().value() == 0xe4e0)
     XCTAssert(z80.hl().value() == 0x9829)
@@ -2883,8 +2892,10 @@ class allTestP_ED_ALL: BaseTest {
     z80.PC = 0x8396
     z80.SP = 0x0000
     z80.MEMPTR = 0x0000
+        while z80.c() == 8 || (z80.c() != 0 && !Z80.F.isSet(bit: Flag.ZERO)){
     z80.opCode(byte: 0xed)
-    XCTAssert(z80.af().value() == 0xf447)
+        }
+    XCTAssert(z80.af().value().ignore3And5() == UInt16(0xf447).ignore3And5())
     XCTAssert(z80.bc().value() == 0x0004)
     XCTAssert(z80.de().value() == 0xe4e0)
     XCTAssert(z80.hl().value() == 0x9829)
@@ -3052,200 +3063,213 @@ class allTestP_ED_ALL: BaseTest {
 //    XCTAssert(z80.SP == 0x0000)
 //    }
 
-//    func testedb8() throws {
-//    loadRam(location: 0x0000, data:[0xed,0xb8])
-//    loadRam(location: 0x4dc8, data:[0x29,0x85,0xa7,0xc3,0x55,0x74,0x23,0x0a])
-//    z80.af().ld(value: 0xe553)
-//    z80.bc().ld(value: 0x0008)
-//    z80.de().ld(value: 0x68e8)
-//    z80.hl().ld(value: 0x4dcf)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x0000
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0xe569)
-//    XCTAssert(z80.bc().value() == 0x0000)
-//    XCTAssert(z80.de().value() == 0x68e0)
-//    XCTAssert(z80.hl().value() == 0x4dc7)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.fetchRam(location: 0x68e1) == 0x29)
-//    XCTAssert(z80.fetchRam(location: 0x68e2) == 0x85)
-//    XCTAssert(z80.fetchRam(location: 0x68e3) == 0xa7)
-//    XCTAssert(z80.fetchRam(location: 0x68e4) == 0xc3)
-//    XCTAssert(z80.fetchRam(location: 0x68e5) == 0x55)
-//    XCTAssert(z80.fetchRam(location: 0x68e6) == 0x74)
-//    XCTAssert(z80.fetchRam(location: 0x68e7) == 0x23)
-//    XCTAssert(z80.fetchRam(location: 0x68e8) == 0x0a)
-//    XCTAssert(z80.PC == 0x2)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
-//
-//    func testedb8_1() throws {
-//    loadRam(location: 0x1ec1, data:[0xed,0xb8])
-//    loadRam(location: 0x6aef, data:[0xd6,0x70])
-//    z80.af().ld(value: 0x0000)
-//    z80.bc().ld(value: 0x0002)
-//    z80.de().ld(value: 0xb5d7)
-//    z80.hl().ld(value: 0x6af0)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x1ec1
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0x0020)
-//    XCTAssert(z80.bc().value() == 0x0000)
-//    XCTAssert(z80.de().value() == 0xb5d5)
-//    XCTAssert(z80.hl().value() == 0x6aee)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.PC == 0x1ec3)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
-//
-//    func testedb8_2() throws {
-//    loadRam(location: 0x1ec1, data:[0xed,0xb8])
-//    loadRam(location: 0x6aef, data:[0xd6,0x70])
-//    z80.af().ld(value: 0x0000)
-//    z80.bc().ld(value: 0x0001)
-//    z80.de().ld(value: 0xb5d7)
-//    z80.hl().ld(value: 0x6af0)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x1ec1
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0x0000)
-//    XCTAssert(z80.bc().value() == 0x0000)
-//    XCTAssert(z80.de().value() == 0xb5d6)
-//    XCTAssert(z80.hl().value() == 0x6aef)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.fetchRam(location: 0xb5d7) == 0x70)
-//    XCTAssert(z80.PC == 0x1ec3)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
+    func testedb8() throws {
+    loadRam(location: 0x0000, data:[0xed,0xb8])
+    loadRam(location: 0x4dc8, data:[0x29,0x85,0xa7,0xc3,0x55,0x74,0x23,0x0a])
+    z80.af().ld(value: 0xe553)
+    z80.bc().ld(value: 0x0008)
+    z80.de().ld(value: 0x68e8)
+    z80.hl().ld(value: 0x4dcf)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x0000
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
+    z80.opCode(byte: 0xed)
+        }
+    XCTAssert(z80.af().value() == 0xe569)
+    XCTAssert(z80.bc().value() == 0x0000)
+    XCTAssert(z80.de().value() == 0x68e0)
+    XCTAssert(z80.hl().value() == 0x4dc7)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.fetchRam(location: 0x68e1) == 0x29)
+    XCTAssert(z80.fetchRam(location: 0x68e2) == 0x85)
+    XCTAssert(z80.fetchRam(location: 0x68e3) == 0xa7)
+    XCTAssert(z80.fetchRam(location: 0x68e4) == 0xc3)
+    XCTAssert(z80.fetchRam(location: 0x68e5) == 0x55)
+    XCTAssert(z80.fetchRam(location: 0x68e6) == 0x74)
+    XCTAssert(z80.fetchRam(location: 0x68e7) == 0x23)
+    XCTAssert(z80.fetchRam(location: 0x68e8) == 0x0a)
+    XCTAssert(z80.PC == 0x2)
+    XCTAssert(z80.SP == 0x0000)
+    }
 
-//    func testedb9() throws {
-//    loadRam(location: 0x0000, data:[0xed,0xb9])
-//    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0x6c])
-//    z80.af().ld(value: 0xffcd)
-//    z80.bc().ld(value: 0x0008)
-//    z80.de().ld(value: 0xa171)
-//    z80.hl().ld(value: 0xc749)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x0000
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0xff0b)
-//    XCTAssert(z80.bc().value() == 0x0000)
-//    XCTAssert(z80.de().value() == 0xa171)
-//    XCTAssert(z80.hl().value() == 0xc741)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.PC == 0x2)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
-//
-//    func testedb9_1() throws {
-//    loadRam(location: 0x7a45, data:[0xed,0xb9])
-//    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0x6c])
-//    z80.af().ld(value: 0xffcd)
-//    z80.bc().ld(value: 0x0008)
-//    z80.de().ld(value: 0xa171)
-//    z80.hl().ld(value: 0xc749)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x7a45
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0xff0b)
-//    XCTAssert(z80.bc().value() == 0x0000)
-//    XCTAssert(z80.de().value() == 0xa171)
-//    XCTAssert(z80.hl().value() == 0xc741)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.PC == 0x7a47)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
-//
-//    func testedb9_2() throws {
-//    loadRam(location: 0x7a45, data:[0xed,0xb9])
-//    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0x6c])
-//    z80.af().ld(value: 0xffcd)
-//    z80.bc().ld(value: 0x0008)
-//    z80.de().ld(value: 0xa171)
-//    z80.hl().ld(value: 0xc749)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
-//    z80.ix().ld(value: 0x0000)
-//    z80.iy().ld(value: 0x0000)
-//    z80.PC = 0x7a45
-//    z80.SP = 0x0000
-//    z80.MEMPTR = 0x0000
-//    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0xffa7)
-//    XCTAssert(z80.bc().value() == 0x0007)
-//    XCTAssert(z80.de().value() == 0xa171)
-//    XCTAssert(z80.hl().value() == 0xc748)
-//    XCTAssert(z80.af2().value() == 0x0000)
-//    XCTAssert(z80.bc2().value() == 0x0000)
-//    XCTAssert(z80.de2().value() == 0x0000)
-//    XCTAssert(z80.hl2().value() == 0x0000)
-//    XCTAssert(z80.ix().value() == 0x0000)
-//    XCTAssert(z80.iy().value() == 0x0000)
-//    XCTAssert(z80.PC == 0x7a45)
-//    XCTAssert(z80.SP == 0x0000)
-//    }
+    func testedb8_1() throws {
+    loadRam(location: 0x1ec1, data:[0xed,0xb8])
+    loadRam(location: 0x6aef, data:[0xd6,0x70])
+    z80.af().ld(value: 0x0000)
+    z80.bc().ld(value: 0x0002)
+    z80.de().ld(value: 0xb5d7)
+    z80.hl().ld(value: 0x6af0)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x1ec1
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
+    z80.opCode(byte: 0xed)
+        }
+    XCTAssert(z80.af().value() == 0x0020)
+    XCTAssert(z80.bc().value() == 0x0000)
+    XCTAssert(z80.de().value() == 0xb5d5)
+    XCTAssert(z80.hl().value() == 0x6aee)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.PC == 0x1ec3)
+    XCTAssert(z80.SP == 0x0000)
+    }
+
+    func testedb8_2() throws {
+    loadRam(location: 0x1ec1, data:[0xed,0xb8])
+    loadRam(location: 0x6aef, data:[0xd6,0x70])
+    z80.af().ld(value: 0x0000)
+    z80.bc().ld(value: 0x0001)
+    z80.de().ld(value: 0xb5d7)
+    z80.hl().ld(value: 0x6af0)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x1ec1
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        while z80.c() != 0 {
+    z80.opCode(byte: 0xed)
+        }
+    XCTAssert(z80.af().value() == 0x0000)
+    XCTAssert(z80.bc().value() == 0x0000)
+    XCTAssert(z80.de().value() == 0xb5d6)
+    XCTAssert(z80.hl().value() == 0x6aef)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.fetchRam(location: 0xb5d7) == 0x70)
+    XCTAssert(z80.PC == 0x1ec3)
+    XCTAssert(z80.SP == 0x0000)
+    }
+
+    func testedb9() throws {
+    loadRam(location: 0x0000, data:[0xed,0xb9])
+    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0x6c])
+    z80.af().ld(value: 0xffcd)
+    z80.bc().ld(value: 0x0008)
+    z80.de().ld(value: 0xa171)
+    z80.hl().ld(value: 0xc749)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x0000
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        while z80.c() == 8 || (z80.c() != 0 && !Z80.F.isSet(bit: Flag.ZERO)){
+    z80.opCode(byte: 0xed)
+        }
+    XCTAssert(z80.af().value().ignore3And5() == UInt16(0xffab).ignore3And5())
+    XCTAssert(z80.bc().value() == 0x0000)
+    XCTAssert(z80.de().value() == 0xa171)
+    XCTAssert(z80.hl().value() == 0xc741)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.PC == 0x2)
+    XCTAssert(z80.SP == 0x0000)
+    }
+
+    func testedb9_1() throws {
+    loadRam(location: 0x7a45, data:[0xed,0xb9])
+    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0x6c])
+    z80.af().ld(value: 0xffcd)
+    z80.bc().ld(value: 0x0008)
+    z80.de().ld(value: 0xa171)
+    z80.hl().ld(value: 0xc749)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x7a45
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        while z80.c() == 8 || (z80.c() != 0 && !Z80.F.isSet(bit: Flag.ZERO)){
+    z80.opCode(byte: 0xed)
+        }
+        XCTAssert(z80.af().value().ignore3And5() == UInt16(0xffab).ignore3And5())
+    XCTAssert(z80.bc().value() == 0x0000)
+    XCTAssert(z80.de().value() == 0xa171)
+    XCTAssert(z80.hl().value() == 0xc741)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.PC == 0x7a47)
+    XCTAssert(z80.SP == 0x0000)
+    }
+
+    func testedb9_2() throws {
+    loadRam(location: 0x7a45, data:[0xed,0xb9])
+    loadRam(location: 0xc742, data:[0xc6,0x09,0x85,0xec,0x5a,0x01,0x4e,0xff])
+    z80.af().ld(value: 0xffcd)
+    z80.bc().ld(value: 0x0008)
+    z80.de().ld(value: 0xa171)
+    z80.hl().ld(value: 0xc749)
+    z80.af2().ld(value: 0x0000)
+    z80.bc2().ld(value: 0x0000)
+    z80.de2().ld(value: 0x0000)
+    z80.hl2().ld(value: 0x0000)
+    z80.ix().ld(value: 0x0000)
+    z80.iy().ld(value: 0x0000)
+    z80.PC = 0x7a45
+    z80.SP = 0x0000
+    z80.MEMPTR = 0x0000
+        //while z80.c() == 8 || (z80.c() != 0 && !Z80.F.isSet(bit: Flag.ZERO)){
+        while z80.c() == 8 || !z80.instructionCompleted {
+    z80.opCode(byte: 0xed)
+        }
+    XCTAssert(z80.af().value().ignore3And5() == UInt16(0xff47).ignore3And5())
+    XCTAssert(z80.bc().value() == 0x0007)
+    XCTAssert(z80.de().value() == 0xa171)
+    XCTAssert(z80.hl().value() == 0xc748)
+    XCTAssert(z80.af2().value() == 0x0000)
+    XCTAssert(z80.bc2().value() == 0x0000)
+    XCTAssert(z80.de2().value() == 0x0000)
+    XCTAssert(z80.hl2().value() == 0x0000)
+    XCTAssert(z80.ix().value() == 0x0000)
+    XCTAssert(z80.iy().value() == 0x0000)
+    XCTAssert(z80.PC == 0x7a47)
+    XCTAssert(z80.SP == 0x0000)
+    }
 
 //    func testedba() throws {
 //    loadRam(location: 0x0000, data:[0xed,0xba])

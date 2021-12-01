@@ -68,6 +68,13 @@ extension Speccy {
                         // TODO: checkForBreakPoint()
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
+//                        if PC == 0x335e {
+//                            print ("AF: \(af().value().hex()) '\(af2().value().hex())")
+//                            print ("BC: \(bc().value().hex()) '\(bc2().value().hex())")
+//                            print ("DE: \(de().value().hex()) '\(de2().value().hex())")
+//                            print ("HL: \(hl().value().hex()) '\(hl2().value().hex())")
+//                            print ("X")
+//                        }
                         if isDebugging {
                             opCodeDebug(byte: byte)
                         } else {

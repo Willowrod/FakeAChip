@@ -12,12 +12,11 @@ class RawZ80Processor: Z80 {
   
     var rom: [UInt8] = []
     var ram: [UInt8] = []
-    var totalRam: UInt16 = 0xffff - 0x4000
  
     
     override init() {
         super.init()
-        ram = Array(repeating: 0x00, count: 0xC000)
+        ram = Array(repeating: 0x00, count: 0xFFFF)
     }
     
     override func decRam(location: Int){

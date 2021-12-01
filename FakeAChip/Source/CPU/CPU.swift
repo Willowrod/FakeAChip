@@ -31,6 +31,8 @@ class CPU: CoreDelegate {
     
     var processing = false
     
+    var instructionCompleted = true
+    
     // Registers
     var spareRegister: Register = Register(value: 0x00, name: "Spare")
     

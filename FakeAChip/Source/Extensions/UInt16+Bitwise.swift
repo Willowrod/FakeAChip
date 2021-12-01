@@ -23,4 +23,8 @@ extension UInt16 {
     func bin() -> String {
         return String(self, radix: 2).padded(size: 16)
     }
+    
+    func ignore3And5() -> UInt16 {
+        return (self & ~(1 << 3) & ~(1 << 5))
+    }
 }

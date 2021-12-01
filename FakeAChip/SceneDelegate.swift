@@ -14,17 +14,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//               let stateObject = FakeAChipData(.iOS)
-//        let contentView = Text("Boo!")   //IOSMainMenu()
-//                    //.environmentObject(stateObject)
-//        if let windowScene = scene as? UIWindowScene {
-//              let window = UIWindow(windowScene: windowScene)
-//              window.rootViewController = UIHostingController(rootView: contentView)
-//              self.window = window
-//              Sizing.instance.size = window.frame.size
-//              window.makeKeyAndVisible()
-//          }
-        
+
+//        let tester = false
+//        
+//        if tester {
+//            let contentView = TestView()
+//            if let windowScene = scene as? UIWindowScene {
+//                let window = UIWindow(windowScene: windowScene)
+//                self.window = window
+//                window.makeKeyAndVisible()
+//        }
+//        }else {
         #if targetEnvironment(macCatalyst)
         
         let stateObject = FakeAChipData(.Mac)
@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
         #endif
-
+    //    }
         // Use a UIHostingController as window root view controller.
         
     }
