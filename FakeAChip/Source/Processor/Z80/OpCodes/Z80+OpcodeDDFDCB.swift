@@ -15,6 +15,7 @@ extension Z80 {
         let targetByte = byte1.isSet(bit: 7) ? reg.value() &- UInt16(byte1.twosCompliment()) : reg.value() &+ UInt16(byte1)
         var changeByte = fetchRam(location: targetByte)
         let opCodeOffset = Int(byte2 / 8)
+        let byteWriter = byte2 % 8
         var writeBack = true
         switch opCodeOffset {
         case 0: //RLC
@@ -48,8 +49,11 @@ extension Z80 {
         }
         if writeBack {
             ldRam(location: targetByte, value: changeByte)
-            if let register = register {
-                register.ld(value: changeByte)
+//            if let register = register {
+//                register.ld(value: changeByte)
+//            }
+            if byteWriter != 6 {
+            writeRegister(byte: byte2, value: changeByte)
             }
             instructionComplete(states: 23, length: 3)
         }

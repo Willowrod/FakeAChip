@@ -124,11 +124,11 @@ loadInternal(file: file, path: path)
         processInternal()
     }
     
-    override func performIn(port: UInt8, map: UInt8, destination: Register){
+    override func performIn(port: UInt8, map: UInt8, destination: AvailableRegister){
 performInInternal(port: port, map: map, destination: destination)
     }
     
-    override func performOut(port: UInt8, map: UInt8, source: Register) {
+    override func performOut(port: UInt8, map: UInt8, source: AvailableRegister) {
      performOutInternal(port: port, map: map, source: source)
     }
     

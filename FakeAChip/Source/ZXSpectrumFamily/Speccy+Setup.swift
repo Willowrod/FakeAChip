@@ -54,14 +54,14 @@ extension Speccy {
     
     func initialiseRegistersInternal(header: RegisterModel){
         testRegisters()
-        aR().ld(value:header.primary.registerA)
-        Z80.fR().ld(value:header.primary.registerF)
-        bR().ld(value:header.primary.registerB)
-        cR().ld(value:header.primary.registerC)
-        dR().ld(value:header.primary.registerD)
-        eR().ld(value:header.primary.registerE)
-        hR().ld(value:header.primary.registerH)
-        lR().ld(value:header.primary.registerL)
+        ldA(value:header.primary.registerA)
+        ldF(value:header.primary.registerF)
+        ldB(value:header.primary.registerB)
+        ldC(value:header.primary.registerC)
+        ldD(value:header.primary.registerD)
+        ldE(value:header.primary.registerE)
+        ldH(value:header.primary.registerH)
+        ldL(value:header.primary.registerL)
         
         BC2 = (UInt16(header.swap.registerB) * UInt16(256)) + UInt16(header.swap.registerC) //.ld(value:header.registerPair(l: header.swap.registerC, h: header.swap.registerB))
         DE2 = (UInt16(header.swap.registerD) * UInt16(256)) + UInt16(header.swap.registerE) //.ld(value:header.registerPair(l: header.swap.registerE, h: header.swap.registerD))

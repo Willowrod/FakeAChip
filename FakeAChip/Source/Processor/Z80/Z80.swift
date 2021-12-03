@@ -16,7 +16,7 @@ import AVFoundation
 class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")
-    var AF = AFRegisterPair("AF", highValue: 0x00, lowValue: 0x80, id: 0)
+    var AF = AFRegisterPair(a: A, f: F)
     var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
     var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
     var HL = RegisterPair("HL", highValue: 0x00, lowValue: 0x00, id: 3)
@@ -71,6 +71,8 @@ class Z80: CPU {
     var averageTStateInOp: Double = 0.0
     var goodOps: Int = 0
     
+    var thisPC: UInt16 = 0x0000
+    
     
     override init() {
         super.init()
@@ -102,30 +104,6 @@ class Z80: CPU {
     
     static func fR() -> Register{
         return F
-    }
-    
-    func hR() -> Register{
-        return HL.registerPair.high
-    }
-    
-    func lR() -> Register{
-        return HL.registerPair.low
-    }
-    
-    func bR() -> Register{
-        return BC.registerPair.high
-    }
-    
-    func cR() -> Register{
-        return BC.registerPair.low
-    }
-    
-    func dR() -> Register{
-        return DE.registerPair.high
-    }
-    
-    func eR() -> Register{
-        return DE.registerPair.low
     }
     
     func a() -> UInt8{
@@ -160,7 +138,7 @@ class Z80: CPU {
         return DE.low()
     }
     
-    func af() -> RegisterPair{
+    func af() -> AFRegisterPair{
         return AF
     }
     
@@ -199,6 +177,46 @@ class Z80: CPU {
     func iy() -> RegisterPair{
         return IY
     }
+    
+    func ldA(value: UInt8) {
+        AF.accumilator.ld(value: value)
+    }
+    
+    func ldF(value: UInt8) {
+        AF.flag.ld(value: value)
+    }
+    
+    func ldB(value: UInt8) {
+        BC.ldHigh(value: value)
+    }
+    
+    func ldC(value: UInt8) {
+        BC.ldLow(value: value)
+    }
+    
+    func ldD(value: UInt8) {
+        DE.ldHigh(value: value)
+    }
+    
+    func ldE(value: UInt8) {
+        DE.ldLow(value: value)
+    }
+    
+    func ldH(value: UInt8) {
+        HL.ldHigh(value: value)
+    }
+    
+    func ldL(value: UInt8) {
+        HL.ldLow(value: value)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     func testRegisters(){
         
@@ -251,11 +269,11 @@ print("Writing nothing to RAM....")
     func blitScreen(){
     }
     
-    func performIn(port: UInt8, map: UInt8, destination: Register){
+    func performIn(port: UInt8, map: UInt8, destination: AvailableRegister){
        
     }
     
-    func performOut(port: UInt8, map: UInt8, source: Register) {
+    func performOut(port: UInt8, map: UInt8, source: AvailableRegister) {
        
     }
     
@@ -333,6 +351,33 @@ print("Writing nothing to RAM....")
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
             isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
+        }
+    }
+    
+    
+    
+    func fetchRegisterValue(register: AvailableRegister) -> UInt8 {
+        switch register {
+        case .A:
+            return AF.accumilator.value()
+        case .F:
+            return AF.flag.value()
+        case .B:
+            return BC.high()
+        case .C:
+            return BC.low()
+        case .D:
+            return DE.high()
+        case .E:
+            return DE.low()
+        case .H:
+            return HL.high()
+        case .L:
+            return HL.low()
+        case .SPARE:
+            return spareRegister
+        default:
+            return 0x00
         }
     }
     

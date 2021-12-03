@@ -51,16 +51,16 @@ extension Z80 {
             currentOpCode = "INC BC (BC = \(BC.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "INC BC", m: " ", l: 1)
         case 0x04:
-            bR().inc()
+            BC.incHigh()
             currentOpCode = "INC B (B = \(b().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC B", m: " ", l: 1)
         case 0x05:
-            bR().dec()
+            BC.decHigh()
             currentOpCode = "DEC B (B = \(b().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC B", m: " ", l: 1)
         case 0x06:
             currentOpCode = "LD B, n (LD B, \(byte1.hex()))"
-            bR().ld(value: byte1)
+            ldB(value: byte1)
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD B,±", m: " ", l: 2)
         case 0x07:
             currentOpCode = "RLC A (Rotate Accumilator Left + Carry)"
@@ -76,7 +76,7 @@ extension Z80 {
             currentOpCode = "ADD HL, BC (\(oldval.hex()) + \(BC.hex()) = \(HL.hex())"
             instructionComplete(states: 11) //returnOpCode(v: code, c: "ADD HL,BC", m: " ", l: 1)
         case 0x0A:
-            aR().ld(value: fetchRam(location: bc().value()))
+            ldA(value: fetchRam(location: bc().value()))
             currentOpCode = "LD A, (BC) (LD A, \(a().hex()) where BC is \(BC.hex())"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD A,(BC)", m: " ", l: 1)
         case 0x0B:
@@ -84,23 +84,23 @@ extension Z80 {
             currentOpCode = "DEC BC (BC = \(BC.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "DEC BC", m: " ", l: 1)
         case 0x0C:
-            cR().inc()
+            BC.incLow()
             currentOpCode = "INC C (C = \(c().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC C", m: " ", l: 1)
         case 0x0D:
-            cR().dec()
+            BC.decLow()
             currentOpCode = "DEC C (C = \(c().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC C", m: " ", l: 1)
         case 0x0E:
             currentOpCode = "LD C, n (LD C, \(byte1.hex()))"
-            cR().ld(value: byte1)
+            ldC(value: byte1)
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD C,±", m: " ", l: 2)
         case 0x0F:
             currentOpCode = "RRC A (Rotate Accumilator Right + Carry)"
             aR().rrcA()
             instructionComplete(states: 4) //returnOpCode(v: code, c: "RRC A", m: " ", l: 1)
         case 0x10:
-            bR().ld(value: b() &- 1)
+            ldB(value: b() &- 1)
             if (b() == 0){
                 currentOpCode = "DJNZ, DIS (B=0, No Jump)"
                 instructionComplete(states: 8, length: 2)
@@ -122,16 +122,16 @@ extension Z80 {
             currentOpCode = "INC DE (DE = \(DE.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "INC DE", m: " ", l: 1)
         case 0x14:
-            dR().inc()
+            DE.incHigh()
             currentOpCode = "INC D (D = \(d().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC D", m: " ", l: 1)
         case 0x15:
-            dR().dec()
+            DE.decHigh()
             currentOpCode = "DEC D (D = \(d().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC D", m: " ", l: 1)
         case 0x16:
             currentOpCode = "LD D, n (LD D, \(byte1.hex()))"
-            dR().ld(value: byte1)
+            ldD(value: byte1)
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD D,±", m: " ", l: 2)
         case 0x17:
             aR().rlA()
@@ -149,7 +149,7 @@ extension Z80 {
             currentOpCode = "ADD HL, DE (\(oldval.hex()) + \(DE.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,DE", m: " ", l: 1)
         case 0x1A:
-            aR().ld(value: fetchRam(location: de().value()))
+            ldA(value: fetchRam(location: de().value()))
             currentOpCode = "LD A, (DE) (LD A, \(a().hex()) where DE is \(DE.hex())"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD A,(DE)", m: " ", l: 1)
         case 0x1B:
@@ -157,16 +157,16 @@ extension Z80 {
             currentOpCode = "DEC DE (DE = \(DE.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "DEC DE", m: " ", l: 1)
         case 0x1C:
-            eR().inc()
+            DE.incLow()
             currentOpCode = "INC E (E = \(e().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC E", m: " ", l: 1)
         case 0x1D:
-            eR().dec()
+            DE.decLow()
             currentOpCode = "DEC E (E = \(e().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC E", m: " ", l: 1)
         case 0x1E:
             currentOpCode = "LD E, n (LD E, \(byte1.hex()))"
-            eR().ld(value: byte1)
+            ldE(value: byte1)
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD E,±", m: " ", l: 2)
         case 0x1F:
             currentOpCode = "RRA (Rotate Accumilator Right)"
@@ -195,16 +195,16 @@ extension Z80 {
             currentOpCode = "INC HL (HL = \(HL.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "INC HL", m: " ", l: 1)
         case 0x24:
-            hR().inc()
+            HL.incHigh()
             currentOpCode = "INC H (H = \(h().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC H", m: " ", l: 1)
         case 0x25:
-            hR().dec()
+            HL.incLow()
             currentOpCode = "DEC H (H = \(h().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC H", m: " ", l: 1)
         case 0x26:
             currentOpCode = "LD H, (nn) (LD H, \(byte1.hex()))"
-            hR().ld(value: byte1)
+            ldH(value: byte1)
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD H,$$", m: " ", l: 2, t: .DATA)
         case 0x27:
             currentOpCode = "DAA (Decimal Adjust Accumilator)"
@@ -225,8 +225,8 @@ extension Z80 {
             currentOpCode = "ADD HL, HL (\(oldval.hex()) + \(oldval.hex()) = \(HL.hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "ADD HL,HL", m: " ", l: 1)
         case 0x2A:
-            lR().ld(value: fetchRam(location: word))
-            hR().ld(value: fetchRam(location: word &+ 1))
+            ldL(value: fetchRam(location: word))
+            ldH(value: fetchRam(location: word &+ 1))
             currentOpCode = "LD HL, (nn) (LD HL, \(word.hex()))"
             instructionComplete(states: 16, length: 3) //returnOpCode(v: code, c: "LD HL,($$)", m: " ", l: 3, t: .DATA)
         case 0x2B:
@@ -234,15 +234,15 @@ extension Z80 {
             currentOpCode = "DEC HL (HL = \(HL.hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC HL", m: " ", l: 1)
         case 0x2C:
-            lR().inc()
+            HL.incLow()
             currentOpCode = "INC L (L = \(l().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC L", m: " ", l: 1)
         case 0x2D:
-            lR().dec()
+            HL.decLow()
             currentOpCode = "DEC L (L = \(l().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC L", m: " ", l: 1)
         case 0x2E:
-            lR().ld(value: byte1)
+            ldL(value: byte1)
             currentOpCode = "LD L, n (LD L, \(byte1.hex()))"
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD L,±", m: " ", l: 2)
         case 0x2F:
@@ -303,7 +303,7 @@ extension Z80 {
             currentOpCode = "ADD HL, SP (\(oldval.hex()) + \(SP.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,SP", m: " ", l: 1)
         case 0x3A:
-            aR().ld(value: fetchRam(location: word))
+            ldA(value: fetchRam(location: word))
             currentOpCode = "LD A, (nn) (LD A with the value of RAM location \(word.hex()) \(a().hex())"
             instructionComplete(states: 13, length: 3) //returnOpCode(v: code, c: "LD A,($$)", m: " ", l: 3, t: .DATA)
         case 0x3B:
@@ -319,7 +319,7 @@ extension Z80 {
             currentOpCode = "DEC A (A = \(a().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC A", m: " ", l: 1)
         case 0x3E: // LD A,$$
-            aR().ld(value: byte1)
+            ldA(value: byte1)
             currentOpCode = "LD A, n (LD A, \(byte1.hex()))"
             instructionComplete(states: 7, length: 2)
         case 0x3F:
@@ -330,186 +330,186 @@ extension Z80 {
             currentOpCode = "LD B,B (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,B", m: " ", l: 1)
         case 0x41:
-            bR().ld(value: c())
+            ldB(value: c())
             currentOpCode = "LD B,C (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,C", m: " ", l: 1)
         case 0x42:
-            bR().ld(value: d())
+            ldB(value: d())
             currentOpCode = "LD B,D (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,D", m: " ", l: 1)
         case 0x43:
-            bR().ld(value: e())
+            ldB(value: e())
             currentOpCode = "LD B,E (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,E", m: " ", l: 1)
         case 0x44:
-            bR().ld(value: h())
+            ldB(value: h())
             currentOpCode = "LD B,H (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,H", m: " ", l: 1)
         case 0x45:
-            bR().ld(value: l())
+            ldB(value: l())
             currentOpCode = "LD B,L (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,L", m: " ", l: 1)
         case 0x46:
-            bR().ld(value: fetchRam(registerPair: hl()))
+            ldB(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD B,(HL) (Where HL is \(HL.hex()) -  B = \(b().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD B,(HL)", m: " ", l: 1)
         case 0x47: //LD B,A
-            bR().ld(value: a())
+            ldB(value: a())
             currentOpCode = "LD B,A (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,A", m: "Load register B with the value of register A", l: 1)
         case 0x48:
-            cR().ld(value: b())
+            ldC(value: b())
             currentOpCode = "LD C,B (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,B", m: " ", l: 1)
         case 0x49:
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,C", m: " ", l: 1)
             currentOpCode = "LD C,C (C = \(c().hex()))"
         case 0x4A:
-            cR().ld(value: d())
+            ldC(value: d())
             currentOpCode = "LD C,D (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,D", m: " ", l: 1)
         case 0x4B:
-            cR().ld(value: e())
+            ldC(value: e())
             currentOpCode = "LD C,E (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,E", m: " ", l: 1)
         case 0x4C:
-            cR().ld(value: h())
+            ldC(value: h())
             currentOpCode = "LD C,H (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,H", m: " ", l: 1)
         case 0x4D:
-            cR().ld(value: l())
+            ldC(value: l())
             currentOpCode = "LD C,L (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,L", m: " ", l: 1)
         case 0x4E:
-            cR().ld(value: fetchRam(registerPair: hl()))
+            ldC(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD C,(HL) (Where HL is \(HL.hex()) -  C = \(c().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD C,(HL)", m: " ", l: 1)
         case 0x4F:
-            cR().ld(value: a())
+            ldC(value: a())
             currentOpCode = "LD C,A (B = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,A", m: " ", l: 1)
         case 0x50:
-            dR().ld(value: b())
+            ldD(value: b())
             currentOpCode = "LD D,B (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,B", m: " ", l: 1)
         case 0x51:
-            dR().ld(value: c())
+            ldD(value: c())
             currentOpCode = "LD D,C (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,C", m: " ", l: 1)
         case 0x52:
             currentOpCode = "LD D,D (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,D", m: " ", l: 1)
         case 0x53:
-            dR().ld(value: e())
+            ldD(value: e())
             currentOpCode = "LD D,E (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,E", m: " ", l: 1)
         case 0x54:
-            dR().ld(value: h())
+            ldD(value: h())
             currentOpCode = "LD D,H (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,H", m: " ", l: 1)
         case 0x55:
-            dR().ld(value: l())
+            ldD(value: l())
             currentOpCode = "LD D,L (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,L", m: " ", l: 1)
         case 0x56:
-            dR().ld(value: fetchRam(registerPair: hl()))
+            ldD(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD D,(HL) (Where HL is \(HL.hex()) -  D = \(d().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD D,(HL)", m: " ", l: 1)
         case 0x57:
-            dR().ld(value: a())
+            ldD(value: a())
             currentOpCode = "LD D,A (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,A", m: " ", l: 1)
         case 0x58:
-            eR().ld(value: b())
+            ldE(value: b())
             currentOpCode = "LD E,B (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,B", m: " ", l: 1)
         case 0x59:
-            eR().ld(value: c())
+            ldE(value: c())
             currentOpCode = "LD E,C (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,C", m: " ", l: 1)
         case 0x5A:
-            eR().ld(value: d())
+            ldE(value: d())
             currentOpCode = "LD E,D (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,D", m: " ", l: 1)
         case 0x5B:
             currentOpCode = "LD E,E (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,E", m: " ", l: 1)
         case 0x5C:
-            eR().ld(value: h())
+            ldE(value: h())
             currentOpCode = "LD E,H (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,H", m: " ", l: 1)
         case 0x5D:
-            eR().ld(value: l())
+            ldE(value: l())
             currentOpCode = "LD E,L (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,L", m: " ", l: 1)
         case 0x5E:
-            eR().ld(value: fetchRam(registerPair: hl()))
+            ldE(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD E,(HL) (Where HL is \(HL.hex()) -  E = \(e().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD E,(HL)", m: " ", l: 1)
         case 0x5F:
-            eR().ld(value: a())
+            ldE(value: a())
             currentOpCode = "LD E,A (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,A", m: " ", l: 1)
         case 0x60:
-            hR().ld(value: b())
+            ldH(value: b())
             currentOpCode = "LD H,B (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,B", m: " ", l: 1)
         case 0x61:
-            hR().ld(value: c())
+            ldH(value: c())
             currentOpCode = "LD H,C (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,C", m: " ", l: 1)
         case 0x62:
-            hR().ld(value: d())
+            ldH(value: d())
             currentOpCode = "LD H,D (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,D", m: " ", l: 1)
         case 0x63:
-            hR().ld(value: e())
+            ldH(value: e())
             currentOpCode = "LD H,E (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,E", m: " ", l: 1)
         case 0x64:
             currentOpCode = "LD H,H (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,H", m: " ", l: 1)
         case 0x65:
-            hR().ld(value: l())
+            ldH(value: l())
             currentOpCode = "LD H,L (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,L", m: " ", l: 1)
         case 0x66:
-            hR().ld(value: fetchRam(registerPair: hl()))
+            ldH(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD H,(HL) (Where HL is \(HL.hex()) -  H = \(h().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD H,(HL)", m: " ", l: 1)
         case 0x67:
-            hR().ld(value: a())
+            ldH(value: a())
             currentOpCode = "LD H,A (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,A", m: " ", l: 1)
         case 0x68:
-            lR().ld(value: b())
+            ldL(value: b())
             currentOpCode = "LD L,B (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,B", m: " ", l: 1)
         case 0x69:
-            lR().ld(value: c())
+            ldL(value: c())
             currentOpCode = "LD L,C (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,C", m: " ", l: 1)
         case 0x6A:
-            lR().ld(value: d())
+            ldL(value: d())
             currentOpCode = "LD L,D (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,D", m: " ", l: 1)
         case 0x6B:
-            lR().ld(value: e())
+            ldL(value: e())
             currentOpCode = "LD L,E (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,E", m: " ", l: 1)
         case 0x6C:
-            lR().ld(value: h())
+            ldL(value: h())
             currentOpCode = "LD L,H (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,H", m: " ", l: 1)
         case 0x6D:
             currentOpCode = "LD L,L (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,L", m: " ", l: 1)
         case 0x6E:
-            lR().ld(value: fetchRam(registerPair: hl()))
+            ldL(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD L,(HL) (Where HL is \(HL.hex()) -  L = \(l().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD L,(HL)", m: " ", l: 1)
         case 0x6F:
-            lR().ld(value: a())
+            ldL(value: a())
             currentOpCode = "LD L,A (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,A", m: " ", l: 1)
         case 0x70:
@@ -547,31 +547,31 @@ extension Z80 {
             currentOpCode = "LD (HL), A (Where HL is \(HL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
         case 0x78:
-            aR().ld(value: b())
+            ldA(value: b())
             currentOpCode = "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4)
         case 0x79:
-            aR().ld(value: c())
+            ldA(value: c())
             currentOpCode = "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,C", m: " ", l: 1)
         case 0x7A:
-            aR().ld(value: d())
+            ldA(value: d())
             currentOpCode = "LD A,D (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,D", m: " ", l: 1)
         case 0x7B:
-            aR().ld(value: e())
+            ldA(value: e())
             currentOpCode = "LD A,E (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,E", m: " ", l: 1)
         case 0x7C:
-            aR().ld(value: h())
+            ldA(value: h())
             currentOpCode = "LD A,H (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,H", m: " ", l: 1)
         case 0x7D:
-            aR().ld(value: l())
+            ldA(value: l())
             currentOpCode = "LD A,L (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,L", m: " ", l: 1)
         case 0x7E:
-            aR().ld(value: fetchRam(registerPair: hl()))
+            ldA(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD A,(HL) (Where HL is \(HL.hex()) -  A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,(HL)", m: " ", l: 1)
         case 0x7F:
@@ -967,7 +967,7 @@ extension Z80 {
                 currentOpCode = "JP C - Carry flag set, No Jump"
             } //returnOpCode(v: code, c: "JP NC,$$", m: " ", l: 3, t: .CODE)
         case 0xD3: // TODO OUT (±),A
-            performOut(port: byte1, map: byte2, source: aR())
+            performOut(port: byte1, map: byte2, source: .A)
             currentOpCode = "OUT A - XXX"
             instructionComplete(states: 11, length: 2) //returnOpCode(v: code, c: "OUT (±),A", m: " ", l: 2)
         case 0xD4:
@@ -1014,7 +1014,7 @@ extension Z80 {
                 currentOpCode = "JP C - Carry flag not set, No Jump"
             } //returnOpCode(v: code, c: "JP C,$$", m: " ", l: 3, t: .CODE)
         case 0xDB: // TODO: IN
-       performIn(port: byte1, map: a(), destination: aR())
+            performIn(port: byte1, map: a(), destination: .A)
             instructionComplete(states: 11, length: 2)
             currentOpCode = "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
         case 0xDC:

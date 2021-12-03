@@ -157,8 +157,8 @@ extension Speccy {
         
         initialiseRegisters(header: snapShot.registers)
         header = snapShot.registers
-        spareRegister.ld(value: pagingByte)
-        performOut(port: 0xfd, map: 0x74, source: spareRegister)
+        spareRegister = pagingByte //.ld(value: pagingByte)
+        performOut(port: 0xfd, map: 0x74, source: .SPARE)
     }
     
     func loadZ80Internal(data: String){
@@ -182,8 +182,8 @@ extension Speccy {
         
         initialiseRegisters(header: snapShot.registers)
         header = snapShot.registers
-        spareRegister.ld(value: pagingByte)
-        performOut(port: 0xfd, map: 0x74, source: spareRegister)
+        spareRegister = pagingByte //.ld(value: pagingByte)
+        performOut(port: 0xfd, map: 0x74, source: .SPARE)
     }
     
     func importTZX(tzxFile: String, path: String? = nil){

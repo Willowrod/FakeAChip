@@ -12,6 +12,8 @@
 		CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0540092625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0541D1262B27A800221FC9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD0541D0262B27A800221FC9 /* Zip */; };
+		CD05A8B9275A73E100BC9868 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */; };
+		CD05A8BA275A73E100BC9868 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */; };
 		CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
 		CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
@@ -367,6 +369,7 @@
 /* Begin PBXFileReference section */
 		CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80BlockDisassembly.swift; sourceTree = "<group>"; };
 		CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyUndefinedAsCodeSection.swift; sourceTree = "<group>"; };
+		CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRegisters.swift; sourceTree = "<group>"; };
 		CD0CC53A25FA6BD400731EDA /* FakeAChip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeAChip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -735,6 +738,7 @@
 				CD0CC57225FA6C3F00731EDA /* FileFormat.swift */,
 				CD0CC5D925FF54F500731EDA /* SystemConstants.swift */,
 				CD0EC68E2668342100B21E1F /* MediaConstants.swift */,
+				CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1449,6 +1453,7 @@
 				CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */,
 				CD16BD0926D4FFC900151830 /* Speccy+Screen.swift in Sources */,
 				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
+				CD05A8B9275A73E100BC9868 /* AvailableRegisters.swift in Sources */,
 				CD16BD0B26D5000900151830 /* Speccy+ROM.swift in Sources */,
 				CDB0FDAB26FDBA03002F3964 /* AFRegisterPair.swift in Sources */,
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
@@ -1660,6 +1665,7 @@
 				CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
 				CDEF9BBC261EED5B00729043 /* StandardSprite.swift in Sources */,
 				CDD5FD1B26F12AC4009C3822 /* Speccy+Setup.swift in Sources */,
+				CD05A8BA275A73E100BC9868 /* AvailableRegisters.swift in Sources */,
 				CDA172B22604B37000910C23 /* allTestsP_DD80toff.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

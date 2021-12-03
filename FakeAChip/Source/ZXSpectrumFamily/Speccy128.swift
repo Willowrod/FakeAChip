@@ -99,8 +99,8 @@ class Speccy128: Speccy {
             }
             initialiseRegisters(header: snapShot.registers)
             header = snapShot.registers
-            spareRegister.ld(value: pagingByte)
-            performOut(port: 0xfd, map: 0x74, source: spareRegister)
+            spareRegister = pagingByte //.ld(value: pagingByte)
+            performOut(port: 0xfd, map: 0x74, source: .SPARE)
             writeCodeBytes()
         }
     }
@@ -158,15 +158,15 @@ class Speccy128: Speccy {
         }
     }
     
-    override func performOut(port: UInt8, map: UInt8, source: Register) {
+    override func performOut(port: UInt8, map: UInt8, source: AvailableRegister) {
         if (port == 0xfd){
             if map == 0x7f {
                 // Ram / Rom swap
                 if (bankSwitchEnabled){
-                    let newRamBank = source.value() & 0x07
+                    let newRamBank = fetchRegisterValue(register: source) & 0x07
                     // let newScreenBank = source.value() & 0x08
-                    let newRomBank = source.value() & 0x10
-                    let disableSwitch = source.value() & 0x20
+                    let newRomBank = fetchRegisterValue(register: source) & 0x10
+                    let disableSwitch = fetchRegisterValue(register: source) & 0x20
                     
                     swapRam(bank: Int(newRamBank))
                     swapRom(rom: newRomBank == 0x00 ? 0 : 1)

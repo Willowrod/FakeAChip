@@ -32,13 +32,13 @@ extension Z80 {
             reg.inc()
             instructionComplete(states: 10)
         case 0x24:
-            reg.registerPair.high.inc()
+            reg.incHigh()
             instructionComplete(states: 10)
         case 0x25:
-            reg.registerPair.high.dec()
+            reg.decHigh()
             instructionComplete(states: 10)
         case 0x26:
-            reg.registerPair.high.ld(value: byte1)
+            reg.ldHigh(value: byte1)
             instructionComplete(states: 8, length: 2)
         case 0x29:
             reg.add(diff: reg.value())
@@ -50,13 +50,13 @@ extension Z80 {
             reg.dec()
             instructionComplete(states: 10)
         case 0x2C:
-            reg.registerPair.low.inc()
+            reg.incLow()
             instructionComplete(states: 10)
         case 0x2D:
-            reg.registerPair.low.dec()
+            reg.decLow()
             instructionComplete(states: 10)
         case 0x2E:
-            reg.registerPair.low.ld(value: byte1)
+            reg.ldLow(value: byte1)
             instructionComplete(states: 8, length: 2)
         case 0x34:
             incRam(location: Int(targetByte))
@@ -71,86 +71,86 @@ extension Z80 {
             reg.add(diff: SP)
             instructionComplete(states: 15)
         case 0x44:
-            bR().ld(value: reg.registerPair.high.value())
+            ldB(value: reg.high())
             instructionComplete(states: 8)
         case 0x45:
-            bR().ld(value: reg.registerPair.low.value())
+            ldB(value: reg.low())
             instructionComplete(states: 8)
         case 0x46:
-            bR().ld(value: fetchRam(location: targetByte))
+            ldB(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x4C:
-            cR().ld(value: reg.registerPair.high.value())
+            ldC(value: reg.high())
             instructionComplete(states: 8)
         case 0x4D:
-            cR().ld(value: reg.registerPair.low.value())
+            ldC(value: reg.low())
             instructionComplete(states: 8)
         case 0x4E:
-            cR().ld(value: fetchRam(location: targetByte))
+            ldC(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x54:
-            dR().ld(value: reg.registerPair.high.value())
+            ldD(value: reg.high())
             instructionComplete(states: 8)
         case 0x55:
-            dR().ld(value: reg.registerPair.low.value())
+            ldD(value: reg.low())
             instructionComplete(states: 8)
         case 0x56:
-            dR().ld(value: fetchRam(location: targetByte))
+            ldD(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x5C:
-            eR().ld(value: reg.registerPair.high.value())
+            ldE(value: reg.high())
             instructionComplete(states: 8)
         case 0x5D:
-            eR().ld(value: reg.registerPair.low.value())
+            ldE(value: reg.low())
             instructionComplete(states: 8)
         case 0x5E:
-            eR().ld(value: fetchRam(location: targetByte))
+            ldE(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x60:
-            reg.registerPair.high.ld(value: b())
+            reg.ldHigh(value: b())
             instructionComplete(states: 8)
         case 0x61:
-            reg.registerPair.high.ld(value: c())
+            reg.ldHigh(value: c())
             instructionComplete(states: 8)
         case 0x62:
-            reg.registerPair.high.ld(value: d())
+            reg.ldHigh(value: d())
             instructionComplete(states: 8)
         case 0x63:
-            reg.registerPair.high.ld(value: e())
+            reg.ldHigh(value: e())
             instructionComplete(states: 8)
         case 0x64:
             instructionComplete(states: 8)
         case 0x65:
-            reg.registerPair.high.ld(value: reg.registerPair.low.value())
+            reg.ldHigh(value: reg.low())
             instructionComplete(states: 8)
         case 0x66:
-            hR().ld(value: fetchRam(location: targetByte))
+            ldH(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x67:
-            reg.registerPair.high.ld(value: a())
+            reg.ldHigh(value: a())
             instructionComplete(states: 8)
         case 0x68:
-            reg.registerPair.low.ld(value: b())
+            reg.ldLow(value: b())
             instructionComplete(states: 8)
         case 0x69:
-            reg.registerPair.low.ld(value: c())
+            reg.ldLow(value: c())
             instructionComplete(states: 8)
         case 0x6A:
-            reg.registerPair.low.ld(value: d())
+            reg.ldLow(value: d())
             instructionComplete(states: 8)
         case 0x6B:
-            reg.registerPair.low.ld(value: e())
+            reg.ldLow(value: e())
             instructionComplete(states: 8)
         case 0x6C:
-            reg.registerPair.low.ld(value: reg.registerPair.high.value())
+            reg.ldLow(value: reg.high())
             instructionComplete(states: 8)
         case 0x6D:
             instructionComplete(states: 8)
         case 0x6E:
-            lR().ld(value: fetchRam(location: targetByte))
+            ldL(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x6F:
-            reg.registerPair.low.ld(value: a())
+            reg.ldLow(value: a())
             instructionComplete(states: 8)
         case 0x70:
             ldRam(location: targetByte, value: b())
@@ -174,82 +174,82 @@ extension Z80 {
             ldRam(location: targetByte, value: a())
             instructionComplete(states: 19, length: 2)
         case 0x7C:
-            aR().ld(value: reg.registerPair.high.value())
+            ldA(value: reg.high())
             instructionComplete(states: 8)
         case 0x7D:
-            aR().ld(value: reg.registerPair.low.value())
+            ldA(value: reg.low())
             instructionComplete(states: 8)
         case 0x7E:
-            aR().ld(value: fetchRam(location: targetByte))
+            ldA(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x84:
-            aR().add(diff: reg.registerPair.high.value())
+            aR().add(diff: reg.high())
             instructionComplete(states: 8)
         case 0x85:
-            aR().add(diff: reg.registerPair.low.value())
+            aR().add(diff: reg.low())
             instructionComplete(states: 8)
         case 0x86:
             aR().add(diff: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x8C:
-            aR().aDC(diff: reg.registerPair.high.value())
+            aR().aDC(diff: reg.high())
             instructionComplete(states: 8)
         case 0x8D:
-            aR().aDC(diff: reg.registerPair.low.value())
+            aR().aDC(diff: reg.low())
             instructionComplete(states: 8)
         case 0x8E:
             aR().aDC(diff: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x94:
-            aR().sub(diff: reg.registerPair.high.value())
+            aR().sub(diff: reg.high())
             instructionComplete(states: 8)
         case 0x95:
-            aR().sub(diff: reg.registerPair.low.value())
+            aR().sub(diff: reg.low())
             instructionComplete(states: 8)
         case 0x96:
             aR().sub(diff: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x9C:
-            aR().sBC(diff: reg.registerPair.high.value())
+            aR().sBC(diff: reg.high())
             instructionComplete(states: 8)
         case 0x9D:
-            aR().sBC(diff: reg.registerPair.low.value())
+            aR().sBC(diff: reg.low())
             instructionComplete(states: 8)
         case 0x9E:
             aR().sBC(diff: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0xA4:
-            aR().aND(byte: reg.registerPair.high.value())
+            aR().aND(byte: reg.high())
             instructionComplete(states: 8)
         case 0xA5:
-            aR().aND(byte: reg.registerPair.low.value())
+            aR().aND(byte: reg.low())
             instructionComplete(states: 8)
         case 0xA6:
             aR().aND(byte: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0xAC:
-            aR().xOR(byte: reg.registerPair.high.value())
+            aR().xOR(byte: reg.high())
             instructionComplete(states: 8)
         case 0xAD:
-            aR().xOR(byte: reg.registerPair.low.value())
+            aR().xOR(byte: reg.low())
             instructionComplete(states: 8)
         case 0xAE:
             aR().xOR(byte: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0xB4:
-            aR().oR(byte: reg.registerPair.high.value())
+            aR().oR(byte: reg.high())
             instructionComplete(states: 8)
         case 0xB5:
-            aR().oR(byte: reg.registerPair.low.value())
+            aR().oR(byte: reg.low())
             instructionComplete(states: 8)
         case 0xB6:
             aR().oR(byte: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0xBC:
-            aR().compare(byte: reg.registerPair.high.value())
+            aR().compare(byte: reg.high())
             instructionComplete(states: 8)
         case 0xBD:
-            aR().compare(byte: reg.registerPair.low.value())
+            aR().compare(byte: reg.low())
             instructionComplete(states: 8)
         case 0xBE:
             aR().compare(byte: fetchRam(location: targetByte))

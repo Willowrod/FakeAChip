@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 extension Speccy {
-    func performInInternal(port: UInt8, map: UInt8, destination: Register){
+    func performInInternal(port: UInt8, map: UInt8, destination: AvailableRegister){
         if (port == 0xfe){
             var byteVal: UInt8 = 0x1f
             switch map{
@@ -45,25 +45,46 @@ extension Speccy {
 
                     resume()
                 }
-
-          //      print("Loading \(destination.name) with \(byteVal.hex())")
             }
-            destination.inCommand(byte: byteVal)
+            updateIn(register: destination, value: byteVal)
+            //destination.inCommand(byte: byteVal)
         } else if port == 0x7f {
             //           print("Checking for Fuller Joystick")
             //             destination.inCommand(byte: kempston)
         } else if port == 0x1f {
-            destination.inCommand(byte: kempston)
+            updateIn(register: destination, value: kempston)
+            //destination.inCommand(byte: kempston)
             //          print("Checking for Kempston Joystick")
         } else {
             //           print("Checking port \(port.hex())")
         }
     }
     
-    func performOutInternal(port: UInt8, map: UInt8, source: Register) {
+    func updateIn(register: AvailableRegister, value: UInt8){
+        switch register {
+        case .A:
+            AF.accumilator.inCommand(byte: value)
+        case .B:
+            BC.inHigh(value: value)
+        case .C:
+            BC.inLow(value: value)
+        case .D:
+            DE.inHigh(value: value)
+        case .E:
+            DE.inLow(value: value)
+        case .H:
+            HL.inHigh(value: value)
+        case .L:
+            HL.inLow(value: value)
+        default:
+            break
+        }
+    }
+    
+    func performOutInternal(port: UInt8, map: UInt8, source: AvailableRegister) {
         if (port == 0xfe){
-            updateBorder(source.value())
-            clicks = source.value() & 24
+            updateBorder(fetchRegisterValue(register: source))
+            clicks = fetchRegisterValue(register: source) & 24
         }
         if (port == 0xfd){
         }
