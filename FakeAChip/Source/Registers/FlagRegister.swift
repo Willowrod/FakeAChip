@@ -20,7 +20,7 @@ class FlagRegister: Register {
     
     
     override func ld(value: UInt8){
-        register = RegisterStruct(byteValue: value)
+        register = value //RegisterStruct(byteValue: value)
     }
     
     func bits5And3(calculatedValue: UInt16){

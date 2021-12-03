@@ -54,7 +54,7 @@ extension Z80 {
             aR().rlcA()
             instructionComplete(states: 4)
         case 0x08:
-            exchange(working: af(), spare: af2())
+            exchangeAF()
             instructionComplete(states: 4)
         case 0x09:
             let oldval = hl().value()
@@ -1012,43 +1012,34 @@ extension Z80 {
             let oldHL = hl().value()
             hl().ld(value: fetchRamWord(location: SP))
             ldRam(location: SP, value: oldHL)
-            // kurrentOpCode= "EX (SP), HL"
             instructionComplete(states: 19) //returnOpCode(v: code, c: "EX (SP),HL", m: " ", l: 1)
         case 0xE4:
             if (!Z80.F.isSet(bit: Flag.PARITY)){
                 call(location: word, length: 3)
-                // kurrentOpCode= "CALL NP - Parity flag not set, Call \(PC.hex())"
                 instructionComplete(states: 17, length: 0)
             } else {
                 instructionComplete(states: 10, length: 3)
-                // kurrentOpCode= "CALL NP - Parity flag set, No Call"
-            } //returnOpCode(v: code, c: "CALL PO,$$", m: " ", l: 3, t: .CODE)
+            }
         case 0xE5:
             push(value: hl().value())
-            // kurrentOpCode= "PUSH HL (HL = \(HL.hex())"
             instructionComplete(states: 11) //returnOpCode(v: code, c: "PUSH HL", m: " ", l: 1)
         case 0xE6:
             aR().aND(byte: byte1)
-            // kurrentOpCode= "AND A,n (\(oldA.hex()) & \(byte1.hex()) = \(a().hex()))"
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "AND ±", m: "Update A to only contain bytes set in both A and the value ±", l: 2)
             break
         case 0xE7:
             call(location: 0x0020)
-            // kurrentOpCode= "RST $20 (Call 0x0020)"
             instructionComplete(states: 11, length: 0)//returnOpCode(v: code, c: "RST &20", m: " ", l: 1)
         case 0xE8:
             if (Z80.F.isSet(bit: Flag.PARITY)){
                 ret()
-                // kurrentOpCode= "RET P - Parity flag set, Return to \(PC.hex())"
                 instructionComplete(states: 11, length: 0)
             } else {
-                // kurrentOpCode= "RET P - Parity flag notset, No Return"
                 instructionComplete(states: 5, length: 1)
-            } //returnOpCode(v: code, c: "RET PE", m: " ", l: 1)
+            }
         case 0xE9:
             jump(location: hl().value())
-            // kurrentOpCode= "JP HL"
-            instructionComplete(states: 4, length: 0) //returnOpCode(v: code, c: "JP (HL)", m: " ", l: 1)
+            instructionComplete(states: 4, length: 0)
         case 0xEA:
             if (Z80.F.isSet(bit: Flag.PARITY)){
                 jump(location: word)
@@ -1157,7 +1148,10 @@ extension Z80 {
                         print("-")
             instructionComplete(states: 4, length: 0)
         }
-        R.inc()
+        R = R &+ 1
+        if R >= 0x80 {
+            R = 0x0
+        }
     }
     
 }

@@ -63,6 +63,7 @@ extension UInt8 {
         Z80.F.bits5And3(calculatedValue: newValue)
         return newValue
     }
+
     
     func dec() -> UInt8 {
         let oldValue = self

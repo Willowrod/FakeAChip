@@ -18,10 +18,10 @@ class allTestsP_DD00to7f: BaseTest {
 //    z80.bc().ld(value: 0x0000)
 //    z80.de().ld(value: 0x0000)
 //    z80.hl().ld(value: 0x0000)
-//    z80.af2().ld(value: 0x0000)
-//    z80.bc2().ld(value: 0x0000)
-//    z80.de2().ld(value: 0x0000)
-//    z80.hl2().ld(value: 0x0000)
+//    z80.AF2 = 0
+//    z80.BC2 = 0
+//    z80.DE2 = 0
+//    z80.HL2 = 0
 //    z80.ix().ld(value: 0x0000)
 //    z80.iy().ld(value: 0x0000)
 //    z80.PC = 0x0000
@@ -48,10 +48,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x1426)
     z80.de().ld(value: 0x53ce)
     z80.hl().ld(value: 0x41e3)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x9ec0)
     z80.iy().ld(value: 0x5c89)
     z80.PC = 0x0000
@@ -78,10 +78,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x0e0b)
     z80.de().ld(value: 0x2724)
     z80.hl().ld(value: 0xbe62)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x824f)
     z80.iy().ld(value: 0x760b)
     z80.PC = 0x0000
@@ -108,10 +108,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x4353)
     z80.de().ld(value: 0xbd22)
     z80.hl().ld(value: 0x94d5)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xdade)
     z80.iy().ld(value: 0xaad6)
     z80.PC = 0x0000
@@ -138,10 +138,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x45a1)
     z80.de().ld(value: 0x6de8)
     z80.hl().ld(value: 0x39d3)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xebe7)
     z80.iy().ld(value: 0x05b0)
     z80.PC = 0x0000
@@ -170,10 +170,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xac3c)
     z80.de().ld(value: 0x4d90)
     z80.hl().ld(value: 0x379b)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xd50b)
     z80.iy().ld(value: 0xa157)
     z80.PC = 0x0000
@@ -200,10 +200,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xdcd0)
     z80.de().ld(value: 0xa31b)
     z80.hl().ld(value: 0xd527)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x8cda)
     z80.iy().ld(value: 0xb096)
     z80.PC = 0x0000
@@ -230,10 +230,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x206b)
     z80.de().ld(value: 0xed10)
     z80.hl().ld(value: 0x6eab)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xbb3c)
     z80.iy().ld(value: 0x5ebd)
     z80.PC = 0x0000
@@ -260,10 +260,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xede0)
     z80.de().ld(value: 0xa352)
     z80.hl().ld(value: 0xadea)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x5f40)
     z80.iy().ld(value: 0x82e1)
     z80.PC = 0x0000
@@ -290,10 +290,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x0f0e)
     z80.de().ld(value: 0x72c8)
     z80.hl().ld(value: 0x1f2a)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x5195)
     z80.iy().ld(value: 0x7d8a)
     z80.PC = 0x0000
@@ -321,10 +321,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xb24e)
     z80.de().ld(value: 0xbdbc)
     z80.hl().ld(value: 0xca4e)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xba65)
     z80.iy().ld(value: 0xe7ce)
     z80.PC = 0x0000
@@ -351,10 +351,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xd5e6)
     z80.de().ld(value: 0x9377)
     z80.hl().ld(value: 0xf132)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x7a17)
     z80.iy().ld(value: 0x2188)
     z80.PC = 0x0000
@@ -381,10 +381,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xf2f3)
     z80.de().ld(value: 0xd277)
     z80.hl().ld(value: 0x9153)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xc62f)
     z80.iy().ld(value: 0xb002)
     z80.PC = 0x0000
@@ -411,10 +411,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xb23c)
     z80.de().ld(value: 0x6e11)
     z80.hl().ld(value: 0x5a49)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x0267)
     z80.iy().ld(value: 0xab03)
     z80.PC = 0x0000
@@ -441,10 +441,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xa04a)
     z80.de().ld(value: 0xb49f)
     z80.hl().ld(value: 0xa4a6)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xbd90)
     z80.iy().ld(value: 0x38a1)
     z80.PC = 0x0000
@@ -472,10 +472,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xd1fc)
     z80.de().ld(value: 0xb80b)
     z80.hl().ld(value: 0x8082)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xdea9)
     z80.iy().ld(value: 0x6fd8)
     z80.PC = 0x0000
@@ -504,10 +504,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x4641)
     z80.de().ld(value: 0x1ef6)
     z80.hl().ld(value: 0x10ab)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xc733)
     z80.iy().ld(value: 0x8ec4)
     z80.PC = 0x0000
@@ -535,10 +535,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x2530)
     z80.de().ld(value: 0x5158)
     z80.hl().ld(value: 0x877d)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xb5c6)
     z80.iy().ld(value: 0x8d3c)
     z80.PC = 0x0000
@@ -566,10 +566,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xa334)
     z80.de().ld(value: 0xd79d)
     z80.hl().ld(value: 0x59e4)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xb11a)
     z80.iy().ld(value: 0x4c88)
     z80.PC = 0x0000
@@ -596,10 +596,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xcbb0)
     z80.de().ld(value: 0x36e8)
     z80.hl().ld(value: 0x3f45)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x2702)
     z80.iy().ld(value: 0xb3b9)
     z80.PC = 0x0000
@@ -626,10 +626,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x5c6d)
     z80.de().ld(value: 0xd11d)
     z80.hl().ld(value: 0x1736)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x7298)
     z80.iy().ld(value: 0x2d10)
     z80.PC = 0x0000
@@ -657,10 +657,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xbf29)
     z80.de().ld(value: 0x66f2)
     z80.hl().ld(value: 0x29ef)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x5cc7)
     z80.iy().ld(value: 0x407d)
     z80.PC = 0x0000
@@ -687,10 +687,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x75ec)
     z80.de().ld(value: 0x7531)
     z80.hl().ld(value: 0xae9e)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x3ed8)
     z80.iy().ld(value: 0x03b7)
     z80.PC = 0x0000
@@ -717,10 +717,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x7864)
     z80.de().ld(value: 0x6a5a)
     z80.hl().ld(value: 0x00e2)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xa1aa)
     z80.iy().ld(value: 0x0d6f)
     z80.PC = 0x0000
@@ -748,10 +748,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x6605)
     z80.de().ld(value: 0x8d55)
     z80.hl().ld(value: 0xdef2)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xd94b)
     z80.iy().ld(value: 0x17fb)
     z80.PC = 0x0000
@@ -778,10 +778,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x0d13)
     z80.de().ld(value: 0xc767)
     z80.hl().ld(value: 0x3119)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x4b6d)
     z80.iy().ld(value: 0x030b)
     z80.PC = 0x0000
@@ -808,10 +808,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x85e3)
     z80.de().ld(value: 0x566b)
     z80.hl().ld(value: 0x8f3a)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xd7d7)
     z80.iy().ld(value: 0x4e0b)
     z80.PC = 0x0000
@@ -839,10 +839,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xb617)
     z80.de().ld(value: 0xbb50)
     z80.hl().ld(value: 0x81d1)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xa306)
     z80.iy().ld(value: 0x7a49)
     z80.PC = 0x0000
@@ -869,10 +869,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x24bf)
     z80.de().ld(value: 0x2793)
     z80.hl().ld(value: 0xf925)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xf9a3)
     z80.iy().ld(value: 0x0b82)
     z80.PC = 0x0000
@@ -899,10 +899,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x97a9)
     z80.de().ld(value: 0x400d)
     z80.hl().ld(value: 0x30fe)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x3340)
     z80.iy().ld(value: 0xb3ed)
     z80.PC = 0x0000
@@ -930,10 +930,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x389d)
     z80.de().ld(value: 0x2ff8)
     z80.hl().ld(value: 0x368c)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x8d32)
     z80.iy().ld(value: 0x3512)
     z80.PC = 0x0000
@@ -960,10 +960,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x7f6a)
     z80.de().ld(value: 0x3dc0)
     z80.hl().ld(value: 0xcefb)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x44a0)
     z80.iy().ld(value: 0xc424)
     z80.PC = 0x0000
@@ -990,10 +990,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x268c)
     z80.de().ld(value: 0xd5c8)
     z80.hl().ld(value: 0xbab0)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xb650)
     z80.iy().ld(value: 0x0a93)
     z80.PC = 0x0000
@@ -1020,10 +1020,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xb482)
     z80.de().ld(value: 0xfef4)
     z80.hl().ld(value: 0x62e7)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x6e25)
     z80.iy().ld(value: 0x9655)
     z80.PC = 0x0000
@@ -1050,10 +1050,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x5499)
     z80.de().ld(value: 0x3c8f)
     z80.hl().ld(value: 0x1f64)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xbf35)
     z80.iy().ld(value: 0x0df7)
     z80.PC = 0x0000
@@ -1080,10 +1080,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x1b7a)
     z80.de().ld(value: 0xa55e)
     z80.hl().ld(value: 0x2fc2)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xefc7)
     z80.iy().ld(value: 0xaca0)
     z80.PC = 0x0000
@@ -1110,10 +1110,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x7d1d)
     z80.de().ld(value: 0xb659)
     z80.hl().ld(value: 0x77e8)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x58fa)
     z80.iy().ld(value: 0x006d)
     z80.PC = 0x0000
@@ -1141,10 +1141,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x79b1)
     z80.de().ld(value: 0xca4a)
     z80.hl().ld(value: 0xaaa0)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xce5d)
     z80.iy().ld(value: 0xdd2d)
     z80.PC = 0x0000
@@ -1171,10 +1171,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x511e)
     z80.de().ld(value: 0x336d)
     z80.hl().ld(value: 0x40f6)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x66e7)
     z80.iy().ld(value: 0x5be2)
     z80.PC = 0x0000
@@ -1201,10 +1201,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xefa8)
     z80.de().ld(value: 0xfebd)
     z80.hl().ld(value: 0x07e4)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x5fd8)
     z80.iy().ld(value: 0xb23f)
     z80.PC = 0x0000
@@ -1231,10 +1231,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x2142)
     z80.de().ld(value: 0x2523)
     z80.hl().ld(value: 0x82b3)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x6479)
     z80.iy().ld(value: 0x04a7)
     z80.PC = 0x0000
@@ -1261,10 +1261,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x61f1)
     z80.de().ld(value: 0x4b08)
     z80.hl().ld(value: 0xfa88)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xc37f)
     z80.iy().ld(value: 0xd8f6)
     z80.PC = 0x0000
@@ -1291,10 +1291,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xe2ae)
     z80.de().ld(value: 0x40bd)
     z80.hl().ld(value: 0xf3c0)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x2290)
     z80.iy().ld(value: 0x2749)
     z80.PC = 0x0000
@@ -1321,10 +1321,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x90da)
     z80.de().ld(value: 0x62dc)
     z80.hl().ld(value: 0x7c31)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x412f)
     z80.iy().ld(value: 0x7211)
     z80.PC = 0x0000
@@ -1351,10 +1351,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xff3f)
     z80.de().ld(value: 0x23d4)
     z80.hl().ld(value: 0xc7c7)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x9b70)
     z80.iy().ld(value: 0x20c6)
     z80.PC = 0x0000
@@ -1382,10 +1382,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xf661)
     z80.de().ld(value: 0xb61c)
     z80.hl().ld(value: 0x0f53)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xc648)
     z80.iy().ld(value: 0xfae8)
     z80.PC = 0x0000
@@ -1412,10 +1412,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x9cd4)
     z80.de().ld(value: 0xa293)
     z80.hl().ld(value: 0x647d)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x0d0b)
     z80.iy().ld(value: 0x4a56)
     z80.PC = 0x0000
@@ -1442,10 +1442,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xfe00)
     z80.de().ld(value: 0x231e)
     z80.hl().ld(value: 0x31ec)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x05fa)
     z80.iy().ld(value: 0xea92)
     z80.PC = 0x0000
@@ -1473,10 +1473,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x151c)
     z80.de().ld(value: 0x05c7)
     z80.hl().ld(value: 0xee08)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x3722)
     z80.iy().ld(value: 0x2ec6)
     z80.PC = 0x0000
@@ -1504,10 +1504,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xac1e)
     z80.de().ld(value: 0x63bd)
     z80.hl().ld(value: 0x828b)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x8dff)
     z80.iy().ld(value: 0x94ef)
     z80.PC = 0x0000
@@ -1535,10 +1535,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xb5a3)
     z80.de().ld(value: 0x07de)
     z80.hl().ld(value: 0x0b0c)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x79c6)
     z80.iy().ld(value: 0xae79)
     z80.PC = 0x0000
@@ -1566,10 +1566,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x49c5)
     z80.de().ld(value: 0x3deb)
     z80.hl().ld(value: 0x0125)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x5910)
     z80.iy().ld(value: 0x429a)
     z80.PC = 0x0000
@@ -1597,10 +1597,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xe833)
     z80.de().ld(value: 0xb63e)
     z80.hl().ld(value: 0x734f)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xae4c)
     z80.iy().ld(value: 0xe8c2)
     z80.PC = 0x0000
@@ -1628,10 +1628,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0xd893)
     z80.de().ld(value: 0x4116)
     z80.hl().ld(value: 0xf2d2)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xa181)
     z80.iy().ld(value: 0x3157)
     z80.PC = 0x0000
@@ -1659,10 +1659,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x7705)
     z80.de().ld(value: 0xac92)
     z80.hl().ld(value: 0xa6a1)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x8cde)
     z80.iy().ld(value: 0x7507)
     z80.PC = 0x0000
@@ -1689,10 +1689,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x93fb)
     z80.de().ld(value: 0x6bdd)
     z80.hl().ld(value: 0x3a10)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0xd7cb)
     z80.iy().ld(value: 0xc0f6)
     z80.PC = 0x0000
@@ -1720,10 +1720,10 @@ class allTestsP_DD00to7f: BaseTest {
     z80.bc().ld(value: 0x1f77)
     z80.de().ld(value: 0x6220)
     z80.hl().ld(value: 0x0c40)
-    z80.af2().ld(value: 0x0000)
-    z80.bc2().ld(value: 0x0000)
-    z80.de2().ld(value: 0x0000)
-    z80.hl2().ld(value: 0x0000)
+    z80.AF2 = 0
+    z80.BC2 = 0
+    z80.DE2 = 0
+    z80.HL2 = 0
     z80.ix().ld(value: 0x1cf4)
     z80.iy().ld(value: 0x1a1f)
     z80.PC = 0x0000

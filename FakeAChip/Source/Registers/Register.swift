@@ -8,33 +8,32 @@
 import Foundation
 
 class Register {
-    var register: RegisterStruct = RegisterStruct(byteValue: 0xFF)
+    var register: UInt8 = 0xff  //RegisterStruct = RegisterStruct(byteValue: 0xFF)
     var name: String = "Unknown"
     
     init(value: UInt8) {
-        register = RegisterStruct(byteValue: value)
+        register = value //RegisterStruct(byteValue: value)
     }
     
     init(value: UInt8, name: String) {
-        register = RegisterStruct(byteValue: value)
+        register = value // = RegisterStruct(byteValue: value)
         self.name = name
     }
     
     func value() -> UInt8 {
-        return register.byteValue
+        return register //.byteValue
     }
     
     func hexValue() -> String {
-        return String(register.byteValue, radix: 16).uppercased().padded()
+        return String(register, radix: 16).uppercased().padded() //.byteValue
     }
     
     func stringValue() -> String {
-        return String(register.byteValue)
+        return String(register) //
     }
     
     func ld(value: UInt8){
-       // register = RegisterStruct(byteValue: value)
-        register.byteValue = value
+        register = value
     }
     
     func setBit(bit: Int) {
@@ -47,12 +46,12 @@ class Register {
     
     func set(bit: Int) {
         //register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
-        register.byteValue = register.byteValue | 1 << bit
+        register = register | 1 << bit
     }
     
     func clear(bit: Int) {
         //register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
-        register.byteValue = register.byteValue & ~(1 << bit)
+        register = register & ~(1 << bit)
     }
     
     func set(bit: Int, value: Bool) {
@@ -64,7 +63,7 @@ class Register {
     }
     
     func readBit(bit: Int) -> Bool {
-        return register.byteValue.isSet(bit: bit)
+        return register.isSet(bit: bit)
     }
     
     func isSet(bit: Int) -> Bool {

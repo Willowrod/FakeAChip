@@ -27,4 +27,8 @@ extension UInt16 {
     func ignore3And5() -> UInt16 {
         return (self & ~(1 << 3) & ~(1 << 5))
     }
+    
+    func value() -> UInt16 {
+        return self
+    }
 }

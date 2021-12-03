@@ -138,7 +138,6 @@
 		CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D526C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
 		CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
-		CDA172522603811000910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -176,7 +175,6 @@
 		CDA172B62604B37000910C23 /* allTestsP_DDCB00to7f.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729D2604B37000910C23 /* allTestsP_DDCB00to7f.swift */; };
 		CDA172B82604B37000910C23 /* allTestsP_CB80toff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1729E2604B37000910C23 /* allTestsP_CB80toff.swift */; };
 		CDA172C22604B44000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
-		CDA172C62604B44A00910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
 		CDA172CA2604B4A300910C23 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
 		CDA172DE2605016F00910C23 /* VDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172DD2605016F00910C23 /* VDU.swift */; };
 		CDA172DF2605016F00910C23 /* VDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172DD2605016F00910C23 /* VDU.swift */; };
@@ -450,7 +448,6 @@
 		CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerDataSection.swift; sourceTree = "<group>"; };
 		CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerValueSection.swift; sourceTree = "<group>"; };
-		CDA172512603811000910C23 /* RegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStruct.swift; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
 		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
 		CDA1725E2604962100910C23 /* ZX128k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX128k.rom; sourceTree = "<group>"; };
@@ -933,7 +930,6 @@
 				CD89146A25FFBF0B00C75998 /* Accumilator.swift */,
 				CD89146B25FFBF0B00C75998 /* Register.swift */,
 				CD89146C25FFBF0B00C75998 /* RegisterPair.swift */,
-				CDA172512603811000910C23 /* RegisterStruct.swift */,
 				CDA172562603828000910C23 /* RegisterPairStruct.swift */,
 				CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */,
 			);
@@ -1478,7 +1474,6 @@
 				CD0CC5A625FA6C4000731EDA /* Z80Format.swift in Sources */,
 				CD0CC5E725FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914882600EA6800C75998 /* CPU.swift in Sources */,
-				CDA172522603811000910C23 /* RegisterStruct.swift in Sources */,
 				CD16BD0826D4FFC900151830 /* Speccy+IO.swift in Sources */,
 				CDEF98762610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CD0CC5AE25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
@@ -1608,7 +1603,6 @@
 				CDD5FD0F26F12A87009C3822 /* Orientation.swift in Sources */,
 				CDA172AE2604B37000910C23 /* allTestsP_FDCB80toff.swift in Sources */,
 				CDA172A02604B37000910C23 /* allTestsP_DD00to7f.swift in Sources */,
-				CDA172C62604B44A00910C23 /* RegisterStruct.swift in Sources */,
 				CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */,
 				CDEF9986261263FA00729043 /* OpCode.swift in Sources */,
 				CDD5FD1026F12A8E009C3822 /* EnvironmentSettings.swift in Sources */,

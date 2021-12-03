@@ -20,32 +20,20 @@ class AFRegisterPair: RegisterPair {
         }
     
     override func ld(pair: RegisterPair){
-    //    if (name == "AF"){
             Z80.F.ld(value: pair.registerPair.low.value())
             Z80.A.ld(value: pair.registerPair.high.value())
         
         registerPair.high.register = pair.registerPair.high.register
         registerPair.low.register = pair.registerPair.low.register
-        
-        //    registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
-//        } else {
-//            registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value(), name: registerPair.high.name), low: Register(value: pair.registerPair.low.value(), name: registerPair.low.name), name: registerPair.name)
-//        }
     }
     
     override func ld(value: UInt16){
         let high = UInt8(value / 256)
         let low = UInt8(value - UInt16(high) * 256)
- //       if (name == "AF"){
             Z80.F.ld(value: low)
             Z80.A.ld(value: high)
-        
-        registerPair.high.register.byteValue = high
-        registerPair.low.register.byteValue = low
-            //registerPair = RegisterPairStruct(high: Z80.A, low: Z80.F, name: registerPair.name)
-//        } else {
-//            registerPair = RegisterPairStruct(high: Register(value: high, name: registerPair.high.name), low: Register(value: low, name: registerPair.low.name), name: registerPair.name)
-//        }
+        registerPair.high.register = high //.byteValue
+        registerPair.low.register = low //.byteValue
     }
     
 }

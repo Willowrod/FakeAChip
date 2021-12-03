@@ -16,21 +16,26 @@ import AVFoundation
 class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")
-    var AF = AFRegisterPair("AF", highValue: 0x00, lowValue: 0x00, id: 0)
+    var AF = AFRegisterPair("AF", highValue: 0x00, lowValue: 0x80, id: 0)
     var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
     var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
     var HL = RegisterPair("HL", highValue: 0x00, lowValue: 0x00, id: 3)
     var IX = RegisterPair("IX", highValue: 0x00, lowValue: 0x00, id: 4)
     var IY = RegisterPair("IY", highValue: 0x00, lowValue: 0x00, id: 5)
-    var AF2 = RegisterPair("AF2", highValue: 0x00, lowValue: 0x00, id: 6)
-    var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
-    var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
-    var HL2 = RegisterPair("HL2", highValue: 0x00, lowValue: 0x00, id: 9)
-    var sparePair = RegisterPair("Spare", highValue: 0x00, lowValue: 0x00, id: 10)
-    var I: Register = Register(value: 0x00, name: "I")
+//    var AF2 = RegisterPair("AF2", highValue: 0x00, lowValue: 0x00, id: 6)
+//    var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
+//    var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
+//    var HL2 = RegisterPair("HL2", highValue: 0x00, lowValue: 0x00, id: 9)
+//    var sparePair = RegisterPair("Spare", highValue: 0x00, lowValue: 0x00, id: 10)
+    var AF2: UInt16 = 0x0
+    var BC2: UInt16 = 0x0
+    var DE2: UInt16 = 0x0
+    var HL2: UInt16 = 0x0
+    var sparePair: UInt16 = 0x0
+    var I: UInt8 = 0x0  //Register = Register(value: 0x00, name: "I")
     var interupt: Bool = true
     var interupt2: Bool = true
-    var R: Register = Refresh(value: 0x00, name: "R")
+    var R: UInt8 = 0x0  //Register = Refresh(value: 0x00, name: "R")
     var SP: UInt16 = 0
     var MEMPTR: UInt16 = 0
     var pagingByte: UInt8 = 0
@@ -171,19 +176,19 @@ class Z80: CPU {
         return DE
     }
     
-    func af2() -> RegisterPair{
+    func af2() -> UInt16{
         return AF2
     }
     
-    func hl2() -> RegisterPair{
+    func hl2() -> UInt16{
         return HL2
     }
     
-    func bc2() -> RegisterPair{
+    func bc2() -> UInt16{
         return BC2
     }
     
-    func de2() -> RegisterPair{
+    func de2() -> UInt16{
         return DE2
     }
     
@@ -199,16 +204,30 @@ class Z80: CPU {
         
     }
     
+    func exchangeAF(){
+        sparePair = AF.value()
+        AF.ld(value: AF2)
+        AF2 = sparePair
+    }
+    
     func exchange(working: RegisterPair, spare: RegisterPair){
-        sparePair.ld(pair: working)
+        sparePair = working.value()
         working.ld(pair: spare)
-        spare.ld(pair: sparePair)
+        spare.ld(value: sparePair)
     }
     
     func exchangeAll(){
-        exchange(working: BC, spare: BC2)
-        exchange(working: DE, spare: DE2)
-        exchange(working: HL, spare: HL2)
+        sparePair = BC.value()
+        BC.ld(value: BC2)
+        BC2 = sparePair
+        
+            sparePair = DE.value()
+            DE.ld(value: DE2)
+            DE2 = sparePair
+        
+            sparePair = HL.value()
+            HL.ld(value: HL2)
+            HL2 = sparePair
     }
     
     func initialiseRegisters(header: RegisterModel){

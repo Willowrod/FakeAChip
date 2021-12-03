@@ -50,7 +50,7 @@ extension Speccy {
                         case 1:
                             PC = 0x0038
                         default:
-                            let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
+                            let intAddress = (UInt16(I) * UInt16(256)) &+ UInt16(R)
                             PC = fetchRamWord(location: intAddress)
                             if miscDebug {
                                 print("IM2 triggered at \(intAddress.hex()) and processes from \(PC.hex())")

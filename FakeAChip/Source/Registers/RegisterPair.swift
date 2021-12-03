@@ -54,7 +54,6 @@ class RegisterPair {
     }
     
     func ld(pair: RegisterPair){
-        // registerPair = RegisterPairStruct(high: Register(value: pair.registerPair.high.value(), name: registerPair.high.name), low: Register(value: pair.registerPair.low.value(), name: registerPair.low.name), name: registerPair.name)
         
         registerPair.high.register = pair.registerPair.high.register
         registerPair.low.register = pair.registerPair.low.register
@@ -64,8 +63,8 @@ class RegisterPair {
         let high = UInt8(value / 256)
         let low = UInt8(value - UInt16(high) * 256)
         
-        registerPair.high.register.byteValue = high
-        registerPair.low.register.byteValue = low
+        registerPair.high.register = high
+        registerPair.low.register = low
         
         //        if (name == "AF"){
         //            Z80.F.ld(value: low)

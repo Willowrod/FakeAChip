@@ -37,7 +37,7 @@ extension Z80 {
             interuptMode = 0
         instructionComplete(states: 8)
         case 0x47: //LD I,A
-            I.ld(value: a())
+            I = a() //.ld(value: a())
             instructionComplete(states: 9)
         case 0x48: // TODO: IN C, (C)
             performIn(port: c(), map: b(), destination: cR())
@@ -61,7 +61,7 @@ extension Z80 {
             interuptMode = 1
         instructionComplete(states: 8)
         case 0x4F: // LD R,A
-            R.ld(value: a())
+            R = a()
         instructionComplete(states: 4)
         case 0x50: // TODO: IN D, (C)
             performIn(port: c(), map: b(), destination: dR())
@@ -85,7 +85,7 @@ extension Z80 {
             interuptMode = 1
         instructionComplete(states: 8)
         case 0x57: // LD A,I // TODO: LD A, I
-            aR().ld(value: I.value())
+            aR().ld(value: I)
         instructionComplete(states: 9)
         case 0x58: // TODO: IN E, (C)
             performIn(port: c(), map: b(), destination: eR())
@@ -109,7 +109,7 @@ extension Z80 {
             interuptMode = 2
         instructionComplete(states: 8)
         case 0x5F: // LD A,R
-            aR().ld(value: R.value())
+            aR().ld(value: R)
         instructionComplete(states: 9)
         case 0x60: // TODO: IN H, (C)
             performIn(port: c(), map: b(), destination: hR())
@@ -436,7 +436,10 @@ extension Z80 {
             print("Potential Unknown code ED\(String(byte, radix: 16)) From \(PC.hex())")
             print("-")
         }
-        R.inc()
+        R = R &+ 1
+        if R >= 0x80 {
+            R = 0x0
+        }
     }
     
     
