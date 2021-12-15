@@ -14,6 +14,8 @@
 		CD0541D1262B27A800221FC9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD0541D0262B27A800221FC9 /* Zip */; };
 		CD05A8B9275A73E100BC9868 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */; };
 		CD05A8BA275A73E100BC9868 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */; };
+		CD08C2A9275E5BC8006EAFF7 /* loader.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD08C2A8275E5BC8006EAFF7 /* loader.z80 */; };
+		CD08C2AA275E5BC8006EAFF7 /* loader.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD08C2A8275E5BC8006EAFF7 /* loader.z80 */; };
 		CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
 		CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
@@ -370,6 +372,7 @@
 		CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80BlockDisassembly.swift; sourceTree = "<group>"; };
 		CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyUndefinedAsCodeSection.swift; sourceTree = "<group>"; };
 		CD05A8B8275A73E100BC9868 /* AvailableRegisters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRegisters.swift; sourceTree = "<group>"; };
+		CD08C2A8275E5BC8006EAFF7 /* loader.z80 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loader.z80; sourceTree = "<group>"; };
 		CD0CC53A25FA6BD400731EDA /* FakeAChip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeAChip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -959,6 +962,7 @@
 		CDA1725C260495F800910C23 /* ZXSpectrumFamily */ = {
 			isa = PBXGroup;
 			children = (
+				CD08C2A8275E5BC8006EAFF7 /* loader.z80 */,
 				CDA172602604962100910C23 /* ZX48k.rom */,
 				CDA1725E2604962100910C23 /* ZX128k.rom */,
 				CDA1725F2604962100910C23 /* ZX128k+2.rom */,
@@ -1370,6 +1374,7 @@
 				CDD319442745A84900C1DA4D /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
 				CDD319702745A84900C1DA4D /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */,
 				CDD319312745A84900C1DA4D /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */,
+				CD08C2A9275E5BC8006EAFF7 /* loader.z80 in Resources */,
 				CDA172612604962100910C23 /* ZX128k+3.rom in Resources */,
 				CDD3192B2745A84900C1DA4D /* Devils of the Deep (1983)(Richard Shepherd Software).zip in Resources */,
 			);
@@ -1380,6 +1385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
+				CD08C2AA275E5BC8006EAFF7 /* loader.z80 in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,

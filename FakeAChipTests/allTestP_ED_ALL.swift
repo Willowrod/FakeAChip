@@ -2811,6 +2811,7 @@ class allTestP_ED_ALL: BaseTest {
     func testedb0_2() throws {
     loadRam(location: 0x4000, data:[0xed,0xb0])
     loadRam(location: 0x8000, data:[0x12,0x34])
+    loadRam(location: 0xc000, data:[0x00,0x00])
     z80.af().ld(value: 0x0000)
     z80.bc().ld(value: 0x0001)
     z80.de().ld(value: 0xc000)
@@ -2838,6 +2839,7 @@ class allTestP_ED_ALL: BaseTest {
     XCTAssert(z80.ix().value() == 0x0000)
     XCTAssert(z80.iy().value() == 0x0000)
     XCTAssert(z80.fetchRam(location: 0xc000) == 0x12)
+        XCTAssert(z80.fetchRam(location: 0xc001) == 0x00)
     XCTAssert(z80.PC == 0x4002)
     XCTAssert(z80.SP == 0x0000)
     }
@@ -2926,7 +2928,7 @@ class allTestP_ED_ALL: BaseTest {
 //    z80.SP = 0x0000
 //    z80.MEMPTR = 0x0000
 //    z80.opCode(byte: 0xed)
-//    XCTAssert(z80.af().value() == 0xf487)
+//        XCTAssert(z80.af().value().ignore3And5() == UInt16(0xf487).ignore3And5())
 //    XCTAssert(z80.bc().value() == 0x0007)
 //    XCTAssert(z80.de().value() == 0xe4e0)
 //    XCTAssert(z80.hl().value() == 0x9826)

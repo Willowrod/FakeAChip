@@ -32,9 +32,9 @@ class Z80Format: BaseFileFormat {
         
         importDataFromString(data: dataString)
         process()
-        if (registers.registerPC == 0x00){
-        registers.shouldReturn = true
-        }
+//        if (registers.registerPC == 0x00){
+//        registers.shouldReturn = true
+//        }
     }
     
     
@@ -164,6 +164,7 @@ class Z80Format: BaseFileFormat {
         // End of V1 header - Check for V2 header:
         
         if (registers.registerPC == 0x00){
+            registers.shouldReturn = true
             // Signifies V 2 or 3
             /*
              * 30      2       Length of additional header block (see below)
