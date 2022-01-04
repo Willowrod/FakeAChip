@@ -131,6 +131,7 @@
 		CD8914892600EA6800C75998 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8914872600EA6800C75998 /* CPU.swift */; };
 		CD891491260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
 		CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
+		CD99FA4A2771B62800C5167B /* ZX_ULA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD99FA492771B62800C5167B /* ZX_ULA.swift */; };
 		CD9AD732267C88E80095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
 		CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
 		CD9AD734267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
@@ -447,6 +448,7 @@
 		CD89147D25FFC22500C75998 /* RegisterSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetView.swift; sourceTree = "<group>"; };
 		CD8914872600EA6800C75998 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		CD891490260202FD00C75998 /* RegisterSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSetModel.swift; sourceTree = "<group>"; };
+		CD99FA492771B62800C5167B /* ZX_ULA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZX_ULA.swift; sourceTree = "<group>"; };
 		CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerDataSection.swift; sourceTree = "<group>"; };
 		CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerValueSection.swift; sourceTree = "<group>"; };
@@ -711,12 +713,11 @@
 		CD0CC57025FA6C3F00731EDA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CD99FA472771B5E900C5167B /* Chips */,
 				CD26460226DD6A8A0072B09F /* HelperFunctions */,
 				CDA172EC2608858E00910C23 /* Debug */,
 				CDA172E32605520100910C23 /* Controls */,
-				CDA1726F260498C500910C23 /* Processor */,
 				CDC8C553260261A10010EBF7 /* Common */,
-				CD8914862600EA5300C75998 /* CPU */,
 				CD89146725FFBF0B00C75998 /* Registers */,
 				CD0CC5E525FF583800731EDA /* SharedComponents */,
 				CD0CC57125FA6C3F00731EDA /* Constants */,
@@ -946,6 +947,24 @@
 				CD8914872600EA6800C75998 /* CPU.swift */,
 			);
 			path = CPU;
+			sourceTree = "<group>";
+		};
+		CD99FA472771B5E900C5167B /* Chips */ = {
+			isa = PBXGroup;
+			children = (
+				CD99FA482771B61000C5167B /* CustomChips */,
+				CD8914862600EA5300C75998 /* CPU */,
+				CDA1726F260498C500910C23 /* Processor */,
+			);
+			path = Chips;
+			sourceTree = "<group>";
+		};
+		CD99FA482771B61000C5167B /* CustomChips */ = {
+			isa = PBXGroup;
+			children = (
+				CD99FA492771B62800C5167B /* ZX_ULA.swift */,
+			);
+			path = CustomChips;
 			sourceTree = "<group>";
 		};
 		CDA1725B260495EE00910C23 /* Roms */ = {
@@ -1514,6 +1533,7 @@
 				CDA17281260498C600910C23 /* Z80+OpCodeDDFD.swift in Sources */,
 				CDA172EE2608859F00910C23 /* DebugModel.swift in Sources */,
 				CDEF99E22614BF7A00729043 /* TypeSelector.swift in Sources */,
+				CD99FA4A2771B62800C5167B /* ZX_ULA.swift in Sources */,
 				CD51D4792642B968003C2A9A /* ZXTapeLoader.swift in Sources */,
 				CD2D7F952716D3C20067BA19 /* LoggingView.swift in Sources */,
 				CD0CC5A825FA6C4000731EDA /* Speccy.swift in Sources */,
@@ -1836,7 +1856,6 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1866,7 +1885,6 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
