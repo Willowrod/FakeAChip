@@ -120,7 +120,7 @@ extension Z80 {
                 instructionComplete(states: 8)
             } else {
                 let changeRam = fetchRam(registerPair: hl())
-                changeRam.testBit(bit: opCodeOffset - 8, memPtr: MEMPTR)
+                changeRam.testBitRAM(bit: opCodeOffset - 8)
                 instructionComplete(states: 12)
             }
         case 16...23: //BIT 0

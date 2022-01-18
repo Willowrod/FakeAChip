@@ -195,6 +195,7 @@
 		CDAA066826EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
 		CDAA066926EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */; };
 		CDB0FDAB26FDBA03002F3964 /* AFRegisterPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */; };
+		CDB831B327906B32001C9D97 /* circle.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CDB831B227906B32001C9D97 /* circle.z80 */; };
 		CDC3E8E22722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */; };
 		CDC3E8E32722A03300B8796A /* Z80+OpcodeDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */; };
 		CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
@@ -487,6 +488,7 @@
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
 		CDAA066726EDF3E000D66BA0 /* SpectrumCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumCanvas.swift; sourceTree = "<group>"; };
 		CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFRegisterPair.swift; sourceTree = "<group>"; };
+		CDB831B227906B32001C9D97 /* circle.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = circle.z80; sourceTree = "<group>"; };
 		CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeDebug.swift"; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 				CDD318EC2745A84600C1DA4D /* 720 Degrees (1986)(U.S. Gold).zip */,
 				CDD318F72745A84600C1DA4D /* Action Biker (1985)(Mastertronic).zip */,
 				CDD319032745A84700C1DA4D /* Ant Attack (1983)(Quicksilva).zip */,
+				CDB831B227906B32001C9D97 /* circle.z80 */,
 				CDD319242745A84800C1DA4D /* Back to Skool (1985)(Microsphere).zip */,
 				CDD319262745A84900C1DA4D /* Bard's Tale, The (1988)(Electronic Arts).zip */,
 				CDD318F32745A84600C1DA4D /* Booty (1984)(Firebird Software).zip */,
@@ -1350,6 +1353,7 @@
 				CDD319692745A84900C1DA4D /* Technician Ted (1984)(Hewson Consultants).zip in Resources */,
 				CDD319542745A84900C1DA4D /* Dun Darach (1985)(Gargoyle Games).zip in Resources */,
 				CDD3195A2745A84900C1DA4D /* Ship of the Line (1982)(Richard Shepherd Software).zip in Resources */,
+				CDB831B327906B32001C9D97 /* circle.z80 in Resources */,
 				CDD319532745A84900C1DA4D /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */,
 				CDD319492745A84900C1DA4D /* Feud (1987)(Bulldog).zip in Resources */,
 				CDD319512745A84900C1DA4D /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */,

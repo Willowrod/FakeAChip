@@ -295,17 +295,14 @@ extension Z80 {
 
                 
         case 0xB0: // LDIR
-
-            ldRam(location: de().value(), value: fetchRam(location: hl().value()))
-                        let bit35Bit = fetchRam(location: hl().value()) &+ a()
-                            Z80.F.set(bit: 3, value: bit35Bit.isSet(bit: 3))
-                            Z80.F.set(bit: 5, value: bit35Bit.isSet(bit: 1))
+var originalByte = fetchRam(location: hl().value())
+            ldRam(location: de().value(), value: originalByte)
+            bc().dec()
+            originalByte = originalByte &+ a()
+            Z80.F.ld(value: (Z80.F.value() & (Z80.cBit | Z80.zBit | Z80.sBit)) | (bc().value() > 0 ? Z80.pvBit : 0) | (originalByte & Z80.threeBit) | ((originalByte & 0x02) > 0 ? Z80.fiveBit : 0)
                  de().inc()
                  hl().inc()
-                 bc().dec()
-                 Z80.F.clear(bit: Flag.HALF_CARRY)
-                 Z80.F.clear(bit: Flag.SUBTRACT)
-                 Z80.F.set(bit: Flag.PARITY, value: bc().value() != 1)
+
                  if (bc().value() != 0){
                      PC = PC &- 1
                  instructionComplete(states: 21, length: 0)
@@ -314,29 +311,28 @@ extension Z80 {
              instructionComplete(states: 16)
                  }
         case 0xB1: // CPI
-            
-            let carry = Z80.F.isSet(bit: Flag.CARRY)
-            aR().compare(byte: fetchRam(location: hl().value()))
-            let zero = Z80.F.isSet(bit: Flag.ZERO)
-            hl().inc()
-            bc().dec()
-            Z80.F.set(bit: Flag.ZERO, value: zero)
-            Z80.F.set(bit: Flag.CARRY, value: carry)
+                     
+             let originalByte = fetchRam(location: hl().value())
+                     var temp = a() &- originalByte
+                     
+                     let lookup = ((a() & 0x08) >> 3) | ((originalByte & 0x08) >> 2) | ((temp & 0x08) >> 1)
+                    bc().dec()
+                     
+                     Z80.F.ld(value: (Z80.F.value() & Z80.cBit) | (bc().value() > 0 ? (Z80.pvBit | ZilogZ80.nBit) : ZilogZ80.nBit) | Z80.halfCarrySub[Int(lookup)] | (temp > 0 ? 0 : Z80.zBit) | (temp & Z80.sBit))
+                     
+                     if Z80.F.value() & Z80.hBit > 0 {
+                temp = temp &- 1
+            }
+                     Z80.F.ld(value: Z80.F.value() | (temp & Z80.threeBit) | ((temp & 0x02) > 0 ? Z80.fiveBit : 0))
+                hl().inc()
+                     
             if (zero || bc().value() == 0){
                 instructionComplete(states: 16)
-                Z80.F.set(bit: Flag.PARITY, value: bc().value() != 0)
-//                let bits35Value = Int(a()) - Int(fetchRam(location: hl().value())) - Int(h())
-//                Z80.F.set(bit: 5, value: bits35Value < 0)
-                let hFlag: UInt8 = Z80.F.isSet(bit: Flag.HALF_CARRY) ? 0x01 : 0x00
-                let bits35Value = a() &- fetchRam(location: hl().value()) &- hFlag
-                Z80.F.set(bit: 3, value: UInt8(bits35Value).isSet(bit: 3))
-                Z80.F.set(bit: 5, value: UInt8(bits35Value).isSet(bit: 1))
             } else {
                 PC = PC &- 1
-                Z80.F.set(bit: Flag.PARITY)
                 instructionComplete(states: 21, length: 0)
             }
-            
+//
             
             
         case 0xB2: // TODO: INIR

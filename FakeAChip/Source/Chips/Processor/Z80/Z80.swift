@@ -67,6 +67,25 @@ class Z80: CPU {
     var goodOps: Int = 0
     
     
+    static var sz53pvTable: [UInt8] = []
+    static var sz53Table:   [UInt8] = []
+    static var parityBit:   [UInt8] = []
+    
+    static let cBit:     UInt8 = 1 << 0
+    static let nBit:     UInt8 = 1 << 1
+    static let pvBit:    UInt8 = 1 << 2
+    static let threeBit: UInt8 = 1 << 3
+    static let hBit:     UInt8 = 1 << 4
+    static let fiveBit:  UInt8 = 1 << 5
+    static let zBit:     UInt8 = 1 << 6
+    static let sBit:     UInt8 = 1 << 7
+    
+    static let halfCarryAdd:  [UInt8] = [0, 1 << 4, 1 << 4, 1 << 4, 0, 0, 0, 1 << 4]
+    static let halfCarrySub:  [UInt8] = [0, 0, 1 << 4, 0, 1 << 4, 0, 1 << 4, 1 << 4]
+    static let overFlowAdd:   [UInt8] = [0, 0, 0, 1 << 2, 1 << 2, 0, 0, 0]
+    static let overFlowSub:   [UInt8] = [0, 1 << 2, 0, 0, 0, 0, 1 << 2, 0]
+    
+    
     override init() {
         super.init()
         allocateMemory()
@@ -78,9 +97,32 @@ class Z80: CPU {
         iy().ld(value: 23610)
         PC = 0
         SP = 0
-        
+        calculateTables()
 
         
+    }
+    
+    func calculateTables() {
+        for ii in 0...255 {
+            Z80.sz53Table.append(UInt8(ii) & (Z80.threeBit | Z80.fiveBit | Z80.sBit))
+            var j = UInt(ii)
+            var parity:UInt8 = 0
+            for _ in 0...7 {
+                parity = parity ^ UInt8(j) & 1
+                j = j >> 1
+            }
+            
+            if parity == 0 {
+                Z80.parityBit.append(0)
+            } else {
+                Z80.parityBit.append(Z80.pvBit)
+            }
+            
+            Z80.sz53pvTable.append(Z80.sz53Table[ii] | Z80.parityBit[ii])
+        }
+        
+        Z80.sz53Table[0]   = Z80.sz53Table[0]   | Z80.zBit
+        Z80.sz53pvTable[0] = Z80.sz53pvTable[0] | Z80.zBit
     }
     
     func accumilator() -> Accumilator{
@@ -313,7 +355,7 @@ print("Writing nothing to RAM....")
             postProcessorDebug = data.headerData.debugPostProcessor
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
-            isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
+     //       isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
         }
     }
     

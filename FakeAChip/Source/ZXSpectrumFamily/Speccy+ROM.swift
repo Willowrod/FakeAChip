@@ -41,7 +41,7 @@ extension Speccy {
         if (testMode){
             rom[location] = value
         } else {
-            print("Cannot write to ROM from PC:\(PC.hex()) to \(UInt16(location).hex()) with value: \(value.hex())")
+     //       print("Cannot write to ROM from PC:\(PC.hex()) to \(UInt16(location).hex()) with value: \(value.hex())")
         }
     }
 }

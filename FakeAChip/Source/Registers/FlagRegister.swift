@@ -23,6 +23,10 @@ class FlagRegister: Register {
         register = RegisterStruct(byteValue: value)
     }
     
+    func ld(value: Int){
+        ld(value: UInt8(value))
+    }
+    
     func bits5And3(calculatedValue: UInt16){
         var byteValue = value()
         byteValue = byteValue & ~FLAG_3 | calculatedValue.highByte() & FLAG_3
@@ -176,12 +180,9 @@ class FlagRegister: Register {
     }
 
     func ccf(acc: UInt8){
-        var byteValue = value()
-        byteValue = byteValue.set(bit: Flag.HALF_CARRY, value: byteValue.isSet(bit: Flag.CARRY))
-        byteValue = byteValue.clear(bit: Flag.SUBTRACT)
-        byteValue = byteValue.set(bit: Flag.CARRY, value: !byteValue.isSet(bit: Flag.CARRY))
-        bits5And3OR(calculatedValue: acc)
-        ld(value: byteValue)
+
+        let newValue = (value() & (Z80.pvBit | Z80.zBit | Z80.sBit)) | ((value() & Z80.cBit) > 0 ? Z80.hBit : Z80.cBit) | (acc & (Z80.threeBit | Z80.fiveBit))
+        ld(value: newValue)
     }
     
 }

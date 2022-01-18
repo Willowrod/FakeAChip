@@ -34,7 +34,7 @@ extension Z80 {
         case 7: //SRL
             changeByte = changeByte.srl()
         case 8...15: //BIT 0
-            changeByte.testBit(bit: opCodeOffset - 8, memPtr: targetByte)
+            changeByte.testBitRAM(bit: opCodeOffset - 8)
             writeBack = false
             instructionComplete(states: 20, length: 3)
         case 16...23: // CLEAR

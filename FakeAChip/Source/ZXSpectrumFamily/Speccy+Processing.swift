@@ -36,14 +36,11 @@ extension Speccy {
             framePair.inc()
             if !pauseProcessor {
                 if (!frameEnds) {
-                    if (shouldRunInterupt){
+                    if (shouldRunInterupt && !isDebugging){
 // Run interupt (if enabled) after every frame
                         interupt = false
                         interupt2 = false
                         push(value: PC)
-                        if miscDebug {
-                            print("Interupt IM\(interuptMode) called")
-                        }
                         switch interuptMode {
                         case 0:
                             PC = 0x0066
@@ -68,15 +65,31 @@ extension Speccy {
                         // TODO: checkForBreakPoint()
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
-//                        if PC == 0x335e {
-//                            print ("AF: \(af().value().hex()) '\(af2().value().hex())")
-//                            print ("BC: \(bc().value().hex()) '\(bc2().value().hex())")
-//                            print ("DE: \(de().value().hex()) '\(de2().value().hex())")
-//                            print ("HL: \(hl().value().hex()) '\(hl2().value().hex())")
-//                            print ("X")
+                        if PC == 0x2320 {
+                            if !isDebugging {
+                            isDebugging = true
+                                HL2.ld(word: 0x58ee)
+                            }
+                            dumpRegisters()
+                        }
+//                        if isDebugging {
+////                        if (PC == 0x3071){
+////                            print("Pre RRA - A: \(a().hex()) (\(a().bin())) - F: \(f().bin())")
+////                         //   dumpRegisters()
+////                        }
+////                        if (PC == 0x3072){
+////                            print("Post RRA - A: \(a().hex()) (\(a().bin())) - F: \(f().bin())")
+////                         //   dumpRegisters()
+////                        }
+////                        if (PC == 0x33c8){
+////                            print("33c8")
+////                            dumpRegisters()
+////                        }
 //                        }
                         if isDebugging {
-                            opCodeDebug(byte: byte)
+                            //opCodeDebug(byte: byte)
+                            print("\(PC.hex()) - \(a().hex()) - F:\(f().bin()) - BC:\(BC.hex()) - DE:\(DE.hex()) - HL:\(HL.hex()) - BC2:\(BC2.hex()) - DE2:\(DE2.hex()) - HL2:\(HL2.hex()) - SP:\(SP.hex())")
+                            opCode(byte: byte)
                         } else {
                             opCode(byte: byte)
                         }
@@ -110,6 +123,24 @@ extension Speccy {
             }
         }
         shouldForceBreak = false
+    }
+    
+    func resetRegisters(){
+        
+            HL2.ld(word: 0x0)
+        BC2.ld(word: 0x0)
+        DE2.ld(word: 0x0)
+        HL.ld(word: 0x0)
+        BC.ld(word: 0x0)
+        DE.ld(word: 0x0)
+            AF.ld(word: 0x0)
+    }
+    
+    func dumpRegisters(){
+                                    print ("AF: \(af().value().hex()) '\(af2().value().hex())")
+                                    print ("BC: \(bc().value().hex()) '\(bc2().value().hex())")
+                                    print ("DE: \(de().value().hex()) '\(de2().value().hex())")
+                                    print ("HL: \(hl().value().hex()) '\(hl2().value().hex())")
     }
     
     func doAdditionalPreProcessingInternal(){
