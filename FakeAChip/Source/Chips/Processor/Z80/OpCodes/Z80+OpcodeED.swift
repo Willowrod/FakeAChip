@@ -13,6 +13,7 @@ extension Z80 {
         let byte1: UInt8 = fetchRam(location: PC &+ 1)
         let byte2: UInt8 = fetchRam(location: PC &+ 2)
         let word: UInt16 = (UInt16(byte2) * 256) + UInt16(byte1)
+        var originalByte : UInt8 = 0x0
         switch byte {
 
         case 0x40: //TODO: IN B,(C)
@@ -295,11 +296,11 @@ extension Z80 {
 
                 
         case 0xB0: // LDIR
-var originalByte = fetchRam(location: hl().value())
+originalByte = fetchRam(location: hl().value())
             ldRam(location: de().value(), value: originalByte)
             bc().dec()
             originalByte = originalByte &+ a()
-            Z80.F.ld(value: (Z80.F.value() & (Z80.cBit | Z80.zBit | Z80.sBit)) | (bc().value() > 0 ? Z80.pvBit : 0) | (originalByte & Z80.threeBit) | ((originalByte & 0x02) > 0 ? Z80.fiveBit : 0)
+            Z80.F.ld(value: (Z80.F.value() & (Z80.cBit | Z80.zBit | Z80.sBit)) | (bc().value() > 0 ? Z80.pvBit : 0) | (originalByte & Z80.threeBit) | ((originalByte & 0x02) > 0 ? Z80.fiveBit : 0))
                  de().inc()
                  hl().inc()
 
@@ -318,14 +319,14 @@ var originalByte = fetchRam(location: hl().value())
                      let lookup = ((a() & 0x08) >> 3) | ((originalByte & 0x08) >> 2) | ((temp & 0x08) >> 1)
                     bc().dec()
                      
-                     Z80.F.ld(value: (Z80.F.value() & Z80.cBit) | (bc().value() > 0 ? (Z80.pvBit | ZilogZ80.nBit) : ZilogZ80.nBit) | Z80.halfCarrySub[Int(lookup)] | (temp > 0 ? 0 : Z80.zBit) | (temp & Z80.sBit))
+                     Z80.F.ld(value: (Z80.F.value() & Z80.cBit) | (bc().value() > 0 ? (Z80.pvBit | Z80.nBit) : Z80.nBit) | Z80.halfCarrySub[Int(lookup)] | (temp > 0 ? 0 : Z80.zBit) | (temp & Z80.sBit))
                      
                      if Z80.F.value() & Z80.hBit > 0 {
                 temp = temp &- 1
             }
                      Z80.F.ld(value: Z80.F.value() | (temp & Z80.threeBit) | ((temp & 0x02) > 0 ? Z80.fiveBit : 0))
                 hl().inc()
-                     
+            let zero = Z80.F.isSet(bit: Flag.ZERO)
             if (zero || bc().value() == 0){
                 instructionComplete(states: 16)
             } else {

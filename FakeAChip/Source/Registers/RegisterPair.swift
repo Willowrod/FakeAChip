@@ -99,20 +99,17 @@ class RegisterPair {
     }
     
     func adc(diff: UInt16){
-        let current:UInt16 = value()
-        var actualDiff = diff
-        if (Z80.F.readBit(bit: Flag.CARRY)){
-            ld(value: current &+ 1 &+ diff)
-            actualDiff = actualDiff &+ 1
-        } else {
-            ld(value: current &+ diff)
-        }
-        Z80.F.set(bit: Flag.CARRY, value: current > value())
-        registerPair.high.value().s53()
-        Z80.F.set(bit: Flag.ZERO, value: value() == 0)
-        Z80.F.set(bit: Flag.OVERFLOW, value: current.highByte().isSet(bit: 7) != registerPair.high.value().isSet(bit: 7))
-        Z80.F.halfCarry(passedValue: actualDiff.highByte(), oldValue: current.highByte())
-        Z80.F.positive()
+        var fVal = Z80.F.value()
+        let add16temp: UInt32 = UInt32(value()) + UInt32(diff) + UInt32(fVal & Z80.cBit)
+        let lookup = ((value() & 0x8800) >> 11) | ((diff & 0x8800) >> 10) | ((UInt16(add16temp & 0xffff) & 0x8800) >> 9)
+        ld(value: UInt16(add16temp & 0xffff))
+        
+        let part1 = (add16temp & 0x10000) > 0 ? Z80.cBit : 0
+        let part2 = Z80.overFlowAdd[UInt8(lookup & 0xff) >> 4]
+        let part3 = high() & (Z80.threeBit | Z80.fiveBit | Z80.sBit)
+        fVal = part1 | part2 | part3 | Z80.halfCarryAdd[UInt8(lookup & 0xff) & 0x07] | (value() > 0 ? 0 : Z80.zBit)
+        Z80.F.ld(value: fVal)
+        
     }
     
     func sub(diff: UInt16){

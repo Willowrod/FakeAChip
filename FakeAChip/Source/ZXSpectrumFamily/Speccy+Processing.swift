@@ -30,13 +30,11 @@ extension Speccy {
     
     func processInternal(){
         currentTStates = 0
-        
-        print ("Spectrum on - processing: \(processing)")
         while processing {
             framePair.inc()
             if !pauseProcessor {
                 if (!frameEnds) {
-                    if (shouldRunInterupt && !isDebugging){
+                    if (shouldRunInterupt){
 // Run interupt (if enabled) after every frame
                         interupt = false
                         interupt2 = false
@@ -65,34 +63,7 @@ extension Speccy {
                         // TODO: checkForBreakPoint()
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
-                        if PC == 0x2320 {
-                            if !isDebugging {
-                            isDebugging = true
-                                HL2.ld(word: 0x58ee)
-                            }
-                            dumpRegisters()
-                        }
-//                        if isDebugging {
-////                        if (PC == 0x3071){
-////                            print("Pre RRA - A: \(a().hex()) (\(a().bin())) - F: \(f().bin())")
-////                         //   dumpRegisters()
-////                        }
-////                        if (PC == 0x3072){
-////                            print("Post RRA - A: \(a().hex()) (\(a().bin())) - F: \(f().bin())")
-////                         //   dumpRegisters()
-////                        }
-////                        if (PC == 0x33c8){
-////                            print("33c8")
-////                            dumpRegisters()
-////                        }
-//                        }
-                        if isDebugging {
-                            //opCodeDebug(byte: byte)
-                            print("\(PC.hex()) - \(a().hex()) - F:\(f().bin()) - BC:\(BC.hex()) - DE:\(DE.hex()) - HL:\(HL.hex()) - BC2:\(BC2.hex()) - DE2:\(DE2.hex()) - HL2:\(HL2.hex()) - SP:\(SP.hex())")
                             opCode(byte: byte)
-                        } else {
-                            opCode(byte: byte)
-                        }
                         self.doAdditionalPostProcessing()
                     }
                     if currentTStates >= tStatesPerFrame {

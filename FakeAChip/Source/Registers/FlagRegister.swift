@@ -173,10 +173,16 @@ class FlagRegister: Register {
     }
 
     func scf(acc: UInt8){
-        clearBit(bit: Flag.HALF_CARRY)
-        clearBit(bit: Flag.SUBTRACT)
-        setBit(bit: Flag.CARRY)
-        bits5And3OR(calculatedValue: acc)
+        var myFlag = value()
+        myFlag &= Z80.zBit | Z80.sBit | Z80.pvBit
+        myFlag |= (acc & (Z80.threeBit | Z80.fiveBit))
+        myFlag |= Z80.cBit
+//
+//        ld(value: value() & Z80.zBit | Z80.sBit | Z80.pvBit)
+//        ld(value: value() | (acc & (Z80.threeBit | Z80.fiveBit)))
+//        ld(value: value() | Z80.cBit)
+        
+        ld(value: myFlag)
     }
 
     func ccf(acc: UInt8){

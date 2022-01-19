@@ -113,6 +113,8 @@
 		CD6791812745073200B4C810 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791802745073200B4C810 /* TestView.swift */; };
 		CD6791822745073200B4C810 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791802745073200B4C810 /* TestView.swift */; };
 		CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7315D9267F861800A15BD4 /* TapePlayerView.swift */; };
+		CD7629BB2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
+		CD7629BC2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
 		CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146825FFBF0B00C75998 /* FlagRegister.swift */; };
@@ -440,6 +442,7 @@
 		CD67917F2744FF5400B4C810 /* ZXDBSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZXDBSDK; path = ../ZXDBSDK; sourceTree = "<group>"; };
 		CD6791802745073200B4C810 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
+		CD7629BA2797201A00FF232B /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
 		CD89145E25FFBEA800C75998 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CD89146825FFBF0B00C75998 /* FlagRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagRegister.swift; sourceTree = "<group>"; };
 		CD89146925FFBF0B00C75998 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
@@ -776,6 +779,7 @@
 				CD0CC57F25FA6C3F00731EDA /* UInt8+Z80.swift */,
 				CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */,
 				CD55A3EF2721F847001A5844 /* Double+Precision.swift */,
+				CD7629BA2797201A00FF232B /* Array+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1528,6 +1532,7 @@
 				CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */,
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
+				CD7629BB2797201A00FF232B /* Array+Helpers.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
 				CD26460426DD6AA00072B09F /* Helpers.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
@@ -1597,6 +1602,7 @@
 				CD0EC6902668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CDEF99AA2612676E00729043 /* DataType.swift in Sources */,
+				CD7629BC2797201A00FF232B /* Array+Helpers.swift in Sources */,
 				CDEF999B261265B000729043 /* CodeListing.swift in Sources */,
 				CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */,
 				CDA172B02604B37000910C23 /* BaseTest.swift in Sources */,

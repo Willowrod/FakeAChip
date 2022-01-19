@@ -237,7 +237,6 @@ extension Z80 {
             instructionComplete(states: 10, length: 2) //returnOpCode(v: code, c: "LD (HL),$$", m: " ", l: 3, t: .DATA)
         case 0x37:
             Z80.F.scf(acc: a())
-            // kurrentOpCode= "SCF ()"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "SCF", m: " ", l: 1)
         case 0x38:
             if (!f().isSet(bit: Flag.CARRY)){
