@@ -248,8 +248,8 @@ extension Speccy {
         snap.add(DE2)
         snap.add(HL2)  // Bit 19
         snap.add(AF2.highByte())
-        snap.add(AF2.lowByte())  // Bit 23
-        snap.add(IY.value())
+        snap.add(AF2.lowByte())
+        snap.add(IY.value())// Bit 23
         snap.add(IX.value())
         if interupt {           // Bit 27
             snap.add(UInt8(0x01))

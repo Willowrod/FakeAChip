@@ -47,10 +47,11 @@ struct ZXTapeLoaderView: View {
                     }
                     ForEach(getGoodFiles(model: model), id: \.self){file in
                         HStack {
-                            Button("Load \(getFileName(path: file.path))"){
-                                download(file.path!, forceLoad: true)
-                            }
+//                            Button("Load \(getFileName(path: file.path))"){
+//                                download(file.path!, forceLoad: true)
+//                            }
                             Button("Insert Cassette"){
+                                tapePlayerData.isShowingTapeSelector = false
                                 download(file.path!, forceLoad: false)
                             }
                         }
@@ -134,7 +135,11 @@ struct ZXTapeLoaderView: View {
         } else {
             computer.download(url: "https://spectrumcomputing.co.uk\(path)")
         }
-        tapePlayerData.tapePlayerState = .Paused
+        if forceLoad {
+            tapePlayerData.tapePlayerState = .Playing
+        } else {
+            tapePlayerData.tapePlayerState = .Paused
+        }
         tapePlayerData.isShowingTapeSelector = false
     }
 }
