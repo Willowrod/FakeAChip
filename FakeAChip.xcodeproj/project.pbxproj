@@ -88,6 +88,8 @@
 		CD2DA792260CF2540022F4EF /* DisassemblyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */; };
 		CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD2DA798260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
+		CD2DB0C8279EBAF400071481 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */; };
+		CD2DB0C9279EBAF400071481 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */; };
 		CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD306C77264C2FC20021AA0A /* ZXDB-SDK */; };
 		CD34EEDE26FB159D00597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
 		CD34EEDF26FB1CB900597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
@@ -428,6 +430,7 @@
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
 		CD2DA78C260CF2500022F4EF /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
+		CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRegisters.swift; sourceTree = "<group>"; };
 		CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ZXColour.swift"; sourceTree = "<group>"; };
 		CD34F5C226FD329B00597392 /* ZXDB-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ZXDB-SDK"; path = "../ZXDB-SDK"; sourceTree = "<group>"; };
 		CD3BD82A267748C600394AB1 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
@@ -744,6 +747,7 @@
 				CD0CC57225FA6C3F00731EDA /* FileFormat.swift */,
 				CD0CC5D925FF54F500731EDA /* SystemConstants.swift */,
 				CD0EC68E2668342100B21E1F /* MediaConstants.swift */,
+				CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1477,6 +1481,7 @@
 				CDEF999A261265B000729043 /* CodeListing.swift in Sources */,
 				CD16BD0726D4FFC900151830 /* Speccy+Processing.swift in Sources */,
 				CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */,
+				CD2DB0C8279EBAF400071481 /* AvailableRegisters.swift in Sources */,
 				CD3BD82E2677495000394AB1 /* TapePlayerData.swift in Sources */,
 				CD16BD0926D4FFC900151830 /* Speccy+Screen.swift in Sources */,
 				CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */,
@@ -1591,6 +1596,7 @@
 				CD89147225FFBF0B00C75998 /* Accumilator.swift in Sources */,
 				CD0CC59D25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CD89147025FFBF0B00C75998 /* Refresh.swift in Sources */,
+				CD2DB0C9279EBAF400071481 /* AvailableRegisters.swift in Sources */,
 				CDA1746826091D6900910C23 /* ZXKeyboard.swift in Sources */,
 				CD67917C2744FEA800B4C810 /* AFRegisterPair.swift in Sources */,
 				CDA172EF2608859F00910C23 /* DebugModel.swift in Sources */,

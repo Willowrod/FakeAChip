@@ -34,10 +34,7 @@ class CPU: CoreDelegate {
     var instructionCompleted = true
     
     // Registers
-    var spareRegister: Register = Register(value: 0x00, name: "Spare")
-    
-  //  var sparePair: UInt16 = 0x0
-    
+    var spareRegister: UInt8 = 0x0 //: Register = Register(value: 0x00, name: "Spare")
     
     // Processor
     var PC: UInt16 = 0

@@ -16,12 +16,12 @@ import AVFoundation
 class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")
-    var AF = AFRegisterPair("AF", highValue: 0x00, lowValue: 0x00, id: 0)
-    var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
-    var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
-    var HL = RegisterPair("HL", highValue: 0x00, lowValue: 0x00, id: 3)
-    var IX = RegisterPair("IX", highValue: 0x00, lowValue: 0x00, id: 4)
-    var IY = RegisterPair("IY", highValue: 0x00, lowValue: 0x00, id: 5)
+    var AF = AFRegisterPair(a: A, f: F)
+    var BC = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 1)
+    var DE = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 2)
+    var HL = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 3)
+    var IX = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 4)
+    var IY = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 5)
 //    var AF2 = RegisterPair("AF2", highValue: 0x00, lowValue: 0x00, id: 6)
 //    var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
 //    var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
@@ -72,6 +72,8 @@ class Z80: CPU {
     var tick: TimeInterval = 0
     var averageTStateInOp: Double = 0.0
     var goodOps: Int = 0
+    
+    var thisPC: UInt16 = 0x0000
     
     
     static var sz53pvTable: [UInt8] = []
@@ -148,30 +150,6 @@ class Z80: CPU {
         return F
     }
     
-    func hR() -> Register{
-        return HL.registerPair.high
-    }
-    
-    func lR() -> Register{
-        return HL.registerPair.low
-    }
-    
-    func bR() -> Register{
-        return BC.registerPair.high
-    }
-    
-    func cR() -> Register{
-        return BC.registerPair.low
-    }
-    
-    func dR() -> Register{
-        return DE.registerPair.high
-    }
-    
-    func eR() -> Register{
-        return DE.registerPair.low
-    }
-    
     func a() -> UInt8{
         return Z80.A.value()
     }
@@ -204,7 +182,7 @@ class Z80: CPU {
         return DE.low()
     }
     
-    func af() -> RegisterPair{
+    func af() -> AFRegisterPair{
         return AF
     }
     
@@ -243,6 +221,38 @@ class Z80: CPU {
     func iy() -> RegisterPair{
         return IY
     }
+    
+    func ldA(value: UInt8) {
+            AF.accumilator.ld(value: value)
+        }
+
+        func ldF(value: UInt8) {
+            AF.flag.ld(value: value)
+        }
+
+        func ldB(value: UInt8) {
+            BC.ldHigh(value: value)
+        }
+
+        func ldC(value: UInt8) {
+            BC.ldLow(value: value)
+        }
+
+        func ldD(value: UInt8) {
+            DE.ldHigh(value: value)
+        }
+
+        func ldE(value: UInt8) {
+            DE.ldLow(value: value)
+        }
+
+        func ldH(value: UInt8) {
+            HL.ldHigh(value: value)
+        }
+
+        func ldL(value: UInt8) {
+            HL.ldLow(value: value)
+        }
     
     func testRegisters(){
         
@@ -298,11 +308,11 @@ print("Writing nothing to RAM....")
     func blitScreen(){
     }
     
-    func performIn(port: UInt8, map: UInt8, destination: Register){
+    func performIn(port: UInt8, map: UInt8, destination: AvailableRegister){
        
     }
     
-    func performOut(port: UInt8, map: UInt8, source: Register) {
+    func performOut(port: UInt8, map: UInt8, source: AvailableRegister) {
        
     }
     

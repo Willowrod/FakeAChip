@@ -17,10 +17,10 @@ extension Z80 {
         switch byte {
 
         case 0x40: //TODO: IN B,(C)
-            performIn(port: c(), map: b(), destination: bR())
+            performIn(port: c(), map: b(), destination: .B)
         instructionComplete(states: 12)
         case 0x41: // TODO:OUT (C),B
-            performOut(port: c(), map: b(), source: bR())
+            performOut(port: c(), map: b(), source: .B)
         instructionComplete(states: 4)
         case 0x42: // SBC HL,BC
             hl().sbc(diff: bc().value())
@@ -41,10 +41,10 @@ extension Z80 {
             I = a() //.ld(value: a())
             instructionComplete(states: 9)
         case 0x48: // TODO: IN C, (C)
-            performIn(port: c(), map: b(), destination: cR())
+            performIn(port: c(), map: b(), destination: .C)
         instructionComplete(states: 12)
         case 0x49: // TODO: OUT (C), C
-            performOut(port: c(), map: b(), source: cR())
+            performOut(port: c(), map: b(), source: .C)
         instructionComplete(states: 12)
         case 0x4A: // ADC HL,BC
             hl().adc(diff: bc().value())
@@ -66,10 +66,10 @@ extension Z80 {
             R = a()
         instructionComplete(states: 4)
         case 0x50: // TODO: IN D, (C)
-            performIn(port: c(), map: b(), destination: dR())
+            performIn(port: c(), map: b(), destination: .D)
         instructionComplete(states: 12)
         case 0x51: // TODO: OUT (C), D
-            performOut(port: c(), map: b(), source: dR())
+            performOut(port: c(), map: b(), source: .D)
         instructionComplete(states: 12)
         case 0x52: // SBC HL,DE
             hl().sbc(diff: de().value())
@@ -91,10 +91,10 @@ extension Z80 {
             aR().ld(value: I)
         instructionComplete(states: 9)
         case 0x58: // TODO: IN E, (C)
-            performIn(port: c(), map: b(), destination: eR())
+            performIn(port: c(), map: b(), destination: .E)
         instructionComplete(states: 12)
         case 0x59: // TODO: OUT (C), E
-            performOut(port: c(), map: b(), source: eR())
+            performOut(port: c(), map: b(), source: .E)
         instructionComplete(states: 12)
         case 0x5A: // ADC HL,DE
             hl().adc(diff: de().value())
@@ -116,10 +116,10 @@ extension Z80 {
             aR().ld(value: R)
         instructionComplete(states: 9)
         case 0x60: // TODO: IN H, (C)
-            performIn(port: c(), map: b(), destination: hR())
+            performIn(port: c(), map: b(), destination: .H)
         instructionComplete(states: 12)
         case 0x61: // TODO: OUT (C), H
-            performOut(port: c(), map: b(), source: hR())
+            performOut(port: c(), map: b(), source: .H)
         instructionComplete(states: 12)
         case 0x62: // SBC HL,HL
             hl().sbc(diff: hl().value())
@@ -148,10 +148,10 @@ extension Z80 {
             ldRam(location: hl().value(), value: nHL)
         instructionComplete(states: 18)
         case 0x68: // TODO: IN L, (C)
-            performIn(port: c(), map: b(), destination: lR())
+            performIn(port: c(), map: b(), destination: .L)
         instructionComplete(states: 12)
         case 0x69: // TODO: OUT (C), L
-            performOut(port: c(), map: b(), source: lR())
+            performOut(port: c(), map: b(), source: .L)
             instructionComplete(states: 12)
         case 0x6A: // ADC HL,HL
             hl().adc(diff: hl().value())
@@ -193,8 +193,8 @@ extension Z80 {
         instructionComplete(states: 18)
             break
         case 0x71: // TODO OUT (C),0
-            spareRegister.ld(value: 0x00)
-            performOut(port: c(), map: b(), source: spareRegister)
+            spareRegister = 0x0
+            performOut(port: c(), map: b(), source: .SPARE)
         instructionComplete(states: 12)
         case 0x72: //SBC HL,SP
             hl().sbc(diff: SP)
@@ -212,10 +212,10 @@ extension Z80 {
             interuptMode = 1
         instructionComplete(states: 8)
         case 0x78: // TODO: IN A,(C)
-       performIn(port: c(), map: b(), destination: aR())
+            performIn(port: c(), map: b(), destination: .A)
             instructionComplete(states: 12)
         case 0x79: // TODO OUT (C),A
-            performOut(port: c(), map: b(), source: aR())
+            performOut(port: c(), map: b(), source: .A)
         instructionComplete(states: 12)
         case 0x7A: // ADC HL,SP
             hl().adc(diff: SP)
@@ -254,10 +254,10 @@ extension Z80 {
         case 0xA2: // TODO: INI
         instructionComplete(states: 16)
         case 0xA3: // TODO: OUTI
-            spareRegister.ld(value: fetchRam(location: hl().value()))
-            performOut(port: c(), map: b(), source: spareRegister)
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
             hl().inc()
-            bR().dec()
+            BC.decHigh()
             instructionComplete(states: 16)
         case 0xA8:// LDD
             ldRam(location: de().value(), value: fetchRam(location: hl().value()))
@@ -290,10 +290,10 @@ extension Z80 {
             instructionComplete(states: 16)
             break
             case 0xAB:
-                spareRegister.ld(value: fetchRam(location: hl().value()))
-                performOut(port: c(), map: b(), source: spareRegister)
-                hl().dec()
-                bR().dec()
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
+            hl().dec()
+            BC.decHigh()
                 instructionComplete(states: 16)
             break
 
@@ -343,10 +343,10 @@ originalByte = fetchRam(location: hl().value())
         instructionComplete(states: 16)
         case 0xB3: // TODO: OTIR
             
-                spareRegister.ld(value: fetchRam(location: hl().value()))
-                performOut(port: c(), map: b(), source: spareRegister)
-                hl().inc()
-                bR().dec()
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
+            hl().inc()
+            BC.decHigh()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {
@@ -419,10 +419,10 @@ originalByte = fetchRam(location: hl().value())
             break
             case 0xBB: // TODO: OTDR
                 
-                spareRegister.ld(value: fetchRam(location: hl().value()))
-                performOut(port: c(), map: b(), source: spareRegister)
-                hl().dec()
-                bR().dec()
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
+            hl().dec()
+            BC.decHigh()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {

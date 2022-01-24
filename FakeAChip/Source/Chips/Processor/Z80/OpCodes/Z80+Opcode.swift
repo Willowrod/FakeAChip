@@ -42,13 +42,13 @@ extension Z80 {
             bc().inc()
             instructionComplete(states: 6)
         case 0x04:
-            bR().inc()
+            BC.incHigh()
             instructionComplete(states: 4)
         case 0x05:
-            bR().dec()
+            BC.decHigh()
             instructionComplete(states: 4)
         case 0x06:
-            bR().ld(value: byte1)
+            ldB(value: byte1)
             instructionComplete(states: 7, length: 2)
         case 0x07:
             aR().rlcA()
@@ -68,19 +68,19 @@ extension Z80 {
             bc().dec()
             instructionComplete(states: 6)
         case 0x0C:
-            cR().inc()
+            BC.incLow()
             instructionComplete(states: 4)
         case 0x0D:
-            cR().dec()
+            BC.decLow()
             instructionComplete(states: 4)
         case 0x0E:
-            cR().ld(value: byte1)
+            ldC(value: byte1)
             instructionComplete(states: 7, length: 2)
         case 0x0F:
             aR().rrcA()
             instructionComplete(states: 4)
         case 0x10:
-            bR().ld(value: b() &- 1)
+            ldB(value: b() &- 1)
             if (b() == 0){
                 instructionComplete(states: 8, length: 2)
             } else {
@@ -97,13 +97,13 @@ extension Z80 {
             de().inc()
             instructionComplete(states: 6)
         case 0x14:
-            dR().inc()
+            DE.incHigh()
             instructionComplete(states: 4)
         case 0x15:
-            dR().dec()
+            DE.decHigh()
             instructionComplete(states: 4)
         case 0x16:
-            dR().ld(value: byte1)
+            ldD(value: byte1)
             instructionComplete(states: 7, length: 2)
         case 0x17:
             aR().rlA()
@@ -123,13 +123,13 @@ extension Z80 {
             de().dec()
             instructionComplete(states: 6)
         case 0x1C:
-            eR().inc()
+            DE.incLow()
             instructionComplete(states: 4)
         case 0x1D:
-            eR().dec()
+            DE.decLow()
             instructionComplete(states: 4)
         case 0x1E:
-            eR().ld(value: byte1)
+            ldE(value: byte1)
             instructionComplete(states: 7, length: 2)
         case 0x1F:
             aR().rrA()
@@ -152,13 +152,13 @@ extension Z80 {
             hl().inc()
             instructionComplete(states: 6)
         case 0x24:
-            hR().inc()
+            HL.incHigh()
             instructionComplete(states: 4)
         case 0x25:
-            hR().dec()
+            HL.decHigh()
             instructionComplete(states: 4)
         case 0x26:
-            hR().ld(value: byte1)
+            ldH(value: byte1)
             instructionComplete(states: 7, length: 2)
         case 0x27:
             aR().daA()
@@ -178,8 +178,8 @@ extension Z80 {
             // kurrentOpCode= "ADD HL, HL (\(oldval.hex()) + \(oldval.hex()) = \(HL.hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "ADD HL,HL", m: " ", l: 1)
         case 0x2A:
-            lR().ld(value: fetchRam(location: word))
-            hR().ld(value: fetchRam(location: word &+ 1))
+            ldL(value: fetchRam(location: word))
+            ldH(value: fetchRam(location: word &+ 1))
             // kurrentOpCode= "LD HL, (nn) (LD HL, \(word.hex()))"
             instructionComplete(states: 16, length: 3) //returnOpCode(v: code, c: "LD HL,($$)", m: " ", l: 3, t: .DATA)
         case 0x2B:
@@ -187,15 +187,15 @@ extension Z80 {
             // kurrentOpCode= "DEC HL (HL = \(HL.hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC HL", m: " ", l: 1)
         case 0x2C:
-            lR().inc()
+            HL.incLow()
             // kurrentOpCode= "INC L (L = \(l().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC L", m: " ", l: 1)
         case 0x2D:
-            lR().dec()
+            HL.decLow()
             // kurrentOpCode= "DEC L (L = \(l().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC L", m: " ", l: 1)
         case 0x2E:
-            lR().ld(value: byte1)
+            ldL(value: byte1)
             // kurrentOpCode= "LD L, n (LD L, \(byte1.hex()))"
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD L,±", m: " ", l: 2)
         case 0x2F:
@@ -282,186 +282,186 @@ extension Z80 {
             // kurrentOpCode= "LD B,B (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,B", m: " ", l: 1)
         case 0x41:
-            bR().ld(value: c())
+            ldB(value: c())
             // kurrentOpCode= "LD B,C (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,C", m: " ", l: 1)
         case 0x42:
-            bR().ld(value: d())
+            ldB(value: d())
             // kurrentOpCode= "LD B,D (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,D", m: " ", l: 1)
         case 0x43:
-            bR().ld(value: e())
+            ldB(value: e())
             // kurrentOpCode= "LD B,E (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,E", m: " ", l: 1)
         case 0x44:
-            bR().ld(value: h())
+            ldB(value: h())
             // kurrentOpCode= "LD B,H (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,H", m: " ", l: 1)
         case 0x45:
-            bR().ld(value: l())
+            ldB(value: l())
             // kurrentOpCode= "LD B,L (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,L", m: " ", l: 1)
         case 0x46:
-            bR().ld(value: fetchRam(registerPair: hl()))
+            ldB(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD B,(HL) (Where HL is \(HL.hex()) -  B = \(b().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD B,(HL)", m: " ", l: 1)
         case 0x47: //LD B,A
-            bR().ld(value: a())
+            ldB(value: a())
             // kurrentOpCode= "LD B,A (B = \(b().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD B,A", m: "Load register B with the value of register A", l: 1)
         case 0x48:
-            cR().ld(value: b())
+            ldC(value: b())
             // kurrentOpCode= "LD C,B (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,B", m: " ", l: 1)
         case 0x49:
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,C", m: " ", l: 1)
             // kurrentOpCode= "LD C,C (C = \(c().hex()))"
         case 0x4A:
-            cR().ld(value: d())
+            ldC(value: d())
             // kurrentOpCode= "LD C,D (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,D", m: " ", l: 1)
         case 0x4B:
-            cR().ld(value: e())
+            ldC(value: e())
             // kurrentOpCode= "LD C,E (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,E", m: " ", l: 1)
         case 0x4C:
-            cR().ld(value: h())
+            ldC(value: h())
             // kurrentOpCode= "LD C,H (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,H", m: " ", l: 1)
         case 0x4D:
-            cR().ld(value: l())
+            ldC(value: l())
             // kurrentOpCode= "LD C,L (C = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,L", m: " ", l: 1)
         case 0x4E:
-            cR().ld(value: fetchRam(registerPair: hl()))
+            ldC(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD C,(HL) (Where HL is \(HL.hex()) -  C = \(c().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD C,(HL)", m: " ", l: 1)
         case 0x4F:
-            cR().ld(value: a())
+            ldC(value: a())
             // kurrentOpCode= "LD C,A (B = \(c().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD C,A", m: " ", l: 1)
         case 0x50:
-            dR().ld(value: b())
+            ldD(value: b())
             // kurrentOpCode= "LD D,B (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,B", m: " ", l: 1)
         case 0x51:
-            dR().ld(value: c())
+            ldD(value: c())
             // kurrentOpCode= "LD D,C (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,C", m: " ", l: 1)
         case 0x52:
             // kurrentOpCode= "LD D,D (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,D", m: " ", l: 1)
         case 0x53:
-            dR().ld(value: e())
+            ldD(value: e())
             // kurrentOpCode= "LD D,E (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,E", m: " ", l: 1)
         case 0x54:
-            dR().ld(value: h())
+            ldD(value: h())
             // kurrentOpCode= "LD D,H (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,H", m: " ", l: 1)
         case 0x55:
-            dR().ld(value: l())
+            ldD(value: l())
             // kurrentOpCode= "LD D,L (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,L", m: " ", l: 1)
         case 0x56:
-            dR().ld(value: fetchRam(registerPair: hl()))
+            ldD(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD D,(HL) (Where HL is \(HL.hex()) -  D = \(d().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD D,(HL)", m: " ", l: 1)
         case 0x57:
-            dR().ld(value: a())
+            ldD(value: a())
             // kurrentOpCode= "LD D,A (D = \(d().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD D,A", m: " ", l: 1)
         case 0x58:
-            eR().ld(value: b())
+            ldE(value: b())
             // kurrentOpCode= "LD E,B (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,B", m: " ", l: 1)
         case 0x59:
-            eR().ld(value: c())
+            ldE(value: c())
             // kurrentOpCode= "LD E,C (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,C", m: " ", l: 1)
         case 0x5A:
-            eR().ld(value: d())
+            ldE(value: d())
             // kurrentOpCode= "LD E,D (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,D", m: " ", l: 1)
         case 0x5B:
             // kurrentOpCode= "LD E,E (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,E", m: " ", l: 1)
         case 0x5C:
-            eR().ld(value: h())
+            ldE(value: h())
             // kurrentOpCode= "LD E,H (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,H", m: " ", l: 1)
         case 0x5D:
-            eR().ld(value: l())
+            ldE(value: l())
             // kurrentOpCode= "LD E,L (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,L", m: " ", l: 1)
         case 0x5E:
-            eR().ld(value: fetchRam(registerPair: hl()))
+            ldE(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD E,(HL) (Where HL is \(HL.hex()) -  E = \(e().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD E,(HL)", m: " ", l: 1)
         case 0x5F:
-            eR().ld(value: a())
+            ldE(value: a())
             // kurrentOpCode= "LD E,A (E = \(e().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD E,A", m: " ", l: 1)
         case 0x60:
-            hR().ld(value: b())
+            ldH(value: b())
             // kurrentOpCode= "LD H,B (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,B", m: " ", l: 1)
         case 0x61:
-            hR().ld(value: c())
+            ldH(value: c())
             // kurrentOpCode= "LD H,C (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,C", m: " ", l: 1)
         case 0x62:
-            hR().ld(value: d())
+            ldH(value: d())
             // kurrentOpCode= "LD H,D (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,D", m: " ", l: 1)
         case 0x63:
-            hR().ld(value: e())
+            ldH(value: e())
             // kurrentOpCode= "LD H,E (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,E", m: " ", l: 1)
         case 0x64:
             // kurrentOpCode= "LD H,H (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,H", m: " ", l: 1)
         case 0x65:
-            hR().ld(value: l())
+            ldH(value: l())
             // kurrentOpCode= "LD H,L (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,L", m: " ", l: 1)
         case 0x66:
-            hR().ld(value: fetchRam(registerPair: hl()))
+            ldH(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD H,(HL) (Where HL is \(HL.hex()) -  H = \(h().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD H,(HL)", m: " ", l: 1)
         case 0x67:
-            hR().ld(value: a())
+            ldH(value: a())
             // kurrentOpCode= "LD H,A (H = \(h().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD H,A", m: " ", l: 1)
         case 0x68:
-            lR().ld(value: b())
+            ldL(value: b())
             // kurrentOpCode= "LD L,B (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,B", m: " ", l: 1)
         case 0x69:
-            lR().ld(value: c())
+            ldL(value: c())
             // kurrentOpCode= "LD L,C (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,C", m: " ", l: 1)
         case 0x6A:
-            lR().ld(value: d())
+            ldL(value: d())
             // kurrentOpCode= "LD L,D (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,D", m: " ", l: 1)
         case 0x6B:
-            lR().ld(value: e())
+            ldL(value: e())
             // kurrentOpCode= "LD L,E (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,E", m: " ", l: 1)
         case 0x6C:
-            lR().ld(value: h())
+            ldL(value: h())
             // kurrentOpCode= "LD L,H (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,H", m: " ", l: 1)
         case 0x6D:
             // kurrentOpCode= "LD L,L (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,L", m: " ", l: 1)
         case 0x6E:
-            lR().ld(value: fetchRam(registerPair: hl()))
+            ldL(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD L,(HL) (Where HL is \(HL.hex()) -  L = \(l().hex()))"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD L,(HL)", m: " ", l: 1)
         case 0x6F:
-            lR().ld(value: a())
+            ldL(value: a())
             // kurrentOpCode= "LD L,A (L = \(l().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD L,A", m: " ", l: 1)
         case 0x70:
