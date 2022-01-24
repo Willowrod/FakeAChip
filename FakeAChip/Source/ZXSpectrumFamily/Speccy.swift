@@ -20,8 +20,8 @@ class Speccy: Z80 {
     static var instanceSpectrum48: Speccy? = nil
     var shouldRestart = false
     var commandsPerFrame = 0
-    var framePair = RegisterPair("Frames", highValue: 0x00, lowValue: 0x00, id: -2)
-    var edgePair = RegisterPair("Edges", highValue: 0x00, lowValue: 0x00, id: -3)
+    var framePair = RegisterPair(highValue: 0x00, lowValue: 0x00, id: -2)
+    var edgePair = RegisterPair(highValue: 0x00, lowValue: 0x00, id: -3)
     var rom: [UInt8] = []
     var ram: [UInt8] = []
     var totalRam: UInt16 = 0xffff - 0x4000
@@ -124,11 +124,11 @@ loadInternal(file: file, path: path)
         processInternal()
     }
     
-    override func performIn(port: UInt8, map: UInt8, destination: Register){
+    override func performIn(port: UInt8, map: UInt8, destination: AvailableRegister){
 performInInternal(port: port, map: map, destination: destination)
     }
     
-    override func performOut(port: UInt8, map: UInt8, source: Register) {
+    override func performOut(port: UInt8, map: UInt8, source: AvailableRegister) {
      performOutInternal(port: port, map: map, source: source)
     }
     

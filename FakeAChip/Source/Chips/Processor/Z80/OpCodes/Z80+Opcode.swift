@@ -919,7 +919,7 @@ extension Z80 {
                 // kurrentOpCode= "JP C - Carry flag set, No Jump"
             } //returnOpCode(v: code, c: "JP NC,$$", m: " ", l: 3, t: .CODE)
         case 0xD3: // TODO OUT (±),A
-            performOut(port: byte1, map: byte2, source: aR())
+            performOut(port: byte1, map: byte2, source: .A)
             // kurrentOpCode= "OUT A - XXX"
             instructionComplete(states: 11, length: 2) //returnOpCode(v: code, c: "OUT (±),A", m: " ", l: 2)
         case 0xD4:
@@ -966,7 +966,7 @@ extension Z80 {
                 // kurrentOpCode= "JP C - Carry flag not set, No Jump"
             } //returnOpCode(v: code, c: "JP C,$$", m: " ", l: 3, t: .CODE)
         case 0xDB: // TODO: IN
-       performIn(port: byte1, map: a(), destination: aR())
+       performIn(port: byte1, map: a(), destination: .A)
             instructionComplete(states: 11, length: 2)
             // kurrentOpCode= "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
         case 0xDC:

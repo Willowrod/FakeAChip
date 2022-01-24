@@ -61,6 +61,7 @@ extension Speccy {
                     } else {
 // Actual processor
                         // TODO: checkForBreakPoint()
+                        thisPC = PC
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
                             opCode(byte: byte)
@@ -104,7 +105,7 @@ extension Speccy {
         HL.ld(word: 0x0)
         BC.ld(word: 0x0)
         DE.ld(word: 0x0)
-            AF.ld(word: 0x0)
+        AF.ld(value: 0x0)
     }
     
     func dumpRegisters(){

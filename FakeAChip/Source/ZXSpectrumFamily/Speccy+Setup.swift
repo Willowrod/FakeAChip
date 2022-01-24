@@ -56,12 +56,14 @@ extension Speccy {
         testRegisters()
         aR().ld(value:header.primary.registerA)
         Z80.fR().ld(value:header.primary.registerF)
-        bR().ld(value:header.primary.registerB)
-        cR().ld(value:header.primary.registerC)
-        dR().ld(value:header.primary.registerD)
-        eR().ld(value:header.primary.registerE)
-        hR().ld(value:header.primary.registerH)
-        lR().ld(value:header.primary.registerL)
+        ldA(value:header.primary.registerA)
+               ldF(value:header.primary.registerF)
+               ldB(value:header.primary.registerB)
+               ldC(value:header.primary.registerC)
+               ldD(value:header.primary.registerD)
+               ldE(value:header.primary.registerE)
+               ldH(value:header.primary.registerH)
+               ldL(value:header.primary.registerL)
         
         BC2 = (UInt16(header.swap.registerB) * UInt16(256)) + UInt16(header.swap.registerC)
         DE2 = (UInt16(header.swap.registerD) * UInt16(256)) + UInt16(header.swap.registerE)
@@ -90,22 +92,4 @@ extension Speccy {
         updateBorder(header.borderColour)
     }
     
-    func update(){
-        AF.inc()
-        if AF.value() == 0x00 {
-            BC.inc()
-            if BC.value() == 0x00 {
-                DE.inc()
-                if DE.value() == 0x00 {
-                    HL.inc()
-                    if HL.value() == 0x00 {
-                        IX.inc()
-                        if IX.value() == 0x00 {
-                            IY.inc()
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

@@ -8,149 +8,152 @@
 import Foundation
 extension Z80 {
     
-    func getRegister(byte: UInt8) -> Register? {
+    func getRegister(byte: UInt8) -> UInt8 {
         switch byte % 8 {
         case 0:
-            return bR()
+            return BC.high()  //bR()
         case 1:
-            return cR()
+            return BC.low()   //cR()
         case 2:
-            return dR()
+            return DE.high()  //dR()
         case 3:
-            return eR()
+            return DE.low()   //eR()
         case 4:
-            return hR()
+            return HL.high()  //hR()
         case 5:
-            return lR()
+            return HL.low()   //lR()
         case 6:
-            return nil
+            return fetchRam(registerPair: hl())
         default:
-            return aR()
+            return AF.accumilator.value()
         }
     }
+        
+        func writeRegister(byte: UInt8, value: UInt8) {
+             switch byte % 8 {
+             case 0:
+                 BC.ldHigh(value: value)  //bR()
+             case 1:
+                 BC.ldLow(value: value)   //cR()
+             case 2:
+                 DE.ldHigh(value: value)  //  //dR()
+             case 3:
+                 DE.ldLow(value: value)   //eR()
+             case 4:
+                 HL.ldHigh(value: value)  //  //hR()
+             case 5:
+                 HL.ldLow(value: value)   //lR()
+             case 6:
+                 ldRam(registerPair: hl(), value: value)
+                 //break
+             default:
+                 return AF.accumilator.ld(value: value)
+             }
+         }
     
     func opCodeCB(byte: UInt8){
         PC = PC &+ 1
-        let register = getRegister(byte: byte)
+        var register = getRegister(byte: byte)
         let opCodeOffset = Int(byte / 8)
+        let effectiveByte = byte % 8
         switch opCodeOffset {
         case 0: //RLC
-            if let register = register {
-                register.rlc()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.rlc()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 1: //RRC
-            if let register = register {
-                register.rrc()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.rrc()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 2: //RL
-            if let register = register {
-                register.rl()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.rl()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 3: //RR
-            if let register = register {
-                register.rr()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.rr()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 4: //SLA
-            if let register = register {
-                register.sla()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.sla()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 5: //SRA
-            if let register = register {
-                register.sra()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.sra()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 6: //SLL // Undocumented
-            if let register = register {
-                register.sll()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.sll()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 7: //SRL
-            if let register = register {
-                register.srl()
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.srl()
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
+                    register = register.rlc()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 1: //RRC
+                    register = register.rrc()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 2: //RL
+                    register = register.rl()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 3: //RR
+                    register = register.rr()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 4: //SLA
+                    register = register.sla()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 5: //SRA
+                    register = register.sra()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 6: //SLL // Undocumented
+                    register = register.sll()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+                case 7: //SRL
+                    register = register.srl()
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
         case 8...15: //BIT 0
-            if let register = register {
-                register.testBit(bit: opCodeOffset - 8)
-                instructionComplete(states: 8)
-            } else {
-                let changeRam = fetchRam(registerPair: hl())
-                changeRam.testBitRAM(bit: opCodeOffset - 8)
-                instructionComplete(states: 12)
-            }
-        case 16...23: //BIT 0
-            if let register = register {
-                register.clearBit(bit: opCodeOffset - 16)
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.clear(bit: opCodeOffset - 16)
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
-        case 24...31: //BIT 0
-            if let register = register {
-                register.setBit(bit: opCodeOffset - 24)
-                instructionComplete(states: 8)
-            } else {
-                var changeRam = fetchRam(registerPair: hl())
-                changeRam = changeRam.set(bit: opCodeOffset - 24)
-                ldRam(registerPair: hl(), value: changeRam)
-                instructionComplete(states: 15)
-            }
+                    if effectiveByte == 6 {
+                        register.testBit(bit: opCodeOffset - 8)
+                        instructionComplete(states: 12)
+                    } else {
+                        register.testBit(bit: opCodeOffset - 8)
+                        instructionComplete(states: 8)
+                    }
+                case 16...23: //BIT 0
+                    register = register.clear(bit: opCodeOffset - 16)
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
+
+                case 24...31: //BIT 0
+                    register = register.set(bit: opCodeOffset - 24)
+                    writeRegister(byte: byte, value: register)
+                    if effectiveByte == 6 {
+                        instructionComplete(states: 15)
+                    } else {
+                        instructionComplete(states: 8)
+                    }
         default:
             print("Potential unknown code CB\(String(byte, radix: 16)) From \(PC.hex())")
             print("-")
         }
         R = R &+ 1
-                if R >= 0x80 {
-                    R = 0x0
-                }
+        if R >= 0x80 {
+            R = 0x0
+        }
     }
     
 }

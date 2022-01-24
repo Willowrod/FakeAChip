@@ -383,13 +383,38 @@ print("Writing nothing to RAM....")
         }
     }
     
+    func fetchRegisterValue(register: AvailableRegister) -> UInt8 {
+            switch register {
+            case .A:
+                return AF.accumilator.value()
+            case .F:
+                return AF.flag.value()
+            case .B:
+                return BC.high()
+            case .C:
+                return BC.low()
+            case .D:
+                return DE.high()
+            case .E:
+                return DE.low()
+            case .H:
+                return HL.high()
+            case .L:
+                return HL.low()
+            case .SPARE:
+                return spareRegister
+            default:
+                return 0x00
+            }
+        }
+    
     func updateDebugStatus() {
         if let data = data {
             preProcessorDebug = data.headerData.debugPreProcessing
             postProcessorDebug = data.headerData.debugPostProcessor
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
-     //       isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
+            isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
         }
     }
     
