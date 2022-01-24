@@ -20,7 +20,7 @@ class FlagRegister: Register {
     
     
     override func ld(value: UInt8){
-        register = RegisterStruct(byteValue: value)
+        register = value //RegisterStruct(byteValue: value)
     }
     
     func ld(value: Int){
@@ -177,10 +177,6 @@ class FlagRegister: Register {
         myFlag &= Z80.zBit | Z80.sBit | Z80.pvBit
         myFlag |= (acc & (Z80.threeBit | Z80.fiveBit))
         myFlag |= Z80.cBit
-//
-//        ld(value: value() & Z80.zBit | Z80.sBit | Z80.pvBit)
-//        ld(value: value() | (acc & (Z80.threeBit | Z80.fiveBit)))
-//        ld(value: value() | Z80.cBit)
         
         ld(value: myFlag)
     }

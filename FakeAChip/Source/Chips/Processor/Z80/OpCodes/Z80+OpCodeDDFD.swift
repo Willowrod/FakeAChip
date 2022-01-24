@@ -277,6 +277,9 @@ extension Z80 {
             print("Potential Unknown code ED\(String(byte, radix: 16)) From \(PC.hex())")
             print("-")
         }
-        R.inc()
+        R = R &+ 1
+                if R >= 0x80 {
+                    R = 0x0
+                }
     }
 }

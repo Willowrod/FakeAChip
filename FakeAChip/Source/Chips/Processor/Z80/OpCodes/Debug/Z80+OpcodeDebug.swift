@@ -68,7 +68,8 @@ extension Z80 {
             instructionComplete(states: 4) //returnOpCode(v: code, c: "RLC A", m: " ", l: 1)
         case 0x08:
             currentOpCode = "EX AF, AF'"
-            exchange(working: af(), spare: af2())
+            //exchange(working: af(), spare: af2())
+            exchangeAF()
             instructionComplete(states: 4) //returnOpCode(v: code, c: "EX AF,AF'", m: " ", l: 1)
         case 0x09:
             let oldval = hl().value()
@@ -1205,7 +1206,10 @@ extension Z80 {
                         print("-")
             instructionComplete(states: 4, length: 0)
         }
-        R.inc()
+        R = R &+ 1
+                if R >= 0x80 {
+                    R = 0x0
+                }
         if miscDebug {
         if averageTStateInOp > tState {
             print("TState error - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")

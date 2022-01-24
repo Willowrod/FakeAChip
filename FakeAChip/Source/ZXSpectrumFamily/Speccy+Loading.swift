@@ -235,20 +235,20 @@ extension Speccy {
         snap.add(HL.value())
         snap.add(PC)  //(UInt16(0x00))
         snap.add(SP)
-        snap.add(I.value())
-        snap.add(R.value())
+        snap.add(I)
+        snap.add(R)
         var bit12: UInt8 = 0x00
-        if R.value().set(bit: 7) != 0 {
+        if R.set(bit: 7) != 0 {
             bit12 = 0x01
         }
         bit12 = bit12 & (borderColourInt << 1)
         snap.add(bit12) // Bit 12
         snap.add(DE.value())
-        snap.add(BC2.value())  // Bit 15
-        snap.add(DE2.value())
-        snap.add(HL2.value())  // Bit 19
-        snap.add(AF2.value().highByte())
-        snap.add(AF2.value().lowByte())  // Bit 23
+        snap.add(BC2)  // Bit 15
+        snap.add(DE2)
+        snap.add(HL2)  // Bit 19
+        snap.add(AF2.highByte())
+        snap.add(AF2.lowByte())  // Bit 23
         snap.add(IY.value())
         snap.add(IX.value())
         if interupt {           // Bit 27

@@ -36,6 +36,8 @@ class CPU: CoreDelegate {
     // Registers
     var spareRegister: Register = Register(value: 0x00, name: "Spare")
     
+  //  var sparePair: UInt16 = 0x0
+    
     
     // Processor
     var PC: UInt16 = 0

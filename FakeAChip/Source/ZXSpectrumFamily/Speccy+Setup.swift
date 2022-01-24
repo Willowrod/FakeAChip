@@ -63,17 +63,17 @@ extension Speccy {
         hR().ld(value:header.primary.registerH)
         lR().ld(value:header.primary.registerL)
         
-        BC2.ld(value:header.registerPair(l: header.swap.registerC, h: header.swap.registerB))
-        DE2.ld(value:header.registerPair(l: header.swap.registerE, h: header.swap.registerD))
-        HL2.ld(value:header.registerPair(l: header.swap.registerL, h: header.swap.registerH))
-        AF2.ld(value:header.registerPair(l: header.swap.registerF, h: header.swap.registerA))
+        BC2 = (UInt16(header.swap.registerB) * UInt16(256)) + UInt16(header.swap.registerC)
+        DE2 = (UInt16(header.swap.registerD) * UInt16(256)) + UInt16(header.swap.registerE)
+        HL2 = (UInt16(header.swap.registerH) * UInt16(256)) + UInt16(header.swap.registerL)
+        AF2 = (UInt16(header.swap.registerA) * UInt16(256)) + UInt16(header.swap.registerF)
         
         SP = header.registerSP
         ix().ld(value: header.registerIX)
         iy().ld(value: header.registerIY)
         
-        I.ld(value: header.registerI)
-        R.ld(value: header.registerR)
+        I = header.registerI
+        R = header.registerR
         
         interuptMode = header.interuptMode
         interupt = header.interuptEnabled

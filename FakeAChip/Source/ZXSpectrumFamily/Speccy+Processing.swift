@@ -45,7 +45,7 @@ extension Speccy {
                         case 1:
                             PC = 0x0038
                         default:
-                            let intAddress = (UInt16(I.value()) * 256) + UInt16(R.value())
+                            let intAddress = (UInt16(I) * 256) + UInt16(R)
                             PC = fetchRamWord(location: intAddress)
                             if miscDebug {
                                 print("IM2 triggered at \(intAddress.hex()) and processes from \(PC.hex())")
@@ -98,9 +98,9 @@ extension Speccy {
     
     func resetRegisters(){
         
-            HL2.ld(word: 0x0)
-        BC2.ld(word: 0x0)
-        DE2.ld(word: 0x0)
+            HL2 = 0x0
+        BC2 = 0x0
+        DE2 = 0x0
         HL.ld(word: 0x0)
         BC.ld(word: 0x0)
         DE.ld(word: 0x0)

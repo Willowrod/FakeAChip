@@ -54,7 +54,8 @@ extension Z80 {
             aR().rlcA()
             instructionComplete(states: 4)
         case 0x08:
-            exchange(working: af(), spare: af2())
+            //exchange(working: af(), spare: af2())
+            exchangeAF()
             instructionComplete(states: 4)
         case 0x09:
             let oldval = hl().value()
@@ -1156,7 +1157,10 @@ extension Z80 {
                         print("-")
             instructionComplete(states: 4, length: 0)
         }
-        R.inc()
+        R = R &+ 1
+                if R >= 0x80 {
+                    R = 0x0
+                }
     }
     
 }
