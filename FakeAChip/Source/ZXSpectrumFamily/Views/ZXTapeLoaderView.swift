@@ -42,23 +42,22 @@ struct ZXTapeLoaderView: View {
             ForEach(foundItems, id: \.self){model in
                 VStack {
                     HStack{
-                        Text(model.data.title ?? "Unknown")
-                        Text(" - \(getPublisher(model: model))")
+                        Text(model.data.title ?? "Unknown").font(.system(size: 20))
+                        Text("- \(getPublisher(model: model))").font(.system(size: 12))
                     }
                     ForEach(getGoodFiles(model: model), id: \.self){file in
                         HStack {
-//                            Button("Load \(getFileName(path: file.path))"){
-//                                download(file.path!, forceLoad: true)
-//                            }
+                                Text("\(file.fileName()) - ").font(.system(size: 16))
                             Button("Insert Cassette"){
                                 tapePlayerData.isShowingTapeSelector = false
                                 download(file.path!, forceLoad: false)
-                            }
+                            }.font(.system(size: 16))
                         }
                     }
                 }
+                .padding(.bottom, 10)
             }
-        }
+        }.padding(10)
     }
     
     func hitDL(){
