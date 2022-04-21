@@ -11,7 +11,6 @@
 		CD05400326258D5000221FC9 /* Z80BlockDisassembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */; };
 		CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
 		CD0540092625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
-		CD0541D1262B27A800221FC9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD0541D0262B27A800221FC9 /* Zip */; };
 		CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
 		CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC54125FA6BD400731EDA /* SpectrumView.swift */; };
@@ -104,7 +103,6 @@
 		CD51D4792642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD51D47A2642B968003C2A9A /* ZXTapeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */; };
 		CD55A3F02721F848001A5844 /* Double+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD55A3EF2721F847001A5844 /* Double+Precision.swift */; };
-		CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */; };
 		CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */; };
 		CD6791792744FE7B00B4C810 /* RawZ80Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */; };
 		CD67917A2744FE7B00B4C810 /* RawZ80Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */; };
@@ -143,6 +141,8 @@
 		CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D526C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
 		CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
+		CDA0A51B2811E702001E4265 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CDA0A51A2811E702001E4265 /* Zip */; };
+		CDA0A51D2811E71F001E4265 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */; };
 		CDA172522603811000910C23 /* RegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172512603811000910C23 /* RegisterStruct.swift */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -613,9 +613,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA0A51B2811E702001E4265 /* Zip in Frameworks */,
 				CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */,
-				CD562EDF267CB5FA0034FAE8 /* FirebaseCrashlytics in Frameworks */,
-				CD0541D1262B27A800221FC9 /* Zip in Frameworks */,
+				CDA0A51D2811E71F001E4265 /* FirebaseAnalytics in Frameworks */,
 				CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1214,9 +1214,9 @@
 			);
 			name = FakeAChip;
 			packageProductDependencies = (
-				CD0541D0262B27A800221FC9 /* Zip */,
 				CD306C77264C2FC20021AA0A /* ZXDB-SDK */,
-				CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */,
+				CDA0A51A2811E702001E4265 /* Zip */,
+				CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */,
 			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
@@ -1291,7 +1291,7 @@
 			mainGroup = CD0CC53125FA6BD400731EDA;
 			packageReferences = (
 				CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */,
-				CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CD0CC53B25FA6BD400731EDA /* Products */;
 			projectDirPath = "";
@@ -2048,34 +2048,34 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
+				kind = exactVersion;
+				version = 2.1.1;
 			};
 		};
-		CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.6.0;
+				minimumVersion = 8.14.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD0541D0262B27A800221FC9 /* Zip */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
-		};
 		CD306C77264C2FC20021AA0A /* ZXDB-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ZXDB-SDK";
 		};
-		CD562EDE267CB5FA0034FAE8 /* FirebaseCrashlytics */ = {
+		CDA0A51A2811E702001E4265 /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD562EDD267CB5FA0034FAE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
+			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
