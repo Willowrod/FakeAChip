@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import ZXLoaderSDK
+
 class TZXFormat: BaseFileFormat , TapeDelegate {
     
     
@@ -30,7 +32,7 @@ class TZXFormat: BaseFileFormat , TapeDelegate {
     }
     
     init(data: String?){
-        super.init()
+       super.init()
         if let tzxBytes = data?.splitToBytes(separator: " "){
             tzxBytes.forEach{byte in
                 tzxData.append(UInt8(byte, radix: 16) ?? 0x00)

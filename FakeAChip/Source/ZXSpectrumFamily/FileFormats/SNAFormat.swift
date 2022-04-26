@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZXLoaderSDK
 
 class SNAFormat: BaseFileFormat {
     var snaData: [UInt8] = []

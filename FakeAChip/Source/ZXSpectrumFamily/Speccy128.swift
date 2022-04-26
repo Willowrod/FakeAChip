@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZXLoaderSDK
 
 class Speccy128: Speccy {
     

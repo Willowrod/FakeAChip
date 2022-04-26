@@ -8,6 +8,7 @@
 import Foundation
 import ZXDB_SDK
 import Zip
+import ZXLoaderSDK
 
 extension Speccy {
     func downloadInternal() {
@@ -137,7 +138,7 @@ extension Speccy {
     
     
     func loadZ80Internal(z80Snap: String, path: String? = nil){
-        let snapShot = Z80Format(fileName: z80Snap, path: path)
+        let snapShot =  Z80Format(fileName: z80Snap, path: path) // Z80Format(fileName: z80Snap, path: path)
         let banks = snapShot.retrieveRam()
         if (banks.count > 0){
             if banks.count == 1{

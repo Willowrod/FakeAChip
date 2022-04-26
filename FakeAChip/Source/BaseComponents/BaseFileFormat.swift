@@ -8,10 +8,15 @@
 import Foundation
 import ZXLoaderSDK
 
-class BaseFileFormat {
-    var fileFormat: FileFormat = .UNKNOWN
-    var importSuccessful = false
-    var ramBanks: [[UInt8]] = []
-    var registers: Z80RegisterSnapshot = Z80RegisterSnapshot()
-    var dataStart: Int = 27
+open class BaseFileFormat {
+
+    public init() {
+        
+    }
+
+    public var fileFormat: FileFormat = .UNKNOWN
+    public var importSuccessful = false
+    public var ramBanks: [[UInt8]] = []
+    public var registers: Z80RegisterSnapshot = Z80RegisterSnapshot()
+    public var dataStart: Int = 27
 }
