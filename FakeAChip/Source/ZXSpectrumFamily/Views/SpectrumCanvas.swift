@@ -47,9 +47,6 @@ struct SpectrumCanvas: View {
                     for a in 0...(emulatorData.emulatorPixels.count - 1){
                     // Fill path
                  context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
-                        //    context.stroke(emulatorData.emulatorPixels[a], with: .color(grid[a]), lineWidth: 4.0)
-                  
-                      
                     }
                 }
             }

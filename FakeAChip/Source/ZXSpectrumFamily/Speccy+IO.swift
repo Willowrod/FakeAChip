@@ -45,15 +45,15 @@ extension Speccy {
 
                     resume()
                 }
+
+          //      print("Loading \(destination.name) with \(byteVal.hex())")
             }
             updateIn(register: destination, value: byteVal)
-            //destination.inCommand(byte: byteVal)
         } else if port == 0x7f {
             //           print("Checking for Fuller Joystick")
             //             destination.inCommand(byte: kempston)
         } else if port == 0x1f {
             updateIn(register: destination, value: kempston)
-            //destination.inCommand(byte: kempston)
             //          print("Checking for Kempston Joystick")
         } else {
             //           print("Checking port \(port.hex())")
@@ -61,25 +61,25 @@ extension Speccy {
     }
     
     func updateIn(register: AvailableRegister, value: UInt8){
-        switch register {
-        case .A:
-            AF.accumilator.inCommand(byte: value)
-        case .B:
-            BC.inHigh(value: value)
-        case .C:
-            BC.inLow(value: value)
-        case .D:
-            DE.inHigh(value: value)
-        case .E:
-            DE.inLow(value: value)
-        case .H:
-            HL.inHigh(value: value)
-        case .L:
-            HL.inLow(value: value)
-        default:
-            break
-        }
-    }
+         switch register {
+         case .A:
+             AF.accumilator.inCommand(byte: value)
+         case .B:
+             BC.inHigh(value: value)
+         case .C:
+             BC.inLow(value: value)
+         case .D:
+             DE.inHigh(value: value)
+         case .E:
+             DE.inLow(value: value)
+         case .H:
+             HL.inHigh(value: value)
+         case .L:
+             HL.inLow(value: value)
+         default:
+             break
+         }
+     }
     
     func performOutInternal(port: UInt8, map: UInt8, source: AvailableRegister) {
         if (port == 0xfe){

@@ -51,23 +51,24 @@ extension Z80 {
             currentOpCode = "INC BC (BC = \(BC.hex())"
             instructionComplete(states: 6) //returnOpCode(v: code, c: "INC BC", m: " ", l: 1)
         case 0x04:
-            BC.incHigh()
-            currentOpCode = "INC B (B = \(b().hex())"
-            instructionComplete(states: 4) //returnOpCode(v: code, c: "INC B", m: " ", l: 1)
-        case 0x05:
-            BC.decHigh()
-            currentOpCode = "DEC B (B = \(b().hex())"
-            instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC B", m: " ", l: 1)
-        case 0x06:
-            currentOpCode = "LD B, n (LD B, \(byte1.hex()))"
-            ldB(value: byte1)
-            instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD B,±", m: " ", l: 2)
+                    BC.incHigh()
+                    currentOpCode = "INC B (B = \(b().hex())"
+                    instructionComplete(states: 4) //returnOpCode(v: code, c: "INC B", m: " ", l: 1)
+                case 0x05:
+                    BC.decHigh()
+                    currentOpCode = "DEC B (B = \(b().hex())"
+                    instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC B", m: " ", l: 1)
+                case 0x06:
+                    currentOpCode = "LD B, n (LD B, \(byte1.hex()))"
+                    ldB(value: byte1)
+                    instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "LD B,±", m: " ", l: 2)
         case 0x07:
             currentOpCode = "RLC A (Rotate Accumilator Left + Carry)"
             aR().rlcA()
             instructionComplete(states: 4) //returnOpCode(v: code, c: "RLC A", m: " ", l: 1)
         case 0x08:
             currentOpCode = "EX AF, AF'"
+            //exchange(working: af(), spare: af2())
             exchangeAF()
             instructionComplete(states: 4) //returnOpCode(v: code, c: "EX AF,AF'", m: " ", l: 1)
         case 0x09:
@@ -149,7 +150,7 @@ extension Z80 {
             currentOpCode = "ADD HL, DE (\(oldval.hex()) + \(DE.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,DE", m: " ", l: 1)
         case 0x1A:
-            ldA(value: fetchRam(location: de().value()))
+            aR().ld(value: fetchRam(location: de().value()))
             currentOpCode = "LD A, (DE) (LD A, \(a().hex()) where DE is \(DE.hex())"
             instructionComplete(states: 7) //returnOpCode(v: code, c: "LD A,(DE)", m: " ", l: 1)
         case 0x1B:
@@ -199,7 +200,7 @@ extension Z80 {
             currentOpCode = "INC H (H = \(h().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "INC H", m: " ", l: 1)
         case 0x25:
-            HL.incLow()
+            HL.decHigh()
             currentOpCode = "DEC H (H = \(h().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC H", m: " ", l: 1)
         case 0x26:
@@ -303,7 +304,7 @@ extension Z80 {
             currentOpCode = "ADD HL, SP (\(oldval.hex()) + \(SP.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,SP", m: " ", l: 1)
         case 0x3A:
-            ldA(value: fetchRam(location: word))
+            aR().ld(value: fetchRam(location: word))
             currentOpCode = "LD A, (nn) (LD A with the value of RAM location \(word.hex()) \(a().hex())"
             instructionComplete(states: 13, length: 3) //returnOpCode(v: code, c: "LD A,($$)", m: " ", l: 3, t: .DATA)
         case 0x3B:
@@ -319,7 +320,7 @@ extension Z80 {
             currentOpCode = "DEC A (A = \(a().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC A", m: " ", l: 1)
         case 0x3E: // LD A,$$
-            ldA(value: byte1)
+            aR().ld(value: byte1)
             currentOpCode = "LD A, n (LD A, \(byte1.hex()))"
             instructionComplete(states: 7, length: 2)
         case 0x3F:
@@ -547,31 +548,31 @@ extension Z80 {
             currentOpCode = "LD (HL), A (Where HL is \(HL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
         case 0x78:
-            ldA(value: b())
+            aR().ld(value: b())
             currentOpCode = "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4)
         case 0x79:
-            ldA(value: c())
+            aR().ld(value: c())
             currentOpCode = "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,C", m: " ", l: 1)
         case 0x7A:
-            ldA(value: d())
+            aR().ld(value: d())
             currentOpCode = "LD A,D (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,D", m: " ", l: 1)
         case 0x7B:
-            ldA(value: e())
+            aR().ld(value: e())
             currentOpCode = "LD A,E (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,E", m: " ", l: 1)
         case 0x7C:
-            ldA(value: h())
+            aR().ld(value: h())
             currentOpCode = "LD A,H (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,H", m: " ", l: 1)
         case 0x7D:
-            ldA(value: l())
+            aR().ld(value: l())
             currentOpCode = "LD A,L (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,L", m: " ", l: 1)
         case 0x7E:
-            ldA(value: fetchRam(registerPair: hl()))
+            aR().ld(value: fetchRam(registerPair: hl()))
             currentOpCode = "LD A,(HL) (Where HL is \(HL.hex()) -  A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,(HL)", m: " ", l: 1)
         case 0x7F:
@@ -1014,7 +1015,7 @@ extension Z80 {
                 currentOpCode = "JP C - Carry flag not set, No Jump"
             } //returnOpCode(v: code, c: "JP C,$$", m: " ", l: 3, t: .CODE)
         case 0xDB: // TODO: IN
-            performIn(port: byte1, map: a(), destination: .A)
+       performIn(port: byte1, map: a(), destination: .A)
             instructionComplete(states: 11, length: 2)
             currentOpCode = "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
         case 0xDC:
@@ -1206,9 +1207,9 @@ extension Z80 {
             instructionComplete(states: 4, length: 0)
         }
         R = R &+ 1
-        if R >= 0x80 {
-            R = 0x0
-        }
+                if R >= 0x80 {
+                    R = 0x0
+                }
         if miscDebug {
         if averageTStateInOp > tState {
             print("TState error - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
@@ -1228,7 +1229,7 @@ extension Z80 {
           }
         
         if postProcessorDebug {
-         print("\(UInt16(PC).hex()) - A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
+         print("\(UInt16(PC).hex())-A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
         }
     }
     

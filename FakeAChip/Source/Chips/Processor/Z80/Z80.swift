@@ -17,25 +17,27 @@ class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")
     var AF = AFRegisterPair(a: A, f: F)
-    var BC = RegisterPair("BC", highValue: 0x00, lowValue: 0x00, id: 1)
-    var DE = RegisterPair("DE", highValue: 0x00, lowValue: 0x00, id: 2)
-    var HL = RegisterPair("HL", highValue: 0x00, lowValue: 0x00, id: 3)
-    var IX = RegisterPair("IX", highValue: 0x00, lowValue: 0x00, id: 4)
-    var IY = RegisterPair("IY", highValue: 0x00, lowValue: 0x00, id: 5)
+    var BC = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 1)
+    var DE = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 2)
+    var HL = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 3)
+    var IX = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 4)
+    var IY = RegisterPair(highValue: 0x00, lowValue: 0x00, id: 5)
 //    var AF2 = RegisterPair("AF2", highValue: 0x00, lowValue: 0x00, id: 6)
 //    var BC2 = RegisterPair("BC2", highValue: 0x00, lowValue: 0x00, id: 7)
 //    var DE2 = RegisterPair("DE2", highValue: 0x00, lowValue: 0x00, id: 8)
 //    var HL2 = RegisterPair("HL2", highValue: 0x00, lowValue: 0x00, id: 9)
 //    var sparePair = RegisterPair("Spare", highValue: 0x00, lowValue: 0x00, id: 10)
     var AF2: UInt16 = 0x0
-    var BC2: UInt16 = 0x0
-    var DE2: UInt16 = 0x0
-    var HL2: UInt16 = 0x0
-    var sparePair: UInt16 = 0x0
-    var I: UInt8 = 0x0  //Register = Register(value: 0x00, name: "I")
+     var BC2: UInt16 = 0x0
+     var DE2: UInt16 = 0x0
+     var HL2: UInt16 = 0x0
+     var sparePair: UInt16 = 0x0
+    var I: UInt8 = 0x0
+    var R: UInt8 = 0x0
+    //var I: Register = Register(value: 0x00, name: "I")
     var interupt: Bool = true
     var interupt2: Bool = true
-    var R: UInt8 = 0x0  //Register = Refresh(value: 0x00, name: "R")
+    //var R: Register = Refresh(value: 0x00, name: "R")
     var SP: UInt16 = 0
     var MEMPTR: UInt16 = 0
     var pagingByte: UInt8 = 0
@@ -74,6 +76,25 @@ class Z80: CPU {
     var thisPC: UInt16 = 0x0000
     
     
+    static var sz53pvTable: [UInt8] = []
+    static var sz53Table:   [UInt8] = []
+    static var parityBit:   [UInt8] = []
+    
+    static let cBit:     UInt8 = 1 << 0
+    static let nBit:     UInt8 = 1 << 1
+    static let pvBit:    UInt8 = 1 << 2
+    static let threeBit: UInt8 = 1 << 3
+    static let hBit:     UInt8 = 1 << 4
+    static let fiveBit:  UInt8 = 1 << 5
+    static let zBit:     UInt8 = 1 << 6
+    static let sBit:     UInt8 = 1 << 7
+    
+    static let halfCarryAdd:  [UInt8] = [0, 1 << 4, 1 << 4, 1 << 4, 0, 0, 0, 1 << 4]
+    static let halfCarrySub:  [UInt8] = [0, 0, 1 << 4, 0, 1 << 4, 0, 1 << 4, 1 << 4]
+    static let overFlowAdd:   [UInt8] = [0, 0, 0, 1 << 2, 1 << 2, 0, 0, 0]
+    static let overFlowSub:   [UInt8] = [0, 1 << 2, 0, 0, 0, 0, 1 << 2, 0]
+    
+    
     override init() {
         super.init()
         allocateMemory()
@@ -85,9 +106,32 @@ class Z80: CPU {
         iy().ld(value: 23610)
         PC = 0
         SP = 0
-        
+        calculateTables()
 
         
+    }
+    
+    func calculateTables() {
+        for ii in 0...255 {
+            Z80.sz53Table.append(UInt8(ii) & (Z80.threeBit | Z80.fiveBit | Z80.sBit))
+            var j = UInt(ii)
+            var parity:UInt8 = 0
+            for _ in 0...7 {
+                parity = parity ^ UInt8(j) & 1
+                j = j >> 1
+            }
+            
+            if parity == 0 {
+                Z80.parityBit.append(0)
+            } else {
+                Z80.parityBit.append(Z80.pvBit)
+            }
+            
+            Z80.sz53pvTable.append(Z80.sz53Table[ii] | Z80.parityBit[ii])
+        }
+        
+        Z80.sz53Table[0]   = Z80.sz53Table[0]   | Z80.zBit
+        Z80.sz53pvTable[0] = Z80.sz53pvTable[0] | Z80.zBit
     }
     
     func accumilator() -> Accumilator{
@@ -179,73 +223,68 @@ class Z80: CPU {
     }
     
     func ldA(value: UInt8) {
-        AF.accumilator.ld(value: value)
-    }
-    
-    func ldF(value: UInt8) {
-        AF.flag.ld(value: value)
-    }
-    
-    func ldB(value: UInt8) {
-        BC.ldHigh(value: value)
-    }
-    
-    func ldC(value: UInt8) {
-        BC.ldLow(value: value)
-    }
-    
-    func ldD(value: UInt8) {
-        DE.ldHigh(value: value)
-    }
-    
-    func ldE(value: UInt8) {
-        DE.ldLow(value: value)
-    }
-    
-    func ldH(value: UInt8) {
-        HL.ldHigh(value: value)
-    }
-    
-    func ldL(value: UInt8) {
-        HL.ldLow(value: value)
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+            AF.accumilator.ld(value: value)
+        }
+
+        func ldF(value: UInt8) {
+            AF.flag.ld(value: value)
+        }
+
+        func ldB(value: UInt8) {
+            BC.ldHigh(value: value)
+        }
+
+        func ldC(value: UInt8) {
+            BC.ldLow(value: value)
+        }
+
+        func ldD(value: UInt8) {
+            DE.ldHigh(value: value)
+        }
+
+        func ldE(value: UInt8) {
+            DE.ldLow(value: value)
+        }
+
+        func ldH(value: UInt8) {
+            HL.ldHigh(value: value)
+        }
+
+        func ldL(value: UInt8) {
+            HL.ldLow(value: value)
+        }
     
     func testRegisters(){
         
     }
     
     func exchangeAF(){
-        sparePair = AF.value()
-        AF.ld(value: AF2)
-        AF2 = sparePair
-    }
+            sparePair = AF.value()
+            AF.ld(value: AF2)
+            AF2 = sparePair
+        }
     
     func exchange(working: RegisterPair, spare: RegisterPair){
-        sparePair = working.value()
+        sparePair =  working.value()
         working.ld(pair: spare)
         spare.ld(value: sparePair)
     }
     
     func exchangeAll(){
+//        exchange(working: BC, spare: BC2)
+//        exchange(working: DE, spare: DE2)
+//        exchange(working: HL, spare: HL2)
         sparePair = BC.value()
-        BC.ld(value: BC2)
-        BC2 = sparePair
-        
-            sparePair = DE.value()
-            DE.ld(value: DE2)
-            DE2 = sparePair
-        
-            sparePair = HL.value()
-            HL.ld(value: HL2)
-            HL2 = sparePair
+               BC.ld(value: BC2)
+               BC2 = sparePair
+
+                   sparePair = DE.value()
+                   DE.ld(value: DE2)
+                   DE2 = sparePair
+
+                   sparePair = HL.value()
+                   HL.ld(value: HL2)
+                   HL2 = sparePair
     }
     
     func initialiseRegisters(header: RegisterModel){
@@ -344,6 +383,31 @@ print("Writing nothing to RAM....")
         }
     }
     
+    func fetchRegisterValue(register: AvailableRegister) -> UInt8 {
+            switch register {
+            case .A:
+                return AF.accumilator.value()
+            case .F:
+                return AF.flag.value()
+            case .B:
+                return BC.high()
+            case .C:
+                return BC.low()
+            case .D:
+                return DE.high()
+            case .E:
+                return DE.low()
+            case .H:
+                return HL.high()
+            case .L:
+                return HL.low()
+            case .SPARE:
+                return spareRegister
+            default:
+                return 0x00
+            }
+        }
+    
     func updateDebugStatus() {
         if let data = data {
             preProcessorDebug = data.headerData.debugPreProcessing
@@ -351,33 +415,6 @@ print("Writing nothing to RAM....")
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
             isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
-        }
-    }
-    
-    
-    
-    func fetchRegisterValue(register: AvailableRegister) -> UInt8 {
-        switch register {
-        case .A:
-            return AF.accumilator.value()
-        case .F:
-            return AF.flag.value()
-        case .B:
-            return BC.high()
-        case .C:
-            return BC.low()
-        case .D:
-            return DE.high()
-        case .E:
-            return DE.low()
-        case .H:
-            return HL.high()
-        case .L:
-            return HL.low()
-        case .SPARE:
-            return spareRegister
-        default:
-            return 0x00
         }
     }
     

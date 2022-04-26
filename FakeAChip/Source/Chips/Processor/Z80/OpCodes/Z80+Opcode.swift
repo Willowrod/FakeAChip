@@ -54,6 +54,7 @@ extension Z80 {
             aR().rlcA()
             instructionComplete(states: 4)
         case 0x08:
+            //exchange(working: af(), spare: af2())
             exchangeAF()
             instructionComplete(states: 4)
         case 0x09:
@@ -61,7 +62,7 @@ extension Z80 {
             hl().add(diff: bc().value())
             instructionComplete(states: 11)
         case 0x0A:
-            ldA(value: fetchRam(location: bc().value()))
+            aR().ld(value: fetchRam(location: bc().value()))
             instructionComplete(states: 7)
         case 0x0B:
             bc().dec()
@@ -116,7 +117,7 @@ extension Z80 {
             hl().add(diff: de().value())
             instructionComplete(states: 15)
         case 0x1A:
-            ldA(value: fetchRam(location: de().value()))
+            aR().ld(value: fetchRam(location: de().value()))
             instructionComplete(states: 7)
         case 0x1B:
             de().dec()
@@ -237,7 +238,6 @@ extension Z80 {
             instructionComplete(states: 10, length: 2) //returnOpCode(v: code, c: "LD (HL),$$", m: " ", l: 3, t: .DATA)
         case 0x37:
             Z80.F.scf(acc: a())
-            // kurrentOpCode= "SCF ()"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "SCF", m: " ", l: 1)
         case 0x38:
             if (!f().isSet(bit: Flag.CARRY)){
@@ -255,7 +255,7 @@ extension Z80 {
             // kurrentOpCode= "ADD HL, SP (\(oldval.hex()) + \(SP.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,SP", m: " ", l: 1)
         case 0x3A:
-            ldA(value: fetchRam(location: word))
+            aR().ld(value: fetchRam(location: word))
             // kurrentOpCode= "LD A, (nn) (LD A with the value of RAM location \(word.hex()) \(a().hex())"
             instructionComplete(states: 13, length: 3) //returnOpCode(v: code, c: "LD A,($$)", m: " ", l: 3, t: .DATA)
         case 0x3B:
@@ -271,7 +271,7 @@ extension Z80 {
             // kurrentOpCode= "DEC A (A = \(a().hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "DEC A", m: " ", l: 1)
         case 0x3E: // LD A,$$
-            ldA(value: byte1)
+            aR().ld(value: byte1)
             // kurrentOpCode= "LD A, n (LD A, \(byte1.hex()))"
             instructionComplete(states: 7, length: 2)
         case 0x3F:
@@ -499,31 +499,31 @@ extension Z80 {
             // kurrentOpCode= "LD (HL), A (Where HL is \(HL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
         case 0x78:
-            ldA(value: b())
+            aR().ld(value: b())
             // kurrentOpCode= "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4)
         case 0x79:
-            ldA(value: c())
+            aR().ld(value: c())
             // kurrentOpCode= "LD A,B (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,C", m: " ", l: 1)
         case 0x7A:
-            ldA(value: d())
+            aR().ld(value: d())
             // kurrentOpCode= "LD A,D (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,D", m: " ", l: 1)
         case 0x7B:
-            ldA(value: e())
+            aR().ld(value: e())
             // kurrentOpCode= "LD A,E (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,E", m: " ", l: 1)
         case 0x7C:
-            ldA(value: h())
+            aR().ld(value: h())
             // kurrentOpCode= "LD A,H (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,H", m: " ", l: 1)
         case 0x7D:
-            ldA(value: l())
+            aR().ld(value: l())
             // kurrentOpCode= "LD A,L (A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,L", m: " ", l: 1)
         case 0x7E:
-            ldA(value: fetchRam(registerPair: hl()))
+            aR().ld(value: fetchRam(registerPair: hl()))
             // kurrentOpCode= "LD A,(HL) (Where HL is \(HL.hex()) -  A = \(a().hex()))"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "LD A,(HL)", m: " ", l: 1)
         case 0x7F:
@@ -966,7 +966,7 @@ extension Z80 {
                 // kurrentOpCode= "JP C - Carry flag not set, No Jump"
             } //returnOpCode(v: code, c: "JP C,$$", m: " ", l: 3, t: .CODE)
         case 0xDB: // TODO: IN
-            performIn(port: byte1, map: a(), destination: .A)
+       performIn(port: byte1, map: a(), destination: .A)
             instructionComplete(states: 11, length: 2)
             // kurrentOpCode= "IN A, (n) - IN \(oldA.hex()), (\(byte1.hex())) = \(a().hex())"
         case 0xDC:
@@ -1012,34 +1012,43 @@ extension Z80 {
             let oldHL = hl().value()
             hl().ld(value: fetchRamWord(location: SP))
             ldRam(location: SP, value: oldHL)
+            // kurrentOpCode= "EX (SP), HL"
             instructionComplete(states: 19) //returnOpCode(v: code, c: "EX (SP),HL", m: " ", l: 1)
         case 0xE4:
             if (!Z80.F.isSet(bit: Flag.PARITY)){
                 call(location: word, length: 3)
+                // kurrentOpCode= "CALL NP - Parity flag not set, Call \(PC.hex())"
                 instructionComplete(states: 17, length: 0)
             } else {
                 instructionComplete(states: 10, length: 3)
-            }
+                // kurrentOpCode= "CALL NP - Parity flag set, No Call"
+            } //returnOpCode(v: code, c: "CALL PO,$$", m: " ", l: 3, t: .CODE)
         case 0xE5:
             push(value: hl().value())
+            // kurrentOpCode= "PUSH HL (HL = \(HL.hex())"
             instructionComplete(states: 11) //returnOpCode(v: code, c: "PUSH HL", m: " ", l: 1)
         case 0xE6:
             aR().aND(byte: byte1)
+            // kurrentOpCode= "AND A,n (\(oldA.hex()) & \(byte1.hex()) = \(a().hex()))"
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "AND ±", m: "Update A to only contain bytes set in both A and the value ±", l: 2)
             break
         case 0xE7:
             call(location: 0x0020)
+            // kurrentOpCode= "RST $20 (Call 0x0020)"
             instructionComplete(states: 11, length: 0)//returnOpCode(v: code, c: "RST &20", m: " ", l: 1)
         case 0xE8:
             if (Z80.F.isSet(bit: Flag.PARITY)){
                 ret()
+                // kurrentOpCode= "RET P - Parity flag set, Return to \(PC.hex())"
                 instructionComplete(states: 11, length: 0)
             } else {
+                // kurrentOpCode= "RET P - Parity flag notset, No Return"
                 instructionComplete(states: 5, length: 1)
-            }
+            } //returnOpCode(v: code, c: "RET PE", m: " ", l: 1)
         case 0xE9:
             jump(location: hl().value())
-            instructionComplete(states: 4, length: 0)
+            // kurrentOpCode= "JP HL"
+            instructionComplete(states: 4, length: 0) //returnOpCode(v: code, c: "JP (HL)", m: " ", l: 1)
         case 0xEA:
             if (Z80.F.isSet(bit: Flag.PARITY)){
                 jump(location: word)
@@ -1149,9 +1158,9 @@ extension Z80 {
             instructionComplete(states: 4, length: 0)
         }
         R = R &+ 1
-        if R >= 0x80 {
-            R = 0x0
-        }
+                if R >= 0x80 {
+                    R = 0x0
+                }
     }
     
 }

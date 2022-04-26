@@ -13,6 +13,7 @@ extension Z80 {
         let byte1: UInt8 = fetchRam(location: PC &+ 1)
         let byte2: UInt8 = fetchRam(location: PC &+ 2)
         let word: UInt16 = (UInt16(byte2) * 256) + UInt16(byte1)
+        var originalByte : UInt8 = 0x0
         switch byte {
 
         case 0x40: //TODO: IN B,(C)
@@ -61,6 +62,7 @@ extension Z80 {
             interuptMode = 1
         instructionComplete(states: 8)
         case 0x4F: // LD R,A
+            //R.ld(value: a())
             R = a()
         instructionComplete(states: 4)
         case 0x50: // TODO: IN D, (C)
@@ -85,7 +87,8 @@ extension Z80 {
             interuptMode = 1
         instructionComplete(states: 8)
         case 0x57: // LD A,I // TODO: LD A, I
-            ldA(value: I)
+            //aR().ld(value: I.value())
+            aR().ld(value: I)
         instructionComplete(states: 9)
         case 0x58: // TODO: IN E, (C)
             performIn(port: c(), map: b(), destination: .E)
@@ -109,7 +112,8 @@ extension Z80 {
             interuptMode = 2
         instructionComplete(states: 8)
         case 0x5F: // LD A,R
-            ldA(value: R)
+            //aR().ld(value: R.value())
+            aR().ld(value: R)
         instructionComplete(states: 9)
         case 0x60: // TODO: IN H, (C)
             performIn(port: c(), map: b(), destination: .H)
@@ -140,7 +144,7 @@ extension Z80 {
             let hlHN = hlRef.upperNibble()
             let nHL = (aLN << 4) &+ hlHN
             let nA = (a() & 240) &+ hlLN
-            ldA(value: nA)
+            aR().ld(value: nA)
             ldRam(location: hl().value(), value: nHL)
         instructionComplete(states: 18)
         case 0x68: // TODO: IN L, (C)
@@ -173,7 +177,7 @@ extension Z80 {
             let nHL = (hlLN << 4) &+ aLN
             let nA = (a() & 240) &+ hlHN
             
-            ldA(value: nA)
+            aR().ld(value: nA)
             ldRam(location: hl().value(), value: nHL)
             
             
@@ -189,7 +193,7 @@ extension Z80 {
         instructionComplete(states: 18)
             break
         case 0x71: // TODO OUT (C),0
-            spareRegister = 0x00
+            spareRegister = 0x0
             performOut(port: c(), map: b(), source: .SPARE)
         instructionComplete(states: 12)
         case 0x72: //SBC HL,SP
@@ -250,7 +254,7 @@ extension Z80 {
         case 0xA2: // TODO: INI
         instructionComplete(states: 16)
         case 0xA3: // TODO: OUTI
-            spareRegister = fetchRam(location: hl().value()) //ld(value: fetchRam(location: hl().value()))
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
             performOut(port: c(), map: b(), source: .SPARE)
             hl().inc()
             BC.decHigh()
@@ -286,28 +290,23 @@ extension Z80 {
             instructionComplete(states: 16)
             break
             case 0xAB:
-            spareRegister = fetchRam(location: hl().value()) //ld(value: fetchRam(location: hl().value()))
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
             performOut(port: c(), map: b(), source: .SPARE)
-//                spareRegister.ld(value: fetchRam(location: hl().value()))
-//                performOut(port: c(), map: b(), source: spareRegister)
-                hl().dec()
-                BC.decHigh()
+            hl().dec()
+            BC.decHigh()
                 instructionComplete(states: 16)
             break
 
                 
         case 0xB0: // LDIR
-
-            ldRam(location: de().value(), value: fetchRam(location: hl().value()))
-                        let bit35Bit = fetchRam(location: hl().value()) &+ a()
-                            Z80.F.set(bit: 3, value: bit35Bit.isSet(bit: 3))
-                            Z80.F.set(bit: 5, value: bit35Bit.isSet(bit: 1))
+originalByte = fetchRam(location: hl().value())
+            ldRam(location: de().value(), value: originalByte)
+            bc().dec()
+            originalByte = originalByte &+ a()
+            Z80.F.ld(value: (Z80.F.value() & (Z80.cBit | Z80.zBit | Z80.sBit)) | (bc().value() > 0 ? Z80.pvBit : 0) | (originalByte & Z80.threeBit) | ((originalByte & 0x02) > 0 ? Z80.fiveBit : 0))
                  de().inc()
                  hl().inc()
-                 bc().dec()
-                 Z80.F.clear(bit: Flag.HALF_CARRY)
-                 Z80.F.clear(bit: Flag.SUBTRACT)
-                 Z80.F.set(bit: Flag.PARITY, value: bc().value() != 1)
+
                  if (bc().value() != 0){
                      PC = PC &- 1
                  instructionComplete(states: 21, length: 0)
@@ -316,41 +315,38 @@ extension Z80 {
              instructionComplete(states: 16)
                  }
         case 0xB1: // CPI
-            
-            let carry = Z80.F.isSet(bit: Flag.CARRY)
-            aR().compare(byte: fetchRam(location: hl().value()))
+                     
+             let originalByte = fetchRam(location: hl().value())
+                     var temp = a() &- originalByte
+                     
+                     let lookup = ((a() & 0x08) >> 3) | ((originalByte & 0x08) >> 2) | ((temp & 0x08) >> 1)
+                    bc().dec()
+                     
+                     Z80.F.ld(value: (Z80.F.value() & Z80.cBit) | (bc().value() > 0 ? (Z80.pvBit | Z80.nBit) : Z80.nBit) | Z80.halfCarrySub[Int(lookup)] | (temp > 0 ? 0 : Z80.zBit) | (temp & Z80.sBit))
+                     
+                     if Z80.F.value() & Z80.hBit > 0 {
+                temp = temp &- 1
+            }
+                     Z80.F.ld(value: Z80.F.value() | (temp & Z80.threeBit) | ((temp & 0x02) > 0 ? Z80.fiveBit : 0))
+                hl().inc()
             let zero = Z80.F.isSet(bit: Flag.ZERO)
-            hl().inc()
-            bc().dec()
-            Z80.F.set(bit: Flag.ZERO, value: zero)
-            Z80.F.set(bit: Flag.CARRY, value: carry)
             if (zero || bc().value() == 0){
                 instructionComplete(states: 16)
-                Z80.F.set(bit: Flag.PARITY, value: bc().value() != 0)
-//                let bits35Value = Int(a()) - Int(fetchRam(location: hl().value())) - Int(h())
-//                Z80.F.set(bit: 5, value: bits35Value < 0)
-                let hFlag: UInt8 = Z80.F.isSet(bit: Flag.HALF_CARRY) ? 0x01 : 0x00
-                let bits35Value = a() &- fetchRam(location: hl().value()) &- hFlag
-                Z80.F.set(bit: 3, value: UInt8(bits35Value).isSet(bit: 3))
-                Z80.F.set(bit: 5, value: UInt8(bits35Value).isSet(bit: 1))
             } else {
                 PC = PC &- 1
-                Z80.F.set(bit: Flag.PARITY)
                 instructionComplete(states: 21, length: 0)
             }
-            
+//
             
             
         case 0xB2: // TODO: INIR
         instructionComplete(states: 16)
         case 0xB3: // TODO: OTIR
             
-                spareRegister = fetchRam(location: hl().value()) //ld(value: fetchRam(location: hl().value()))
-                performOut(port: c(), map: b(), source: .SPARE)
-//                spareRegister.ld(value: fetchRam(location: hl().value()))
-//                performOut(port: c(), map: b(), source: spareRegister)
-                hl().inc()
-                BC.decHigh()
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
+            hl().inc()
+            BC.decHigh()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {
@@ -422,13 +418,11 @@ extension Z80 {
             instructionComplete(states: 16)
             break
             case 0xBB: // TODO: OTDR
-            
-                spareRegister = fetchRam(location: hl().value()) //ld(value: fetchRam(location: hl().value()))
-                performOut(port: c(), map: b(), source: .SPARE)
-//                spareRegister.ld(value: fetchRam(location: hl().value()))
-//                performOut(port: c(), map: b(), source: spareRegister)
-                hl().dec()
-                BC.decHigh()
+                
+            spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
+            performOut(port: c(), map: b(), source: .SPARE)
+            hl().dec()
+            BC.decHigh()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {
@@ -443,9 +437,9 @@ extension Z80 {
             print("-")
         }
         R = R &+ 1
-        if R >= 0x80 {
-            R = 0x0
-        }
+                if R >= 0x80 {
+                    R = 0x0
+                }
     }
     
     

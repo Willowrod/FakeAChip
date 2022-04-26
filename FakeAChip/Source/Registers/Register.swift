@@ -8,7 +8,7 @@
 import Foundation
 
 class Register {
-    var register: UInt8 = 0xff  //RegisterStruct = RegisterStruct(byteValue: 0xFF)
+    var register: UInt8 = 0xff //RegisterStruct = RegisterStruct(byteValue: 0xFF)
     var name: String = "Unknown"
     
     init(value: UInt8) {
@@ -16,7 +16,7 @@ class Register {
     }
     
     init(value: UInt8, name: String) {
-        register = value // = RegisterStruct(byteValue: value)
+        register = value //RegisterStruct(byteValue: value)
         self.name = name
     }
     
@@ -29,11 +29,12 @@ class Register {
     }
     
     func stringValue() -> String {
-        return String(register) //
+        return String(register) //.byteValue
     }
     
     func ld(value: UInt8){
-        register = value
+       // register = RegisterStruct(byteValue: value)
+        register = value //.byteValue
     }
     
     func setBit(bit: Int) {
@@ -46,12 +47,12 @@ class Register {
     
     func set(bit: Int) {
         //register = RegisterStruct(byteValue: register.byteValue | 1 << bit)
-        register = register | 1 << bit
+        register = register | 1 << bit //.byteValue
     }
     
     func clear(bit: Int) {
         //register = RegisterStruct(byteValue: register.byteValue & ~(1 << bit))
-        register = register & ~(1 << bit)
+        register = register & ~(1 << bit) //.byteValue
     }
     
     func set(bit: Int, value: Bool) {
@@ -63,7 +64,7 @@ class Register {
     }
     
     func readBit(bit: Int) -> Bool {
-        return register.isSet(bit: bit)
+        return register.isSet(bit: bit) //.byteValue
     }
     
     func isSet(bit: Int) -> Bool {

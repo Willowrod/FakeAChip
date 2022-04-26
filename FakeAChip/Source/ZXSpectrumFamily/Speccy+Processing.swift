@@ -30,8 +30,6 @@ extension Speccy {
     
     func processInternal(){
         currentTStates = 0
-        
-        print ("Spectrum on - processing: \(processing)")
         while processing {
             framePair.inc()
             if !pauseProcessor {
@@ -41,16 +39,13 @@ extension Speccy {
                         interupt = false
                         interupt2 = false
                         push(value: PC)
-                        if miscDebug {
-                            print("Interupt IM\(interuptMode) called")
-                        }
                         switch interuptMode {
                         case 0:
                             PC = 0x0066
                         case 1:
                             PC = 0x0038
                         default:
-                            let intAddress = (UInt16(I) * UInt16(256)) &+ UInt16(R)
+                            let intAddress = (UInt16(I) * 256) + UInt16(R)
                             PC = fetchRamWord(location: intAddress)
                             if miscDebug {
                                 print("IM2 triggered at \(intAddress.hex()) and processes from \(PC.hex())")
@@ -69,14 +64,7 @@ extension Speccy {
                         thisPC = PC
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
-//                        if PC == 0x120A {
-//                            print ("120A")
-//                        }
-                        if isDebugging {
-                            opCodeDebug(byte: byte)
-                        } else {
                             opCode(byte: byte)
-                        }
                         self.doAdditionalPostProcessing()
                     }
                     if currentTStates >= tStatesPerFrame {
@@ -107,6 +95,24 @@ extension Speccy {
             }
         }
         shouldForceBreak = false
+    }
+    
+    func resetRegisters(){
+        
+            HL2 = 0x0
+        BC2 = 0x0
+        DE2 = 0x0
+        HL.ld(word: 0x0)
+        BC.ld(word: 0x0)
+        DE.ld(word: 0x0)
+        AF.ld(value: 0x0)
+    }
+    
+    func dumpRegisters(){
+                                    print ("AF: \(af().value().hex()) '\(af2().value().hex())")
+                                    print ("BC: \(bc().value().hex()) '\(bc2().value().hex())")
+                                    print ("DE: \(de().value().hex()) '\(de2().value().hex())")
+                                    print ("HL: \(hl().value().hex()) '\(hl2().value().hex())")
     }
     
     func doAdditionalPreProcessingInternal(){

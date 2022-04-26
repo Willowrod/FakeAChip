@@ -7,9 +7,8 @@
 
 import Foundation
 class AFRegisterPair {
-    
     var accumilator: Accumilator
-    var flag: FlagRegister
+     var flag: FlagRegister
     
     init(a: Accumilator, f: FlagRegister) {
         accumilator = a
@@ -26,10 +25,15 @@ class AFRegisterPair {
     }
     
     func value() -> UInt16{
-        return (UInt16(accumilator.value()) * 256) + UInt16(flag.value())
+            return (UInt16(accumilator.value()) * 256) + UInt16(flag.value())
+        }
+
+        func hex() -> String {
+            return value().hex()
+        }
+    
+    func flags() -> String {
+        return flag.value().bin()
     }
     
-    func hex() -> String {
-        return value().hex()
-    }
 }

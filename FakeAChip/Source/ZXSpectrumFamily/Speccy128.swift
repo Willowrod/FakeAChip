@@ -164,7 +164,6 @@ class Speccy128: Speccy {
                 // Ram / Rom swap
                 if (bankSwitchEnabled){
                     let newRamBank = fetchRegisterValue(register: source) & 0x07
-                    // let newScreenBank = source.value() & 0x08
                     let newRomBank = fetchRegisterValue(register: source) & 0x10
                     let disableSwitch = fetchRegisterValue(register: source) & 0x20
                     

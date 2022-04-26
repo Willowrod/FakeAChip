@@ -174,13 +174,13 @@ extension Z80 {
             ldRam(location: targetByte, value: a())
             instructionComplete(states: 19, length: 2)
         case 0x7C:
-            ldA(value: reg.high())
+            aR().ld(value: reg.high())
             instructionComplete(states: 8)
         case 0x7D:
-            ldA(value: reg.low())
+            aR().ld(value: reg.low())
             instructionComplete(states: 8)
         case 0x7E:
-            ldA(value: fetchRam(location: targetByte))
+            aR().ld(value: fetchRam(location: targetByte))
             instructionComplete(states: 19, length: 2)
         case 0x84:
             aR().add(diff: reg.high())
@@ -278,8 +278,8 @@ extension Z80 {
             print("-")
         }
         R = R &+ 1
-        if R >= 0x80 {
-            R = 0x0
-        }
+                if R >= 0x80 {
+                    R = 0x0
+                }
     }
 }

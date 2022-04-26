@@ -223,12 +223,6 @@ extension Speccy {
         HL.ld(value: 0x2596)
         PC = 0x0605
         resume()
-//        guard let filePath = Bundle.main.path(forResource: "loader", ofType: "z80"), let disassembly = FileManager.default.contents(atPath: filePath), let snappy = String(data: disassembly, encoding:.utf8)  else {
-//            print("Failed to read data")
-//            return
-//        }
-    //        print(snappy)
- //       loadZ80Internal(data: snappy)
     }
    
     func writeZ80Internal() {
@@ -255,7 +249,7 @@ extension Speccy {
         snap.add(HL2)  // Bit 19
         snap.add(AF2.highByte())
         snap.add(AF2.lowByte())
-        snap.add(IY.value()) // Bit 23
+        snap.add(IY.value())// Bit 23
         snap.add(IX.value())
         if interupt {           // Bit 27
             snap.add(UInt8(0x01))

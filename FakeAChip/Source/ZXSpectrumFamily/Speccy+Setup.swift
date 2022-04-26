@@ -54,26 +54,28 @@ extension Speccy {
     
     func initialiseRegistersInternal(header: RegisterModel){
         testRegisters()
+        aR().ld(value:header.primary.registerA)
+        Z80.fR().ld(value:header.primary.registerF)
         ldA(value:header.primary.registerA)
-        ldF(value:header.primary.registerF)
-        ldB(value:header.primary.registerB)
-        ldC(value:header.primary.registerC)
-        ldD(value:header.primary.registerD)
-        ldE(value:header.primary.registerE)
-        ldH(value:header.primary.registerH)
-        ldL(value:header.primary.registerL)
+               ldF(value:header.primary.registerF)
+               ldB(value:header.primary.registerB)
+               ldC(value:header.primary.registerC)
+               ldD(value:header.primary.registerD)
+               ldE(value:header.primary.registerE)
+               ldH(value:header.primary.registerH)
+               ldL(value:header.primary.registerL)
         
-        BC2 = (UInt16(header.swap.registerB) * UInt16(256)) + UInt16(header.swap.registerC) //.ld(value:header.registerPair(l: header.swap.registerC, h: header.swap.registerB))
-        DE2 = (UInt16(header.swap.registerD) * UInt16(256)) + UInt16(header.swap.registerE) //.ld(value:header.registerPair(l: header.swap.registerE, h: header.swap.registerD))
-        HL2 = (UInt16(header.swap.registerH) * UInt16(256)) + UInt16(header.swap.registerL) //.ld(value:header.registerPair(l: header.swap.registerL, h: header.swap.registerH))
-        AF2 = (UInt16(header.swap.registerA) * UInt16(256)) + UInt16(header.swap.registerF) //.ld(value:header.registerPair(l: header.swap.registerF, h: header.swap.registerA))
+        BC2 = (UInt16(header.swap.registerB) * UInt16(256)) + UInt16(header.swap.registerC)
+        DE2 = (UInt16(header.swap.registerD) * UInt16(256)) + UInt16(header.swap.registerE)
+        HL2 = (UInt16(header.swap.registerH) * UInt16(256)) + UInt16(header.swap.registerL)
+        AF2 = (UInt16(header.swap.registerA) * UInt16(256)) + UInt16(header.swap.registerF)
         
         SP = header.registerSP
         ix().ld(value: header.registerIX)
         iy().ld(value: header.registerIY)
         
-        I = header.registerI //.ld(value: header.registerI)
-        R = header.registerR //.ld(value: header.registerR)
+        I = header.registerI
+        R = header.registerR
         
         interuptMode = header.interuptMode
         interupt = header.interuptEnabled
@@ -90,22 +92,4 @@ extension Speccy {
         updateBorder(header.borderColour)
     }
     
-//    func update(){
-//        AF.inc()
-//        if AF.value() == 0x00 {
-//            BC.inc()
-//            if BC.value() == 0x00 {
-//                DE.inc()
-//                if DE.value() == 0x00 {
-//                    HL.inc()
-//                    if HL.value() == 0x00 {
-//                        IX.inc()
-//                        if IX.value() == 0x00 {
-//                            IY.inc()
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
