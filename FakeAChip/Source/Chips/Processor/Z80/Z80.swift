@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import ZXLoaderSDK
 
 //protocol TapeDelegate {
 //    func callNextBlock() -> BaseTZXBlock?
@@ -56,7 +57,7 @@ class Z80: CPU {
     var stackSize = 0
     var pauseProcessor = false
     var clicks: UInt8 = 0
-    var header: RegisterModel = RegisterModel()
+    var header: Z80RegisterSnapshot = Z80RegisterSnapshot()
     
     var preProcessorDebug = false
     var postProcessorDebug = false
@@ -287,7 +288,7 @@ class Z80: CPU {
                    HL2 = sparePair
     }
     
-    func initialiseRegisters(header: RegisterModel){
+    func initialiseRegisters(header: Z80RegisterSnapshot){
         
     }
     

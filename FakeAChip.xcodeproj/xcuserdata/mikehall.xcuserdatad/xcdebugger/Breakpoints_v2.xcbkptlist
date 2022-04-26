@@ -3,22 +3,4 @@
    uuid = "FB1F32A4-8797-42F3-8DC4-950EA1D2B77A"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "77215FAD-62CC-4F3E-8027-C28DE36FC6FE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeAChip/Source/Chips/Processor/Z80/OpCodes/Z80+OpcodeDDFDCB.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "opCodeDDFDCB(reg:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

@@ -21,8 +21,6 @@
 		CD0CC56025FA6BD700731EDA /* FakeAChipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC55F25FA6BD700731EDA /* FakeAChipUITests.swift */; };
 		CD0CC58C25FA6C4000731EDA /* FileFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57225FA6C3F00731EDA /* FileFormat.swift */; };
 		CD0CC58D25FA6C4000731EDA /* FileFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57225FA6C3F00731EDA /* FileFormat.swift */; };
-		CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57425FA6C3F00731EDA /* RegisterModel.swift */; };
-		CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57425FA6C3F00731EDA /* RegisterModel.swift */; };
 		CD0CC59225FA6C4000731EDA /* BaseFileFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57725FA6C3F00731EDA /* BaseFileFormat.swift */; };
 		CD0CC59325FA6C4000731EDA /* BaseFileFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57725FA6C3F00731EDA /* BaseFileFormat.swift */; };
 		CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57925FA6C3F00731EDA /* StringExtensions.swift */; };
@@ -89,7 +87,6 @@
 		CD2DA798260CF4D20022F4EF /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
 		CD2DB0C8279EBAF400071481 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */; };
 		CD2DB0C9279EBAF400071481 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */; };
-		CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD306C77264C2FC20021AA0A /* ZXDB-SDK */; };
 		CD34EEDE26FB159D00597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
 		CD34EEDF26FB1CB900597392 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
 		CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
@@ -141,8 +138,10 @@
 		CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D526C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
 		CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
-		CDA0A51B2811E702001E4265 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CDA0A51A2811E702001E4265 /* Zip */; };
-		CDA0A51D2811E71F001E4265 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */; };
+		CD9CFA3D2817FD4F001701DD /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */; };
+		CD9CFA3F2817FD54001701DD /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA3E2817FD54001701DD /* ZXLoaderSDK */; };
+		CD9CFA412817FD59001701DD /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA402817FD59001701DD /* Zip */; };
+		CD9CFA432817FD60001701DD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA422817FD60001701DD /* FirebaseAnalytics */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -388,7 +387,6 @@
 		CD0CC55F25FA6BD700731EDA /* FakeAChipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAChipUITests.swift; sourceTree = "<group>"; };
 		CD0CC56125FA6BD700731EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD0CC57225FA6C3F00731EDA /* FileFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileFormat.swift; sourceTree = "<group>"; };
-		CD0CC57425FA6C3F00731EDA /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		CD0CC57725FA6C3F00731EDA /* BaseFileFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFileFormat.swift; sourceTree = "<group>"; };
 		CD0CC57925FA6C3F00731EDA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CD0CC57A25FA6C3F00731EDA /* UIImage+Bitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Bitmap.swift"; sourceTree = "<group>"; };
@@ -423,6 +421,7 @@
 		CD26451E26D9FF680072B09F /* DisassemblyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyData.swift; sourceTree = "<group>"; };
 		CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyHeaderView.swift; sourceTree = "<group>"; };
 		CD26460326DD6AA00072B09F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		CD2C55602817F1AA003E096A /* ZXLoaderSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZXLoaderSDK; path = ../ZXLoaderSDK; sourceTree = "<group>"; };
 		CD2D7F942716D3C20067BA19 /* LoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingView.swift; sourceTree = "<group>"; };
 		CD2D7F962716D4560067BA19 /* DiagnosticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticData.swift; sourceTree = "<group>"; };
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
@@ -430,7 +429,6 @@
 		CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyModel.swift; sourceTree = "<group>"; };
 		CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRegisters.swift; sourceTree = "<group>"; };
 		CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ZXColour.swift"; sourceTree = "<group>"; };
-		CD34F5C226FD329B00597392 /* ZXDB-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ZXDB-SDK"; path = "../ZXDB-SDK"; sourceTree = "<group>"; };
 		CD3BD82A267748C600394AB1 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
 		CD3BD82D2677495000394AB1 /* TapePlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerData.swift; sourceTree = "<group>"; };
 		CD4297DD26A0772D0087CFEC /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
@@ -610,10 +608,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA0A51B2811E702001E4265 /* Zip in Frameworks */,
+				CD9CFA3F2817FD54001701DD /* ZXLoaderSDK in Frameworks */,
 				CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */,
-				CDA0A51D2811E71F001E4265 /* FirebaseAnalytics in Frameworks */,
-				CD306C78264C2FC20021AA0A /* ZXDB-SDK in Frameworks */,
+				CD9CFA412817FD59001701DD /* Zip in Frameworks */,
+				CD9CFA432817FD60001701DD /* FirebaseAnalytics in Frameworks */,
+				CD9CFA3D2817FD4F001701DD /* ZXDB-SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +751,6 @@
 		CD0CC57325FA6C3F00731EDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CD0CC57425FA6C3F00731EDA /* RegisterModel.swift */,
 				CD891490260202FD00C75998 /* RegisterSetModel.swift */,
 				CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */,
 			);
@@ -918,8 +916,8 @@
 		CD34F5C126FD329B00597392 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				CD34F5C226FD329B00597392 /* ZXDB-SDK */,
 				CD67917F2744FF5400B4C810 /* ZXDBSDK */,
+				CD2C55602817F1AA003E096A /* ZXLoaderSDK */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -1210,9 +1208,10 @@
 			);
 			name = FakeAChip;
 			packageProductDependencies = (
-				CD306C77264C2FC20021AA0A /* ZXDB-SDK */,
-				CDA0A51A2811E702001E4265 /* Zip */,
-				CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */,
+				CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */,
+				CD9CFA3E2817FD54001701DD /* ZXLoaderSDK */,
+				CD9CFA402817FD59001701DD /* Zip */,
+				CD9CFA422817FD60001701DD /* FirebaseAnalytics */,
 			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
@@ -1288,6 +1287,7 @@
 			packageReferences = (
 				CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */,
 				CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CDC6D0C72817FB0E0014D993 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = CD0CC53B25FA6BD400731EDA /* Products */;
 			projectDirPath = "";
@@ -1517,7 +1517,6 @@
 				CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
-				CD0CC58E25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */,
 				CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
@@ -1690,7 +1689,6 @@
 				CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CDD5FD1626F12AB2009C3822 /* Speccy+RAM.swift in Sources */,
 				CDD5FD1A26F12AB8009C3822 /* SpectrumSprite.swift in Sources */,
-				CD0CC58F25FA6C4000731EDA /* RegisterModel.swift in Sources */,
 				CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
 				CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
@@ -2054,19 +2052,31 @@
 				minimumVersion = 8.14.0;
 			};
 		};
+		CDC6D0C72817FB0E0014D993 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD306C77264C2FC20021AA0A /* ZXDB-SDK */ = {
+		CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ZXDB-SDK";
 		};
-		CDA0A51A2811E702001E4265 /* Zip */ = {
+		CD9CFA3E2817FD54001701DD /* ZXLoaderSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZXLoaderSDK;
+		};
+		CD9CFA402817FD59001701DD /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
 		};
-		CDA0A51C2811E71F001E4265 /* FirebaseAnalytics */ = {
+		CD9CFA422817FD60001701DD /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;

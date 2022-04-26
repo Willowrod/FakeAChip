@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import ZXLoaderSDK
+
 
 extension Speccy {
     
@@ -52,7 +54,7 @@ extension Speccy {
         resume()
     }
     
-    func initialiseRegistersInternal(header: RegisterModel){
+    func initialiseRegistersInternal(header: Z80RegisterSnapshot){
         testRegisters()
         aR().ld(value:header.primary.registerA)
         Z80.fR().ld(value:header.primary.registerF)

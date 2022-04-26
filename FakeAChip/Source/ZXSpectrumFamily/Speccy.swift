@@ -11,6 +11,7 @@ import Zip
 import SwiftUI
 import ZXDB_SDK
 import GameController
+import ZXLoaderSDK
 
 class Speccy: Z80 {
     
@@ -145,7 +146,7 @@ performInInternal(port: port, map: map, destination: destination)
 joystickInteractionInternal(key: key, pressed: pressed)  
     }
     
-    override func initialiseRegisters(header: RegisterModel){
+    override func initialiseRegisters(header: Z80RegisterSnapshot){
        initialiseRegistersInternal(header: header)
     }
     
