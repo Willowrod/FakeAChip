@@ -9,11 +9,6 @@ import Foundation
 import AVFoundation
 import ZXLoaderSDK
 
-//protocol TapeDelegate {
-//    func callNextBlock() -> BaseTZXBlock?
-//}
-
-
 class Z80: CPU {
     static var F: FlagRegister = FlagRegister(value: 0x00, name: "F")
     static var A: Accumilator = Accumilator(value: 0x00, name: "A")

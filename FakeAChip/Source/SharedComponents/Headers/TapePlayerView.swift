@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ZXLoaderSDK
 
 struct TapePlayerView: View {
     @ObservedObject var tapePlayerData: TapePlayerData

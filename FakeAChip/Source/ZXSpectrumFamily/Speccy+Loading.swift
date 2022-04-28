@@ -133,7 +133,6 @@ extension Speccy {
         }
         initialiseRegisters(header: snapShot.registers)
         header = snapShot.registers
-        //        writeCodeBytes()
     }
     
     
@@ -188,28 +187,10 @@ extension Speccy {
     }
     
     func importTZX(tzxFile: String, path: String? = nil){
-        if let filePath = path, filePath.count > 0 {
-            let file = "\(filePath)/\(tzxFile)"
-            if let contents = NSData(contentsOfFile: file) {
-                let tzxData = contents as Data
-                let dataString = tzxData.hexString
-                let tzx = TZXFormat.init(data: dataString)
-                loadingTStates = 0
-                tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
-                data?.headerData.tapePlayerData.tape = tzx
-            }
-        } else if let filePath = Bundle.main.path(forResource: tzxFile.replacingOccurrences(of: ".tzx", with: ""), ofType: "tzx"){
-            print("File found - \(filePath)")
-            let contents = NSData(contentsOfFile: filePath)
-            let tzxData = contents! as Data
-            let dataString = tzxData.hexString
-            let tzx = TZXFormat.init(data: dataString)
-            loadingTStates = 0
-            tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
-            data?.headerData.tapePlayerData.tape = tzx
-        } else {
-            print("file not found")
-        }
+        let tzx = TZXFormat.init(filename: tzxFile, path: path)
+        loadingTStates = 0
+        tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
+        data?.headerData.tapePlayerData.tape = tzx
     }
     
     

@@ -8,6 +8,3 @@
 import Foundation
 
 
-enum TapePlayerState {
-    case Empty, Playing, Paused, Rewound, Ended
-}

@@ -42,11 +42,8 @@ extension Speccy {
                 } else {
                     data?.headerData.tapePlayerData.tape = nil
                     data?.headerData.tapePlayerData.tapePlayerState = .Paused
-
                     resume()
                 }
-
-          //      print("Loading \(destination.name) with \(byteVal.hex())")
             }
             updateIn(register: destination, value: byteVal)
         } else if port == 0x7f {
