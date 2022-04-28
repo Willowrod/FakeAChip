@@ -136,6 +136,7 @@
 		CD9CFA3F2817FD54001701DD /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA3E2817FD54001701DD /* ZXLoaderSDK */; };
 		CD9CFA412817FD59001701DD /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA402817FD59001701DD /* Zip */; };
 		CD9CFA432817FD60001701DD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA422817FD60001701DD /* FirebaseAnalytics */; };
+		CD9CFA45281ACA5E001701DD /* actionbikersna.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA44281ACA5E001701DD /* actionbikersna.sna */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -179,8 +180,6 @@
 		CDA172E52605521500910C23 /* KeyInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172E42605521500910C23 /* KeyInputController.swift */; };
 		CDA172EE2608859F00910C23 /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172ED2608859F00910C23 /* DebugModel.swift */; };
 		CDA172EF2608859F00910C23 /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172ED2608859F00910C23 /* DebugModel.swift */; };
-		CDA173172609172E00910C23 /* SNAFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA173162609172E00910C23 /* SNAFormat.swift */; };
-		CDA173182609172E00910C23 /* SNAFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA173162609172E00910C23 /* SNAFormat.swift */; };
 		CDA1746726091D6900910C23 /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746626091D6900910C23 /* ZXKeyboard.swift */; };
 		CDA1746826091D6900910C23 /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746626091D6900910C23 /* ZXKeyboard.swift */; };
 		CDA1746E2609253600910C23 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
@@ -446,6 +445,7 @@
 		CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerDataSection.swift; sourceTree = "<group>"; };
 		CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerValueSection.swift; sourceTree = "<group>"; };
+		CD9CFA44281ACA5E001701DD /* actionbikersna.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = actionbikersna.sna; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
 		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
 		CDA1725E2604962100910C23 /* ZX128k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX128k.rom; sourceTree = "<group>"; };
@@ -474,7 +474,6 @@
 		CDA172DD2605016F00910C23 /* VDU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDU.swift; sourceTree = "<group>"; };
 		CDA172E42605521500910C23 /* KeyInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInputController.swift; sourceTree = "<group>"; };
 		CDA172ED2608859F00910C23 /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
-		CDA173162609172E00910C23 /* SNAFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNAFormat.swift; sourceTree = "<group>"; };
 		CDA1746626091D6900910C23 /* ZXKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKeyboard.swift; sourceTree = "<group>"; };
 		CDA1746D2609253600910C23 /* PressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressActions.swift; sourceTree = "<group>"; };
 		CDA174762609E39200910C23 /* ZXBeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
@@ -806,7 +805,6 @@
 			isa = PBXGroup;
 			children = (
 				CD51D4722642B66C003C2A9A /* TXZFormat.swift */,
-				CDA173162609172E00910C23 /* SNAFormat.swift */,
 				CD51D4782642B968003C2A9A /* ZXTapeLoader.swift */,
 				CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */,
 			);
@@ -1053,6 +1051,7 @@
 		CDD318D12745A83000C1DA4D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CD9CFA44281ACA5E001701DD /* actionbikersna.sna */,
 				CDD318EC2745A84600C1DA4D /* 720 Degrees (1986)(U.S. Gold).zip */,
 				CDD318F72745A84600C1DA4D /* Action Biker (1985)(Mastertronic).zip */,
 				CDD319032745A84700C1DA4D /* Ant Attack (1983)(Quicksilva).zip */,
@@ -1314,6 +1313,7 @@
 				CDD319452745A84900C1DA4D /* Grumpy Gumphrey Supersleuth (1985)(Gremlin Graphics Software).zip in Resources */,
 				CDD3192F2745A84900C1DA4D /* Deflektor (1987)(Gremlin Graphics Software).zip in Resources */,
 				CDD319602745A84900C1DA4D /* Hydrofool (1987)(Faster Than Light).zip in Resources */,
+				CD9CFA45281ACA5E001701DD /* actionbikersna.sna in Resources */,
 				CDD319732745A84900C1DA4D /* Into the Eagle's Nest (1987)(Pandora).zip in Resources */,
 				CDD319472745A84900C1DA4D /* Pyramid, The (1983)(Fantasy Software).zip in Resources */,
 				CDD3192A2745A84900C1DA4D /* Herbert's Dummy Run (1985)(Mikro-Gen).zip in Resources */,
@@ -1474,7 +1474,6 @@
 				CD89147125FFBF0B00C75998 /* Accumilator.swift in Sources */,
 				CD2DA797260CF4D20022F4EF /* DisassemblyModel.swift in Sources */,
 				CDA1727D260498C600910C23 /* Z80.swift in Sources */,
-				CDA173172609172E00910C23 /* SNAFormat.swift in Sources */,
 				CDAA066826EDF3E000D66BA0 /* SpectrumCanvas.swift in Sources */,
 				CD0CC5E025FF556200731EDA /* FakeAChipData.swift in Sources */,
 				CDEF9B24261C852200729043 /* SettingsSheet.swift in Sources */,
@@ -1665,7 +1664,6 @@
 				CDD5FD1E26F12ACA009C3822 /* SceneDelegate.swift in Sources */,
 				CDA17278260498C600910C23 /* Z80+OpcodeDDFDCB.swift in Sources */,
 				CD0CC59F25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
-				CDA173182609172E00910C23 /* SNAFormat.swift in Sources */,
 				CDD5FD1826F12AB2009C3822 /* Speccy+Screen.swift in Sources */,
 				CD0CC5A925FA6C4000731EDA /* Speccy.swift in Sources */,
 				CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
