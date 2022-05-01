@@ -30,6 +30,8 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     var emulatorData = EmulatorData()
     
     var diagnosticData = DiagnosticData()
+
+    lazy var persistentController = PersistenceController.shared
     
     @Published var host: HostSystem
     

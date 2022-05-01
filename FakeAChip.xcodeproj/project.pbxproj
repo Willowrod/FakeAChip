@@ -133,6 +133,12 @@
 		CD9CFA432817FD60001701DD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA422817FD60001701DD /* FirebaseAnalytics */; };
 		CD9CFA45281ACA5E001701DD /* actionbikersna.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA44281ACA5E001701DD /* actionbikersna.sna */; };
 		CD9CFA4B281AFE6E001701DD /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA4A281AFE6E001701DD /* ZXLoaderSDK */; };
+		CD9CFA4E281EE8C3001701DD /* FakeAChip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */; };
+		CD9CFA4F281EE8C3001701DD /* FakeAChip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */; };
+		CD9CFA52281EF030001701DD /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA51281EF030001701DD /* PersistenceController.swift */; };
+		CD9CFA53281EF030001701DD /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA51281EF030001701DD /* PersistenceController.swift */; };
+		CD9CFA55281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */; };
+		CD9CFA56281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -440,6 +446,9 @@
 		CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerDataSection.swift; sourceTree = "<group>"; };
 		CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblerValueSection.swift; sourceTree = "<group>"; };
 		CD9CFA44281ACA5E001701DD /* actionbikersna.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = actionbikersna.sna; sourceTree = "<group>"; };
+		CD9CFA4D281EE8C3001701DD /* FakeAChip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FakeAChip.xcdatamodel; sourceTree = "<group>"; };
+		CD9CFA51281EF030001701DD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Booty (1984)(Firebird Software).z80"; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
 		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
 		CDA1725E2604962100910C23 /* ZX128k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX128k.rom; sourceTree = "<group>"; };
@@ -644,6 +653,7 @@
 		CD0CC53C25FA6BD400731EDA /* FakeAChip */ = {
 			isa = PBXGroup;
 			children = (
+				CD9CFA50281EEFFC001701DD /* Database */,
 				CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */,
 				CDEF9B29261C943100729043 /* EmptyCPU */,
 				CDA1746C2609251500910C23 /* SwiftUI Magic */,
@@ -949,6 +959,15 @@
 			path = CustomChips;
 			sourceTree = "<group>";
 		};
+		CD9CFA50281EEFFC001701DD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */,
+				CD9CFA51281EF030001701DD /* PersistenceController.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		CDA1725B260495EE00910C23 /* Roms */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,6 +1062,7 @@
 		CDD318D12745A83000C1DA4D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */,
 				CD9CFA44281ACA5E001701DD /* actionbikersna.sna */,
 				CDD318EC2745A84600C1DA4D /* 720 Degrees (1986)(U.S. Gold).zip */,
 				CDD318F72745A84600C1DA4D /* Action Biker (1985)(Mastertronic).zip */,
@@ -1374,6 +1394,7 @@
 				CDD319622745A84900C1DA4D /* Jonah Barrington's Squash (1985)(New Generation Software).zip in Resources */,
 				CDD319502745A84900C1DA4D /* Test Match (1983)(CRL Group).zip in Resources */,
 				CDD3193E2745A84900C1DA4D /* Everyone's a Wally (1985)(Mikro-Gen).zip in Resources */,
+				CD9CFA55281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */,
 				CDD319442745A84900C1DA4D /* Finders Keepers (1985)(Mastertronic)[Magic Knight 1].zip in Resources */,
 				CDD319702745A84900C1DA4D /* Time and Magik III - The Price of Magik (1988)(Mandarin Software).zip in Resources */,
 				CDD319312745A84900C1DA4D /* Forest at World's End, The (1984)(Interceptor Micros Software).zip in Resources */,
@@ -1386,6 +1407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9CFA56281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */,
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
@@ -1494,6 +1516,7 @@
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */,
 				CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */,
+				CD9CFA52281EF030001701DD /* PersistenceController.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
 				CDEF9B34261CB94A00729043 /* Speccy128.swift in Sources */,
@@ -1528,6 +1551,7 @@
 				CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */,
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
 				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
+				CD9CFA4E281EE8C3001701DD /* FakeAChip.xcdatamodeld in Sources */,
 				CD16BD0D26D5035000151830 /* SpeccyUnused.swift in Sources */,
 				CD0CC54025FA6BD400731EDA /* SceneDelegate.swift in Sources */,
 				CDA17279260498C600910C23 /* Z80+OpcodeED.swift in Sources */,
@@ -1602,6 +1626,7 @@
 				CD0CC5E825FF585F00731EDA /* MainHeader.swift in Sources */,
 				CD8914892600EA6800C75998 /* CPU.swift in Sources */,
 				CD0CC59B25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
+				CD9CFA4F281EE8C3001701DD /* FakeAChip.xcdatamodeld in Sources */,
 				CDEF99EF2614C53900729043 /* DisassemblerTextSection.swift in Sources */,
 				CDEF9BC2261EF3D300729043 /* DisassemblerGraphicSection.swift in Sources */,
 				CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */,
@@ -1657,6 +1682,7 @@
 				CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */,
 				CDD5FD1626F12AB2009C3822 /* Speccy+RAM.swift in Sources */,
 				CDD5FD1A26F12AB8009C3822 /* SpectrumSprite.swift in Sources */,
+				CD9CFA53281EF030001701DD /* PersistenceController.swift in Sources */,
 				CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */,
 				CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */,
 				CDA17280260498C600910C23 /* Z80+OpcodeCB.swift in Sources */,
@@ -2051,6 +2077,19 @@
 			productName = ZXLoaderSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD9CFA4D281EE8C3001701DD /* FakeAChip.xcdatamodel */,
+			);
+			currentVersion = CD9CFA4D281EE8C3001701DD /* FakeAChip.xcdatamodel */;
+			path = FakeAChip.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD0CC53225FA6BD400731EDA /* Project object */;
 }
