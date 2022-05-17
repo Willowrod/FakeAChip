@@ -25,10 +25,10 @@ extension Speccy {
             flashOn = !flashOn
         }
         self.blitScreen()
-//        let pairs = [AF.registerPair, BC.registerPair, DE.registerPair, HL.registerPair, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
+        let pairs = [AF.registerPair, BC.registerPair("BC"), DE.registerPair("DE"), HL.registerPair("HL"), RegisterPairStruct(high: PC.highByte().hex(), low: PC.lowByte().hex(), name: "PC")]//, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
         DispatchQueue.main.sync {
             data?.vdu = VDU(screen: screenImage, border: borderColour)//map: screenImage.pixels)
-           // data?.registerPairs = RegisterSetModel(registerPairs: pairs)
+            data?.registerPairs = RegisterSetModel(registerPairs: pairs)
         }
         frameEnds = true
         runInterupt()

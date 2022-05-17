@@ -19,6 +19,13 @@ struct SpectrumView: View {
 //        }
       return GeometryReader { geometry in
         VStack{
+            if settings.headerData.debugOpcodes {
+            DebugHeader(diag: settings.diagnosticData)
+                    .onAppear(){
+                        settings.diagnosticData.updateOpCodeSafe()
+                        settings.currentComputerInstance.fast()
+                    }
+            }
             MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
             Group {
                 switch settings.headerData.environment {
@@ -31,7 +38,6 @@ struct SpectrumView: View {
                     SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
                     SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
-                
                 }
             }
             

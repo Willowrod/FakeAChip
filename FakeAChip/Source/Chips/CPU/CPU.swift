@@ -37,7 +37,11 @@ class CPU: CoreDelegate {
     var spareRegister: UInt8 = 0x0 //: Register = Register(value: 0x00, name: "Spare")
     
     // Processor
-    var PC: UInt16 = 0
+    var PC: UInt16 = 0 //{
+//        didSet {
+//            print("PC changed to \(PC)")
+//        }
+//    }
     var halt = false
     
     // Delegate
@@ -158,7 +162,13 @@ class CPU: CoreDelegate {
     
     
     func joystickInteraction(key: Int, pressed: Bool){
-        
+    }
+
+    func updateRegister(register: AvailableRegister, value: UInt8){
+        print("No!!!")
+    }
+
+    func writeOpCodeData(stream: [UInt8], updatefrom: Int) {
     }
 
     func startProcessing() {

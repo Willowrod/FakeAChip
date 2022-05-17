@@ -102,6 +102,9 @@
 		CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7315D9267F861800A15BD4 /* TapePlayerView.swift */; };
 		CD7629BB2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
 		CD7629BC2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
+		CD7A9951282BE8FD00F10163 /* DebugHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9950282BE8FD00F10163 /* DebugHeader.swift */; };
+		CD7A9953282BE94100F10163 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9952282BE94100F10163 /* DebugData.swift */; };
+		CD7A9954282BE94100F10163 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9952282BE94100F10163 /* DebugData.swift */; };
 		CD89145F25FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146025FFBEA800C75998 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
 		CD89146D25FFBF0B00C75998 /* FlagRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146825FFBF0B00C75998 /* FlagRegister.swift */; };
@@ -432,6 +435,8 @@
 		CD6791802745073200B4C810 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
 		CD7629BA2797201A00FF232B /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
+		CD7A9950282BE8FD00F10163 /* DebugHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugHeader.swift; sourceTree = "<group>"; };
+		CD7A9952282BE94100F10163 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 		CD89145E25FFBEA800C75998 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		CD89146825FFBF0B00C75998 /* FlagRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagRegister.swift; sourceTree = "<group>"; };
 		CD89146925FFBF0B00C75998 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
@@ -863,6 +868,7 @@
 				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
 				CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */,
 				CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */,
+				CD7A9950282BE8FD00F10163 /* DebugHeader.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */,
 				CD2D7F962716D4560067BA19 /* DiagnosticData.swift */,
 				CD6791802745073200B4C810 /* TestView.swift */,
+				CD7A9952282BE94100F10163 /* DebugData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1526,6 +1533,7 @@
 				CD6791812745073200B4C810 /* TestView.swift in Sources */,
 				CDEF9BC1261EF3D300729043 /* DisassemblerGraphicSection.swift in Sources */,
 				CD05400226258D5000221FC9 /* Z80BlockDisassembly.swift in Sources */,
+				CD7A9953282BE94100F10163 /* DebugData.swift in Sources */,
 				CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */,
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
@@ -1549,6 +1557,7 @@
 				CD89147525FFBF0B00C75998 /* RegisterPair.swift in Sources */,
 				CDEF9985261263FA00729043 /* OpCode.swift in Sources */,
 				CD0CC53E25FA6BD400731EDA /* AppDelegate.swift in Sources */,
+				CD7A9951282BE8FD00F10163 /* DebugHeader.swift in Sources */,
 				CD89147E25FFC22500C75998 /* RegisterSetView.swift in Sources */,
 				CDC8C555260261BA0010EBF7 /* Sizing.swift in Sources */,
 				CD9CFA4E281EE8C3001701DD /* FakeAChip.xcdatamodeld in Sources */,
@@ -1599,6 +1608,7 @@
 				CD0EC6902668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CDEF99AA2612676E00729043 /* DataType.swift in Sources */,
+				CD7A9954282BE94100F10163 /* DebugData.swift in Sources */,
 				CD7629BC2797201A00FF232B /* Array+Helpers.swift in Sources */,
 				CDEF999B261265B000729043 /* CodeListing.swift in Sources */,
 				CDA172A42604B37000910C23 /* allTestsTo7f.swift in Sources */,

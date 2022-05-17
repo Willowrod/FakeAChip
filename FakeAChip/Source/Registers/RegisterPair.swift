@@ -167,5 +167,11 @@ class RegisterPair {
                Z80.F.clearBit(bit: Flag.PARITY)
                ldLow(value: value)
        }
+
+
+
+    func registerPair(_ name: String) -> RegisterPairStruct {
+        RegisterPairStruct(high: high().hex(), low: low().hex(), name: name)
+    }
     
 }

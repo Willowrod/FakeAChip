@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol HeaderDelegate {
    func changeEnvironment(model: ComputerModel)
@@ -21,16 +22,18 @@ class HeaderData: ObservableObject {
     
     var shouldResetPixels = false
     
-    var debugPreProcessing = false
+    @AppStorage("preDebugging") var debugPreProcessing = false
     
-    var debugPostProcessor = false
+    @AppStorage("postDebugging") var debugPostProcessor = false
     
-    var debugMemoryData = false
+    @AppStorage("memDebugging") var debugMemoryData = false
     
-    var debugMiscellaneousData = false
+    @AppStorage("miscDebugging") var debugMiscellaneousData = false
+
+    @AppStorage("opcodeDebugging") var debugOpcodes = false
     
-    @Published var environment: SystemEnvironment = .Emulation
-    var environmentTag: Int = 0 {
+    @AppStorage("environment") var environment: SystemEnvironment = .Emulation
+    @AppStorage("environmentTag") var environmentTag: Int = 0 {
         didSet {
             switch environmentTag {
             case 0:

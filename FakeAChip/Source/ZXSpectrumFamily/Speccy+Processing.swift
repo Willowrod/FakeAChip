@@ -47,9 +47,6 @@ extension Speccy {
                         default:
                             let intAddress = (UInt16(I) * 256) + UInt16(R)
                             PC = fetchRamWord(location: intAddress)
-                            if miscDebug {
-                                print("IM2 triggered at \(intAddress.hex()) and processes from \(PC.hex())")
-                            }
                             
                         }
                         halt = false
@@ -75,7 +72,13 @@ extension Speccy {
                 } else {
 // Wait for frame to elapse
                     let time = Date().timeIntervalSince1970
-                    if (!restricted || frameStarted + 0.02 <= time){
+                    if (restricted && frameStarted + 0.02 <= time){
+                        frameStarted = time
+                        frameEnds = false
+                    } else if !restricted && !opcodeDebug {
+                        frameStarted = time
+                        frameEnds = false
+                    } else if !restricted && opcodeDebug && frameStarted + 0.005 <= time{
                         frameStarted = time
                         frameEnds = false
                     }
