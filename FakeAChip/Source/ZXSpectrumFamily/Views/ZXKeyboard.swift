@@ -10,10 +10,7 @@ import SwiftUI
 @available(iOS 15.0, macCatalyst 15.0, *)
 struct ZXKeyboard: View {
     @EnvironmentObject var settings: FakeAChipData
-    
     var symbolLocked: Bool = false
-    
-    
     @State var symButtonText = "SLock\nOFF"
     
     let keyWidth: CGFloat
@@ -33,138 +30,113 @@ struct ZXKeyboard: View {
     var body: some View {
         VStack{
             if settings.emulatorData.keyboardShowing {
-//                Spacer()
-//                HStack{ //'Magic' keys
-//                    Spacer()
-//                    Button(symButtonText){
-//                        pressSymbolLock()
-//                    }
-//                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-//                    .border(Color.blue, width: 1)
-//
-//                        Spacer()
-//                }
-                
-                
-            HStack{
-                
-                
-                
-                ForEach(bank4.indices, id: \.self){ key in
-                    HStack{
-                        Spacer()
-                        Button(bank4[key]){}
-                        .pressAction(onPress: {pressKey(bank: 4, bit: key, pressed: true)}, onRelease: {pressKey(bank: 4, bit: key, pressed: false)})
-                            .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                            .border(Color.blue, width: 1)
-                    Spacer()
+                HStack{
+                    ForEach(bank4.indices, id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank4[key]){}
+                                .pressAction(onPress: {pressKey(bank: 4, bit: key, pressed: true)}, onRelease: {pressKey(bank: 4, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
+                    }
+                    ForEach(bank3.indices.reversed(), id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank3[key]){}
+                                .pressAction(onPress: {pressKey(bank: 3, bit: key, pressed: true)}, onRelease: {pressKey(bank: 3, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
                     }
                 }
-                ForEach(bank3.indices.reversed(), id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank3[key]){}
-                        .pressAction(onPress: {pressKey(bank: 3, bit: key, pressed: true)}, onRelease: {pressKey(bank: 3, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
+                .padding(2)
+                HStack{
+                    ForEach(bank5.indices, id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank5[key]){}
+                                .pressAction(onPress: {pressKey(bank: 5, bit: key, pressed: true)}, onRelease: {pressKey(bank: 5, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
+                    }
+                    ForEach(bank2.indices.reversed(), id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank2[key]){}
+                                .pressAction(onPress: {pressKey(bank: 2, bit: key, pressed: true)}, onRelease: {pressKey(bank: 2, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
                     }
                 }
-
-            }
-            .padding(2)
-
-            HStack{
-
-                ForEach(bank5.indices, id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank5[key]){}
-                        .pressAction(onPress: {pressKey(bank: 5, bit: key, pressed: true)}, onRelease: {pressKey(bank: 5, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
+                .padding(2)
+                HStack{
+                    ForEach(bank6.indices, id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank6[key]){}
+                                .pressAction(onPress: {pressKey(bank: 6, bit: key, pressed: true)}, onRelease: {pressKey(bank: 6, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
+                    }
+                    ForEach(bank1.indices.reversed(), id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank1[key]){}
+                                .pressAction(onPress: {pressKey(bank: 1, bit: key, pressed: true)}, onRelease: {pressKey(bank: 1, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
                     }
                 }
-                ForEach(bank2.indices.reversed(), id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank2[key]){}
-                        .pressAction(onPress: {pressKey(bank: 2, bit: key, pressed: true)}, onRelease: {pressKey(bank: 2, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
+                .padding(2)
+                HStack{
+                    ForEach(bank7.indices, id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank7[key]){}
+                                .pressAction(onPress: {pressKey(bank: 7, bit: key, pressed: true)}, onRelease: {pressKey(bank: 7, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
+                    }
+                    ForEach(bank0.indices.reversed(), id: \.self){ key in
+                        HStack{
+                            Spacer()
+                            Button(bank0[key]){}
+                                .pressAction(onPress: {pressKey(bank: 0, bit: key, pressed: true)}, onRelease: {pressKey(bank: 0, bit: key, pressed: false)})
+                                .frame(width: keyWidth, height: keyHeight, alignment: .center)
+                                .border(Color.blue, width: 1)
+                            Spacer()
+                        }
                     }
                 }
-
-            }
-            .padding(2)
-
-            HStack{
-                ForEach(bank6.indices, id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank6[key]){}
-                        .pressAction(onPress: {pressKey(bank: 6, bit: key, pressed: true)}, onRelease: {pressKey(bank: 6, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
-                    }
-                }
-                ForEach(bank1.indices.reversed(), id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank1[key]){}
-                        .pressAction(onPress: {pressKey(bank: 1, bit: key, pressed: true)}, onRelease: {pressKey(bank: 1, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
-                    }
-                }
-
-            }
-            .padding(2)
-
-            HStack{
-                ForEach(bank7.indices, id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank7[key]){}
-                        .pressAction(onPress: {pressKey(bank: 7, bit: key, pressed: true)}, onRelease: {pressKey(bank: 7, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
-                    }
-                }
-                ForEach(bank0.indices.reversed(), id: \.self){ key in
-                    HStack{
-                        Spacer()
-                    Button(bank0[key]){}
-                        .pressAction(onPress: {pressKey(bank: 0, bit: key, pressed: true)}, onRelease: {pressKey(bank: 0, bit: key, pressed: false)})
-                    .frame(width: keyWidth, height: keyHeight, alignment: .center)
-                        .border(Color.blue, width: 1)
-                    Spacer()
-                    }
-                }
-
-            }
-            .padding(2)
+                .padding(2)
             } else {
                 VStack{
-            Spacer()
+                    Spacer()
                 }
                 .onDisappear(perform: {
                     controller.disconnect()
-                  })
+                })
                 .onAppear(perform: {
-                                     controller.connect()
-                                     controller.handleLeftPad = settings.handleVirtualController
-                                     controller.handleAButton = settings.handleButtonAPressed
-                                 })
+                    controller.connect()
+                    controller.handleLeftPad = settings.handleVirtualController
+                    controller.handleAButton = settings.handleButtonAPressed
+                })
             }
         }
-
-        }
+    }
     
     func pressKey(bank: Int, bit: Int, pressed: Bool) {
         settings.keyboardInteraction(bank: bank, bit: bit, pressed: pressed)
@@ -174,18 +146,16 @@ struct ZXKeyboard: View {
         
     }
 
-func pressStick(bit: Int, pressed: Bool) {
-    settings.joyStickInteraction(key: bit, pressed: pressed)
-}
+    func pressStick(bit: Int, pressed: Bool) {
+        settings.joyStickInteraction(key: bit, pressed: pressed)
+    }
 
 }
 
 struct ZXKeyboard_Previews: PreviewProvider {
     static var previews: some View {
-        if #available(macCatalyst 15.0, *) {
-            ZXKeyboard(keyWidth: 60, keyHeight: 40)
-        } else {
-            // Fallback on earlier versions
-        }
+        let mockData = FakeAChipMock.mock(host: .iOS)
+        ZXKeyboard(keyWidth: 20, keyHeight: 40)
+            .environmentObject(mockData)
     }
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Zip
 import SwiftUI
 import ZXDB_SDK
 import GameController
