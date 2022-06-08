@@ -66,7 +66,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     init(_ host: HostSystem, isMock: Bool) {
         self.host = host
         headerData.delegate = self
-        changeEnvironment(model: .Sinclair_Spectrum_48K)
+ //       changeEnvironment(model: .Sinclair_Spectrum_48K)
     }
     
     func changeEnvironment(model: ComputerModel){
