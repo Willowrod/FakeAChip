@@ -5,7 +5,7 @@
 //  Created by Mike Hall on 06/04/2021.
 //
 
-import UIKit
+import Foundation
 import ZXLoaderSDK
 
 class Speccy128: Speccy {

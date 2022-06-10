@@ -5,6 +5,7 @@
 //  Created by Mike Hall on 11/03/2021.
 //
 
+#if canImport(UIKit)
 import UIKit
 //import Firebase
 
@@ -36,3 +37,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+#elseif canImport(AppKit)
+import AppKit
+
+@main
+class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Insert code here to initialize your application
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        return true
+    }
+
+
+}
+#endif

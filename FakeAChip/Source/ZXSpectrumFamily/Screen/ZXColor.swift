@@ -12,13 +12,13 @@ struct ZXColour {
     var r, g, b: UInt8
     var a: UInt8 = 255
     
-        func toUIColor() -> UIColor {
-            let red: CGFloat = CGFloat(r) / 255.0
-            let green: CGFloat = CGFloat(g) / 255.0
-            let blue: CGFloat = CGFloat(b) / 255.0
-    
-            return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
-        }
+//        func toUIColor() -> UIColor {
+//            let red: CGFloat = CGFloat(r) / 255.0
+//            let green: CGFloat = CGFloat(g) / 255.0
+//            let blue: CGFloat = CGFloat(b) / 255.0
+//    
+//            return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
+//        }
     
         func toColor() -> Color {
             let red: CGFloat = CGFloat(r) / 255.0

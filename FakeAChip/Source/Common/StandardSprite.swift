@@ -5,7 +5,7 @@
 //  Created by Mike Hall on 08/04/2021.
 //
 
-import UIKit
+import Foundation
 import SwiftUI
 
 struct StandardSprite: Hashable {

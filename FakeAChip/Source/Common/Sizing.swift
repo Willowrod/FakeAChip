@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
 class Sizing {
     
     static let instance = Sizing()
     
-    var size: CGSize = .zero
+    var size: CGSize = CGSize(width: 1080, height: 800)
     
     func actualWidth() -> CGFloat {
         return min(size.width, size.height)

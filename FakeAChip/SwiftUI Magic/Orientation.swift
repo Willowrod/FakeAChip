@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 // Our custom view modifier to track rotation and
 // call our action
 struct DeviceRotationViewModifier: ViewModifier {
@@ -29,3 +29,4 @@ extension View {
         self.modifier(DeviceRotationViewModifier(action: action))
     }
 }
+#endif
