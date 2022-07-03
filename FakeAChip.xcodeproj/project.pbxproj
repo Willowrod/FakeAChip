@@ -57,6 +57,9 @@
 		CD0EC6902668342100B21E1F /* MediaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC68E2668342100B21E1F /* MediaConstants.swift */; };
 		CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */; };
 		CD0EC6962668358500B21E1F /* ZXTapeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */; };
+		CD147047287238D000D921A0 /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD147046287238D000D921A0 /* ZXLoaderSDK */; };
+		CD14704B2872396400D921A0 /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD14704A2872396400D921A0 /* ZXDB-SDK */; };
+		CD14704D2872396B00D921A0 /* TZX-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD14704C2872396B00D921A0 /* TZX-SDK */; };
 		CD16BD0526D4FFC900151830 /* Speccy+RAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */; };
 		CD16BD0626D4FFC900151830 /* Speccy+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */; };
 		CD16BD0726D4FFC900151830 /* Speccy+Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */; };
@@ -129,9 +132,7 @@
 		CD9CF2D226C9755900D7AC53 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
 		CD9CF2D526C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
 		CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
-		CD9CFA3D2817FD4F001701DD /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */; };
 		CD9CFA45281ACA5E001701DD /* actionbikersna.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA44281ACA5E001701DD /* actionbikersna.sna */; };
-		CD9CFA4B281AFE6E001701DD /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD9CFA4A281AFE6E001701DD /* ZXLoaderSDK */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -396,6 +397,8 @@
 		CD0CC5E625FF585F00731EDA /* MainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeader.swift; sourceTree = "<group>"; };
 		CD0EC68E2668342100B21E1F /* MediaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaConstants.swift; sourceTree = "<group>"; };
 		CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXTapeLoaderView.swift; sourceTree = "<group>"; };
+		CD147048287238FA00D921A0 /* ZXDBSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZXDBSDK; path = ../ZXDBSDK; sourceTree = "<group>"; };
+		CD1470492872390900D921A0 /* TZX-SDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "TZX-SDK"; path = "../TZX-SDK"; sourceTree = "<group>"; };
 		CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+RAM.swift"; sourceTree = "<group>"; };
 		CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+Loading.swift"; sourceTree = "<group>"; };
 		CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speccy+Processing.swift"; sourceTree = "<group>"; };
@@ -408,7 +411,6 @@
 		CD26451E26D9FF680072B09F /* DisassemblyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyData.swift; sourceTree = "<group>"; };
 		CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyHeaderView.swift; sourceTree = "<group>"; };
 		CD26460326DD6AA00072B09F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		CD2C55602817F1AA003E096A /* ZXLoaderSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZXLoaderSDK; path = ../ZXLoaderSDK; sourceTree = "<group>"; };
 		CD2D7F942716D3C20067BA19 /* LoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingView.swift; sourceTree = "<group>"; };
 		CD2D7F962716D4560067BA19 /* DiagnosticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticData.swift; sourceTree = "<group>"; };
 		CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyRow.swift; sourceTree = "<group>"; };
@@ -423,7 +425,6 @@
 		CD55A3EF2721F847001A5844 /* Double+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Precision.swift"; sourceTree = "<group>"; };
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawZ80Processor.swift; sourceTree = "<group>"; };
-		CD67917F2744FF5400B4C810 /* ZXDBSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZXDBSDK; path = ../ZXDBSDK; sourceTree = "<group>"; };
 		CD6791802745073200B4C810 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
 		CD7629BA2797201A00FF232B /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
@@ -570,6 +571,7 @@
 		CDD5FD0426F0EB3D009C3822 /* FakeAChipData+Spectrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FakeAChipData+Spectrum.swift"; sourceTree = "<group>"; };
 		CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorHeaderView.swift; sourceTree = "<group>"; };
 		CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorData.swift; sourceTree = "<group>"; };
+		CDE9E118287236F8008787D7 /* ZXLoaderSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZXLoaderSDK; path = ../ZXLoaderSDK; sourceTree = "<group>"; };
 		CDEF98752610AF0F00729043 /* DisassemblySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblySection.swift; sourceTree = "<group>"; };
 		CDEF9972261263BC00729043 /* Z80Disassembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Z80Disassembler.swift; sourceTree = "<group>"; };
 		CDEF997B261263CE00729043 /* OpCodeDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpCodeDefs.swift; sourceTree = "<group>"; };
@@ -595,9 +597,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD14704D2872396B00D921A0 /* TZX-SDK in Frameworks */,
+				CD147047287238D000D921A0 /* ZXLoaderSDK in Frameworks */,
 				CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */,
-				CD9CFA4B281AFE6E001701DD /* ZXLoaderSDK in Frameworks */,
-				CD9CFA3D2817FD4F001701DD /* ZXDB-SDK in Frameworks */,
+				CD14704B2872396400D921A0 /* ZXDB-SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,8 +901,9 @@
 		CD34F5C126FD329B00597392 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				CD67917F2744FF5400B4C810 /* ZXDBSDK */,
-				CD2C55602817F1AA003E096A /* ZXLoaderSDK */,
+				CDE9E118287236F8008787D7 /* ZXLoaderSDK */,
+				CD147048287238FA00D921A0 /* ZXDBSDK */,
+				CD1470492872390900D921A0 /* TZX-SDK */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -1198,8 +1202,9 @@
 			);
 			name = FakeAChip;
 			packageProductDependencies = (
-				CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */,
-				CD9CFA4A281AFE6E001701DD /* ZXLoaderSDK */,
+				CD147046287238D000D921A0 /* ZXLoaderSDK */,
+				CD14704A2872396400D921A0 /* ZXDB-SDK */,
+				CD14704C2872396B00D921A0 /* TZX-SDK */,
 			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
@@ -1275,7 +1280,6 @@
 			packageReferences = (
 				CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */,
 				CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				CD9CFA49281AFE6E001701DD /* XCRemoteSwiftPackageReference "ZXLoaderSDK" */,
 			);
 			productRefGroup = CD0CC53B25FA6BD400731EDA /* Products */;
 			projectDirPath = "";
@@ -2024,14 +2028,6 @@
 				version = 2.1.1;
 			};
 		};
-		CD9CFA49281AFE6E001701DD /* XCRemoteSwiftPackageReference "ZXLoaderSDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Willowrod/ZXLoaderSDK";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 		CDA0A5192811E46F001E4265 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -2043,14 +2039,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD9CFA3C2817FD4F001701DD /* ZXDB-SDK */ = {
+		CD147046287238D000D921A0 /* ZXLoaderSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZXLoaderSDK;
+		};
+		CD14704A2872396400D921A0 /* ZXDB-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ZXDB-SDK";
 		};
-		CD9CFA4A281AFE6E001701DD /* ZXLoaderSDK */ = {
+		CD14704C2872396B00D921A0 /* TZX-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD9CFA49281AFE6E001701DD /* XCRemoteSwiftPackageReference "ZXLoaderSDK" */;
-			productName = ZXLoaderSDK;
+			productName = "TZX-SDK";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
