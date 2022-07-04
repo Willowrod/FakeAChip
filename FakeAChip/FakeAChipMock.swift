@@ -9,7 +9,7 @@ import Foundation
 
 class FakeAChipMock {
     public static func mock(host: HostSystem) -> FakeAChipData {
-    var data = FakeAChipData.init(host, isMock: true)
+     let data = FakeAChipData.init(host, isMock: true)
   //  data.bootNewSystem(model: .Sinclair_Spectrum_48K)
     return data
     }

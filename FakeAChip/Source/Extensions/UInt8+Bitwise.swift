@@ -113,7 +113,6 @@ extension UInt8 {
     
     func rl() -> UInt8 {
         let rltemp = self
-        let bit7 = self.isSet(bit: 7)
         var newValue = self << 1
         newValue = newValue.set(bit: 0, value: Z80.F.readBit(bit: Flag.CARRY))
         Z80.F.ld(value: (rltemp >> 7) | Z80.sz53pvTable[Int(newValue)])

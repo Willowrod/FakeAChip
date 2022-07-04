@@ -164,7 +164,7 @@ class Accumilator: Register {
     }
     
     func rlcA(){
-        var byteValue = value()
+        let byteValue = value()
 //        let bit7 = byteValue.isSet(bit: 7)
 //        byteValue = byteValue << 1
 //        Z80.F.set(bit: Flag.CARRY, value: bit7)
@@ -178,7 +178,7 @@ class Accumilator: Register {
     }
     
     func rrcA(){
-       var byteValue = value()
+       let byteValue = value()
 //        let bit0 = byteValue.isSet(bit: 0)
 //        byteValue = byteValue >> 1
 //        Z80.F.set(bit: Flag.CARRY, value: bit0)
@@ -196,14 +196,14 @@ class Accumilator: Register {
     }
     
     func rlA(){
-        var byteValue = value()
+        let byteValue = value()
         let nuval = (byteValue << 1) | (Z80.F.value() & Z80.cBit)
         Z80.F.ld(value: (Z80.F.value() & (Z80.pvBit | Z80.zBit | Z80.sBit)) | (nuval & (Z80.threeBit | Z80.fiveBit)) | (byteValue >> 7))
         ld(value: nuval)
     }
     
     func rrA(){
-        var byteValue = value()
+        let byteValue = value()
         let nuval = (byteValue >> 1) | (Z80.F.value() << 7)
         Z80.F.ld(value: (Z80.F.value() & (Z80.pvBit | Z80.zBit | Z80.sBit)) | (nuval & (Z80.threeBit | Z80.fiveBit)) | (byteValue & Z80.cBit))
         ld(value: nuval)

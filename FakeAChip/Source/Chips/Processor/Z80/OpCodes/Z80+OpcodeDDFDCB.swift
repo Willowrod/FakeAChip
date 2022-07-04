@@ -11,7 +11,6 @@ extension Z80 {
     func opCodeDDFDCB(reg: RegisterPair){
         let byte1: UInt8 = fetchRam(location: PC &+ 1)
         let byte2: UInt8 = fetchRam(location: PC &+ 2)
-        let register = getRegister(byte: byte2)
         let targetByte = byte1.isSet(bit: 7) ? reg.value() &- UInt16(byte1.twosCompliment()) : reg.value() &+ UInt16(byte1)
         var changeByte = fetchRam(location: targetByte)
         let opCodeOffset = Int(byte2 / 8)

@@ -58,7 +58,6 @@ extension Z80 {
             exchangeAF()
             instructionComplete(states: 4)
         case 0x09:
-            let oldval = hl().value()
             hl().add(diff: bc().value())
             instructionComplete(states: 11)
         case 0x0A:
@@ -113,7 +112,6 @@ extension Z80 {
             relativeJump(twos: byte1)
             instructionComplete(states: 12, length: 0)
         case 0x19:
-            let oldval = hl()
             hl().add(diff: de().value())
             instructionComplete(states: 15)
         case 0x1A:
@@ -173,7 +171,6 @@ extension Z80 {
                 // kurrentOpCode= "JP, Z (Zero flag set, no jump)"
             }
         case 0x29:
-            let oldval = HL
             hl().addSelf()
             // kurrentOpCode= "ADD HL, HL (\(oldval.hex()) + \(oldval.hex()) = \(HL.hex())"
             instructionComplete(states: 4) //returnOpCode(v: code, c: "ADD HL,HL", m: " ", l: 1)
@@ -250,7 +247,6 @@ extension Z80 {
             }
         //returnOpCode(v: code, c: "JR C, ##", m: "If the Carry flag is set in register F, jump to routine at memory offset 2s $$ (##)", l: 2, t: .RELATIVE)
         case 0x39:
-            let oldval = HL
             hl().add(diff: SP)
             // kurrentOpCode= "ADD HL, SP (\(oldval.hex()) + \(SP.hex()) = \(HL.hex())"
             instructionComplete(states: 15) //returnOpCode(v: code, c: "ADD HL,SP", m: " ", l: 1)
@@ -481,12 +477,10 @@ extension Z80 {
             // kurrentOpCode= "LD (HL), E (Where HL is \(HL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
         case 0x74:
-            let oldHL = HL
             ldRam(location: Int(hl().value()), value:  h()) //  ram[Int(hl().value())] = h()
             // kurrentOpCode= "LD (HL), H (Where HL is \(oldHL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
         case 0x75:
-            let oldHL = HL
             ldRam(location: Int(hl().value()), value: l()) //  ram[Int(hl().value())] = l()
             // kurrentOpCode= "LD (HL), L (Where HL is \(oldHL.hex()) - (HL) = \(fetchRam(location: HL.value()))"
             instructionComplete(states: 7)
