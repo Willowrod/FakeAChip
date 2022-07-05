@@ -8,9 +8,14 @@
 import Foundation
 
 class FakeAChipMock {
-    public static func mock(host: HostSystem) -> FakeAChipData {
-     let data = FakeAChipData.init(host, isMock: true)
-  //  data.bootNewSystem(model: .Sinclair_Spectrum_48K)
+    let cpu: CPU
+
+    init(cpu: CPU) {
+        self.cpu = cpu
+    }
+
+    public func mock(host: HostSystem) -> FakeAChipData {
+        let data = FakeAChipData.init(host, cpu: cpu)
     return data
     }
 }

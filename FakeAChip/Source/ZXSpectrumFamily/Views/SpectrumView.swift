@@ -10,13 +10,12 @@ import SwiftUI
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
     var body: some View {
-        return GeometryReader { geometry in
             VStack{
                 MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
                 Group {
                     switch settings.headerData.environment {
                     case SystemEnvironment.Emulation:
-                        EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
+                       EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
                         TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
                         SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                     case SystemEnvironment.Disassembly:
@@ -29,7 +28,6 @@ struct SpectrumView: View {
                 }
                 Spacer()
             }
-        }
     }
 }
 
@@ -81,8 +79,6 @@ struct SpectrumDisassemblyView: View {
     var body: some View {
         VStack{
             HStack{
-                //                LoggingView()
-                //                    .frame(width: Sizing.instance.size.width / 3, height: (Sizing.instance.size.width / 12) * 3, alignment: .leading)
                 SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
 
                 RegisterSetView()
@@ -100,14 +96,15 @@ struct SpectrumCodeView: View {
     var body: some View {
         HStack{
             RegisterSetView()
-            SpectrumScreen(screenWidth: Sizing.instance.size.width / 4)//, screen: computer.screenImage)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 4)
         }
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SpectrumView()
+        Sizing.instance.size = UIScreen.main.bounds.size
+        let mockData = FakeAChipMock.init(cpu: EmptyZXSpectrum()).mock(host: .iOS)
+        return SpectrumView().environmentObject(mockData)
     }
 }

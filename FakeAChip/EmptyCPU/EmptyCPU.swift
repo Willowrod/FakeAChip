@@ -7,6 +7,6 @@
 
 import Foundation
 
-class EmptyCPU: CPU {
+class EmptyCPU: Speccy {
     
 }
