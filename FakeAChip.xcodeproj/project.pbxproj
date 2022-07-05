@@ -96,6 +96,8 @@
 		CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */; };
 		CD5CF7B52874709200F0C8AE /* EmptyZXSpectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */; };
 		CD5CF7B8287474CD00F0C8AE /* DebugViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B7287474CD00F0C8AE /* DebugViews.swift */; };
+		CD5CF7BA2874900600F0C8AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B92874900600F0C8AE /* HeaderView.swift */; };
+		CD5CF7BC2874CB4E00F0C8AE /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD5CF7BB2874CB4E00F0C8AE /* Zip */; };
 		CD6791792744FE7B00B4C810 /* RawZ80Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */; };
 		CD67917A2744FE7B00B4C810 /* RawZ80Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */; };
 		CD67917B2744FEA300B4C810 /* DiagnosticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D7F962716D4560067BA19 /* DiagnosticData.swift */; };
@@ -428,6 +430,7 @@
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyZXSpectrum.swift; sourceTree = "<group>"; };
 		CD5CF7B7287474CD00F0C8AE /* DebugViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViews.swift; sourceTree = "<group>"; };
+		CD5CF7B92874900600F0C8AE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawZ80Processor.swift; sourceTree = "<group>"; };
 		CD6791802745073200B4C810 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
@@ -605,6 +608,7 @@
 				CD147047287238D000D921A0 /* ZXLoaderSDK in Frameworks */,
 				CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */,
 				CD14704B2872396400D921A0 /* ZXDB-SDK in Frameworks */,
+				CD5CF7BC2874CB4E00F0C8AE /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +870,7 @@
 				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
 				CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */,
 				CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */,
+				CD5CF7B92874900600F0C8AE /* HeaderView.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1218,6 +1223,7 @@
 				CD147046287238D000D921A0 /* ZXLoaderSDK */,
 				CD14704A2872396400D921A0 /* ZXDB-SDK */,
 				CD14704C2872396B00D921A0 /* TZX-SDK */,
+				CD5CF7BB2874CB4E00F0C8AE /* Zip */,
 			);
 			productName = FakeAChip;
 			productReference = CD0CC53A25FA6BD400731EDA /* FakeAChip.app */;
@@ -1514,6 +1520,7 @@
 				CD0CC59625FA6C4000731EDA /* UIImage+Bitmap.swift in Sources */,
 				CDEF9B2B261C944500729043 /* EmptyCPU.swift in Sources */,
 				CD7629BB2797201A00FF232B /* Array+Helpers.swift in Sources */,
+				CD5CF7BA2874900600F0C8AE /* HeaderView.swift in Sources */,
 				CD0CC5A225FA6C4000731EDA /* IOSMainMenu.swift in Sources */,
 				CD26460426DD6AA00072B09F /* Helpers.swift in Sources */,
 				CD89147325FFBF0B00C75998 /* Register.swift in Sources */,
@@ -1842,7 +1849,7 @@
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fake-A-Chip";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1873,7 +1880,7 @@
 				INFOPLIST_FILE = FakeAChip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fake-A-Chip";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2047,6 +2054,11 @@
 		CD14704C2872396B00D921A0 /* TZX-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "TZX-SDK";
+		};
+		CD5CF7BB2874CB4E00F0C8AE /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

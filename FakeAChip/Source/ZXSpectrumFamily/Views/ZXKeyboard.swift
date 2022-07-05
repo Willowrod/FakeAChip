@@ -28,8 +28,6 @@ struct ZXKeyboard: View {
 
     var body: some View {
         VStack{
-            SpectrumTestText(text: "Keyboard")
-            SpectrumTestText(text: "Key Width: \(keyWidth)")
             if settings.emulatorData.keyboardShowing {
                 HStack{
                     ForEach(bank4.indices, id: \.self){ key in
@@ -161,7 +159,6 @@ struct KeyboardHousing: View {
     let keyHeight: CGFloat
     var body: some View {
         VStack{
-            Text("KB Housing")
             ZXKeyboard(keyWidth: keyWidth, keyHeight: keyHeight)
                 .environmentObject(mockData)
         }
@@ -174,7 +171,7 @@ struct ZXKeyboard_Previews: PreviewProvider {
         let screenWidth = UIScreen.main.bounds.width
         let keyWidth = screenWidth / 11
         let keyHeight = screenWidth / 16
-        KeyboardHousing(keyWidth: keyWidth, keyHeight: keyHeight)
+        ZXKeyboard(keyWidth: keyWidth, keyHeight: keyHeight)
             .environmentObject(mockData)
     }
 }

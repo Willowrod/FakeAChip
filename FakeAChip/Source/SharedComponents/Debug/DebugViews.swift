@@ -15,3 +15,13 @@ struct SpectrumTestText: View {
         }
     }
 }
+
+struct DebugTextView: View {
+    let key: String
+    let value: String
+    var body: some View {
+        HStack{
+            Text("\(key): \(value)")
+        }
+    }
+}

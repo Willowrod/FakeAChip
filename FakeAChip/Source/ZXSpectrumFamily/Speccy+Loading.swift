@@ -7,7 +7,7 @@
 
 import Foundation
 import ZXDB_SDK
-//import Zip
+import Zip
 import ZXLoaderSDK
 
 extension Speccy {
@@ -88,39 +88,39 @@ extension Speccy {
     }
     
     func unzipFile(file: String){
-//        let fm = FileManager.default
-//        do {
-//
-//            let filePath = Bundle.main.url(forResource: file.replacingOccurrences(of: ".zip", with: ""), withExtension: "zip")!
-//            let unzipDirectory = try Zip.quickUnzipFile(filePath)
-//            let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
-//            if (items.count > 0){
-//                load(file: items[0], path: unzipDirectory.path)
-//            }
-//        }
-//        catch {
-//            print("Something went wrong")
-//        }
+        let fm = FileManager.default
+        do {
+
+            let filePath = Bundle.main.url(forResource: file.replacingOccurrences(of: ".zip", with: ""), withExtension: "zip")!
+            let unzipDirectory = try Zip.quickUnzipFile(filePath)
+            let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
+            if (items.count > 0){
+                load(file: items[0], path: unzipDirectory.path)
+            }
+        }
+        catch {
+            print("Something went wrong")
+        }
     }
     
     func unzipFile(path: String?){
-//        let fm = FileManager.default
-//        do {
-//            if let myPath = path {
-//                guard let url = URL(string: myPath) else {
-//                    print("Error Unzipping")
-//                    return
-//                }
-//                let unzipDirectory = try Zip.quickUnzipFile(url)
-//                let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
-//                if (items.count > 0){
-//                    load(file: items[0], path: unzipDirectory.path)
-//                }
-//            }
-//        }
-//        catch {
-//            print("Something went wrong")
-//        }
+        let fm = FileManager.default
+        do {
+            if let myPath = path {
+                guard let url = URL(string: myPath) else {
+                    print("Error Unzipping")
+                    return
+                }
+                let unzipDirectory = try Zip.quickUnzipFile(url)
+                let items = try fm.contentsOfDirectory(atPath: unzipDirectory.path)
+                if (items.count > 0){
+                    load(file: items[0], path: unzipDirectory.path)
+                }
+            }
+        }
+        catch {
+            print("Something went wrong")
+        }
     }
     
     func loadSnapshot(sna: String){

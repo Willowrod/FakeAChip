@@ -79,10 +79,12 @@ struct TapePlayerView: View {
                 
                         if buttonSelected(state: .Empty) {
                             Button("⏏"){
+                                print("Eject Tape")
                                 eject()
                             }
                         } else {
                 Button("⏏️"){
+                    print("Eject Tape")
                     eject()
                 }
      //           .foregroundColor(fetchColourForButtonState(state: .Empty))
@@ -105,6 +107,7 @@ struct TapePlayerView: View {
     }
     
     func eject(){
+        print("Ejecting")
         tapePlayerData.isShowingTapeSelector = true
     }
     

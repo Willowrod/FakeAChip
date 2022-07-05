@@ -15,7 +15,11 @@ class Sizing {
     var size: CGSize = .zero
     
     func actualWidth() -> CGFloat {
-        return min(size.width, size.height)
+        let w = min(size.width, size.height)
+        if w < 1 {
+            return 1
+        }
+        return w
     }
     
     func width() -> CGFloat {

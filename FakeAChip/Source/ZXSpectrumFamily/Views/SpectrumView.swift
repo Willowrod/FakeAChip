@@ -10,24 +10,20 @@ import SwiftUI
 struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
     var body: some View {
-            VStack{
-                MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
-                Group {
-                    switch settings.headerData.environment {
-                    case SystemEnvironment.Emulation:
-                       EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
-                        TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
-                        SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
-                    case SystemEnvironment.Disassembly:
-                        DisassemblyHeaderView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance)
-                        SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
-                    case SystemEnvironment.Code:
-                        SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
+        VStack{
+            HeaderView(settings: settings)
+            Group {
+                switch settings.headerData.environment {
+                case SystemEnvironment.Emulation:
+                    SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
+                case SystemEnvironment.Disassembly:
+                    SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
+                case SystemEnvironment.Code:
+                    SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
 
-                    }
                 }
-                Spacer()
             }
+        }
     }
 }
 
@@ -51,13 +47,13 @@ struct SpectrumEmulationView: View {
                             }
                             VStack {
                                 Spacer()
-                                    ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
+                                ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
                             }
                         }
                     } else {
                         VStack{
                             SpectrumScreen(screenWidth: Sizing.instance.width())
-                                ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
+                            ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
                         }
                     }
                 }
