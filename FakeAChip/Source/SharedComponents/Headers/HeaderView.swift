@@ -7,7 +7,7 @@
 
 import SwiftUI
 enum HeaderType: Int {
-    case off = 0, mainHeader, tapePlayer, debugHeader, saveLoad, disassemblyHeader, codeHeader
+    case off = 0, mainHeader, tapePlayer, emulatorHeader, disassemblyHeader, codeHeader, debugHeader
 }
 
 struct HeaderView: View {
@@ -20,8 +20,8 @@ struct HeaderView: View {
                     Picker(selection: $currentHeader, label: Text("")) {
                         Text("Main").tag(HeaderType.mainHeader)
                         Text("Tape").tag(HeaderType.tapePlayer)
-                        Text("Save/Load").tag(HeaderType.saveLoad)
-                        Text("Emulator").tag(HeaderType.debugHeader)
+                        Text("Emulator").tag(HeaderType.emulatorHeader)
+                        Text("Debug").tag(HeaderType.debugHeader)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 case .Disassembly:
@@ -47,14 +47,14 @@ Spacer()
                 MainHeader(headerData: settings.headerData, computer: settings.currentComputerInstance)
             case .tapePlayer:
                 TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
-            case .debugHeader:
-                Text("FPS: \(settings.headerData.debugModel.fps)")
-            case .saveLoad:
+            case .emulatorHeader:
                 EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
             case .disassemblyHeader:
                 DisassemblyHeaderView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance)
             case .codeHeader:
                 SpectrumTestText(text: "codeHeader")
+            case .debugHeader:
+                Text("FPS: \(settings.headerData.debugModel.fps)")
             }
             }
             .frame(maxWidth: Sizing.instance.actualWidth() - 20, minHeight: 120, maxHeight: 120)

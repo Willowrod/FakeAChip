@@ -11,21 +11,23 @@ struct EmulatorHeaderView: View {
     @ObservedObject var emulatorData: EmulatorData
     let computer: CPU
     var body: some View {
-        HStack{
-            Button("Save"){
-                print("Save Emulation")
-                saveEmulation()
-            }
+        VStack{
+            HStack{
+                Button("Save"){
+                    print("Save Emulation")
+                    saveEmulation()
+                }
                 
                 Button("Load"){
                     print("Load Emulation")
                     loadEmulation()
                 }
-            Spacer()
-            Text("Show Keyboard:")
-            Toggle("", isOn: $emulatorData.keyboardShowing).labelsHidden()
+                Spacer()
+                Text("Show Keyboard:")
+                Toggle("", isOn: $emulatorData.keyboardShowing).labelsHidden()
+            }
+            .padding(20)
         }
-        .padding(20)
     }
     
     func saveEmulation() {
