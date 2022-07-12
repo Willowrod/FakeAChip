@@ -37,7 +37,6 @@ struct ZXBitmap {
     }
     
     mutating func setAttributes(bytes: ArraySlice<UInt8>, flashing: Bool){
-        print("Bytes \(bytes.map{$0.hex()})")
         var indicator = 0
         bytes.forEach { byte in
             let isFlashing = byte.isSet(bit: 7) && flashing

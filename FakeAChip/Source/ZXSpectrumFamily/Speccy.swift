@@ -120,8 +120,8 @@ loadInternal(file: file, path: path)
         renderFrameInternal()
     }
     
-    override func process(){
-        processInternal()
+    override func process() async {
+        await processInternal()
     }
     
     override func performIn(port: UInt8, map: UInt8, destination: AvailableRegister){

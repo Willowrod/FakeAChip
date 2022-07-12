@@ -8,7 +8,7 @@
 import Foundation
 
 class EmptyZXSpectrum: Speccy {
-    override func process() {
+    override func process() async {
 
     }
 }

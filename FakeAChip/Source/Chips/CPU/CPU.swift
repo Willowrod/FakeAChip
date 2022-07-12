@@ -54,7 +54,7 @@ class CPU: CoreDelegate {
         
     }
     
-    func process(){
+    func process() async {
         
     }
     
