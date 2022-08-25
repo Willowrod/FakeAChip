@@ -3,6 +3,9 @@ A SwiftUI reimagining of the multi processor - multi machine emulator / disassem
 
 Fake A chip
 
-Details to follow 
+![Emulator Image](Images/emulator_image.png)
+![Disassembler Image](Images/disassembler_image.png)
+
+Details to follow
 
 I guess I should get writing them...

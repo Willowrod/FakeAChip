@@ -13,7 +13,6 @@ struct DisassemblyList: View {
     let computer: Speccy
     var body: some View {
         VStack{
-            
             HStack{
                 Button(action: {
                     computer.pause()
@@ -69,6 +68,7 @@ struct DisassemblyList: View {
                 .listStyle(InsetGroupedListStyle())
             }
         }
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     }
 }
 
