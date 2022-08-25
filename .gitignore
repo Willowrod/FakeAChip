@@ -2,3 +2,5 @@
 *.zip
 Library/*
 ZXDB-SDK/
+.DS_Store
+FakeAChip/.DS_Store
