@@ -58,6 +58,7 @@ class Z80: CPU {
     var postProcessorDebug = false
     var memDebug = false
     var miscDebug = false
+    var opcodeDebug = false
     
     var isDebugging = false
     
@@ -313,17 +314,14 @@ print("Writing nothing to RAM....")
     }
     
     func instructionComplete(states: Int, length: UInt16 = 1) {
-        if (states == 0) {
-            print("That ain't right!")
+        if opcodeDebug {
+            currentTStates += 4
+        } else {
+            currentTStates += states
+            loadingTStates += states
+            PC = PC &+ length
         }
-        let now = CFAbsoluteTimeGetCurrent()//Date().timeIntervalSince1970
-        averageTStateInOp = (now - tick) / Double(states)
-//        if averageTStateInOp > tState {
-//            print
-//        }
-        currentTStates += states
-        loadingTStates += states
-        PC = PC &+ length
+
     }
     
     func call(location: UInt16, length: UInt16 = 1){
@@ -410,7 +408,8 @@ print("Writing nothing to RAM....")
             postProcessorDebug = data.headerData.debugPostProcessor
             memDebug = data.headerData.debugMemoryData
             miscDebug = data.headerData.debugMiscellaneousData
-            isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug
+            opcodeDebug = data.headerData.debugOpcodes
+            isDebugging = preProcessorDebug || postProcessorDebug || memDebug || miscDebug || opcodeDebug
         }
     }
     

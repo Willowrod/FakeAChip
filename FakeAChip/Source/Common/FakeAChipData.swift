@@ -13,9 +13,11 @@ protocol CoreDelegate {
     func keyboardInteraction(key: Int, pressed: Bool)
     func keyboardInteraction(bank: Int, bit: Int, pressed: Bool)
     func joystickInteraction(key: Int, pressed: Bool)
+    func updateRegister(register: AvailableRegister, value: UInt8)
+    func writeOpCodeData(stream: [UInt8], updatefrom: Int)
 }
 
-class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
+class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate {
     
     let supportedComputers: [ComputerModel] = [.Sinclair_Spectrum_48K, .Sinclair_Spectrum_128K]
     
@@ -30,6 +32,10 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     var emulatorData = EmulatorData()
     
     var diagnosticData = DiagnosticData()
+
+    lazy var persistentController = PersistenceController.shared
+
+    @AppStorage("computerModel") var currentComputerModel: ComputerModel = .Sinclair_Spectrum_48K
     
     @Published var host: HostSystem
     
@@ -56,11 +62,14 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     var time = Date().timeIntervalSince1970
     var frames = 0
     var seconds = 0
+
+    
     
     init(_ host: HostSystem) {
         self.host = host
         headerData.delegate = self
-        changeEnvironment(model: .Sinclair_Spectrum_48K)
+        diagnosticData.setDelegate(self)
+        changeEnvironment(model: currentComputerModel)
     }
 
     init(_ host: HostSystem, cpu: CPU) {
@@ -72,6 +81,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     func changeEnvironment(model: ComputerModel){
         if supportedComputers.contains(model){
             headerData.emulatedSystem = model
+            currentComputerModel = model
             bootNewSystem(model: model)
         } else {
             print ("\(model.rawValue) is not currently supported")
@@ -126,6 +136,15 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate {
     
     func logToScreen(log: String) {
         diagnosticData.addLog(itemToLog: log)
+    }
+
+
+    func updateRegister(register: AvailableRegister, value: UInt8){
+        delegate?.updateRegister(register: register, value: value)
+    }
+
+    func writeOpCodeData(stream: [UInt8], updatefrom: Int) {
+        delegate?.writeOpCodeData(stream: stream, updatefrom: updatefrom)
     }
 
 }

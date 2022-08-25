@@ -144,6 +144,39 @@ performInInternal(port: port, map: map, destination: destination)
     override func joystickInteraction(key: Int, pressed: Bool){
 joystickInteractionInternal(key: key, pressed: pressed)  
     }
+
+    override func updateRegister(register: AvailableRegister, value: UInt8){
+        switch register {
+        case .A:
+            aR().ld(value: value)
+        case .F:
+            Z80.F.ld(value: value)
+        case .B:
+            bc().ldHigh(value: value)
+        case .C:
+            bc().ldLow(value: value)
+        case .D:
+            de().ldHigh(value: value)
+        case .E:
+            de().ldLow(value: value)
+        case .H:
+            hl().ldHigh(value: value)
+        case .L:
+            hl().ldLow(value: value)
+        case .PC:
+            PC = 0xff00 &+ UInt16(value)
+        default:
+            break
+        }
+    }
+
+    override func writeOpCodeData(stream: [UInt8], updatefrom: Int) {
+        var count = updatefrom
+        stream.forEach{oC in
+            ldRam(location: 0xff00 &+ UInt16(count), value: oC)
+            count += 1
+        }
+    }
     
     override func initialiseRegisters(header: Z80RegisterSnapshot){
        initialiseRegistersInternal(header: header)

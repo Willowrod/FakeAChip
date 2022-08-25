@@ -169,7 +169,6 @@ extension Speccy {
                 var count = 0
                 banks[0].forEach{ byte in
                     if count < ram.count {
-                        // print ("count: \(count) - banks[0].count: \(banks[0].count)")
                         ram[count] = byte
                         count += 1
                     } else {
@@ -238,8 +237,8 @@ extension Speccy {
         } else {
             snap.add(UInt8(0x00))
         }
-        snap.add(UInt8(interuptMode))  // Bit 28
         snap.add(UInt8(0x00))          // bit 29
+        snap.add(UInt8(interuptMode))  // Bit 28
 
         
         snap.add(ram)
@@ -272,25 +271,28 @@ extension Speccy {
     
      func loadEmulationInternal() {
          pause()
-            let filename = getPath(forFile: "emulation.json")
-            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
-                print("Failed to read data")
-                return
-            }
-                print(snappy)
+         if let snappy = data?.persistentController.getLatestSnapshot(){
+//            let filename = getPath(forFile: "emulation.json")
+//            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
+//                print("Failed to read data")
+//                return
+//            }
+//                print(snappy)
             loadZ80Internal(data: snappy)
+         }
             resume()
     }
     
      func saveEmulationInternal() {
             let snappy = dumpSnapshot()
-            let filename = getPath(forFile: "emulation.json")
-                        do {
-                            try snappy.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-                        } catch {
-                            print("Could not write to \(filename.absoluteString)")
-                            print("Error: \(error.localizedDescription)")
-                        }
+         data?.persistentController.saveSnapshot(name:"\(Date.timeIntervalSinceReferenceDate)", snapshot: snappy)
+//            let filename = getPath(forFile: "emulation.json")
+//                        do {
+//                            try snappy.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+//                        } catch {
+//                            print("Could not write to \(filename.absoluteString)")
+//                            print("Error: \(error.localizedDescription)")
+//                        }
     }
     
 }

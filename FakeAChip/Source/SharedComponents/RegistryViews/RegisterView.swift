@@ -11,9 +11,9 @@ struct RegisterView: View {
     var registerPair: RegisterPairStruct
     var body: some View {
         HStack {
-            Text("\(registerPair.name)").frame(width: 80, height: 20, alignment: .leading)
-            Text("\(registerPair.high.hexValue())").frame(width: 40, height: 20, alignment: .leading)
-            Text("\(registerPair.low.hexValue())").frame(width: 40, height: 20, alignment: .leading)
+            Text(registerPair.name).frame(width: 80, height: 20, alignment: .leading)
+            Text(registerPair.high).frame(width: 40, height: 20, alignment: .leading)
+            Text(registerPair.low).frame(width: 40, height: 20, alignment: .leading)
         }
     }
 }

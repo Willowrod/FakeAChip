@@ -35,5 +35,9 @@ class AFRegisterPair {
     func flags() -> String {
         return flag.value().bin()
     }
+
+    var registerPair: RegisterPairStruct {
+        RegisterPairStruct(high: accumilator.hexValue(), low: flag.hexValue(), name: "AF")
+    }
     
 }

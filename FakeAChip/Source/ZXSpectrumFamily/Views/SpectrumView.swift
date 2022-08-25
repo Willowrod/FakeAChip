@@ -11,7 +11,18 @@ struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
     var body: some View {
         VStack{
+//<<<<<<< HEAD
             HeaderView(settings: settings)
+// =======
+//             if settings.headerData.debugOpcodes {
+//             DebugHeader(diag: settings.diagnosticData)
+//                     .onAppear(){
+//                         settings.diagnosticData.updateOpCodeSafe()
+//                         settings.currentComputerInstance.fast()
+//                     }
+//             }
+//             MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
+// >>>>>>> development
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
@@ -20,7 +31,6 @@ struct SpectrumView: View {
                     SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
                     SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
-
                 }
             }
         }

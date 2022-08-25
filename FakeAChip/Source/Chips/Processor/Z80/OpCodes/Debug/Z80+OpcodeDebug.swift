@@ -1210,18 +1210,18 @@ extension Z80 {
                 if R >= 0x80 {
                     R = 0x0
                 }
-        if miscDebug {
-        if averageTStateInOp > tState {
-            print("TState error - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
-        } else {
-            //print("TState Good - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
-            goodOps += 1
-            if goodOps > 10000 {
-                print("10000 good ops done")
-                goodOps = 0
-            }
-        }
-        }
+//        if miscDebug {
+//        if averageTStateInOp > tState {
+//            print("TState error - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
+//        } else {
+//            //print("TState Good - \(averageTStateInOp.to8Places()) vs \(tState.to8Places()) - \(currentOpCode)")
+//            goodOps += 1
+//            if goodOps > 10000 {
+//                print("10000 good ops done")
+//                goodOps = 0
+//            }
+//        }
+//        }
         
         
           if preProcessorDebug {

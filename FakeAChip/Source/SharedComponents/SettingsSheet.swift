@@ -33,6 +33,7 @@ struct SettingsSheet: View {
                     }
             }
             Spacer()
+            VStack{
             HStack{
                 Spacer()
                 Text("Pre processor debugging:")
@@ -57,6 +58,14 @@ struct SettingsSheet: View {
                 Toggle("", isOn: $settings.debugMiscellaneousData).labelsHidden()
                 Spacer()
             }
+            HStack{
+                Spacer()
+                Text("Opcode debugging:")
+                Toggle("", isOn: $settings.debugOpcodes).labelsHidden()
+                Spacer()
+            }
+            }
+            Spacer()
         }
     }
 }
