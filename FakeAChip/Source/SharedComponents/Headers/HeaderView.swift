@@ -29,14 +29,12 @@ struct HeaderView: View {
                         Text("Main").tag(HeaderType.mainHeader)
                         Text("Disassebler").tag(HeaderType.disassemblyHeader)
                     }
-                    .padding(20)
                     .pickerStyle(SegmentedPickerStyle())
                 case .Code:
                     Picker(selection: $currentHeader, label: Text("")) {
                         Text("Main").tag(HeaderType.mainHeader)
                         Text("Code").tag(HeaderType.codeHeader)
                     }
-                    .padding(20)
                     .pickerStyle(SegmentedPickerStyle())
                 }
 Spacer()
@@ -54,6 +52,11 @@ Spacer()
             case .codeHeader:
                 SpectrumTestText(text: "codeHeader")
             case .debugHeader:
+//                             DebugHeader(diag: settings.diagnosticData)
+//                                     .onAppear(){
+//                                         settings.diagnosticData.updateOpCodeSafe()
+//                                         settings.currentComputerInstance.fast()
+//                                     }
                 Text("FPS: \(settings.headerData.debugModel.fps)")
             }
             }

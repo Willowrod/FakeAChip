@@ -11,18 +11,7 @@ struct SpectrumView: View {
     @EnvironmentObject var settings: FakeAChipData
     var body: some View {
         VStack{
-//<<<<<<< HEAD
             HeaderView(settings: settings)
-// =======
-//             if settings.headerData.debugOpcodes {
-//             DebugHeader(diag: settings.diagnosticData)
-//                     .onAppear(){
-//                         settings.diagnosticData.updateOpCodeSafe()
-//                         settings.currentComputerInstance.fast()
-//                     }
-//             }
-//             MainHeader(headerData: settings.headerData,computer: settings.currentComputerInstance)
-// >>>>>>> development
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
@@ -33,6 +22,7 @@ struct SpectrumView: View {
                     SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
                 }
             }
+            Spacer()
         }
     }
 }
@@ -43,7 +33,6 @@ struct SpectrumEmulationView: View {
     
     @State private var orientation = UIDeviceOrientation.unknown
     var body: some View {
-
         Group {
             switch host {
             case .iOS:
@@ -72,7 +61,6 @@ struct SpectrumEmulationView: View {
                 }
             case .Mac:
                 SpectrumScreen(screenWidth: Sizing.instance.width())
-                Spacer()
             }
         }
     }
@@ -86,7 +74,6 @@ struct SpectrumDisassemblyView: View {
         VStack{
             HStack{
                 SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
-
                 RegisterSetView()
             }
             DisassemblyList(disassembly: disassembly, computer: computer)
@@ -102,7 +89,7 @@ struct SpectrumCodeView: View {
     var body: some View {
         HStack{
             RegisterSetView()
-            SpectrumScreen(screenWidth: Sizing.instance.size.width / 4)
+            SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
         }
     }
 }
