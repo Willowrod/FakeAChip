@@ -69,6 +69,7 @@ class DiagnosticData: ObservableObject {
         if logs.count > maximumNumberOfLogs {
             logs.removeFirst()
         }
+        print(itemToLog)
     }
 
     func setDelegate(_ del: DiagnosticDataDelegate) {

@@ -46,10 +46,10 @@ class DisassemblyModel: ObservableObject, Codable {
         do {
             let json = try JSONEncoder().encode(self)
             if let jsonString = String(data: json, encoding: .utf8){
-            print("JSON: \(jsonString)")
             let filename = getPath(forFile: "disassembly.json")
             do {
                 try jsonString.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+                print("Disassembly written to: \(filename)")
             } catch {
                 print("Could not write to \(filename.absoluteString)")
                 print("Error: \(error.localizedDescription)")
@@ -82,14 +82,19 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
             print("is showing: \(isShowing)")
         }
     }
+    var temporaryStartLine: UInt16 = 0 {
+        didSet {
+            print("Start line changed to \(temporaryStartLine)")
+        }
+    }
     var bytes: [UInt8] = []
-    var lines: [DisassemblyLineModel] = [] //DisassemblyLineModel(), DisassemblyLineModel(), DisassemblyLineModel()
+    var lines: [DisassemblyLineModel] = []
     var temporaryDisassembly: [DisassemblyLineModel] = []
     
     
 
     enum CodingKeys: CodingKey {
-        case title, lines, id
+        case title, lines, id, startingLine, type, bytes
     }
     
     init(){
@@ -101,6 +106,9 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         title = try container.decode(String.self, forKey: .title)
         lines = try container.decode(Array.self, forKey: .lines)
         id = try container.decode(UUID.self, forKey: .id)
+        startingLine = try container.decode(UInt16.self, forKey: .startingLine)
+        type = try container.decode(DataType.self, forKey: .type)
+        bytes = try container.decode(Array.self, forKey: .bytes)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -108,6 +116,9 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         try container.encode(title, forKey: .title)
         try container.encode(lines, forKey: .lines)
         try container.encode(id, forKey: .id)
+        try container.encode(startingLine, forKey: .startingLine)
+        try container.encode(type, forKey: .type)
+        try container.encode(bytes, forKey: .bytes)
     }
     
     func textOutput() -> String {

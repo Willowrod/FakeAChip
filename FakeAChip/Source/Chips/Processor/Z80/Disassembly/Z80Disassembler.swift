@@ -114,10 +114,10 @@ class Z80Disassembler {
     
     func increasePC(){
         if currentPC <= 5 {
-            print("No....")
+            print("No 1....")
         }
         if currentPC < lastPC {
-            print("No....")
+            print("currentPC(\(currentPC)) < lastPC(\(lastPC))")
         }
         if !alreadyAdded.contains(currentPC){
             alreadyAdded.append(currentPC)
@@ -126,7 +126,7 @@ class Z80Disassembler {
         currentPC += 1
         lastPC = currentPC
         if oldPC > currentPC {
-            print("No....")
+            print("No 3....")
         }
     }
     
@@ -523,9 +523,6 @@ class Z80Disassembler {
                 print("Bad EP \(String(nextEP, radix: 16))")
                 return false
             } else
-  //            if nextEP < 0x4000 {
-  //
-  //                } else
             if !alreadyAdded.contains(nextEP){
                 delegate?.logToScreen(log: "Moving to Jump Point \(nextEP)")
             currentPC = entryPoints[currentEntryPoint]
