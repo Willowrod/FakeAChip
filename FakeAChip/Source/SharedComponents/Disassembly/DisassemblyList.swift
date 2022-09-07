@@ -17,6 +17,7 @@ struct DisassemblyList: View {
                 Button(action: {
                     computer.pause()
                     settings.disassemble(computer.memoryDump(withRom: true), knownJumpPoints: computer.jumpPoints, fromPC: Int(computer.initialPC()))
+                    computer.resume()
                 }, label: {
                     Text("RUN")
                 })

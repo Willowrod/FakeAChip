@@ -165,12 +165,12 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
             string = "\(string)\(byte),"
 
             if offset {
-                word0 = word0 &+ UInt16(byte)*265
+                word0 = word0 &+ UInt16(byte)*256
                 word1 = word1 &+ UInt16(byte)
                 offset0 = "\(offset0)\(word0),"
                 word0 = 0x00
             } else {
-                word1 = word1 &+ UInt16(byte)*265
+                word1 = word1 &+ UInt16(byte)*256
                 word0 = word0 &+ UInt16(byte)
                 offset1 = "\(offset1)\(word1),"
                 word1 = 0x00
@@ -181,7 +181,9 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         
         if length % 2 == 1 {
             offset0 = "\(offset0)\(word0),"
-            return "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
+            let myRet = "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
+            print("MR: \(myRet)")
+            return myRet
         }
         
         return "\(string.reduce())\n\(offset0.reduce())"

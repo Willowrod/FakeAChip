@@ -12,64 +12,71 @@ struct DisassemblySection: View {
     let undefinedType: DataType
     var body: some View {
      
-  //      VStack{
-   //         Section(header:
-   //                     VStack{
+        VStack{
+            Section(header:
+                        VStack{
                         HStack{
                             Button("➖"){
                                 section.temporaryStartLine = section.temporaryStartLine &- 1
                             }
+                            .buttonStyle(PlainButtonStyle())
                             Text("\(section.startingLine.hex())")
                             Button("➕"){
                                 section.temporaryStartLine = section.temporaryStartLine &+ 1
                             }
+                            .buttonStyle(PlainButtonStyle())
                             
-//                TypeSelector(section: section)
-//                Spacer()
-//                HStack{
-//                    Text("Showing:")
-//                    Toggle("", isOn: $section.isShowing).labelsHidden()
-//                }
+                TypeSelector(section: section)
+                Spacer()
+                HStack{
+                    Text("Showing:")
+                    Toggle("", isOn: $section.isShowing).labelsHidden()
+                }
                         }
                 
 //
-//                            TextField("ID: ", text: $section.title)
-//                    .border(Color.blue)
+                            TextField("ID: ", text: $section.title)
+                    .border(Color.blue)
                 
             }
-//            ){
-//                if (section.isShowing){
-//                    switch section.type {
-//                    case .CODE:
-//                        DisassemblerCodeSection(section: section)
-//                    case .GRAPHICS:
-//                        DisassemblerGraphicSection(section: section)
-//                    case .DATA:
-//                        DisassemblerDataSection(section: section)
-//                    case .VALUE:
-//                        DisassemblerValueSection(section: section)
-//                    case .TEXT, .POTENTIALTEXT:
-//                        DisassemblerTextSection(section: section)
-//                    case .UNDEFINED:
-//                        switch undefinedType {
-//                        case .CODE:
-//                            DisassemblyUndefinedAsCodeSection(section: section)
-//                        case .GRAPHICS:
-//                            DisassemblerGraphicSection(section: section)
-//                        case .TEXT, .POTENTIALTEXT:
-//                            DisassemblerTextSection(section: section)
-//                        default:
-//                            Text("Undefined")
-//                        }
-//                    default:
-//                       Text("Not Supported")
-//                    }
-//
-//                }
-//            }
- //           }
+            ){
+                if (section.isShowing){
+                    switch section.type {
+                    case .CODE:
+                        DisassemblerCodeSection(section: section)
+                    case .GRAPHICS:
+                        DisassemblerGraphicSection(section: section)
+                    case .DATA:
+                        DisassemblerDataSection(section: section)
+                    case .VALUE:
+                        DisassemblerValueSection(section: section)
+                    case .TEXT, .POTENTIALTEXT:
+                        DisassemblerTextSection(section: section)
+                    case .UNDEFINED:
+                        switch undefinedType {
+                        case .CODE:
+                            DisassemblerCodeSection(section: section)
+                            //DisassemblyUndefinedAsCodeSection(section: section)
+                        case .GRAPHICS:
+                            DisassemblerGraphicSection(section: section)
+                        case .TEXT, .POTENTIALTEXT:
+                            DisassemblerTextSection(section: section)
+                        case .DATA:
+                            DisassemblerDataSection(section: section)
+                        case .VALUE:
+                            DisassemblerValueSection(section: section)
+                        default:
+                            Text("Undefined")
+                        }
+                    default:
+                       Text("Not Supported")
+                    }
+
+                }
+            }
+            }
         
- //   }
+    }
 }
 
 struct DisassemblySection_Previews: PreviewProvider {

@@ -50,7 +50,8 @@ extension String {
     func reduce() -> String {
         if self.count > 1 {
             var str = self
-            return String(str.removeLast())
+            str.removeLast()
+            return str
         }
         return self
     }
