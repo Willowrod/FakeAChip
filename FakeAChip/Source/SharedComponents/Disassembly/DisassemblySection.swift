@@ -55,8 +55,8 @@ struct DisassemblySection: View {
                     case .UNDEFINED:
                         switch undefinedType {
                         case .CODE:
-                            DisassemblerCodeSection(section: section)
-                            //DisassemblyUndefinedAsCodeSection(section: section)
+                            // DisassemblerCodeSection(section: section)
+                          DisassemblyUndefinedAsCodeSection(section: section)
                         case .GRAPHICS:
                             DisassemblerGraphicSection(section: section)
                         case .TEXT, .POTENTIALTEXT:

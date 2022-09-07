@@ -181,9 +181,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         
         if length % 2 == 1 {
             offset0 = "\(offset0)\(word0),"
-            let myRet = "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
-            print("MR: \(myRet)")
-            return myRet
+            return "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
         }
         
         return "\(string.reduce())\n\(offset0.reduce())"
