@@ -14,6 +14,7 @@ extension Speccy {
     
     
     static func getSpectrum48Instance() -> Speccy{
+        print("Bip!")
         if let instance = Speccy.instanceSpectrum48 {
             return instance
         }

@@ -23,6 +23,10 @@ struct SpectrumView: View {
                 }
             }
             Spacer()
+        }.sheet(isPresented: $settings.emulatorData.offerSave) {
+            SaveSpeccyDataView(emulatorData: settings.emulatorData)
+        }.sheet(isPresented: $settings.emulatorData.offerLoad) {
+            LoadSpeccyDataView(emulatorData: settings.emulatorData)
         }
     }
 }

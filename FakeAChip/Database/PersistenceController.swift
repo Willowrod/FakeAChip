@@ -53,11 +53,13 @@ struct PersistenceController {
         }
     }
 
-    func saveSnapshot(name: String, snapshot: String) {
+    func saveSnapshot(name: String, snapshot: String, screenShot: String) {
         let entity = NSEntityDescription.entity(forEntityName: "Snapshot", in: context)
         let newSnapshot = NSManagedObject(entity: entity!, insertInto: context)
+        newSnapshot.setValue(UUID(), forKey: "id")
         newSnapshot.setValue(name, forKey: "name")
         newSnapshot.setValue(snapshot, forKey: "snapshot")
+        newSnapshot.setValue(screenShot, forKey: "screen")
         newSnapshot.setValue(Date(), forKey: "date")
 save()
     }
@@ -77,6 +79,23 @@ save()
         }
 
         return "XXXXX"
+    }
+
+    func getAllSnapshots() -> [Snapshot] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request) as! [Snapshot]
+
+                return result
+
+
+               } catch {
+
+                   print("Failed")
+        }
+
+        return []
     }
 
 

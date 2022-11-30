@@ -72,7 +72,29 @@ struct ZXBitmap {
             indicator += 1
         }
     }
-    
+
+    mutating func blat(bytes: ArraySlice<UInt8>){
+        var indicator = 16384
+        print("Blatting....")
+
+        bytes.forEach { byte in
+            let position = positions[indicator] ?? 0
+            let colPos = attributes[indicator] ?? 0
+            let myInk = ink[colPos]
+            let myPaper = paper[colPos]
+            pixelsOld[position] = (byte & 0x80) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 1] = (byte & 0x40) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 2] = (byte & 0x20) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 3] = (byte & 0x10) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 4] = (byte & 0x08) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 5] = (byte & 0x04) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 6] = (byte & 0x02) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            pixelsOld[position + 7] = (byte & 0x01) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
+            indicator += 1
+            print("Indicator: \(indicator)")
+        }
+    }
+
     mutating func setupPositions(){
         var x = 0
         var y = 0
@@ -122,6 +144,18 @@ struct ZXBitmap {
                 }
             }
         }
+    }
+
+    func asData() -> Data {
+        let image = UIImage(bitmap: self)
+        if let data = image?.pngData() {
+            return data
+        }
+        return Data()
+    }
+
+    func asBase64() -> String {
+        return self.asData().base64EncodedString()
     }
     
 }

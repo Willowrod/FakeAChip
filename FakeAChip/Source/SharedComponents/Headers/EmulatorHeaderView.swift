@@ -15,7 +15,8 @@ struct EmulatorHeaderView: View {
             HStack{
                 Button("Save"){
                     print("Save Emulation")
-                    saveEmulation()
+                    //saveEmulation()
+                    computer.saveStatePrompter()
                 }
                 
                 Button("Load"){

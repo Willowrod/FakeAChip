@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Array {
     
@@ -26,5 +27,27 @@ extension ContiguousArray {
 
     subscript(_ ix: UInt16) -> Element {
         return self[Int(ix)]
+    }
+}
+
+
+extension Array<UInt8> {
+    func write() -> String {
+        var returnString: String = ""
+        self.forEach{ byte in
+            returnString += "\(byte.hex()) "
+        }
+        if !returnString.isEmpty {
+            returnString.removeLast()
+        }
+        return returnString
+    }
+
+    func toZXImageData() -> String? {
+        var screenImage = ZXBitmap(width: 256, height: 192, color: ZXColor.red)
+        screenImage.setAttributes(bytes: self[6144...6911], flashing: false)
+        screenImage.blat(bytes: self[0...6143])
+        let image = UIImage(bitmap: screenImage)
+        return image?.pngData()?.base64EncodedString()
     }
 }

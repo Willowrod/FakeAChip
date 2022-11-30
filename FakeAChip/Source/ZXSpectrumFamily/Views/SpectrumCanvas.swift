@@ -24,19 +24,19 @@ struct SpectrumCanvas: View {
                     var count = 0
                     var x: CGFloat = 0
                     var y: CGFloat = 0
-                        grid.forEach{ pixel in
+                    grid.forEach{ pixel in
                         let rect = CGRect(x: x, y: y, width: pixelSize, height: pixelSize)
                         let path = Path(rect)
 
 
                         // Fill path
-                            emulatorData.emulatorPixels.append(path)
-                          context.fill(path, with: .color(pixel))
-                            //   context.stroke(path, with: .color(pixel))
-                    x += pixelSize
-                                     count += 1
-                                     if count > 255 {
-                                         y += pixelSize
+                        emulatorData.emulatorPixels.append(path)
+                        context.fill(path, with: .color(pixel))
+                        //   context.stroke(path, with: .color(pixel))
+                        x += pixelSize
+                        count += 1
+                        if count > 255 {
+                            y += pixelSize
                             x = 0
                             count = 0
                         }
@@ -45,8 +45,8 @@ struct SpectrumCanvas: View {
 
                 else {
                     for a in 0...(emulatorData.emulatorPixels.count - 1){
-                    // Fill path
-                 context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
+                        // Fill path
+                        context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
                     }
                 }
             }
@@ -56,8 +56,32 @@ struct SpectrumCanvas: View {
     }
 }
 
-//struct SpeccyCanvas_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SpectrumCanvas(grid: [])
-//    }
-//}
+struct SpectrumScreenShot: View {
+    let screen: String
+    var scale: CGFloat = 1
+    var body: some View {
+        VStack{
+            if let data = Data(base64Encoded: screen), let image = UIImage(data: data){
+                Image(uiImage: image).resizable().scaledToFit()
+                    .frame(width: 256 * scale, height: 192 * scale)
+            } else {
+                Text("Mission REALLY Failed!")
+            }
+        }
+    }
+}
+
+struct SpeccyCanvas_Previews: PreviewProvider {
+    static var previews: some View {
+        var screen = MockSpeccyScreen.mockSpeccyScreen
+        screen.append(contentsOf: MockSpeccyScreen.mockSpeccyAttribs)
+        return VStack{
+            if let b64 = screen.toZXImageData() {
+                SpectrumScreenShot(screen: b64)
+            } else {
+                Text("Mission Failed!")
+            }
+
+        }
+    }
+}

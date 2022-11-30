@@ -17,8 +17,10 @@ protocol CoreDelegate {
     func writeOpCodeData(stream: [UInt8], updatefrom: Int)
 }
 
-class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate {
-    
+class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate, EmulatorDataDelegate {
+
+
+
     let supportedComputers: [ComputerModel] = [.Sinclair_Spectrum_48K, .Sinclair_Spectrum_128K]
     
     var delegate: CoreDelegate?
@@ -56,6 +58,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     }
     
     @Published var borderColour: Color = Color.white
+
     
     // Debug bits
     
@@ -69,6 +72,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
         self.host = host
         headerData.delegate = self
         diagnosticData.setDelegate(self)
+        emulatorData.setDelegate(self)
         changeEnvironment(model: currentComputerModel)
     }
 
@@ -147,4 +151,11 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
         delegate?.writeOpCodeData(stream: stream, updatefrom: updatefrom)
     }
 
+    func saveToDatabase(name: String, dump: String, screen: String) {
+        currentComputerInstance.saveToDatabase(name: name, dump: dump, screen: screen)
+    }
+
+    func load(snapshot: String) {
+        currentComputerInstance.loadSnapshot(from: snapshot)
+    }
 }

@@ -218,4 +218,16 @@ class CPU: CoreDelegate {
     func saveEmulation() {
         
     }
+
+    func saveStatePrompter(){
+        
+    }
+
+    func saveToDatabase(name: String, dump: String, screen: String) {
+        
+    }
+
+    func loadSnapshot(from: String) {
+
+    }
 }

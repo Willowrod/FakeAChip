@@ -225,6 +225,13 @@ joystickInteractionInternal(key: key, pressed: pressed)
         saveSnapshot()
         return currentSnapshot
     }
+
+    func dumpScreenShot() -> String {
+        guard let image = Array(ram[0...6911]).toZXImageData() else {
+            fatalError("Bugger!")
+        }
+        return image
+    }
     
     override func importDisassembly() {
         importSpectrumDisassemblyInternal()
@@ -237,5 +244,21 @@ joystickInteractionInternal(key: key, pressed: pressed)
     override func saveEmulation() {
         saveEmulationInternal()
     }
-    
+
+    override func saveToDatabase(name: String, dump: String, screen: String) {
+        saveToDatabaseInternal(name: name, dump: dump, screen: screen)
+    }
+
+    override func saveStatePrompter(){
+        data?.emulatorData.saveFileRamDump = dumpSnapshot()
+        let screenShot = dumpScreenShot()
+        data?.emulatorData.saveFileScreenShot = screenShot
+        print("Screeny! - \(screenShot)")
+        data?.emulatorData.offerSave = true
+        resume()
+    }
+
+    override func loadSnapshot(from: String) {
+        loadSnapshotInternal(from: from)
+    }
 }

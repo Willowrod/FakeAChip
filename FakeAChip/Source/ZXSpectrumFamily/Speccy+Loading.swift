@@ -270,22 +270,24 @@ extension Speccy {
     }
     
      func loadEmulationInternal() {
-         pause()
-         if let snappy = data?.persistentController.getLatestSnapshot(){
-//            let filename = getPath(forFile: "emulation.json")
-//            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
-//                print("Failed to read data")
-//                return
-//            }
-//                print(snappy)
-            loadZ80Internal(data: snappy)
-         }
-            resume()
+//         pause()
+//         if let snappy = data?.emulatorData?.snapshotToLoad {
+////            let filename = getPath(forFile: "emulation.json")
+////            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
+////                print("Failed to read data")
+////                return
+////            }
+////                print(snappy)
+//            loadZ80Internal(data: snappy)
+//         }
+//            resume()
+         data?.emulatorData.offerLoad = true
     }
     
      func saveEmulationInternal() {
             let snappy = dumpSnapshot()
-         data?.persistentController.saveSnapshot(name:"\(Date.timeIntervalSinceReferenceDate)", snapshot: snappy)
+         let screenShot = dumpScreenShot()
+         data?.persistentController.saveSnapshot(name:"\(Date.timeIntervalSinceReferenceDate)", snapshot: snappy, screenShot: screenShot)
 //            let filename = getPath(forFile: "emulation.json")
 //                        do {
 //                            try snappy.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
@@ -294,5 +296,16 @@ extension Speccy {
 //                            print("Error: \(error.localizedDescription)")
 //                        }
     }
-    
+
+
+
+    func saveToDatabaseInternal(name: String, dump: String, screen: String) {
+        data?.persistentController.saveSnapshot(name:name, snapshot: dump, screenShot: screen)
+    }
+
+    func loadSnapshotInternal(from: String){
+        pause()
+           loadZ80Internal(data: from)
+           resume()
+    }
 }
