@@ -66,7 +66,7 @@ class DisassemblyModel: ObservableObject, Codable {
 class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     var id = UUID()
     @Published var title: String = "PlaceHolder"
-    @Published var startingLine: UInt16 = 0
+    var startingLine: UInt16 = 0
     @Published var type: DataType = .UNUSED{
         didSet {
             if (temporaryDisassembly.count > 0){
@@ -77,16 +77,8 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         }
     }
     @Published var textOffset = 0
-    @Published var isShowing = false {
-        didSet {
-            print("is showing: \(isShowing)")
-        }
-    }
-    var temporaryStartLine: UInt16 = 0 {
-        didSet {
-            print("Start line changed to \(temporaryStartLine)")
-        }
-    }
+    @Published var isShowing = false
+    @Published var temporaryStartLine: UInt16 = 0
     var bytes: [UInt8] = []
     var lines: [DisassemblyLineModel] = []
     var temporaryDisassembly: [DisassemblyLineModel] = []
@@ -107,6 +99,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         lines = try container.decode(Array.self, forKey: .lines)
         id = try container.decode(UUID.self, forKey: .id)
         startingLine = try container.decode(UInt16.self, forKey: .startingLine)
+        temporaryStartLine = startingLine
         type = try container.decode(DataType.self, forKey: .type)
         bytes = try container.decode(Array.self, forKey: .bytes)
     }
@@ -215,18 +208,8 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
             if count >= offset {
                 if let uint8 = UInt8(byte.code, radix: 16){
                 graphicBlock.append(uint8)
-//                if graphicBlock.count == 8 {
-//                    let newImage = StandardSprite(bytes: graphicBlock)
-//                    if let image = UIImage(){
-//                   returner.append(image)
-//                    }
-//                    graphicBlock.removeAll()
-//                }
                                     if graphicBlock.count == 8 {
                                        returner.append(StandardSprite(bytes: graphicBlock))
-                                       // if let image = UIImage(){
-                                      // returner.append(image)
-                                       // }
                                         graphicBlock.removeAll()
                                     }
                 }

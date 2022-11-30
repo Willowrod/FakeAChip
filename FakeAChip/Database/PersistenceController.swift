@@ -66,7 +66,7 @@ save()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
         request.returnsObjectsAsFaults = false
         do {
-            let result = try context.fetch(request).last as! NSManagedObject
+            let result = try context.fetch(request).first as! NSManagedObject
 
                 return result.value(forKey: "snapshot") as! String
 

@@ -57,9 +57,7 @@ struct DisassemblyList: View {
             
             if let showing = disassembly.showing {
                 List(disassembly.sections.filter({$0.type == showing})){ section in
-                    //       if section.type == showing {
                     DisassemblySection(section: section, undefinedType: disassembly.undefinedDataShownAs)
-                    //      }
                 }
                 .listStyle(InsetGroupedListStyle())
             } else {

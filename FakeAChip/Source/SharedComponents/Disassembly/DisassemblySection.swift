@@ -11,71 +11,64 @@ struct DisassemblySection: View {
     @ObservedObject var section: DisassemblySectionModel
     let undefinedType: DataType
     var body: some View {
-     
-        VStack{
-            Section(header:
-                        VStack{
-                        HStack{
-                            Button("➖"){
-                                section.temporaryStartLine = section.temporaryStartLine &- 1
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                            Text("\(section.startingLine.hex())")
-                            Button("➕"){
-                                section.temporaryStartLine = section.temporaryStartLine &+ 1
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                            
-                TypeSelector(section: section)
+        Section(header:
+                    VStack{
+            HStack{
+                Button("➖"){
+                    section.temporaryStartLine = section.temporaryStartLine &- 1
+                }
+                .buttonStyle(PlainButtonStyle())
+                Text("\(section.temporaryStartLine.hex())")
+                Button("➕"){
+                    section.temporaryStartLine = section.temporaryStartLine &+ 1
+                }
+                .buttonStyle(PlainButtonStyle())
                 Spacer()
+                TypeSelector(section: section)
                 HStack{
                     Text("Showing:")
                     Toggle("", isOn: $section.isShowing).labelsHidden()
                 }
-                        }
-                
-//
-                            TextField("ID: ", text: $section.title)
-                    .border(Color.blue)
-                
             }
-            ){
-                if (section.isShowing){
-                    switch section.type {
+            TextField("ID: ", text: $section.title)
+                .border(Color.blue)
+
+        }
+        ){
+            if (section.isShowing){
+                switch section.type {
+                case .CODE:
+                    DisassemblerCodeSection(section: section)
+                case .GRAPHICS:
+                    DisassemblerGraphicSection(section: section)
+                case .DATA:
+                    DisassemblerDataSection(section: section)
+                case .VALUE:
+                    DisassemblerValueSection(section: section)
+                case .TEXT, .POTENTIALTEXT:
+                    DisassemblerTextSection(section: section)
+                case .UNDEFINED:
+                    switch undefinedType {
                     case .CODE:
-                        DisassemblerCodeSection(section: section)
+                        // DisassemblerCodeSection(section: section)
+                        DisassemblyUndefinedAsCodeSection(section: section)
                     case .GRAPHICS:
                         DisassemblerGraphicSection(section: section)
+                    case .TEXT, .POTENTIALTEXT:
+                        DisassemblerTextSection(section: section)
                     case .DATA:
                         DisassemblerDataSection(section: section)
                     case .VALUE:
                         DisassemblerValueSection(section: section)
-                    case .TEXT, .POTENTIALTEXT:
-                        DisassemblerTextSection(section: section)
-                    case .UNDEFINED:
-                        switch undefinedType {
-                        case .CODE:
-                            // DisassemblerCodeSection(section: section)
-                          DisassemblyUndefinedAsCodeSection(section: section)
-                        case .GRAPHICS:
-                            DisassemblerGraphicSection(section: section)
-                        case .TEXT, .POTENTIALTEXT:
-                            DisassemblerTextSection(section: section)
-                        case .DATA:
-                            DisassemblerDataSection(section: section)
-                        case .VALUE:
-                            DisassemblerValueSection(section: section)
-                        default:
-                            Text("Undefined")
-                        }
                     default:
-                       Text("Not Supported")
+                        Text("Undefined")
                     }
-
+                default:
+                    Text("Not Supported")
                 }
+
             }
-            }
-        
+        }
     }
 }
 
