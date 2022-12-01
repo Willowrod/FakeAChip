@@ -17,7 +17,7 @@ protocol CoreDelegate {
     func writeOpCodeData(stream: [UInt8], updatefrom: Int)
 }
 
-class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate, EmulatorDataDelegate {
+class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate {
 
 
 
@@ -31,7 +31,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     
     var disassemblyData = DisassemblyData()
     
-    var emulatorData = EmulatorData()
+    @Published var emulatorData = EmulatorData()
     
     var diagnosticData = DiagnosticData()
 
@@ -59,7 +59,8 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     
     @Published var borderColour: Color = Color.white
 
-    
+    @Published var offerSave: Bool = false
+    @Published var offerLoad: Bool = false
     // Debug bits
     
     var time = Date().timeIntervalSince1970
@@ -149,6 +150,12 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
 
     func writeOpCodeData(stream: [UInt8], updatefrom: Int) {
         delegate?.writeOpCodeData(stream: stream, updatefrom: updatefrom)
+    }
+}
+
+extension FakeAChipData: EmulatorDataDelegate {
+    func delete(id: String) {
+        persistentController.deleteSnapshot(id: id)
     }
 
     func saveToDatabase(name: String, dump: String, screen: String) {

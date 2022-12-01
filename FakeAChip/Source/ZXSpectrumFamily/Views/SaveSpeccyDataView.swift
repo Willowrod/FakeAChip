@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SaveSpeccyDataView: View {
     @ObservedObject var emulatorData: EmulatorData
+    @Binding var show: Bool
     @State var showAlert = false
     var body: some View {
         VStack{
@@ -23,12 +24,12 @@ struct SaveSpeccyDataView: View {
                         showAlert = true
                     } else {
                         emulatorData.save()
-                        emulatorData.offerSave = false
+                        show = false
                     }
                 })
                 Spacer()
                 Text("Cancel").foregroundColor(.blue).tappable{
-                    emulatorData.offerSave = false
+                    show = false
                 }
             }
         }.background(.white).padding(40).alert(isPresented: $showAlert) {
@@ -42,21 +43,41 @@ struct SaveSpeccyDataView: View {
 
 struct LoadSpeccyDataView: View {
     @ObservedObject var emulatorData: EmulatorData
+    @Binding var show: Bool
+    @State var showAlert: Bool = false
+    @State var snapshot: Snapshot? = nil
     var body: some View {
         VStack{
             let snaps = emulatorData.listOfSaves()
             Text("Load a program?").foregroundColor(.black)
             ScrollView{
                 ForEach(snaps, id: \.id){snap in
-                    SnapshotData(snapshot: snap, load: {emulatorData.load(snap.snapshot)}, delete: {})
+                    SnapshotData(snapshot: snap, load: {emulatorData.load(snap.snapshot)
+                        show = false
+                    }, delete: {
+                            snapshot = snap
+                            showAlert = true
+                    })
                 }
             }
             HStack{
                 Spacer()
                 Text("Cancel").foregroundColor(.blue).tappable{
-                    emulatorData.offerLoad = false
+                    show = false
                 }
             }.background(.white).padding(40)
+        }.padding(.vertical, 20).alert(isPresented: $showAlert) {
+            Alert(title: Text("Delete this snapshot?"),
+                  message: Text("The snapshot '\(snapshot?.name ?? "Unknown Name")' will be permanantly removed, continue?"),
+                  primaryButton: .default(Text("Delete")){
+                emulatorData.delete(snapshot?.id?.uuidString)
+                showAlert = false
+            }, secondaryButton: .default(Text("Cancel")){
+                snapshot = nil
+                showAlert = false
+            }
+
+            )
         }
     }
 }
@@ -85,8 +106,9 @@ struct SnapshotData: View {
 
 struct SaveSpeccyDataView_Previews: PreviewProvider {
     @State static var emulatorData = EmulatorData()
+    @State static var show = false
     static var previews: some View {
         emulatorData.saveFileScreenShot = MockSpeccyScreen.screenShot
-        return SaveSpeccyDataView(emulatorData: emulatorData)
+        return SaveSpeccyDataView(emulatorData: emulatorData, show: $show)
     }
 }

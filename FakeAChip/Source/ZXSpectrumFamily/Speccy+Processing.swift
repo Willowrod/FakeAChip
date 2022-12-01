@@ -14,22 +14,9 @@ extension Speccy {
     func startProcessingInternal() {
         processing = true
         self.resume()
-        print ("PROCESSING")
         Task {
             await self.process()
         }
-        print ("Nocessing")
-//        DispatchQueue.background(background: {
-////            Task.init(operation:  {
-////                            await self.processInternal()
-////                        })
-//            self.process()
-//            print ("PROCESSING")
-//        }, completion:{
-//            if self.shouldRestart {
-//                self.startProcessing()
-//            }
-//        })
     }
     
     func stopProcessingInternal() {
@@ -37,10 +24,10 @@ extension Speccy {
         processing = false
     }
     
-    func processInternal() async { //} async{
+    func processInternal() async {
         currentTStates = 0
         while processing {
-            framePair.inc()
+            //framePair.inc()
             if !pauseProcessor {
                 if (!frameEnds) {
                     if (shouldRunInterupt){

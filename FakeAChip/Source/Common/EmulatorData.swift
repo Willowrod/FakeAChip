@@ -11,6 +11,7 @@ import SwiftUI
 protocol EmulatorDataDelegate {
     func saveToDatabase(name: String, dump: String, screen: String)
     func load(snapshot: String)
+    func delete(id: String)
 }
 
 class EmulatorData: ObservableObject {
@@ -46,8 +47,15 @@ class EmulatorData: ObservableObject {
         if let snap{
             delegate?.load(snapshot: snap)
         }
-        offerLoad = false
     }
+
+    func delete(_ id: String?){
+        if let id{
+            delegate?.delete(id: id)
+        }
+    }
+
+
 
     func listOfSaves() -> [Snapshot] {
        return PersistenceController.shared.getAllSnapshots()

@@ -11,28 +11,9 @@ import Zip
 import ZXLoaderSDK
 
 extension Speccy {
-    func downloadInternal() {
-        //        guard let url = URL(string: "https://worldofspectrum.net/pub/sinclair/games/a/Airwolf.tzx.zip") else {
-        //            return
-        //        }
-        //        Network.common.download(url: url) { (path: String?, error: ZXDBError?) in
-        //            if error == nil {
-        //                print("Path: \(path!)")
-        //                self.unzipFile(path: path)
-        //            } else {
-        //                print("Error: \(error!.getAllMessages())")
-        //            }
-        //        }
-        //   if #available(macCatalyst 15.0, *) {
-        
-        //                  if #available(iOS 15.0, *) {
-        //            async {
-        //                await asyncDownload()
-        //            }
-        //        } else {
-        //            // Fallback on earlier versions
-        //        }
-    }
+//    func downloadInternal() {
+//
+//    }
     
     func downloadInternal(url: String) {
         guard let dlURL = URL(string: url) else {
@@ -47,13 +28,6 @@ extension Speccy {
             }
         }
     }
-    
-    //func asyncDownload() async {
-    //               let availableTitles = try? await ZXDB().asyncSearch("Spellbound")
-    //    availableTitles?.forEach { item in
-    //        print(item)
-    //    }
-    //    }
     
     func loadInternal(file: String, path: String? = nil){
         
@@ -82,7 +56,6 @@ extension Speccy {
         }
         jumpPoints.removeAll()
         interupt = true
-   //     writeZ80Internal()
         pauseProcessor = false
         
     }
@@ -250,13 +223,10 @@ extension Speccy {
         
         let filename = getPath(forFile: "disassembly.json")
         do {
-            //let contents = try String(contentsOfFile: filename.absoluteString)
             guard let disassembly = FileManager.default.contents(atPath: filename.path) else {
                 print("Failed to read data")
                 return
             }
-        //    let contents = String(data: disassembly, encoding: .utf8)
-        //    print(contents)
             let json = try JSONDecoder().decode(DisassemblyModel.self, from: disassembly) //JSONEncoder().encode(self)
        
             currentSnapshot = json.snapshot
@@ -270,34 +240,14 @@ extension Speccy {
     }
     
      func loadEmulationInternal() {
-//         pause()
-//         if let snappy = data?.emulatorData?.snapshotToLoad {
-////            let filename = getPath(forFile: "emulation.json")
-////            guard let disassembly = FileManager.default.contents(atPath: filename.path), let snappy = String(data: disassembly, encoding:.utf8)  else {
-////                print("Failed to read data")
-////                return
-////            }
-////                print(snappy)
-//            loadZ80Internal(data: snappy)
-//         }
-//            resume()
-         data?.emulatorData.offerLoad = true
+         data?.offerLoad = true
     }
     
      func saveEmulationInternal() {
             let snappy = dumpSnapshot()
          let screenShot = dumpScreenShot()
          data?.persistentController.saveSnapshot(name:"\(Date.timeIntervalSinceReferenceDate)", snapshot: snappy, screenShot: screenShot)
-//            let filename = getPath(forFile: "emulation.json")
-//                        do {
-//                            try snappy.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-//                        } catch {
-//                            print("Could not write to \(filename.absoluteString)")
-//                            print("Error: \(error.localizedDescription)")
-//                        }
     }
-
-
 
     func saveToDatabaseInternal(name: String, dump: String, screen: String) {
         data?.persistentController.saveSnapshot(name:name, snapshot: dump, screenShot: screen)

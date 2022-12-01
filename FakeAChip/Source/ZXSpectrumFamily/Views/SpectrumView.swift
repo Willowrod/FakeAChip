@@ -12,6 +12,9 @@ struct SpectrumView: View {
     var body: some View {
         VStack{
             HeaderView(settings: settings)
+            HStack{
+                Text("Offering Save: \(settings.emulatorData.offerSave ? "True" : "False")")
+            }
             Group {
                 switch settings.headerData.environment {
                 case SystemEnvironment.Emulation:
@@ -23,10 +26,10 @@ struct SpectrumView: View {
                 }
             }
             Spacer()
-        }.sheet(isPresented: $settings.emulatorData.offerSave) {
-            SaveSpeccyDataView(emulatorData: settings.emulatorData)
-        }.sheet(isPresented: $settings.emulatorData.offerLoad) {
-            LoadSpeccyDataView(emulatorData: settings.emulatorData)
+        }.sheet(isPresented: $settings.offerSave) {
+            SaveSpeccyDataView(emulatorData: settings.emulatorData, show: $settings.offerSave)
+        }.sheet(isPresented: $settings.offerLoad) {
+            LoadSpeccyDataView(emulatorData: settings.emulatorData, show: $settings.offerLoad)
         }
     }
 }

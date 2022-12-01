@@ -86,10 +86,10 @@ class Speccy: Z80 {
     override func fetchRamWord(location: Int) -> UInt16 {
         fetchRamWordInternal(location: location)
     }
-    
-    override func download() {
-        downloadInternal()
-    }
+//    
+//    override func download() {
+//        downloadInternal()
+//    }
     
     override func download(url: String) {
         downloadInternal(url: url)
@@ -251,11 +251,10 @@ joystickInteractionInternal(key: key, pressed: pressed)
 
     override func saveStatePrompter(){
         data?.emulatorData.saveFileRamDump = dumpSnapshot()
-        let screenShot = dumpScreenShot()
-        data?.emulatorData.saveFileScreenShot = screenShot
-        print("Screeny! - \(screenShot)")
-        data?.emulatorData.offerSave = true
-        resume()
+        data?.emulatorData.saveFileScreenShot = dumpScreenShot()
+        data?.offerSave = true
+       // data?.someBool = true
+        //resume()
     }
 
     override func loadSnapshot(from: String) {

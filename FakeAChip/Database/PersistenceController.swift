@@ -98,5 +98,22 @@ save()
         return []
     }
 
+    func deleteSnapshot(id: String) {
+        let snapshotDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
+        snapshotDelete.predicate = NSPredicate(format: "id == %@", id)
+        delete(snapshotDelete)
+    }
+
+    private func delete(_ toDelete: NSFetchRequest<NSFetchRequestResult>){
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: toDelete)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch _ as NSError {
+
+        }
+    }
+
 
 }
