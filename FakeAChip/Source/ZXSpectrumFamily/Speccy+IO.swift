@@ -42,6 +42,7 @@ extension Speccy {
                 } else {
                     data?.headerData.tapePlayerData.tape = nil
                     data?.headerData.tapePlayerData.tapePlayerState = .Paused
+                    data?.emulatorData.saveFileName = data?.headerData.tapePlayerData.currentlyLoadedTape ?? ""
                     saveStatePrompter()
                     resume()
                 }

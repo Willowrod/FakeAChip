@@ -51,6 +51,7 @@ struct TapeBlockView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
     var body: some View {
         HStack {
+            tapePlayerData.currentlyLoadedTape.map( {Text("Currently Loaded: \($0)")} ).padding(20)
             Text("Tape Block: \(tapePlayerData.blockName)")
         }
     }

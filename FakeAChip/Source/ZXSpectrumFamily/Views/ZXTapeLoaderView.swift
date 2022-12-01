@@ -50,6 +50,7 @@ struct ZXTapeLoaderView: View {
                                 Text("\(file.fileName()) - ").font(.system(size: 16))
                             Button("Insert Cassette"){
                                 tapePlayerData.isShowingTapeSelector = false
+                                tapePlayerData.currentlyLoadedTape = file.fileName()
                                 download(file.path!, forceLoad: false)
                             }.font(.system(size: 16))
                         }
