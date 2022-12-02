@@ -13,7 +13,7 @@ struct StandardTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(.horizontal, 10)
-            .background(Color.white)
+            .background(Colour.white)
             .frame(height: 55)
     }
 }

@@ -240,6 +240,7 @@ extension Speccy {
     }
     
      func loadEmulationInternal() {
+         
          data?.offerLoad = true
     }
     

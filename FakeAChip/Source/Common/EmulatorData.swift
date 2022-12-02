@@ -12,6 +12,7 @@ protocol EmulatorDataDelegate {
     func saveToDatabase(name: String, dump: String, screen: String)
     func load(snapshot: String)
     func delete(id: String)
+    func resume()
 }
 
 class EmulatorData: ObservableObject {
@@ -41,6 +42,7 @@ class EmulatorData: ObservableObject {
 
     func save() {
         delegate?.saveToDatabase(name: saveFileName, dump: saveFileRamDump, screen: saveFileScreenShot)
+        resume()
     }
 
     func load(_ snap: String?){
@@ -55,11 +57,12 @@ class EmulatorData: ObservableObject {
         }
     }
 
-
-
     func listOfSaves() -> [Snapshot] {
        return PersistenceController.shared.getAllSnapshots()
     }
 
+    func resume() {
+        delegate?.resume()
+    }
 
 }

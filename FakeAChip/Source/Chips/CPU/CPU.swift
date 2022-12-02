@@ -141,11 +141,11 @@ class CPU: CoreDelegate {
 //    }
     
     func pause(){
-        
+        data?.processorSpeed = "Paused"
     }
     
     func resume() {
-        
+        data?.processorSpeed = "Standard"
     }
     
     func addSettings(_ data: FakeAChipData){
@@ -192,7 +192,7 @@ class CPU: CoreDelegate {
     }
     
     func fast() {
-        
+        data?.processorSpeed = "Turbo"
     }
     
     func startLoadingProcess() {

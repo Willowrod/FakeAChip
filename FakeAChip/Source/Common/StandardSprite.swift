@@ -25,7 +25,7 @@ struct StandardSprite: Hashable {
         self.widthOfSprite = 1
         self.heightOfSprite = 1
         self.pixelCount = pixelsPerSprite
-        pixels = Array(repeating: Color.white, count: pixelsPerSprite)
+        pixels = Array(repeating: Colour.white, count: pixelsPerSprite)
         var position = 0
         self.width = pixelsPerSpriteX * widthOfSprite
         self.height = pixelsPerSpriteY * heightOfSprite

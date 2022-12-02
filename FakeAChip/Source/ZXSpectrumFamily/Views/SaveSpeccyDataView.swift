@@ -14,7 +14,7 @@ struct SaveSpeccyDataView: View {
     var body: some View {
         VStack{
             Text("Save this program?").foregroundColor(.black)
-            TextField("Save Name", text: $emulatorData.saveFileName).foregroundColor(.black).textFieldStyle(StandardTextFieldStyle()).frame(width: 200, height: 44).border(.black)
+            TextField("Save Name", text: $emulatorData.saveFileName).foregroundColor(Colour.black).textFieldStyle(StandardTextFieldStyle()).frame(width: 200, height: 44).border(Colour.black)
             SpectrumScreenShot(screen: emulatorData.saveFileScreenShot, scale: 1.5)
 
             Spacer()
@@ -22,6 +22,7 @@ struct SaveSpeccyDataView: View {
                 Text("Save").foregroundColor(.blue).tappable({
                     if emulatorData.saveFileName.isEmpty{
                         showAlert = true
+                        emulatorData.resume()
                     } else {
                         emulatorData.save()
                         show = false
@@ -30,9 +31,10 @@ struct SaveSpeccyDataView: View {
                 Spacer()
                 Text("Cancel").foregroundColor(.blue).tappable{
                     show = false
+                    emulatorData.resume()
                 }
             }
-        }.background(.white).padding(40).alert(isPresented: $showAlert) {
+        }.background(Colour.white).padding(40).alert(isPresented: $showAlert) {
             Alert(title: Text("Save this program?"),
                   message: Text("Please enter a name for this save file"),
                   dismissButton: .default(Text("OK"))
@@ -49,14 +51,14 @@ struct LoadSpeccyDataView: View {
     var body: some View {
         VStack{
             let snaps = emulatorData.listOfSaves()
-            Text("Load a program?").foregroundColor(.black)
+            Text("Load a program?").foregroundColor(Colour.black)
             ScrollView{
                 ForEach(snaps, id: \.id){snap in
                     SnapshotData(snapshot: snap, load: {emulatorData.load(snap.snapshot)
                         show = false
                     }, delete: {
-                            snapshot = snap
-                            showAlert = true
+                        snapshot = snap
+                        showAlert = true
                     })
                 }
             }
@@ -65,20 +67,21 @@ struct LoadSpeccyDataView: View {
                 Text("Cancel").foregroundColor(.blue).tappable{
                     show = false
                 }
-            }.background(.white).padding(40)
-        }.padding(.vertical, 20).alert(isPresented: $showAlert) {
-            Alert(title: Text("Delete this snapshot?"),
-                  message: Text("The snapshot '\(snapshot?.name ?? "Unknown Name")' will be permanantly removed, continue?"),
-                  primaryButton: .default(Text("Delete")){
-                emulatorData.delete(snapshot?.id?.uuidString)
-                showAlert = false
-            }, secondaryButton: .default(Text("Cancel")){
-                snapshot = nil
-                showAlert = false
-            }
+            }.padding(40)
+        }.background(Colour.white.ignoresSafeArea(edges: .all)).padding(.vertical, 20)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Delete this snapshot?"),
+                      message: Text("The snapshot '\(snapshot?.name ?? "Unknown Name")' will be permanantly removed, continue?"),
+                      primaryButton: .default(Text("Delete")){
+                    emulatorData.delete(snapshot?.id?.uuidString)
+                    showAlert = false
+                }, secondaryButton: .default(Text("Cancel")){
+                    snapshot = nil
+                    showAlert = false
+                }
 
-            )
-        }
+                )
+            }
     }
 }
 
@@ -91,14 +94,14 @@ struct SnapshotData: View {
             if let screen = snapshot.screen{
                 SpectrumScreenShot(screen: screen, scale: 0.3).padding(.horizontal, 20)
             }
-            Text(snapshot.name ?? "Unknown snapshot").foregroundColor(.black)
+            Text(snapshot.name ?? "Unknown snapshot").foregroundColor(Colour.black)
             Spacer()
-                            Text("Load").padding(.horizontal, 20).foregroundColor(.blue).tappable({
-                                load()
-                            })
-                            Text("Delete").padding(.horizontal, 20).foregroundColor(.blue).tappable({
-                                delete()
-                            })
+            Text("Load").padding(.horizontal, 20).foregroundColor(.blue).tappable({
+                load()
+            })
+            Text("Delete").padding(.horizontal, 20).foregroundColor(.blue).tappable({
+                delete()
+            })
         }.padding(.horizontal, 20).padding(.vertical, 5)
     }
 }
@@ -108,7 +111,9 @@ struct SaveSpeccyDataView_Previews: PreviewProvider {
     @State static var emulatorData = EmulatorData()
     @State static var show = false
     static var previews: some View {
-        emulatorData.saveFileScreenShot = MockSpeccyScreen.screenShot
+        var screen = MockSpeccyScreen.mockSpeccyScreen
+        screen.append(contentsOf: MockSpeccyScreen.mockSpeccyAttribs)
+        emulatorData.saveFileScreenShot = screen.toZXImageData()!
         return SaveSpeccyDataView(emulatorData: emulatorData, show: $show)
     }
 }

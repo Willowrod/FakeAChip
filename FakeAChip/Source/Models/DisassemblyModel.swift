@@ -60,6 +60,19 @@ class DisassemblyModel: ObservableObject, Codable {
             print("JSON encoding failed - \(error.localizedDescription)")
         }
     }
+
+    func toJson() -> String {
+        do {
+            let json = try JSONEncoder().encode(self)
+            guard let jsonString = String(data: json, encoding: .utf8) else {
+                fatalError("Could not create disassembly JSON")
+            }
+            return jsonString
+        } catch {
+            print(error.localizedDescription)
+        }
+        return ""
+    }
 }
 
 

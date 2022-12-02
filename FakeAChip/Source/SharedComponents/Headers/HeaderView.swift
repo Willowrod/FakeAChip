@@ -42,13 +42,13 @@ Spacer()
             case .off:
                 Spacer().frame(width: 10, height: 10)
             case .mainHeader:
-                MainHeader(headerData: settings.headerData, computer: settings.currentComputerInstance)
+                MainHeader(headerData: settings.headerData, showSettings: $settings.showSettings, computer: settings.currentComputerInstance)
             case .tapePlayer:
-                TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance)
+                TapePlayerView(tapePlayerData: settings.headerData.tapePlayerData, showTapePlayer: $settings.isShowingTapeSelector,  computer: settings.currentComputerInstance)
             case .emulatorHeader:
                 EmulatorHeaderView(emulatorData: settings.emulatorData, computer: settings.currentComputerInstance)
             case .disassemblyHeader:
-                DisassemblyHeaderView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance)
+                DisassemblyHeaderView(disassembly: settings.disassemblyData, computer: settings.currentComputerInstance)
             case .codeHeader:
                 SpectrumTestText(text: "codeHeader")
             case .debugHeader:
@@ -61,11 +61,14 @@ Spacer()
             }
             }
             .frame(maxWidth: Sizing.instance.actualWidth() - 20, minHeight: 120, maxHeight: 120)
-            .sheet(isPresented: $settings.headerData.isShowingSettings) {
-                SettingsSheet( settings:settings.headerData)
+            .sheet(isPresented: $settings.showSettings) {
+                SettingsSheet(settings:settings.headerData){
+                    settings.hideSettings()
+
+                }
             }
-            .sheet(isPresented: $settings.headerData.tapePlayerData.isShowingTapeSelector) {
-                ZXTapeLoaderView(tapePlayerData: settings.headerData.tapePlayerData, computer: settings.currentComputerInstance).environmentObject(settings.headerData.tapePlayerData)
+            .sheet(isPresented: $settings.isShowingTapeSelector) {
+                ZXTapeLoaderView(tapePlayerData: settings.headerData.tapePlayerData, showTapePlayer: $settings.isShowingTapeSelector, computer: settings.currentComputerInstance).environmentObject(settings.headerData.tapePlayerData)
             }
         }
 }

@@ -20,12 +20,6 @@ class TapePlayerData: ObservableObject, TapeControlDelegate {
 var currentlyLoadedTape: String? = nil
 
 var currentTapeSections: [String] = []
-
-    var isShowingTapeSelector = false {
-        didSet {
-            print("Tape selector showing: \(isShowingTapeSelector)")
-        }
-    }
     
 var tape: TapeDelegate? = nil
     

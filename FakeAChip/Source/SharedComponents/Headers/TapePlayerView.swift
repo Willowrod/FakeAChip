@@ -10,11 +10,12 @@ import ZXLoaderSDK
 
 struct TapePlayerView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
+    @Binding var showTapePlayer: Bool
     let computer: CPU
     var body: some View {
         ViewThatFits {
-            TapePlayerWide(tapePlayerData: tapePlayerData, computer: computer)
-            TapePlayerThin(tapePlayerData: tapePlayerData, computer: computer)
+            TapePlayerWide(tapePlayerData: tapePlayerData, showTapePlayer: $showTapePlayer, computer: computer)
+            TapePlayerThin(tapePlayerData: tapePlayerData, showTapePlayer: $showTapePlayer, computer: computer)
         }
     }
 
@@ -23,12 +24,13 @@ struct TapePlayerView: View {
 
 struct TapePlayerWide: View {
     @ObservedObject var tapePlayerData: TapePlayerData
+    @Binding var showTapePlayer: Bool
     let computer: CPU
     var body: some View {
         HStack {
             TapeBlockView(tapePlayerData: tapePlayerData)
             Spacer().frame(minWidth: 20, maxWidth: 40)
-            TapeControlsView(tapePlayerData: tapePlayerData)
+            TapeControlsView(tapePlayerData: tapePlayerData, computer: computer, showTapePlayer: $showTapePlayer)
         }
         .frame(minWidth: 600, idealWidth: 600, maxWidth: Sizing.instance.actualWidth(), minHeight: 30, idealHeight: 30, maxHeight: 50, alignment: .center)
     }
@@ -36,12 +38,13 @@ struct TapePlayerWide: View {
 
 struct TapePlayerThin: View {
     @ObservedObject var tapePlayerData: TapePlayerData
+    @Binding var showTapePlayer: Bool
     let computer: CPU
     var body: some View {
         VStack {
             TapeBlockView(tapePlayerData: tapePlayerData)
             Spacer().frame(minWidth: 20, maxWidth: 40)
-            TapeControlsView(tapePlayerData: tapePlayerData)
+            TapeControlsView(tapePlayerData: tapePlayerData, computer: computer, showTapePlayer: $showTapePlayer)
         }
         .frame(minWidth: 300, idealWidth: 300, maxWidth: Sizing.instance.actualWidth(), minHeight: 30, idealHeight: 30, maxHeight: 50, alignment: .center)
     }
@@ -84,6 +87,8 @@ struct SnapshotView: View {
 
 struct TapeControlsView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
+    let computer: CPU
+    @Binding var showTapePlayer: Bool
     var body: some View {
         HStack {
                 if buttonSelected(state: .Rewound) {
@@ -132,7 +137,6 @@ struct TapeControlsView: View {
                         }
                     } else {
             Button("⏏️"){
-                print("Eject Tape")
                 eject()
             }
  //           .foregroundColor(fetchColourForButtonState(state: .Empty))
@@ -153,13 +157,14 @@ struct TapeControlsView: View {
     }
 
     func eject(){
-        print("Ejecting")
-        tapePlayerData.isShowingTapeSelector = true
+        computer.pause()
+        showTapePlayer = true
     }
 }
 
 struct TapePlayerView_Previews: PreviewProvider {
+    @State static var showTapePlayer: Bool = true
     static var previews: some View {
-        TapePlayerView(tapePlayerData: TapePlayerData(), computer: Speccy())
+        TapePlayerView(tapePlayerData: TapePlayerData(), showTapePlayer: $showTapePlayer, computer: Speccy())
     }
 }

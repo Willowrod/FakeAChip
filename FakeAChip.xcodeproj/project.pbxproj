@@ -208,6 +208,19 @@
 		CDC8C55C260261BF0010EBF7 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C554260261BA0010EBF7 /* Sizing.swift */; };
 		CDC8C561260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
 		CDC8C562260263730010EBF7 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
+		CDCE49F92939B59B005FE338 /* LoadSaveDisassembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49F82939B59B005FE338 /* LoadSaveDisassembly.swift */; };
+		CDCE49FB2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */; };
+		CDCE49FC2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */; };
+		CDCE49FD2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */; };
+		CDCE49FF2939BD59005FE338 /* DisassemblyPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */; };
+		CDCE4A002939BD59005FE338 /* DisassemblyPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */; };
+		CDCE4A012939BD59005FE338 /* DisassemblyPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */; };
+		CDCE4A032939C0D9005FE338 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDCE4A022939C0D9005FE338 /* Colours.xcassets */; };
+		CDCE4A042939C0D9005FE338 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDCE4A022939C0D9005FE338 /* Colours.xcassets */; };
+		CDCE4A052939C0D9005FE338 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDCE4A022939C0D9005FE338 /* Colours.xcassets */; };
+		CDCE4A072939C1AA005FE338 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE4A062939C1AA005FE338 /* Colours.swift */; };
+		CDCE4A082939C1AA005FE338 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE4A062939C1AA005FE338 /* Colours.swift */; };
+		CDCE4A092939C1AA005FE338 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE4A062939C1AA005FE338 /* Colours.swift */; };
 		CDD319272745A84900C1DA4D /* Universal Hero (1986)(Mastertronic).zip in Resources */ = {isa = PBXBuildFile; fileRef = CDD318D22745A84500C1DA4D /* Universal Hero (1986)(Mastertronic).zip */; };
 		CDD319282745A84900C1DA4D /* Paperboy 2 (1992)(Mindscape International).zip in Resources */ = {isa = PBXBuildFile; fileRef = CDD318D32745A84500C1DA4D /* Paperboy 2 (1992)(Mindscape International).zip */; };
 		CDD319292745A84900C1DA4D /* Trap Door, The (1986)(Piranha).zip in Resources */ = {isa = PBXBuildFile; fileRef = CDD318D42745A84500C1DA4D /* Trap Door, The (1986)(Piranha).zip */; };
@@ -507,6 +520,11 @@
 		CDC3E8E12722A03300B8796A /* Z80+OpcodeDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Z80+OpcodeDebug.swift"; sourceTree = "<group>"; };
 		CDC8C554260261BA0010EBF7 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		CDC8C560260263730010EBF7 /* SpectrumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumScreen.swift; sourceTree = "<group>"; };
+		CDCE49F82939B59B005FE338 /* LoadSaveDisassembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSaveDisassembly.swift; sourceTree = "<group>"; };
+		CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotPersistence.swift; sourceTree = "<group>"; };
+		CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyPersistence.swift; sourceTree = "<group>"; };
+		CDCE4A022939C0D9005FE338 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		CDCE4A062939C1AA005FE338 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		CDD318D22745A84500C1DA4D /* Universal Hero (1986)(Mastertronic).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Universal Hero (1986)(Mastertronic).zip"; sourceTree = "<group>"; };
 		CDD318D32745A84500C1DA4D /* Paperboy 2 (1992)(Mindscape International).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Paperboy 2 (1992)(Mindscape International).zip"; sourceTree = "<group>"; };
 		CDD318D42745A84500C1DA4D /* Trap Door, The (1986)(Piranha).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Trap Door, The (1986)(Piranha).zip"; sourceTree = "<group>"; };
@@ -654,6 +672,7 @@
 		CD0CC53125FA6BD400731EDA = {
 			isa = PBXGroup;
 			children = (
+				CDCE4A022939C0D9005FE338 /* Colours.xcassets */,
 				CDD318D12745A83000C1DA4D /* Library */,
 				CD34F5C126FD329B00597392 /* Packages */,
 				CDA1725B260495EE00910C23 /* Roms */,
@@ -801,6 +820,7 @@
 				CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */,
 				CD55A3EF2721F847001A5844 /* Double+Precision.swift */,
 				CD7629BA2797201A00FF232B /* Array+Helpers.swift */,
+				CDCE4A062939C1AA005FE338 /* Colours.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -864,6 +884,7 @@
 				CDD5FCE426EFF3D6009C3822 /* SpectrumSprite.swift */,
 				CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */,
 				CDF28B7C2937A9E500A1D8B4 /* SaveSpeccyDataView.swift */,
+				CDCE49F82939B59B005FE338 /* LoadSaveDisassembly.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1016,6 +1037,8 @@
 			children = (
 				CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */,
 				CD9CFA51281EF030001701DD /* PersistenceController.swift */,
+				CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */,
+				CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -1372,6 +1395,7 @@
 				CD0CC54725FA6BD600731EDA /* Preview Assets.xcassets in Resources */,
 				CDD319662745A84900C1DA4D /* Lightfarce (1986)(Mastertronic Added Dimension)[128K].zip in Resources */,
 				CDD319752745A84900C1DA4D /* Creepy Dungeons (1985)(Automata UK).zip in Resources */,
+				CDCE4A032939C0D9005FE338 /* Colours.xcassets in Resources */,
 				CDD319592745A84900C1DA4D /* Howzat (1984)(Wyvern Software).zip in Resources */,
 				CDD3196D2745A84900C1DA4D /* Cyberun (1985)(Ultimate Play The Game).zip in Resources */,
 				CDD319362745A84900C1DA4D /* Necris Dome (1987)(Codemasters).zip in Resources */,
@@ -1470,6 +1494,7 @@
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
 				CDA172662604962100910C23 /* ZX128k+2.rom in Resources */,
+				CDCE4A042939C0D9005FE338 /* Colours.xcassets in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
 				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
 			);
@@ -1480,6 +1505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9AD734267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
+				CDCE4A052939C0D9005FE338 /* Colours.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1491,8 +1517,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2D7F972716D4560067BA19 /* DiagnosticData.swift in Sources */,
+				CDCE49FB2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */,
 				CDEF998E2612642F00729043 /* TargetType.swift in Sources */,
 				CD16BD0F26D5048B00151830 /* Speccy+Setup.swift in Sources */,
+				CDCE49F92939B59B005FE338 /* LoadSaveDisassembly.swift in Sources */,
 				CDA1746726091D6900910C23 /* ZXKeyboard.swift in Sources */,
 				CD3BD82B267748C600394AB1 /* HeaderData.swift in Sources */,
 				CD0CC59E25FA6C4000731EDA /* UInt16+Bitwise.swift in Sources */,
@@ -1560,6 +1588,7 @@
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */,
 				CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */,
+				CDCE49FF2939BD59005FE338 /* DisassemblyPersistence.swift in Sources */,
 				CD9CFA52281EF030001701DD /* PersistenceController.swift in Sources */,
 				CD0CC5A425FA6C4000731EDA /* MacMainMenu.swift in Sources */,
 				CD0CC5A025FA6C4000731EDA /* UInt8+Z80.swift in Sources */,
@@ -1605,6 +1634,7 @@
 				CDA17279260498C600910C23 /* Z80+OpcodeED.swift in Sources */,
 				CDEF997C261263CE00729043 /* OpCodeDefs.swift in Sources */,
 				CDA1727B260498C600910C23 /* Z80+Opcode.swift in Sources */,
+				CDCE4A072939C1AA005FE338 /* Colours.swift in Sources */,
 				CD0CC54225FA6BD400731EDA /* SpectrumView.swift in Sources */,
 				CD89146F25FFBF0B00C75998 /* Refresh.swift in Sources */,
 				CDD5FD0B26F11EAE009C3822 /* EmulatorData.swift in Sources */,
@@ -1630,6 +1660,7 @@
 				CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD0CC5AB25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CDEF997D261263CE00729043 /* OpCodeDefs.swift in Sources */,
+				CDCE4A002939BD59005FE338 /* DisassemblyPersistence.swift in Sources */,
 				CD0CC5AF25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD0CC59525FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CD67917E2744FEBF00B4C810 /* Double+Precision.swift in Sources */,
@@ -1645,6 +1676,7 @@
 				CDD5FD1F26F12ACA009C3822 /* AppDelegate.swift in Sources */,
 				CDEF9974261263BD00729043 /* Z80Disassembler.swift in Sources */,
 				CD2DA78E260CF2500022F4EF /* DisassemblyList.swift in Sources */,
+				CDCE49FC2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */,
 				CD0EC6902668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD9CF2D626C9830E00D7AC53 /* DisassemblerValueSection.swift in Sources */,
 				CDEF99AA2612676E00729043 /* DataType.swift in Sources */,
@@ -1657,6 +1689,7 @@
 				CD3BD82C267748C600394AB1 /* HeaderData.swift in Sources */,
 				CD3BD82F2677495000394AB1 /* TapePlayerData.swift in Sources */,
 				CDEF99E92614C4C900729043 /* DisassemblerCodeSection.swift in Sources */,
+				CDCE4A082939C1AA005FE338 /* Colours.swift in Sources */,
 				CDA172DF2605016F00910C23 /* VDU.swift in Sources */,
 				CDD5FD1526F12AB2009C3822 /* Speccy+IO.swift in Sources */,
 				CD67917D2744FEAF00B4C810 /* LoggingView.swift in Sources */,
@@ -1746,7 +1779,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCE4A012939BD59005FE338 /* DisassemblyPersistence.swift in Sources */,
 				CD0CC56025FA6BD700731EDA /* FakeAChipUITests.swift in Sources */,
+				CDCE49FD2939BC8F005FE338 /* SnapshotPersistence.swift in Sources */,
+				CDCE4A092939C1AA005FE338 /* Colours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

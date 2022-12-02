@@ -13,7 +13,7 @@ struct SpectrumView: View {
         VStack{
             HeaderView(settings: settings)
             HStack{
-                Text("Offering Save: \(settings.emulatorData.offerSave ? "True" : "False")")
+                Text("Speed: \(settings.processorSpeed)")
             }
             Group {
                 switch settings.headerData.environment {

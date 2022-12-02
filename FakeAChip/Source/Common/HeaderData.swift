@@ -18,8 +18,6 @@ class HeaderData: ObservableObject {
     
     var tapePlayerData = TapePlayerData()
     
-    var isShowingSettings = false
-    
     var shouldResetPixels = false
     
     @AppStorage("preDebugging") var debugPreProcessing = false

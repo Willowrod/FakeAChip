@@ -50,4 +50,13 @@ extension Array<UInt8> {
         let image = UIImage(bitmap: screenImage)
         return image?.pngData()?.base64EncodedString()
     }
+
+    func toScreenShot() -> String {
+            if self.count > 6911 {
+                if let string = Array(self[0...6911]).toZXImageData(){
+                    return string
+                }
+            }
+        return ""
+    }
 }

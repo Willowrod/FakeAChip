@@ -43,7 +43,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     
     @Published var registerPairs: RegisterSetModel = RegisterSetModel(registerPairs: [])
     
-    @Published var vdu: VDU = VDU(screen: ZXBitmap(width: 1, height: 1, color: Color.white)){
+    @Published var vdu: VDU = VDU(screen: ZXBitmap(width: 1, height: 1, color: Colour.white)){
         didSet{
             frames += 1
             let timeNow = Date().timeIntervalSince1970
@@ -57,10 +57,18 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
         }
     }
     
-    @Published var borderColour: Color = Color.white
+    @Published var borderColour: Color = Colour.white
 
     @Published var offerSave: Bool = false
     @Published var offerLoad: Bool = false
+
+
+    @Published var isShowingTapeSelector = false
+    @Published var showSettings = false
+
+    @Published var processorSpeed = "Unknown"
+
+
     // Debug bits
     
     var time = Date().timeIntervalSince1970
@@ -151,6 +159,11 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     func writeOpCodeData(stream: [UInt8], updatefrom: Int) {
         delegate?.writeOpCodeData(stream: stream, updatefrom: updatefrom)
     }
+
+    func hideSettings() {
+        showSettings = false
+        currentComputerInstance.resume()
+    }
 }
 
 extension FakeAChipData: EmulatorDataDelegate {
@@ -164,5 +177,9 @@ extension FakeAChipData: EmulatorDataDelegate {
 
     func load(snapshot: String) {
         currentComputerInstance.loadSnapshot(from: snapshot)
+    }
+
+    func resume(){
+        currentComputerInstance.resume()
     }
 }

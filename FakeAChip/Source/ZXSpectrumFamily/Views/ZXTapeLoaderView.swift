@@ -12,6 +12,7 @@ struct ZXTapeLoaderView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
     @State private var searchItem: String = ""
     @State private var foundItems: [SearchItem] = []
+    @Binding var showTapePlayer: Bool
     var offset = 0
     let computer: CPU
     var body: some View {
@@ -19,7 +20,8 @@ struct ZXTapeLoaderView: View {
             HStack{
                 Spacer()
                 Button("Close"){
-                    tapePlayerData.isShowingTapeSelector = false}
+                    computer.resume()
+                    showTapePlayer = false}
             }
             Text("ZX Spectrum Tape Loader").padding(20)
             tapePlayerData.currentlyLoadedTape.map( {Text("Currently Loaded: \($0)")} ).padding(20)
@@ -49,7 +51,8 @@ struct ZXTapeLoaderView: View {
                         HStack {
                                 Text("\(file.fileName()) - ").font(.system(size: 16))
                             Button("Insert Cassette"){
-                                tapePlayerData.isShowingTapeSelector = false
+                                computer.resume()
+                                showTapePlayer = false
                                 tapePlayerData.currentlyLoadedTape = file.fileName()
                                 download(file.path!, forceLoad: false)
                             }.font(.system(size: 16))
@@ -140,12 +143,14 @@ struct ZXTapeLoaderView: View {
         } else {
             tapePlayerData.tapePlayerState = .Paused
         }
-        tapePlayerData.isShowingTapeSelector = false
+        computer.resume()
+        showTapePlayer = false
     }
 }
 
 struct ZXTapeLoaderView_Previews: PreviewProvider {
+    @State static var showTapePlayer: Bool = true
     static var previews: some View {
-        ZXTapeLoaderView(tapePlayerData: TapePlayerData(), computer: Speccy())
+        ZXTapeLoaderView(tapePlayerData: TapePlayerData(), showTapePlayer: $showTapePlayer, computer: Speccy())
     }
 }

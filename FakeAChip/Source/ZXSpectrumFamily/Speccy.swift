@@ -48,14 +48,17 @@ class Speccy: Z80 {
     }
     
     override func pause() {
+        super.pause()
         pauseInternal()
     }
     
     override func resume() {
+        super.resume()
         resumeInternal()
     }
     
     override func fast() {
+        super.fast()
         fastInternal()
     }
     
@@ -238,6 +241,7 @@ joystickInteractionInternal(key: key, pressed: pressed)
     }
 
     override func loadEmulation() {
+        pause()
         loadEmulationInternal()
     }
     
@@ -250,11 +254,10 @@ joystickInteractionInternal(key: key, pressed: pressed)
     }
 
     override func saveStatePrompter(){
+        pause()
         data?.emulatorData.saveFileRamDump = dumpSnapshot()
         data?.emulatorData.saveFileScreenShot = dumpScreenShot()
         data?.offerSave = true
-       // data?.someBool = true
-        //resume()
     }
 
     override func loadSnapshot(from: String) {

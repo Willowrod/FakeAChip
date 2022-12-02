@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SettingsSheet: View {
-    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var settings: HeaderData
+    let dismiss: () -> Void
     var body: some View {
         VStack{
             Button("Press to dismiss") {
-                presentationMode.wrappedValue.dismiss()
+                dismiss()
             }
             
             Spacer()
@@ -24,7 +24,7 @@ struct SettingsSheet: View {
                             ForEach(make.associatedModels(), id: \.self){model in
                                 Button(model.rawValue){
                                     settings.changeEnvironment(model: model)
-                                    presentationMode.wrappedValue.dismiss()
+                                    dismiss()
                                 }
                             
                             
@@ -72,6 +72,6 @@ struct SettingsSheet: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSheet(settings: HeaderData())
+        SettingsSheet(settings: HeaderData()){}
     }
 }

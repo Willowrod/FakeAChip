@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Disassembly" representedClassName="Disassembly" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="originalScreenShot" attributeType="String"/>
+        <attribute name="originalSnapshot" attributeType="String"/>
+    </entity>
+    <entity name="DisassemblyVersion" representedClassName="DisassemblyVersion" syncable="YES" codeGenerationType="class">
+        <attribute name="disassembly" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="json" attributeType="String"/>
+        <attribute name="major" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minor" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="revision" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="synced" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="updatedDate" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <entity name="Snapshot" representedClassName="Snapshot" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>

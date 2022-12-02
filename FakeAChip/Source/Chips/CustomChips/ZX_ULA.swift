@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class ZX_ULA {
-    var pixels: [Color] = Array(repeating: Color.white, count: 49152)
-    var attributes: [ZXAttribute] = Array(repeating: ZXAttribute(ink: Color.black, paper: Color.white), count: 768)
+    var pixels: [Color] = Array(repeating: Colour.white, count: 49152)
+    var attributes: [ZXAttribute] = Array(repeating: ZXAttribute(ink: Colour.black, paper: Colour.white), count: 768)
 }
 
 struct ZXAttribute {

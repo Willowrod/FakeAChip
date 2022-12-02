@@ -9,25 +9,12 @@ import Foundation
 import CoreData
 
 struct PersistenceController {
-    // A singleton for our entire app to use
     static let shared = PersistenceController()
 
-    // Storage for Core Data
     let container: NSPersistentContainer
     let context: NSManagedObjectContext
 
-    // A test configuration for SwiftUI previews
-    static var preview: PersistenceController = {
-        let controller = PersistenceController(inMemory: true)
-
-        return controller
-    }()
-
-    // An initializer to load Core Data, optionally able
-    // to use an in-memory store.
     init(inMemory: Bool = false) {
-        // If you didn't name your model Main you'll need
-        // to change this name below.
         container = NSPersistentContainer(name: "FakeAChip")
         context = container.viewContext
         print(container.persistentStoreDescriptions)
@@ -43,7 +30,6 @@ struct PersistenceController {
     }
 
     func save() {
-
         if context.hasChanges {
             do {
                 try context.save()
@@ -53,58 +39,7 @@ struct PersistenceController {
         }
     }
 
-    func saveSnapshot(name: String, snapshot: String, screenShot: String) {
-        let entity = NSEntityDescription.entity(forEntityName: "Snapshot", in: context)
-        let newSnapshot = NSManagedObject(entity: entity!, insertInto: context)
-        newSnapshot.setValue(UUID(), forKey: "id")
-        newSnapshot.setValue(name, forKey: "name")
-        newSnapshot.setValue(snapshot, forKey: "snapshot")
-        newSnapshot.setValue(screenShot, forKey: "screen")
-        newSnapshot.setValue(Date(), forKey: "date")
-save()
-    }
-
-    func getLatestSnapshot() -> String {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request).first as! NSManagedObject
-
-                return result.value(forKey: "snapshot") as! String
-
-
-               } catch {
-
-                   print("Failed")
-        }
-
-        return "XXXXX"
-    }
-
-    func getAllSnapshots() -> [Snapshot] {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request) as! [Snapshot]
-
-                return result
-
-
-               } catch {
-
-                   print("Failed")
-        }
-
-        return []
-    }
-
-    func deleteSnapshot(id: String) {
-        let snapshotDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "Snapshot")
-        snapshotDelete.predicate = NSPredicate(format: "id == %@", id)
-        delete(snapshotDelete)
-    }
-
-    private func delete(_ toDelete: NSFetchRequest<NSFetchRequestResult>){
+    func delete(_ toDelete: NSFetchRequest<NSFetchRequestResult>){
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: toDelete)
 
         do {
@@ -114,6 +49,4 @@ save()
 
         }
     }
-
-
 }
