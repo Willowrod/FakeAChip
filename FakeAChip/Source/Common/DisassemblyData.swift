@@ -8,8 +8,8 @@
 import Foundation
 
 protocol DisassemblyDataDelgate {
-    func saveDisassembly()
-    func loadDisassembly()
+    //func saveDisassembly()
+    func loadSnapshot(snap: String)
 }
 
 class DisassemblyData: ObservableObject {
@@ -18,7 +18,7 @@ class DisassemblyData: ObservableObject {
 
     var delegate: DisassemblyDataDelgate? = nil
     
-    var currentSnapShot = ""
+    var currentSnapshot = ""
     var currentMemory: [UInt8] = []
 
     var currentDisassembly: Disassembly? = nil
@@ -27,6 +27,8 @@ class DisassemblyData: ObservableObject {
     @Published var currentMajor: Int = 0
     @Published var currentMinor: Int = 0
     @Published var currentRevision: Int = 0
+
+    @Published var latestVersion: String = ""
     
     @Published var disassembly: DisassemblyModel = DisassemblyModel()
 
@@ -41,12 +43,38 @@ class DisassemblyData: ObservableObject {
         return currentMemory.toScreenShot()
     }
 
-    func save() {
-        delegate?.saveDisassembly()
+//    func save() {
+//        delegate?.saveDisassembly()
+//    }
+//
+//    func load() {
+//        delegate?.loadDisassembly()
+//    }
+
+    func loadLatest(_ target: Disassembly) {
+        currentDisassembly = target
+        currentDisassemblyVersion = persistence.getLatestVersion(target.id!.uuidString)
+        loadCurrentDisassembly()
     }
 
-    func load() {
-        delegate?.loadDisassembly()
+    func fetchLatest(major: Int? = nil, minor: Int? = nil) -> DisassemblyVersion? {
+        if let currentDisassembly {
+           return persistence.getLatestVersion(currentDisassembly.id!.uuidString)
+        }
+        return nil
+    }
+
+    func loadCurrentDisassembly() {
+        if let currentDisassemblyVersion, let data = currentDisassemblyVersion.json?.data(using: .utf8) {
+            do{
+                let json = try JSONDecoder().decode(DisassemblyModel.self, from: data)
+                currentSnapshot = json.snapshot
+                delegate?.loadSnapshot(snap: currentSnapshot)
+                disassembly = json
+            } catch {
+                print("Error decoding disassembly - \(error.localizedDescription)")
+            }
+        }
     }
 
     func create() {
@@ -61,5 +89,12 @@ class DisassemblyData: ObservableObject {
         currentDisassemblyVersion = persistence.createDisassemblyVersion(disassembly: id, major: currentMajor, minor: currentMinor, revision: currentRevision, json: disassembly.toJson())
 
     }
-    
+
+    func getAllDisassemblies() -> [Disassembly]{
+       return persistence.getAllDisassemblies()
+    }
+
+    func getAllversions(_ forID: String) -> [DisassemblyVersion]{
+       return persistence.getAllVersions(forID)
+    }
 }

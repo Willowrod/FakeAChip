@@ -25,10 +25,34 @@ extension Int {
             return nil
         }
     }
+
+
+
+    func padded(size: Int = 6) -> String {
+        var string = String(self)
+        let len = string.count
+        for _ in len..<size{
+            string = "0\(string)"
+        }
+        return string
+    }
+
+
 }
 
 extension UInt8 {
     func isSet(bit: Int) -> Bool {
         return (self & (1 << bit)) > 0
+    }
+}
+
+extension Int32 {
+    func padded(size: Int = 6) -> String {
+        var string = String(self)
+        let len = string.count
+        for _ in len..<size{
+            string = "0\(string)"
+        }
+        return string
     }
 }

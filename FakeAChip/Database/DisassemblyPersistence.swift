@@ -48,9 +48,15 @@ extension PersistenceController {
         return []
     }
 
-    func getAllVersions(_ forID: String) -> [DisassemblyVersion] {
+    func getAllVersions(_ forID: String, major: Int? = nil, minor: Int? = nil) -> [DisassemblyVersion] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DisassemblyVersion")
-        request.predicate = NSPredicate(format: "id == %@", forID)
+        request.predicate = NSPredicate(format: "disassembly == %@", forID)
+        if let major {
+            request.predicate = NSPredicate(format: "major == %@", major)
+        }
+        if let minor {
+            request.predicate = NSPredicate(format: "minor == %@", minor)
+        }
         request.returnsObjectsAsFaults = false
         do {
             let result = try context.fetch(request) as! [DisassemblyVersion]
@@ -59,6 +65,11 @@ extension PersistenceController {
             print("Failed")
         }
         return []
+    }
+
+    func getLatestVersion(_ forID: String, major: Int? = nil, minor: Int? = nil) -> DisassemblyVersion {
+        let allVersions = getAllVersions(forID, major: major, minor: minor).sorted(by: {$0.longVersion() > $1.longVersion()})
+        return allVersions.last!
     }
 
     func deleteDisassemblyVersion(id: String) {
@@ -74,5 +85,11 @@ extension PersistenceController {
         let disassemblyDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "Disassembly")
         disassemblyDelete.predicate = NSPredicate(format: "id == %@", id)
         delete(disassemblyDelete)
+    }
+}
+
+extension DisassemblyVersion {
+    func longVersion() -> String {
+        return "\(major.padded())\(minor.padded())\(revision.padded())"
     }
 }

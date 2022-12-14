@@ -22,26 +22,26 @@ struct DisassemblyHeaderView: View {
                 loadDisassembly()
             }
 
-            Button("Create"){
-                print("Create a new Disassembly")
-                createDisassembly()
-            }
+//            Button("Create"){
+//                print("Create a new Disassembly")
+//                createDisassembly()
+//            }
             
             
         }.sheet(isPresented: $disassembly.offerSaveDisassembly) {
             SaveDisassemblyView(disassembly: disassembly)
         }.sheet(isPresented: $disassembly.offerLoadDisassembly) {
-          //  LoadSpeccyDataView(emulatorData: settings.emulatorData, show: $disassembly.offerLoadDisassembly)
+            LoadDisassembly(controller: disassembly)
         }
     }
     
     func saveDisassembly() {
-        //disassembly.disassembly.export()
-        disassembly.offerSaveDisassembly = true
+        // disassembly.disassembly.export()
+         disassembly.offerSaveDisassembly = true
     }
     
     func loadDisassembly() {
-        //computer.importDisassembly()
+        // computer.importDisassembly()
         disassembly.offerLoadDisassembly = true
     }
 

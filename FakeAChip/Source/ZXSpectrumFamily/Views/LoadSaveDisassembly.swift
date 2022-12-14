@@ -13,7 +13,7 @@ struct SaveDisassemblyView: View {
     var body: some View {
         VStack{
             if let currentDisassembly = disassembly.currentDisassembly{
-CreateDisassemblyVersion(disassembly: disassembly, currentDisassembly: currentDisassembly)
+                CreateDisassemblyVersion(disassembly: disassembly, currentDisassembly: currentDisassembly)
             } else {
                 CreateDisassembly(disassembly: disassembly)
             }
@@ -70,7 +70,7 @@ struct CreateDisassemblyVersion: View {
                     if disassembly.disassemblyName.isEmpty{
                         showAlert = true
                     } else {
-                        disassembly.save()
+                       // disassembly.save()
                     }
                 })
                 Spacer()
@@ -79,6 +79,73 @@ struct CreateDisassemblyVersion: View {
                 }
             }
         }
+    }
+}
+
+struct LoadDisassembly: View {
+    @ObservedObject var controller: DisassemblyData
+    @State var disassembly: Disassembly? = nil
+    @State var showAlert: Bool = false
+    var body: some View {
+        VStack{
+            let disassemblies = controller.getAllDisassemblies()
+            Text("Load a disassembly?").foregroundColor(Colour.black)
+            ScrollView{
+                ForEach(disassemblies, id: \.id){disassemblyModel in
+                    DisassemblyInstanceView(controller: controller, disassembly: disassemblyModel, load: {
+                        controller.loadLatest(disassemblyModel)
+                    },
+                                            version: {},
+                                            delete: {showAlert = true})
+                }
+            }
+            HStack{
+                Spacer()
+                Text("Cancel").foregroundColor(.blue).tappable{
+                    controller.offerLoadDisassembly = false
+                }
+            }.padding(40)
+        }.background(Colour.white.ignoresSafeArea(edges: .all)).padding(.vertical, 20)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Delete this snapshot?"),
+                      message: Text("The disassembly '\(disassembly?.name ?? "Unknown Name")' and all of it's versions will be permanantly removed. Continue?"),
+                      primaryButton: .default(Text("Delete")){
+                    //controller.delete(disassembly?.id?.uuidString)
+                    showAlert = false
+                }, secondaryButton: .default(Text("Cancel")){
+                    showAlert = false
+                }
+
+                )
+            }
+    }
+}
+
+struct DisassemblyInstanceView: View {
+    @ObservedObject var controller: DisassemblyData
+    let disassembly: Disassembly
+    let load: () -> Void
+    let version: () -> Void
+    let delete: () -> Void
+    var body: some View {
+        HStack{
+            if let screen = disassembly.originalScreenShot{
+                SpectrumScreenShot(screen: screen, scale: 0.3).padding(.horizontal, 20)
+            }
+            Text(disassembly.name ?? "Unknown disassembly").foregroundColor(Colour.black)
+            Spacer()
+            VStack{
+                Text("Load Latest").padding(.horizontal, 20).foregroundColor(.blue).tappable({
+                    load()
+                })
+                Text("Choose Version").padding(.horizontal, 20).foregroundColor(.blue).tappable({
+                    version()
+                })
+                Text("Delete Disassembly").padding(.horizontal, 20).foregroundColor(.blue).tappable({
+                    delete()
+                })
+            }
+        }.padding(.horizontal, 20).padding(.vertical, 5)
     }
 }
 

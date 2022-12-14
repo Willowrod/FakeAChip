@@ -82,6 +82,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
         headerData.delegate = self
         diagnosticData.setDelegate(self)
         emulatorData.setDelegate(self)
+        disassemblyData.delegate = self
         changeEnvironment(model: currentComputerModel)
     }
 
@@ -121,6 +122,7 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
         _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
         disassemblyData.disassembly.snapshot = currentComputerInstance.dumpSnapshot()
+        disassemblyData.currentMemory = disassemblyData.disassembly.snapshot.splitToBytesROM(separator: " ")
     }
     
     func disassemblyComplete(disassembly: DisassemblyModel) {
@@ -181,5 +183,11 @@ extension FakeAChipData: EmulatorDataDelegate {
 
     func resume(){
         currentComputerInstance.resume()
+    }
+}
+
+extension FakeAChipData: DisassemblyDataDelgate {
+    func loadSnapshot(snap: String) {
+        currentComputerInstance.loadSnapshot(from: snap)
     }
 }
