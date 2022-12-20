@@ -10,8 +10,6 @@ import SwiftUI
 
 class DisassemblyModel: ObservableObject, Codable {
    @Published var sections: [DisassemblySectionModel] = []
-   @Published var showing: DataType? = nil
-    @Published var undefinedDataShownAs: DataType = .UNDEFINED
     
     var snapshot: String = "x"
     
@@ -33,13 +31,6 @@ class DisassemblyModel: ObservableObject, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sections, forKey: .sections)
         try container.encode(snapshot, forKey: .snapshot)
-    }
-    
-    func showingValue() -> String {
-        if let showing = showing {
-            return "Showing \(showing.rawValue.capitalized)"
-        }
-        return "Showing All"
     }
     
     func export() {
@@ -127,11 +118,13 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         try container.encode(bytes, forKey: .bytes)
     }
     
-    func textOutput() -> String {
+    func textOutput(offset: Int = -64) -> String {
         var string = ""
         bytes.forEach{byte in
-            if byte >= 0x20, byte <= 0x7C{
-            string = "\(string)\(String(UnicodeScalar(UInt8(byte))))"
+            if byte >= 0x20 + offset, byte <= 0x7F + offset{
+           //     print("Parsing \(byte) + \(offset)")
+                let myASCIICharacter = Int(byte) - offset
+                string = "\(string)\(myASCIICharacter.toZXCharacter())"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
             } else {
                 string = "\(string)~"
             }

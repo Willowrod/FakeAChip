@@ -28,7 +28,6 @@ struct SpectrumScreen_Previews: PreviewProvider {
         screenImage.blit(bytes: MockSpeccyScreen.mockSpeccyScreen.prefix(upTo: MockSpeccyScreen.mockSpeccyScreen.count))
         let screen = VDU(screen: screenImage, border: Colour.black)
         Sizing.instance.size = UIScreen.main.bounds.size
-        let mockData = FakeAChipMock.init(cpu: EmptyZXSpectrum()).mock(host: .iOS)
         mockData.vdu = screen
         return SpectrumScreen(screenWidth: Sizing.instance.actualWidth()).environmentObject(mockData)
     }

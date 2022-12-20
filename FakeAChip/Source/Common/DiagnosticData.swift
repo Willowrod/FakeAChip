@@ -60,9 +60,16 @@ class DiagnosticData: ObservableObject {
     @AppStorage("currentDebugOpCode") var currentListItem = 0
     @Published var currentDebugOpCode: UInt16 = 0x00
 
-    var delegate: DiagnosticDataDelegate?
+    let delegate: DiagnosticDataDelegate
+    let fakeAChip: FakeAChipDataDelegate
     
     var maximumNumberOfLogs = 30
+
+    init(fakeAChip: FakeAChipDataDelegate, delegate: DiagnosticDataDelegate) {
+        self.delegate = delegate
+        self.fakeAChip = fakeAChip
+        resetOpCode()
+    }
     
     func addLog(itemToLog: String){
         logs.append(itemToLog)
@@ -72,10 +79,7 @@ class DiagnosticData: ObservableObject {
         print(itemToLog)
     }
 
-    func setDelegate(_ del: DiagnosticDataDelegate) {
-        delegate = del
-        resetRegisters()
-    }
+
 
     func nextOpCode(){
         currentListItem += 1
@@ -109,9 +113,9 @@ class DiagnosticData: ObservableObject {
         currentDebugOpCode = listOfOpCodes[currentListItem]
         resetRegisters()
         if currentDebugOpCode.highByte() > 0 {
-            delegate?.writeOpCodeData(stream: [currentDebugOpCode.highByte(), currentDebugOpCode.lowByte()], updatefrom: 0)
+            delegate.writeOpCodeData(stream: [currentDebugOpCode.highByte(), currentDebugOpCode.lowByte()], updatefrom: 0)
         } else {
-            delegate?.writeOpCodeData(stream: [currentDebugOpCode.lowByte()], updatefrom: 0)
+            delegate.writeOpCodeData(stream: [currentDebugOpCode.lowByte()], updatefrom: 0)
         }
         ops([01,02])
 //        switch currentDebugOpCode {
@@ -127,23 +131,23 @@ class DiagnosticData: ObservableObject {
     }
 
     func ur(_ reg: AvailableRegister, _ v: UInt8) {
-        delegate?.updateRegister(register: reg, value: v)
+        delegate.updateRegister(register: reg, value: v)
     }
 
     func ops(_ stream: [UInt8], from: Int = 1) {
-        delegate?.writeOpCodeData(stream: stream, updatefrom: from)
+        delegate.writeOpCodeData(stream: stream, updatefrom: from)
     }
 
     func resetRegisters(){
-        delegate?.updateRegister(register: .A, value: 0x40)
-        delegate?.updateRegister(register: .B, value: 0x81)
-        delegate?.updateRegister(register: .C, value: 0)
-        delegate?.updateRegister(register: .D, value: 0x40)
-        delegate?.updateRegister(register: .E, value: 0)
-        delegate?.updateRegister(register: .F, value: 0)
-        delegate?.updateRegister(register: .H, value: 0x40)
-        delegate?.updateRegister(register: .L, value: 0)
-        delegate?.updateRegister(register: .PC, value: 0)
+        delegate.updateRegister(register: .A, value: 0x40)
+        delegate.updateRegister(register: .B, value: 0x81)
+        delegate.updateRegister(register: .C, value: 0)
+        delegate.updateRegister(register: .D, value: 0x40)
+        delegate.updateRegister(register: .E, value: 0)
+        delegate.updateRegister(register: .F, value: 0)
+        delegate.updateRegister(register: .H, value: 0x40)
+        delegate.updateRegister(register: .L, value: 0)
+        delegate.updateRegister(register: .PC, value: 0)
 
     }
 

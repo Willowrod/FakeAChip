@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DisassemblyDelegate {
-    func disassemblyComplete(disassembly: DisassemblyModel) //[OpCode])
+    func disassemblyComplete(disassembly: DisassemblyModel)
     func logToScreen(log: String)
 }
 
@@ -113,12 +113,12 @@ class Z80Disassembler {
     }
     
     func increasePC(){
-        if currentPC <= 5 {
-            print("No 1....")
-        }
-        if currentPC < lastPC {
-            print("currentPC(\(currentPC)) < lastPC(\(lastPC))")
-        }
+//        if currentPC <= 5 {
+//            print("No 1....")
+//        }
+//        if currentPC < lastPC {
+//            print("currentPC(\(currentPC)) < lastPC(\(lastPC))")
+//        }
         if !alreadyAdded.contains(currentPC){
             alreadyAdded.append(currentPC)
         }
@@ -417,7 +417,7 @@ class Z80Disassembler {
         }
     }
     
-    func routineLengthChunk(_ start: Int, chunkEnd: Int) -> Int{
+    func routineLengthChunk(_ start: Int, chunkEnd: Int, textOffset: Int = 16) -> Int{ // Standard offset = 0x20
         if start < 0x5B00 {
             return 0x5B00
         }
@@ -426,17 +426,19 @@ class Z80Disassembler {
         var chunkStart = start
         var textBytes:[UInt8] = []
         var nonTextBytes:[UInt8] = []
+
         unknownCode.forEach{ byte in
-            if byte >= 0x20 && byte <= 0x7C{
+   //         let offsetByte = byte + textOffset
+            if byte >= textOffset && byte <= 0x5F + textOffset{
                 textBytes.append(byte)
                 if textBytes.count >= minimumTextLength && nonTextBytes.count > 0 {
-                    addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED)
+                    addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED, offset: textOffset)
                     chunkStart += nonTextBytes.count
                     nonTextBytes.removeAll()
                 }
             } else {
                 if textBytes.count > minimumTextLength {
-                    addChunkOfData(textBytes, startChunk: chunkStart, type: .POTENTIALTEXT)
+                    addChunkOfData(textBytes, startChunk: chunkStart, type: .POTENTIALTEXT, offset: textOffset)
                     chunkStart += textBytes.count
                     textBytes.removeAll()
                 } else if textBytes.count > 0 {
@@ -470,7 +472,7 @@ class Z80Disassembler {
         return chunkEnd
     }
     
-    func addChunkOfData(_ data: [UInt8], startChunk: Int, type: DataType){
+    func addChunkOfData(_ data: [UInt8], startChunk: Int, type: DataType, offset: Int = 0x00){
         let chunkEnd = startChunk + data.count
         var opCodeSet: [OpCode] = []
         var count = startChunk
@@ -484,7 +486,7 @@ class Z80Disassembler {
         }
         var title = "\(UInt16(startChunk).hex()) - \(UInt16(startChunk + data.count - 1).hex()) - "
         if type == .POTENTIALTEXT || type == .TEXT {
-            title += textOutput(opCodeSet: opCodeSet)
+            title += textOutput(opCodeSet: opCodeSet, offset: offset)
         } else {
             title += type.rawValue.capitalized
         }
@@ -492,13 +494,15 @@ class Z80Disassembler {
 //        print("Found routine \(title)")
     }
     
-    func textOutput(opCodeSet: [OpCode]) -> String {
+    func textOutput(opCodeSet: [OpCode], offset: Int = 0x00) -> String {
         var string = ""
         opCodeSet.forEach{opcode in
             if opcode.opCodeArray.count > 0{
             let byte = opcode.opCodeArray[0]
-            if byte >= 0x20, byte <= 0x7C{
-            string = "\(string)\(String(UnicodeScalar(UInt8(byte))))"
+            if byte >= 0x20 + offset, byte <= 0x7F + offset{
+           //     print("Parsing \(byte) + \(offset)")
+                let myASCIICharacter = Int(byte) - offset
+                string = "\(string)\(myASCIICharacter.toZXCharacter())"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
             } else {
                 string = "\(string)~"
             }
@@ -524,7 +528,7 @@ class Z80Disassembler {
                 return false
             } else
             if !alreadyAdded.contains(nextEP){
-                delegate?.logToScreen(log: "Moving to Jump Point \(nextEP)")
+             //   delegate?.logToScreen(log: "Moving to Jump Point \(nextEP)")
             currentPC = entryPoints[currentEntryPoint]
             return true
             }

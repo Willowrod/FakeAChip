@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         #if targetEnvironment(macCatalyst)
         
         let stateObject = FakeAChipData(.Mac)
-        let contentView = MacMainMenu()
+        let contentView = SpectrumView()
             .environmentObject(stateObject)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         #else
         let stateObject = FakeAChipData(.iOS)
-        let contentView = IOSMainMenu()
+        let contentView = SpectrumView()
             .environmentObject(stateObject)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

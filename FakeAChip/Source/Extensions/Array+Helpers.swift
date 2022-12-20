@@ -59,4 +59,17 @@ extension Array<UInt8> {
             }
         return ""
     }
+
+    func toZXCharacterString(offset: Int) -> String {
+        var string = ""
+        self.forEach{byte in
+            let myASCIICharacter = Int(byte) - offset
+       //     if byte >= 0x20 + offset, byte <= 0x7F + offset{
+                string = "\(string)\(myASCIICharacter.toZXCharacter())"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
+//            } else {
+//                string = "\(string)~"
+//            }
+        }
+        return string
+    }
 }

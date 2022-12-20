@@ -76,7 +76,6 @@ Spacer()
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         Sizing.instance.size = UIScreen.main.bounds.size
-        let mockData = FakeAChipMock.init(cpu: EmptyZXSpectrum()).mock(host: .iOS)
         return HeaderView(settings: mockData)
     }
 }

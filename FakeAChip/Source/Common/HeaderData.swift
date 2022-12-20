@@ -14,7 +14,8 @@ protocol HeaderDelegate {
 
 class HeaderData: ObservableObject {
     
-    var delegate: HeaderDelegate? = nil
+    let delegate: HeaderDelegate
+    let fakeAChip: FakeAChipDataDelegate
     
     var tapePlayerData = TapePlayerData()
     
@@ -49,9 +50,14 @@ class HeaderData: ObservableObject {
     @Published var debugModel: DebugModel = DebugModel()
     
     @Published var emulatedSystem: ComputerModel = .Sinclair_Spectrum_48K
+
+    init(fakeAChip: FakeAChipDataDelegate, delegate: HeaderDelegate) {
+        self.fakeAChip = fakeAChip
+        self.delegate = delegate
+    }
     
     func changeEnvironment(model: ComputerModel){
-        delegate?.changeEnvironment(model: model)
+        delegate.changeEnvironment(model: model)
     }
     
 }

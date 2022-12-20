@@ -22,6 +22,10 @@ struct DisassemblyHeaderView: View {
                 loadDisassembly()
             }
 
+            Button("⚙️"){
+                disassembly.showDisassemblySettings = true
+            }
+
 //            Button("Create"){
 //                print("Create a new Disassembly")
 //                createDisassembly()
@@ -32,6 +36,8 @@ struct DisassemblyHeaderView: View {
             SaveDisassemblyView(disassembly: disassembly)
         }.sheet(isPresented: $disassembly.offerLoadDisassembly) {
             LoadDisassembly(controller: disassembly)
+        }.sheet(isPresented: $disassembly.showDisassemblySettings) {
+            DisassemblySheet(controller: disassembly)
         }
     }
     
@@ -51,8 +57,8 @@ struct DisassemblyHeaderView: View {
     
 }
 
-//struct DisassemblyHeaderView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DisassemblyHeaderView()
-//    }
-//}
+struct DisassemblyHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        DisassemblyHeaderView(disassembly: mockDisassemblyData, computer: mockData.currentComputerInstance)
+    }
+}

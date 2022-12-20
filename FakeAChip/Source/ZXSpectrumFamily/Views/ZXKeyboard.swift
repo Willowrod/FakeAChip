@@ -167,7 +167,6 @@ struct KeyboardHousing: View {
 
 struct ZXKeyboard_Previews: PreviewProvider {
     static var previews: some View {
-        let mockData = FakeAChipMock.init(cpu: EmptyZXSpectrum()).mock(host: .iOS)
         let screenWidth = UIScreen.main.bounds.width
         let keyWidth = screenWidth / 11
         let keyHeight = screenWidth / 16

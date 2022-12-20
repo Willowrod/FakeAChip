@@ -17,7 +17,13 @@ protocol CoreDelegate {
     func writeOpCodeData(stream: [UInt8], updatefrom: Int)
 }
 
-class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, DiagnosticDataDelegate {
+protocol FakeAChipDataDelegate {
+    func logToScreen(log: String)
+    func currentComputer() -> CPU
+    func db() -> PersistenceController
+}
+
+class FakeAChipData: ObservableObject, HeaderDelegate, DiagnosticDataDelegate {
 
 
 
@@ -25,15 +31,15 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     
     var delegate: CoreDelegate?
     
-    var currentComputerInstance: CPU = EmptyCPU() // = Speccy.instance
+    var currentComputerInstance: CPU = EmptyCPU()
     
-    var headerData = HeaderData()
+    lazy var headerData = HeaderData(fakeAChip: self, delegate: self)
     
-    var disassemblyData = DisassemblyData()
+    lazy var disassemblyData: DisassemblyData = DisassemblyData(fakeAChip: self, delegate: self)
     
-    @Published var emulatorData = EmulatorData()
+    var emulatorData = EmulatorData()
     
-    var diagnosticData = DiagnosticData()
+    lazy var diagnosticData = DiagnosticData(fakeAChip: self, delegate: self)
 
     lazy var persistentController = PersistenceController.shared
 
@@ -50,7 +56,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
             if timeNow > time + 1.0 {
                 seconds += 1
                 time = timeNow
-//                debugModel = DebugModel(fps: frames / seconds)
                 headerData.debugModel = DebugModel(fps: frames)
                 frames = 0
             }
@@ -79,16 +84,12 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     
     init(_ host: HostSystem) {
         self.host = host
-        headerData.delegate = self
-        diagnosticData.setDelegate(self)
         emulatorData.setDelegate(self)
-        disassemblyData.delegate = self
         changeEnvironment(model: currentComputerModel)
     }
 
     init(_ host: HostSystem, cpu: CPU) {
         self.host = host
-        headerData.delegate = self
         currentComputerInstance = cpu
     }
     
@@ -119,15 +120,15 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
         currentComputerInstance.startProcessing()
     }
     
-    func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
-        _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
-        disassemblyData.disassembly.snapshot = currentComputerInstance.dumpSnapshot()
-        disassemblyData.currentMemory = disassemblyData.disassembly.snapshot.splitToBytesROM(separator: " ")
-    }
-    
-    func disassemblyComplete(disassembly: DisassemblyModel) {
-        disassemblyData.disassembly = disassembly
-    }
+//    func disassemble(_ data: [UInt8], knownJumpPoints: [UInt16] = [], fromPC: Int){
+//        _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
+//        disassemblyData.disassembly.snapshot = currentComputerInstance.dumpSnapshot()
+//        disassemblyData.currentMemory = disassemblyData.disassembly.snapshot.splitToBytesROM(separator: " ")
+//    }
+//    
+//    func disassemblyComplete(disassembly: DisassemblyModel) {
+//        disassemblyData.disassembly = disassembly
+//    }
     
     func keyboardInteraction(key: Int, pressed: Bool){
         delegate?.keyboardInteraction(key: key, pressed: pressed)
@@ -148,11 +149,6 @@ class FakeAChipData: ObservableObject, DisassemblyDelegate, HeaderDelegate, Diag
     func loadSnapshot() {
         
     }
-    
-    func logToScreen(log: String) {
-        diagnosticData.addLog(itemToLog: log)
-    }
-
 
     func updateRegister(register: AvailableRegister, value: UInt8){
         delegate?.updateRegister(register: register, value: value)
@@ -190,4 +186,19 @@ extension FakeAChipData: DisassemblyDataDelgate {
     func loadSnapshot(snap: String) {
         currentComputerInstance.loadSnapshot(from: snap)
     }
+}
+
+extension FakeAChipData: FakeAChipDataDelegate {
+    func currentComputer() -> CPU {
+        return currentComputerInstance
+    }
+
+    func logToScreen(log: String) {
+        diagnosticData.addLog(itemToLog: log)
+    }
+
+    func db() -> PersistenceController {
+        return persistentController
+    }
+
 }

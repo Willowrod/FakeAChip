@@ -36,6 +36,14 @@ extension PersistenceController {
         return newDisassemblyVersion as! DisassemblyVersion
     }
 
+    func updateDisassemblyVersion(version: String, json: String) {
+        var disassemblyVersion = getVersion(version)
+        disassemblyVersion?.setValue(json, forKey: "json")
+        disassemblyVersion?.setValue(Date(), forKey: "updatedDate")
+        disassemblyVersion?.setValue(false, forKey: "synced")
+        save()
+    }
+
     func getAllDisassemblies() -> [Disassembly] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Disassembly")
         request.returnsObjectsAsFaults = false
@@ -68,8 +76,24 @@ extension PersistenceController {
     }
 
     func getLatestVersion(_ forID: String, major: Int? = nil, minor: Int? = nil) -> DisassemblyVersion {
-        let allVersions = getAllVersions(forID, major: major, minor: minor).sorted(by: {$0.longVersion() > $1.longVersion()})
+        let allVersions = getAllVersions(forID, major: major, minor: minor).sorted(by: {$0.longVersion() < $1.longVersion()})
+        allVersions.forEach{version in
+            print(version.longVersion())
+        }
         return allVersions.last!
+    }
+
+    func getVersion(_ forID: String) -> DisassemblyVersion? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DisassemblyVersion")
+        request.predicate = NSPredicate(format: "id == %@", forID)
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request) as! [DisassemblyVersion]
+            return result.first
+        } catch {
+            print("Failed")
+        }
+        return nil
     }
 
     func deleteDisassemblyVersion(id: String) {

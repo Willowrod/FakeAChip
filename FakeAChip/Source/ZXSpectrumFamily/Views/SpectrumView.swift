@@ -20,7 +20,7 @@ struct SpectrumView: View {
                 case SystemEnvironment.Emulation:
                     SpectrumEmulationView(computer: settings.currentComputerInstance as! Speccy, host: settings.host)
                 case SystemEnvironment.Disassembly:
-                    SpectrumDisassemblyView(disassembly: settings.disassemblyData.disassembly, computer: settings.currentComputerInstance as! Speccy)
+                    SpectrumDisassemblyView(data: settings.disassemblyData, computer: settings.currentComputerInstance as! Speccy)
                 case SystemEnvironment.Code:
                     SpectrumCodeView(computer: settings.currentComputerInstance as! Speccy)
                 }
@@ -74,19 +74,15 @@ struct SpectrumEmulationView: View {
 }
 
 struct SpectrumDisassemblyView: View {
-    @ObservedObject var disassembly: DisassemblyModel
-    @State private var showingSheet = false
+    @ObservedObject var data: DisassemblyData
     let computer: Speccy
     var body: some View {
         VStack{
             HStack{
-                SpectrumScreen(screenWidth: Sizing.instance.size.width / 3)
+                SpectrumScreen(screenWidth: Sizing.instance.size.width / 6)
                 RegisterSetView()
             }
-            DisassemblyList(disassembly: disassembly, computer: computer)
-        }
-        .sheet(isPresented: $showingSheet) {
-            DisassemblySheet()
+            DisassemblyList(data: data, computer: computer)
         }
     }
 }
@@ -104,7 +100,6 @@ struct SpectrumCodeView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Sizing.instance.size = UIScreen.main.bounds.size
-        let mockData = FakeAChipMock.init(cpu: EmptyZXSpectrum()).mock(host: .iOS)
         return SpectrumView().environmentObject(mockData)
     }
 }

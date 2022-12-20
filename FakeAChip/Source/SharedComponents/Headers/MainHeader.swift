@@ -118,9 +118,9 @@ struct HeaderSettingsControllerView: View {
     }
 }
 
-struct MainHeader_Previews: PreviewProvider {
-    @State static var showSettings: Bool = true
-    static var previews: some View {
-        MainHeader(headerData: HeaderData(), showSettings: $showSettings, computer: Speccy())
-    }
-}
+//struct MainHeader_Previews: PreviewProvider {
+//    @State static var showSettings: Bool = true
+//    static var previews: some View {
+//        MainHeader(headerData: HeaderData(), showSettings: $showSettings, computer: Speccy())
+//    }
+//}

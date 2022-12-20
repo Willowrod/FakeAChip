@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
      //   FirebaseApp.configure()
+        runASCIITest()
         return true
+    }
+
+    func runASCIITest() {
+        let chars: [UInt8] = [12,1,40,18,23,29,14,27,12,24,22]
+
+        //    let chars: [UInt8] = [0x5b,0x53,0x49,0x5a,0x45,0x20,0x31]
+        for a in -128 ... 128 {
+            print ("\(a): \(chars.toZXCharacterString(offset: a))")
+        }
     }
 
     // MARK: UISceneSession Lifecycle

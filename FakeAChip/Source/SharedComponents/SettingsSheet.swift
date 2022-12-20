@@ -70,8 +70,9 @@ struct SettingsSheet: View {
     }
 }
 
-struct SettingsSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsSheet(settings: HeaderData()){}
-    }
-}
+//struct SettingsSheet_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        SettingsSheet(settings: HeaderData()){}
+//    }
+//}

@@ -170,4 +170,9 @@ extension String {
             return nil
         }
     }
+
+
+    func characterAt(_ i: Int) -> String {
+      return String(Array(self)[i])
+    }
 }

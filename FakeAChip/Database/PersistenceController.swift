@@ -45,8 +45,8 @@ struct PersistenceController {
         do {
             try context.execute(deleteRequest)
             try context.save()
-        } catch _ as NSError {
-
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

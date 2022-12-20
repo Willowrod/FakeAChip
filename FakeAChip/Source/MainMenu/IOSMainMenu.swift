@@ -9,15 +9,7 @@ import SwiftUI
 
 struct IOSMainMenu: View {
     var body: some View {
-//        NavigationView {
-//            VStack {
-//        NavigationLink(destination: SpectrumView()) {
-//                      Text("iOS Button")
-//                  }
-//            }
-//        }
         SpectrumView()
- //       .environmentObject(settings)
     }
 }
 

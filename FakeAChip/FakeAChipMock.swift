@@ -7,6 +7,9 @@
 
 import Foundation
 
+let mockData = FakeAChipMock(cpu: EmptyZXSpectrum()).mockEnvironment(host: .iOS)
+var mockDisassemblyData = mockData.disassemblyData
+
 class FakeAChipMock {
     let cpu: CPU
 
@@ -14,7 +17,7 @@ class FakeAChipMock {
         self.cpu = cpu
     }
 
-    public func mock(host: HostSystem) -> FakeAChipData {
+    public func mockEnvironment(host: HostSystem) -> FakeAChipData {
         let data = FakeAChipData.init(host, cpu: cpu)
     return data
     }

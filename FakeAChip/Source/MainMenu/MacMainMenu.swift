@@ -11,9 +11,6 @@ struct MacMainMenu: View {
     var body: some View {
         SpectrumView()
     }
-    func pressButton(){
-        print("Boot to the Mac!")
-    }
 }
 
 struct MacMainMenu_Previews: PreviewProvider {

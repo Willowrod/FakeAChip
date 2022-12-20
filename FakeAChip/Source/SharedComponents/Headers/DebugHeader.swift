@@ -31,8 +31,8 @@ struct DebugHeader: View {
     }
 }
 
-struct DebugHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        DebugHeader(diag: DiagnosticData())
-    }
-}
+//struct DebugHeader_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DebugHeader(diag: DiagnosticData())
+//    }
+//}
