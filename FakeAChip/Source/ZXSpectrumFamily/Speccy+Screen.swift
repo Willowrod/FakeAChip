@@ -24,7 +24,21 @@ extension Speccy {
             flashCount = 0
             flashOn = !flashOn
         }
-        self.blitScreen()
+
+        if data?.headerData.tapePlayerData.tapePlayerState == .Playing {
+            tapeSkipCounter += 1
+            if tapeSkipCounter >= 250 {
+                self.blitScreen()
+                tapeSkipCounter = 0
+            }
+        } else {
+            //self.blitScreen()
+            tapeSkipCounter += 1
+            if tapeSkipCounter >= 2 {
+                self.blitScreen()
+                tapeSkipCounter = 0
+            }
+        }
         let pairs = [AF.registerPair, BC.registerPair("BC"), DE.registerPair("DE"), HL.registerPair("HL"), RegisterPairStruct(high: PC.highByte().hex(), low: PC.lowByte().hex(), name: "PC")]//, IX.registerPair, IY.registerPair, framePair.registerPair, edgePair.registerPair]
         DispatchQueue.main.sync {
             data?.vdu = VDU(screen: screenImage, border: borderColour)//map: screenImage.pixels)

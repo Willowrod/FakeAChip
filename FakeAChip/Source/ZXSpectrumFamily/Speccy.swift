@@ -34,6 +34,7 @@ class Speccy: Z80 {
     let alphaInfo = CGImageAlphaInfo.premultipliedLast
     let bytesPerPixel = MemoryLayout<ZXColor>.stride
     var currentSnapshot = ""
+    var tapeSkipCounter = 0
     
     override init() {
         super.init()

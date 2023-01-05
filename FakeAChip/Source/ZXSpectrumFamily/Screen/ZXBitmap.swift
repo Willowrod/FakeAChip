@@ -75,7 +75,6 @@ struct ZXBitmap {
 
     mutating func blat(bytes: ArraySlice<UInt8>){
         var indicator = 16384
-        print("Blatting....")
 
         bytes.forEach { byte in
             let position = positions[indicator] ?? 0
@@ -91,7 +90,6 @@ struct ZXBitmap {
             pixelsOld[position + 6] = (byte & 0x02) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
             pixelsOld[position + 7] = (byte & 0x01) > 0 ? myInk.toZXColour() : myPaper.toZXColour()
             indicator += 1
-            print("Indicator: \(indicator)")
         }
     }
 
