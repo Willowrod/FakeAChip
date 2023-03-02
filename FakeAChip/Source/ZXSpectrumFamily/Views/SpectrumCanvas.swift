@@ -12,8 +12,6 @@ struct SpectrumCanvas: View {
     let emulatorData: EmulatorData
     let headerData: HeaderData
     var body: some View {
-        if #available(iOS 15.0, macOS 12.0, *) {
-
             Canvas { context, size in
                 if (headerData.shouldResetPixels) {
                     emulatorData.emulatorPixels.removeAll()
@@ -50,9 +48,6 @@ struct SpectrumCanvas: View {
                     }
                 }
             }
-        } else {
-            Text("Canvas disabled")
-        }
     }
 }
 

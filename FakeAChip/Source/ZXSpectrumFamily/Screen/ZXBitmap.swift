@@ -12,8 +12,8 @@ struct ZXBitmap {
     let width: Int
     var pixelsOld: [ZXColour]
     var pixels: [Color]
-    var paper: [Color]
-    var ink: [Color]
+    var paper: [Color] = Array(repeating: Color.white, count: 768)
+    var ink: [Color] = Array(repeating: Color.red, count: 768)
     var lastData: [Int]
     var positions: Dictionary<Int, Int> = Dictionary()
     var attributes: Dictionary<Int, Int> = Dictionary()
@@ -55,7 +55,6 @@ struct ZXBitmap {
     
     mutating func blit(bytes: ArraySlice<UInt8>){
         var indicator = 16384
-
         bytes.forEach { byte in
             let position = positions[indicator] ?? 0
             let colPos = attributes[indicator] ?? 0
