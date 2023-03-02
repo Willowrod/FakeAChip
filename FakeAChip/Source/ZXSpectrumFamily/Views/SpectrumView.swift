@@ -34,44 +34,6 @@ struct SpectrumView: View {
     }
 }
 
-struct SpectrumEmulationView: View {
-    let computer: Speccy
-    let host: HostSystem
-    
-    @State private var orientation = UIDeviceOrientation.unknown
-    var body: some View {
-        Group {
-            switch host {
-            case .iOS:
-                Spacer()
-                Group {
-                    if orientation.isLandscape || orientation.isFlat {
-                        ZStack{
-                            VStack {
-                                SpectrumScreen(screenWidth: Sizing.instance.widthforLandscape())
-                                Spacer()
-                            }
-                            VStack {
-                                Spacer()
-                                ZXKeyboard(keyWidth: Sizing.instance.height() / 11, keyHeight: Sizing.instance.width() / 16)
-                            }
-                        }
-                    } else {
-                        VStack{
-                            SpectrumScreen(screenWidth: Sizing.instance.width())
-                            ZXKeyboard(keyWidth: Sizing.instance.width() / 11, keyHeight: Sizing.instance.width() / 16)
-                        }
-                    }
-                }
-                .onRotate { newOrientation in
-                    orientation = newOrientation
-                }
-            case .Mac:
-                SpectrumScreen(screenWidth: Sizing.instance.width())
-            }
-        }
-    }
-}
 
 struct SpectrumDisassemblyView: View {
     @ObservedObject var data: DisassemblyData
@@ -97,9 +59,9 @@ struct SpectrumCodeView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Sizing.instance.size = UIScreen.main.bounds.size
-        return SpectrumView().environmentObject(mockData)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Sizing.instance.size = UIScreen.main.bounds.size
+//        return SpectrumView().environmentObject(mockData)
+//    }
+//}

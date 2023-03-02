@@ -1,17 +1,18 @@
 //
 //  ZXKeyboard.swift
-//  FakeAChip
+//  FakeAWatch Watch App
 //
-//  Created by Mike Hall on 22/03/2021.
+//  Created by Mike Hall on 02/03/2023.
 //
 
+import Foundation
 import SwiftUI
 
 struct ZXKeyboard: View {
     @EnvironmentObject var settings: FakeAChipData
     var symbolLocked: Bool = false
     @State var symButtonText = "SLock\nOFF"
-    
+
     let keyWidth: CGFloat
     let keyHeight: CGFloat
     let bank0: [String] = ["SP", "SS", "M", "N", "B"]
@@ -22,31 +23,39 @@ struct ZXKeyboard: View {
     let bank5: [String] = ["Q", "W", "E", "R", "T"]
     let bank6: [String] = ["A", "S", "D", "F", "G"]
     let bank7: [String] = ["CS", "Z", "X", "C", "V"]
-    
-    
+
+
     var controller = Controller()
 
     var body: some View {
-        VStack{
+        return VStack{
             if settings.emulatorData.keyboardShowing {
                 HStack{
                     ForEach(bank4.indices, id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank4[key]){}
+                            Button{} label: {
+                                Text(bank4[key]).font(.system(size: 8))
+                                    .padding(0)
+                            }
                                 .pressAction(onPress: {pressKey(bank: 4, bit: key, pressed: true)}, onRelease: {pressKey(bank: 4, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
                     ForEach(bank3.indices.reversed(), id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank3[key]){}
+
+                            Button{} label: {
+                                Text(bank3[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 3, bit: key, pressed: true)}, onRelease: {pressKey(bank: 3, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
@@ -56,20 +65,26 @@ struct ZXKeyboard: View {
                     ForEach(bank5.indices, id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank5[key]){}
+                            Button{} label: {
+                                Text(bank5[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 5, bit: key, pressed: true)}, onRelease: {pressKey(bank: 5, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
                     ForEach(bank2.indices.reversed(), id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank2[key]){}
+                            Button{} label: {
+                                Text(bank2[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 2, bit: key, pressed: true)}, onRelease: {pressKey(bank: 2, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
@@ -79,20 +94,26 @@ struct ZXKeyboard: View {
                     ForEach(bank6.indices, id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank6[key]){}
+                            Button{} label: {
+                                Text(bank6[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 6, bit: key, pressed: true)}, onRelease: {pressKey(bank: 6, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
                     ForEach(bank1.indices.reversed(), id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank1[key]){}
+                            Button{} label: {
+                                Text(bank1[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 1, bit: key, pressed: true)}, onRelease: {pressKey(bank: 1, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
@@ -102,20 +123,26 @@ struct ZXKeyboard: View {
                     ForEach(bank7.indices, id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank7[key]){}
+                            Button{} label: {
+                                Text(bank7[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 7, bit: key, pressed: true)}, onRelease: {pressKey(bank: 7, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
                     ForEach(bank0.indices.reversed(), id: \.self){ key in
                         HStack{
                             Spacer()
-                            Button(bank0[key]){}
+                            Button{} label: {
+                                Text(bank0[key]).font(.system(size: 8))
+                            }
                                 .pressAction(onPress: {pressKey(bank: 0, bit: key, pressed: true)}, onRelease: {pressKey(bank: 0, bit: key, pressed: false)})
                                 .frame(width: keyWidth, height: keyHeight, alignment: .center)
                                 .border(Color.blue, width: 1)
+                                .foregroundColor(Color.black)
                             Spacer()
                         }
                     }
@@ -136,13 +163,13 @@ struct ZXKeyboard: View {
             }
         }
     }
-    
+
     func pressKey(bank: Int, bit: Int, pressed: Bool) {
         settings.keyboardInteraction(bank: bank, bit: bit, pressed: pressed)
     }
-    
+
     func pressSymbolLock() {
-        
+
     }
 
     func pressStick(bit: Int, pressed: Bool) {
@@ -165,12 +192,3 @@ struct KeyboardHousing: View {
     }
 }
 
-//struct ZXKeyboard_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let screenWidth = UIScreen.main.bounds.width
-//        let keyWidth = screenWidth / 11
-//        let keyHeight = screenWidth / 16
-//        ZXKeyboard(keyWidth: keyWidth, keyHeight: keyHeight)
-//            .environmentObject(mockData)
-//    }
-//}

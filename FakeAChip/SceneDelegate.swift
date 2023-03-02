@@ -38,8 +38,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
 
-
-
         #else
         let stateObject = FakeAChipData(.iOS)
         let contentView = SpectrumView()

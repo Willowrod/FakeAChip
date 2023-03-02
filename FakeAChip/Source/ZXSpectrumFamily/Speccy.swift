@@ -9,8 +9,11 @@ import Foundation
 import UIKit
 import SwiftUI
 import ZXDB_SDK
-import GameController
 import ZXLoaderSDK
+
+//#if canImport(GameController)
+//import GameController
+//#endif
 
 class Speccy: Z80 {
     

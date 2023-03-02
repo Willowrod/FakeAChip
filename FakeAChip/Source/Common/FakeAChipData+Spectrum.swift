@@ -6,7 +6,11 @@
 //
 
 import Foundation
+
+
+#if canImport(GameController)
 import GameController
+#endif
 
 extension FakeAChipData {
     func handleVirtualController(dPad: GCControllerDirectionPad, xAxis: Float, yAxis: Float) {

@@ -1,8 +1,8 @@
 //
-//  SpeccyCanvas.swift
-//  SpeccyCanvas
+//  SpectrumCanvas.swift
+//  FakeAWatch Watch App
 //
-//  Created by Mike Hall on 12/09/2021.
+//  Created by Mike Hall on 02/03/2023.
 //
 
 import SwiftUI
@@ -19,6 +19,7 @@ struct SpectrumCanvas: View {
                 }
                 if emulatorData.emulatorPixels.isEmpty {
                     let pixelSize: CGFloat = size.width / 256.0
+                    print("Pixel size = \(pixelSize)")
                     var count = 0
                     var x: CGFloat = 0
                     var y: CGFloat = 0
@@ -43,7 +44,8 @@ struct SpectrumCanvas: View {
 
                 else {
                     for a in 0...(emulatorData.emulatorPixels.count - 1){
-                  
+                        // Fill path
+                    //    print("Pixel size known")
                         context.fill(emulatorData.emulatorPixels[a], with: .color(grid[a]))
                     }
                 }
@@ -80,3 +82,4 @@ struct SpeccyCanvas_Previews: PreviewProvider {
         }
     }
 }
+

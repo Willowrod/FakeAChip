@@ -92,8 +92,146 @@
 		CD3BD82F2677495000394AB1 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
 		CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DD26A0772D0087CFEC /* Orientation.swift */; };
 		CD4297E026A079930087CFEC /* EnvironmentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */; };
+		CD4E90AD29B0993300E77793 /* SpectrumCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E90AC29B0993300E77793 /* SpectrumCanvas.swift */; };
 		CD55A3F02721F848001A5844 /* Double+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD55A3EF2721F847001A5844 /* Double+Precision.swift */; };
 		CD562EE2267CB7500034FAE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */; };
+		CD5C973129B0806700569789 /* FakeAWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CD5C973029B0806700569789 /* FakeAWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CD5C973629B0806700569789 /* FakeAWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C973529B0806700569789 /* FakeAWatchApp.swift */; };
+		CD5C973829B0806700569789 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C973729B0806700569789 /* ContentView.swift */; };
+		CD5C973A29B0806700569789 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5C973929B0806700569789 /* Assets.xcassets */; };
+		CD5C973D29B0806700569789 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5C973C29B0806700569789 /* Preview Assets.xcassets */; };
+		CD5C974529B0862A00569789 /* ZX128k+2.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725F2604962100910C23 /* ZX128k+2.rom */; };
+		CD5C974629B0862A00569789 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
+		CD5C974729B0862A00569789 /* ZX128k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725E2604962100910C23 /* ZX128k.rom */; };
+		CD5C974829B0862A00569789 /* ZX48k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA172602604962100910C23 /* ZX48k.rom */; };
+		CD5C974929B0862C00569789 /* ZX128k+2.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725F2604962100910C23 /* ZX128k+2.rom */; };
+		CD5C974A29B0862C00569789 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
+		CD5C974B29B0862C00569789 /* ZX128k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725E2604962100910C23 /* ZX128k.rom */; };
+		CD5C974C29B0862C00569789 /* ZX48k.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA172602604962100910C23 /* ZX48k.rom */; };
+		CD5C974D29B0863700569789 /* MockSpeccyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7BD287568B500F0C8AE /* MockSpeccyScreen.swift */; };
+		CD5C974E29B0864200569789 /* DisassemblyPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */; };
+		CD5C974F29B0864200569789 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA51281EF030001701DD /* PersistenceController.swift */; };
+		CD5C975029B0864200569789 /* SnapshotPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */; };
+		CD5C975229B0864200569789 /* DisassemblyVersion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D9629521A2400865527 /* DisassemblyVersion+Extensions.swift */; };
+		CD5C975329B0864500569789 /* FakeAChipMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A99562833E9B400F10163 /* FakeAChipMock.swift */; };
+		CD5C975429B0864A00569789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD9AD72B267C7F330095FDF6 /* GoogleService-Info.plist */; };
+		CD5C975529B0864F00569789 /* EmptyCPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B2A261C944500729043 /* EmptyCPU.swift */; };
+		CD5C975629B0867B00569789 /* PressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1746D2609253600910C23 /* PressActions.swift */; };
+		CD5C975829B0868300569789 /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF28B7F2937AC3800A1D8B4 /* TextFieldStyles.swift */; };
+		CD5C975929B0868300569789 /* ZX_ULA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD99FA492771B62800C5167B /* ZX_ULA.swift */; };
+		CD5C975A29B0868300569789 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D922951B4A000865527 /* TextStyles.swift */; };
+		CD5C975B29B0868300569789 /* FakeAChipStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D902951B24500865527 /* FakeAChipStepper.swift */; };
+		CD5C975C29B0868300569789 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8914872600EA6800C75998 /* CPU.swift */; };
+		CD5C976429B0869100569789 /* RawZ80Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */; };
+		CD5C976529B0869100569789 /* Z80+Opcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17273260498C600910C23 /* Z80+Opcode.swift */; };
+		CD5C976629B0869100569789 /* Z80+OpCodeDDFD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17276260498C600910C23 /* Z80+OpCodeDDFD.swift */; };
+		CD5C976729B0869100569789 /* Z80+OpcodeDDFDCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17271260498C600910C23 /* Z80+OpcodeDDFDCB.swift */; };
+		CD5C976829B0869100569789 /* Z80.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17274260498C600910C23 /* Z80.swift */; };
+		CD5C976929B0869100569789 /* Z80+OpcodeED.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17272260498C600910C23 /* Z80+OpcodeED.swift */; };
+		CD5C976A29B0869100569789 /* Z80+OpcodeCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA17275260498C600910C23 /* Z80+OpcodeCB.swift */; };
+		CD5C976B29B0869500569789 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26460326DD6AA00072B09F /* Helpers.swift */; };
+		CD5C976C29B0869A00569789 /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172ED2608859F00910C23 /* DebugModel.swift */; };
+		CD5C976D29B086A400569789 /* FakeAChipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5DF25FF556200731EDA /* FakeAChipData.swift */; };
+		CD5C976E29B086A400569789 /* VDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172DD2605016F00910C23 /* VDU.swift */; };
+		CD5C976F29B086A400569789 /* TapePlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82D2677495000394AB1 /* TapePlayerData.swift */; };
+		CD5C977129B086A400569789 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9952282BE94100F10163 /* DebugData.swift */; };
+		CD5C977229B086A400569789 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3BD82A267748C600394AB1 /* HeaderData.swift */; };
+		CD5C977329B086A400569789 /* EmulatorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */; };
+		CD5C977429B086A400569789 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791802745073200B4C810 /* TestView.swift */; };
+		CD5C977629B086A400569789 /* StandardSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9BBA261EED5B00729043 /* StandardSprite.swift */; };
+		CD5C977729B086A400569789 /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
+		CD5C977929B086A400569789 /* DiagnosticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D7F962716D4560067BA19 /* DiagnosticData.swift */; };
+		CD5C977A29B086A400569789 /* EnvironmentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */; };
+		CD5C977B29B086AA00569789 /* Accumilator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146A25FFBF0B00C75998 /* Accumilator.swift */; };
+		CD5C977C29B086AA00569789 /* RegisterPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146C25FFBF0B00C75998 /* RegisterPair.swift */; };
+		CD5C977D29B086AA00569789 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146B25FFBF0B00C75998 /* Register.swift */; };
+		CD5C977E29B086AA00569789 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146925FFBF0B00C75998 /* Refresh.swift */; };
+		CD5C977F29B086AA00569789 /* FlagRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89146825FFBF0B00C75998 /* FlagRegister.swift */; };
+		CD5C978029B086AA00569789 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
+		CD5C978129B086AA00569789 /* AFRegisterPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0FDAA26FDBA03002F3964 /* AFRegisterPair.swift */; };
+		CD5C978229B086BC00569789 /* RegisterSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89147D25FFC22500C75998 /* RegisterSetView.swift */; };
+		CD5C978329B086BC00569789 /* DebugViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B7287474CD00F0C8AE /* DebugViews.swift */; };
+		CD5C978429B086BC00569789 /* LoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D7F942716D3C20067BA19 /* LoggingView.swift */; };
+		CD5C978629B086BC00569789 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89145E25FFBEA800C75998 /* RegisterView.swift */; };
+		CD5C978729B086C000569789 /* EmulatorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */; };
+		CD5C978829B086C000569789 /* DebugHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9950282BE8FD00F10163 /* DebugHeader.swift */; };
+		CD5C978929B086C000569789 /* DisassemblyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */; };
+		CD5C978B29B086C000569789 /* MainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5E625FF585F00731EDA /* MainHeader.swift */; };
+		CD5C978C29B086C000569789 /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7315D9267F861800A15BD4 /* TapePlayerView.swift */; };
+		CD5C978D29B086C400569789 /* DisassemblyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA787260CF21C0022F4EF /* DisassemblyRow.swift */; };
+		CD5C978E29B086C400569789 /* DisassemblyUndefinedAsCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0540072625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift */; };
+		CD5C978F29B086C400569789 /* DisassemblySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99F3261A602700729043 /* DisassemblySheet.swift */; };
+		CD5C979129B086C400569789 /* DisassemblerTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99ED2614C53900729043 /* DisassemblerTextSection.swift */; };
+		CD5C979229B086C400569789 /* DisassemblerDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D026C9755900D7AC53 /* DisassemblerDataSection.swift */; };
+		CD5C979329B086C400569789 /* DisassemblerValueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CF2D426C9830E00D7AC53 /* DisassemblerValueSection.swift */; };
+		CD5C979529B086C400569789 /* DisassemblySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF98752610AF0F00729043 /* DisassemblySection.swift */; };
+		CD5C979629B086C400569789 /* DisassemblerCodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99E72614C4C900729043 /* DisassemblerCodeSection.swift */; };
+		CD5C979729B086C400569789 /* DisassemblerGraphicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9BC0261EF3D300729043 /* DisassemblerGraphicSection.swift */; };
+		CD5C979829B086CB00569789 /* AvailableRegisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DB0C7279EBAF400071481 /* AvailableRegisters.swift */; };
+		CD5C979929B086CB00569789 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA1728926049ADA00910C23 /* Flag.swift */; };
+		CD5C979A29B086CB00569789 /* DisassemblyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D8B29510A6100865527 /* DisassemblyConstants.swift */; };
+		CD5C979B29B086CB00569789 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99A82612676E00729043 /* DataType.swift */; };
+		CD5C979C29B086CB00569789 /* ComputerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF99A22612674800729043 /* ComputerModel.swift */; };
+		CD5C979D29B086CB00569789 /* MediaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC68E2668342100B21E1F /* MediaConstants.swift */; };
+		CD5C979E29B086CB00569789 /* SystemConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5D925FF54F500731EDA /* SystemConstants.swift */; };
+		CD5C979F29B086CF00569789 /* RegisterSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD891490260202FD00C75998 /* RegisterSetModel.swift */; };
+		CD5C97A029B086CF00569789 /* DisassemblyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */; };
+		CD5C97A129B086D800569789 /* Color+ZXColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34EEDD26FB159D00597392 /* Color+ZXColour.swift */; };
+		CD5C97A229B086D800569789 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
+		CD5C97A329B086D800569789 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE4A062939C1AA005FE338 /* Colours.swift */; };
+		CD5C97A429B086D800569789 /* Int+Bitwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57C25FA6C3F00731EDA /* Int+Bitwise.swift */; };
+		CD5C97A529B086D800569789 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57925FA6C3F00731EDA /* StringExtensions.swift */; };
+		CD5C97A629B086D800569789 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF28B812937B7B400A1D8B4 /* View+Extensions.swift */; };
+		CD5C97A729B086D800569789 /* UIImage+Bitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57A25FA6C3F00731EDA /* UIImage+Bitmap.swift */; };
+		CD5C97A829B086D800569789 /* Double+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD55A3EF2721F847001A5844 /* Double+Precision.swift */; };
+		CD5C97A929B086D800569789 /* DispatchQueue+backgrounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC5C925FBA34200731EDA /* DispatchQueue+backgrounding.swift */; };
+		CD5C97AA29B086D800569789 /* UInt8+Bitwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57B25FA6C3F00731EDA /* UInt8+Bitwise.swift */; };
+		CD5C97AB29B086D800569789 /* UInt8+Z80.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57F25FA6C3F00731EDA /* UInt8+Z80.swift */; };
+		CD5C97AC29B086D800569789 /* Data+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57D25FA6C3F00731EDA /* Data+String.swift */; };
+		CD5C97AD29B086D800569789 /* UInt16+Bitwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC57E25FA6C3F00731EDA /* UInt16+Bitwise.swift */; };
+		CD5C97AE29B086D800569789 /* Int+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D8D2951100700865527 /* Int+Characters.swift */; };
+		CD5C97AF29B086DE00569789 /* MacMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58225FA6C4000731EDA /* MacMainMenu.swift */; };
+		CD5C97B029B086DE00569789 /* IOSMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58125FA6C3F00731EDA /* IOSMainMenu.swift */; };
+		CD5C97B129B086E500569789 /* Speccy+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0126D4FFC900151830 /* Speccy+Loading.swift */; };
+		CD5C97B229B086E500569789 /* Speccy+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0326D4FFC900151830 /* Speccy+IO.swift */; };
+		CD5C97B329B086E500569789 /* Speccy+RAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0026D4FFC900151830 /* Speccy+RAM.swift */; };
+		CD5C97B529B086E500569789 /* Speccy+Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0226D4FFC900151830 /* Speccy+Processing.swift */; };
+		CD5C97B629B086E500569789 /* Speccy+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0426D4FFC900151830 /* Speccy+Screen.swift */; };
+		CD5C97B729B086E900569789 /* SpectrumSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5FCE426EFF3D6009C3822 /* SpectrumSprite.swift */; };
+		CD5C97B829B086E900569789 /* EmptyZXSpectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */; };
+		CD5C97B929B086E900569789 /* SpectrumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8C560260263730010EBF7 /* SpectrumScreen.swift */; };
+		CD5C97BB29B086E900569789 /* ZXTapeLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC6942668358500B21E1F /* ZXTapeLoaderView.swift */; };
+		CD5C97BE29B086E900569789 /* SaveSpeccyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF28B7C2937A9E500A1D8B4 /* SaveSpeccyDataView.swift */; };
+		CD5C97BF29B086E900569789 /* LoadSaveDisassembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE49F82939B59B005FE338 /* LoadSaveDisassembly.swift */; };
+		CD5C97C029B086EE00569789 /* Speccy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58625FA6C4000731EDA /* Speccy.swift */; };
+		CD5C97C129B086EE00569789 /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
+		CD5C97C229B086F500569789 /* ZXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58925FA6C4000731EDA /* ZXColor.swift */; };
+		CD5C97C329B086F500569789 /* UInt8+ZXAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58825FA6C4000731EDA /* UInt8+ZXAttributes.swift */; };
+		CD5C97C429B086F500569789 /* SpeccyUnused.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0C26D5035000151830 /* SpeccyUnused.swift */; };
+		CD5C97C529B086F500569789 /* Speccy+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */; };
+		CD5C97C829B086F500569789 /* Speccy+ROM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0A26D5000900151830 /* Speccy+ROM.swift */; };
+		CD5C97C929B086F500569789 /* ZXBitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC58A25FA6C4000731EDA /* ZXBitmap.swift */; };
+		CD5C97CA29B086F500569789 /* Speccy128.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9B33261CB94A00729043 /* Speccy128.swift */; };
+		CD5C97CC29B0873900569789 /* TZX-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD5C97CB29B0873900569789 /* TZX-SDK */; };
+		CD5C97CE29B0873900569789 /* ZXDB-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD5C97CD29B0873900569789 /* ZXDB-SDK */; };
+		CD5C97D029B0873900569789 /* ZXLoaderSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD5C97CF29B0873900569789 /* ZXLoaderSDK */; };
+		CD5C97D229B0873900569789 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = CD5C97D129B0873900569789 /* Zip */; };
+		CD5C97DA29B089B600569789 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF998D2612642F00729043 /* TargetType.swift */; };
+		CD5C97DB29B089B600569789 /* OpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9984261263FA00729043 /* OpCode.swift */; };
+		CD5C97DC29B089B600569789 /* CodeListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9997261265B000729043 /* CodeListing.swift */; };
+		CD5C97DD29B089B600569789 /* Z80Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9972261263BC00729043 /* Z80Disassembler.swift */; };
+		CD5C97DE29B089B600569789 /* OpCodeDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF997B261263CE00729043 /* OpCodeDefs.swift */; };
+		CD5C97DF29B089B600569789 /* CodeRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9996261265B000729043 /* CodeRoutine.swift */; };
+		CD5C97E029B089B600569789 /* Z80BlockDisassembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */; };
+		CD5C97E129B08A9600569789 /* FakeAChip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */; };
+		CD5C97E329B08B0D00569789 /* ZXBeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97E229B08B0D00569789 /* ZXBeeper.swift */; };
+		CD5C97E629B08C8F00569789 /* NonWatchHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97E529B08C8F00569789 /* NonWatchHeaders.swift */; };
+		CD5C97EA29B08CF000569789 /* WatchHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97E829B08CF000569789 /* WatchHeaders.swift */; };
+		CD5C97EE29B08D8000569789 /* NonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97ED29B08D8000569789 /* NonWatch.swift */; };
+		CD5C97F129B08DB700569789 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97EF29B08D8900569789 /* Watch.swift */; };
+		CD5C97F429B08E8E00569789 /* WatchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97F329B08E8E00569789 /* WatchHeaderView.swift */; };
+		CD5C97F629B08F3A00569789 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97F529B08F3A00569789 /* Controller.swift */; };
+		CD5C97F829B090BE00569789 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5C97F729B090BE00569789 /* SettingsSheet.swift */; };
 		CD5CF7B52874709200F0C8AE /* EmptyZXSpectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */; };
 		CD5CF7B8287474CD00F0C8AE /* DebugViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B7287474CD00F0C8AE /* DebugViews.swift */; };
 		CD5CF7BA2874900600F0C8AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7B92874900600F0C8AE /* HeaderView.swift */; };
@@ -108,8 +246,13 @@
 		CD6791812745073200B4C810 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791802745073200B4C810 /* TestView.swift */; };
 		CD6791822745073200B4C810 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6791802745073200B4C810 /* TestView.swift */; };
 		CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7315D9267F861800A15BD4 /* TapePlayerView.swift */; };
+		CD75DD2129B0A0FD00C6B96C /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75DD2029B0A0FD00C6B96C /* Sizing.swift */; };
+		CD75DD2329B0A72A00C6B96C /* ZXKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75DD2229B0A72A00C6B96C /* ZXKeyboard.swift */; };
 		CD7629BB2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
 		CD7629BC2797201A00FF232B /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7629BA2797201A00FF232B /* Array+Helpers.swift */; };
+		CD79552529B0911C005AEABD /* TypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD79552429B0911C005AEABD /* TypeSelector.swift */; };
+		CD79552729B09333005AEABD /* DisassemblyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD79552629B09333005AEABD /* DisassemblyList.swift */; };
+		CD79552929B0949E005AEABD /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD79552829B0949E005AEABD /* SpectrumView.swift */; };
 		CD7A9951282BE8FD00F10163 /* DebugHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9950282BE8FD00F10163 /* DebugHeader.swift */; };
 		CD7A9953282BE94100F10163 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9952282BE94100F10163 /* DebugData.swift */; };
 		CD7A9954282BE94100F10163 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A9952282BE94100F10163 /* DebugData.swift */; };
@@ -375,7 +518,6 @@
 		CDF93D8E2951100700865527 /* Int+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D8D2951100700865527 /* Int+Characters.swift */; };
 		CDF93D912951B24500865527 /* FakeAChipStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D902951B24500865527 /* FakeAChipStepper.swift */; };
 		CDF93D932951B4A000865527 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D922951B4A000865527 /* TextStyles.swift */; };
-		CDF93D95295219AE00865527 /* Disassembly+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D94295219AE00865527 /* Disassembly+Extensions.swift */; };
 		CDF93D9729521A2400865527 /* DisassemblyVersion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF93D9629521A2400865527 /* DisassemblyVersion+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -394,7 +536,28 @@
 			remoteGlobalIDString = CD0CC53925FA6BD400731EDA;
 			remoteInfo = FakeAChip;
 		};
+		CD5C973229B0806700569789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD0CC53225FA6BD400731EDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5C972F29B0806700569789;
+			remoteInfo = "FakeAWatch Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CD5C974029B0806700569789 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CD5C973129B0806700569789 /* FakeAWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CD05400126258D5000221FC9 /* Z80BlockDisassembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80BlockDisassembly.swift; sourceTree = "<group>"; };
@@ -458,8 +621,23 @@
 		CD3BD82D2677495000394AB1 /* TapePlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerData.swift; sourceTree = "<group>"; };
 		CD4297DD26A0772D0087CFEC /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		CD4297DF26A079930087CFEC /* EnvironmentSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSettings.swift; sourceTree = "<group>"; };
+		CD4E90AC29B0993300E77793 /* SpectrumCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumCanvas.swift; sourceTree = "<group>"; };
 		CD55A3EF2721F847001A5844 /* Double+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Precision.swift"; sourceTree = "<group>"; };
 		CD562EE0267CB72B0034FAE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		CD5C972B29B0806700569789 /* FakeAWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeAWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5C973029B0806700569789 /* FakeAWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FakeAWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5C973529B0806700569789 /* FakeAWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAWatchApp.swift; sourceTree = "<group>"; };
+		CD5C973729B0806700569789 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CD5C973929B0806700569789 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD5C973C29B0806700569789 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CD5C97E229B08B0D00569789 /* ZXBeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXBeeper.swift; sourceTree = "<group>"; };
+		CD5C97E529B08C8F00569789 /* NonWatchHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonWatchHeaders.swift; sourceTree = "<group>"; };
+		CD5C97E829B08CF000569789 /* WatchHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHeaders.swift; sourceTree = "<group>"; };
+		CD5C97ED29B08D8000569789 /* NonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonWatch.swift; sourceTree = "<group>"; };
+		CD5C97EF29B08D8900569789 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		CD5C97F329B08E8E00569789 /* WatchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHeaderView.swift; sourceTree = "<group>"; };
+		CD5C97F529B08F3A00569789 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		CD5C97F729B090BE00569789 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		CD5CF7B42874709200F0C8AE /* EmptyZXSpectrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyZXSpectrum.swift; sourceTree = "<group>"; };
 		CD5CF7B7287474CD00F0C8AE /* DebugViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViews.swift; sourceTree = "<group>"; };
 		CD5CF7B92874900600F0C8AE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -467,7 +645,12 @@
 		CD6791782744FE7B00B4C810 /* RawZ80Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawZ80Processor.swift; sourceTree = "<group>"; };
 		CD6791802745073200B4C810 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CD7315D9267F861800A15BD4 /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
+		CD75DD2029B0A0FD00C6B96C /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
+		CD75DD2229B0A72A00C6B96C /* ZXKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKeyboard.swift; sourceTree = "<group>"; };
 		CD7629BA2797201A00FF232B /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
+		CD79552429B0911C005AEABD /* TypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelector.swift; sourceTree = "<group>"; };
+		CD79552629B09333005AEABD /* DisassemblyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyList.swift; sourceTree = "<group>"; };
+		CD79552829B0949E005AEABD /* SpectrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumView.swift; sourceTree = "<group>"; };
 		CD7A9950282BE8FD00F10163 /* DebugHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugHeader.swift; sourceTree = "<group>"; };
 		CD7A9952282BE94100F10163 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 		CD7A99562833E9B400F10163 /* FakeAChipMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAChipMock.swift; sourceTree = "<group>"; };
@@ -647,7 +830,6 @@
 		CDF93D8D2951100700865527 /* Int+Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Characters.swift"; sourceTree = "<group>"; };
 		CDF93D902951B24500865527 /* FakeAChipStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAChipStepper.swift; sourceTree = "<group>"; };
 		CDF93D922951B4A000865527 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
-		CDF93D94295219AE00865527 /* Disassembly+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Disassembly+Extensions.swift"; sourceTree = "<group>"; };
 		CDF93D9629521A2400865527 /* DisassemblyVersion+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisassemblyVersion+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -678,6 +860,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD5C972D29B0806700569789 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5C97D029B0873900569789 /* ZXLoaderSDK in Frameworks */,
+				CD5C97CC29B0873900569789 /* TZX-SDK in Frameworks */,
+				CD5C97D229B0873900569789 /* Zip in Frameworks */,
+				CD5C97CE29B0873900569789 /* ZXDB-SDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -691,6 +884,7 @@
 				CD0CC53C25FA6BD400731EDA /* FakeAChip */,
 				CD0CC55325FA6BD700731EDA /* FakeAChipTests */,
 				CD0CC55E25FA6BD700731EDA /* FakeAChipUITests */,
+				CD5C973429B0806700569789 /* FakeAWatch Watch App */,
 				CD0CC53B25FA6BD400731EDA /* Products */,
 				CD306C76264C2FC20021AA0A /* Frameworks */,
 			);
@@ -702,6 +896,8 @@
 				CD0CC53A25FA6BD400731EDA /* FakeAChip.app */,
 				CD0CC55025FA6BD700731EDA /* FakeAChipTests.xctest */,
 				CD0CC55B25FA6BD700731EDA /* FakeAChipUITests.xctest */,
+				CD5C972B29B0806700569789 /* FakeAWatch.app */,
+				CD5C973029B0806700569789 /* FakeAWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -891,6 +1087,8 @@
 		CD0CC5D525FF538E00731EDA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD5C97EC29B08D6500569789 /* Watch */,
+				CD5C97EB29B08D5800569789 /* NonWatch */,
 				CD0CC54125FA6BD400731EDA /* SpectrumView.swift */,
 				CDC8C560260263730010EBF7 /* SpectrumScreen.swift */,
 				CDA1746626091D6900910C23 /* ZXKeyboard.swift */,
@@ -928,12 +1126,15 @@
 		CD2D7F922716D3880067BA19 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				CD5C97E729B08CC600569789 /* WatchHeaders */,
+				CD5C97E429B08C6C00569789 /* NonWatch */,
 				CD0CC5E625FF585F00731EDA /* MainHeader.swift */,
 				CD7315D9267F861800A15BD4 /* TapePlayerView.swift */,
 				CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */,
 				CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */,
 				CD5CF7B92874900600F0C8AE /* HeaderView.swift */,
 				CD7A9950282BE8FD00F10163 /* DebugHeader.swift */,
+				CD5C97F329B08E8E00569789 /* WatchHeaderView.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -980,6 +1181,66 @@
 				CD1470492872390900D921A0 /* TZX-SDK */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		CD5C973429B0806700569789 /* FakeAWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C973529B0806700569789 /* FakeAWatchApp.swift */,
+				CD5C973729B0806700569789 /* ContentView.swift */,
+				CD5C973929B0806700569789 /* Assets.xcassets */,
+				CD5C973B29B0806700569789 /* Preview Content */,
+				CD5C97E229B08B0D00569789 /* ZXBeeper.swift */,
+				CD5C97F529B08F3A00569789 /* Controller.swift */,
+				CD5C97F729B090BE00569789 /* SettingsSheet.swift */,
+				CD79552429B0911C005AEABD /* TypeSelector.swift */,
+				CD79552629B09333005AEABD /* DisassemblyList.swift */,
+				CD79552829B0949E005AEABD /* SpectrumView.swift */,
+				CD4E90AC29B0993300E77793 /* SpectrumCanvas.swift */,
+				CD75DD2029B0A0FD00C6B96C /* Sizing.swift */,
+				CD75DD2229B0A72A00C6B96C /* ZXKeyboard.swift */,
+			);
+			path = "FakeAWatch Watch App";
+			sourceTree = "<group>";
+		};
+		CD5C973B29B0806700569789 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C973C29B0806700569789 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CD5C97E429B08C6C00569789 /* NonWatch */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C97E529B08C8F00569789 /* NonWatchHeaders.swift */,
+			);
+			path = NonWatch;
+			sourceTree = "<group>";
+		};
+		CD5C97E729B08CC600569789 /* WatchHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C97E829B08CF000569789 /* WatchHeaders.swift */,
+			);
+			path = WatchHeaders;
+			sourceTree = "<group>";
+		};
+		CD5C97EB29B08D5800569789 /* NonWatch */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C97ED29B08D8000569789 /* NonWatch.swift */,
+			);
+			path = NonWatch;
+			sourceTree = "<group>";
+		};
+		CD5C97EC29B08D6500569789 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				CD5C97EF29B08D8900569789 /* Watch.swift */,
+			);
+			path = Watch;
 			sourceTree = "<group>";
 		};
 		CD5CF7B6287474BF00F0C8AE /* Debug */ = {
@@ -1054,7 +1315,6 @@
 				CD9CFA51281EF030001701DD /* PersistenceController.swift */,
 				CDCE49FA2939BC8F005FE338 /* SnapshotPersistence.swift */,
 				CDCE49FE2939BD59005FE338 /* DisassemblyPersistence.swift */,
-				CDF93D94295219AE00865527 /* Disassembly+Extensions.swift */,
 				CDF93D9629521A2400865527 /* DisassemblyVersion+Extensions.swift */,
 			);
 			path = Database;
@@ -1361,13 +1621,53 @@
 			productReference = CD0CC55B25FA6BD700731EDA /* FakeAChipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CD5C972A29B0806700569789 /* FakeAWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD5C974429B0806700569789 /* Build configuration list for PBXNativeTarget "FakeAWatch" */;
+			buildPhases = (
+				CD5C972929B0806700569789 /* Resources */,
+				CD5C974029B0806700569789 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD5C973329B0806700569789 /* PBXTargetDependency */,
+			);
+			name = FakeAWatch;
+			productName = FakeAWatch;
+			productReference = CD5C972B29B0806700569789 /* FakeAWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		CD5C972F29B0806700569789 /* FakeAWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD5C974329B0806700569789 /* Build configuration list for PBXNativeTarget "FakeAWatch Watch App" */;
+			buildPhases = (
+				CD5C972C29B0806700569789 /* Sources */,
+				CD5C972D29B0806700569789 /* Frameworks */,
+				CD5C972E29B0806700569789 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FakeAWatch Watch App";
+			packageProductDependencies = (
+				CD5C97CB29B0873900569789 /* TZX-SDK */,
+				CD5C97CD29B0873900569789 /* ZXDB-SDK */,
+				CD5C97CF29B0873900569789 /* ZXLoaderSDK */,
+				CD5C97D129B0873900569789 /* Zip */,
+			);
+			productName = "FakeAWatch Watch App";
+			productReference = CD5C973029B0806700569789 /* FakeAWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CD0CC53225FA6BD400731EDA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					CD0CC53925FA6BD400731EDA = {
@@ -1380,6 +1680,12 @@
 					CD0CC55A25FA6BD700731EDA = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = CD0CC53925FA6BD400731EDA;
+					};
+					CD5C972A29B0806700569789 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					CD5C972F29B0806700569789 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -1403,6 +1709,8 @@
 				CD0CC53925FA6BD400731EDA /* FakeAChip */,
 				CD0CC54F25FA6BD700731EDA /* FakeAChipTests */,
 				CD0CC55A25FA6BD700731EDA /* FakeAChipUITests */,
+				CD5C972A29B0806700569789 /* FakeAWatch */,
+				CD5C972F29B0806700569789 /* FakeAWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -1535,6 +1843,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD5C972929B0806700569789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5C974629B0862A00569789 /* ZX128k+3.rom in Resources */,
+				CD5C974729B0862A00569789 /* ZX128k.rom in Resources */,
+				CD5C974829B0862A00569789 /* ZX48k.rom in Resources */,
+				CD5C974529B0862A00569789 /* ZX128k+2.rom in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD5C972E29B0806700569789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5C974C29B0862C00569789 /* ZX48k.rom in Resources */,
+				CD5C974929B0862C00569789 /* ZX128k+2.rom in Resources */,
+				CD5C973D29B0806700569789 /* Preview Assets.xcassets in Resources */,
+				CD5C974B29B0862C00569789 /* ZX128k.rom in Resources */,
+				CD5C974A29B0862C00569789 /* ZX128k+3.rom in Resources */,
+				CD5C973A29B0806700569789 /* Assets.xcassets in Resources */,
+				CD5C975429B0864A00569789 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1595,9 +1928,9 @@
 				CD7A99572833E9B400F10163 /* FakeAChipMock.swift in Sources */,
 				CD0CC5DA25FF54F500731EDA /* SystemConstants.swift in Sources */,
 				CDEF9998261265B000729043 /* CodeRoutine.swift in Sources */,
+				CD5C97EE29B08D8000569789 /* NonWatch.swift in Sources */,
 				CD4297DE26A0772D0087CFEC /* Orientation.swift in Sources */,
 				CD7315DA267F861800A15BD4 /* TapePlayerView.swift in Sources */,
-				CDF93D95295219AE00865527 /* Disassembly+Extensions.swift in Sources */,
 				CD0EC68F2668342100B21E1F /* MediaConstants.swift in Sources */,
 				CD0CC59A25FA6C4000731EDA /* Int+Bitwise.swift in Sources */,
 				CD34EEDE26FB159D00597392 /* Color+ZXColour.swift in Sources */,
@@ -1616,6 +1949,7 @@
 				CD0540082625970F00221FC9 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
 				CD0CC59C25FA6C4000731EDA /* Data+String.swift in Sources */,
 				CDA174772609E39200910C23 /* ZXBeeper.swift in Sources */,
+				CD5C97E629B08C8F00569789 /* NonWatchHeaders.swift in Sources */,
 				CD26460126DD62290072B09F /* DisassemblyHeaderView.swift in Sources */,
 				CD0EC6952668358500B21E1F /* ZXTapeLoaderView.swift in Sources */,
 				CDCE49FF2939BD59005FE338 /* DisassemblyPersistence.swift in Sources */,
@@ -1818,6 +2152,138 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD5C972C29B0806700569789 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD75DD2329B0A72A00C6B96C /* ZXKeyboard.swift in Sources */,
+				CD5C979C29B086CB00569789 /* ComputerModel.swift in Sources */,
+				CD5C97AE29B086D800569789 /* Int+Characters.swift in Sources */,
+				CD5C97C329B086F500569789 /* UInt8+ZXAttributes.swift in Sources */,
+				CD5C977129B086A400569789 /* DebugData.swift in Sources */,
+				CD79552529B0911C005AEABD /* TypeSelector.swift in Sources */,
+				CD5C975B29B0868300569789 /* FakeAChipStepper.swift in Sources */,
+				CD5C97DF29B089B600569789 /* CodeRoutine.swift in Sources */,
+				CD5C978829B086C000569789 /* DebugHeader.swift in Sources */,
+				CD5C978429B086BC00569789 /* LoggingView.swift in Sources */,
+				CD5C97F829B090BE00569789 /* SettingsSheet.swift in Sources */,
+				CD5C977F29B086AA00569789 /* FlagRegister.swift in Sources */,
+				CD5C97F129B08DB700569789 /* Watch.swift in Sources */,
+				CD5C977D29B086AA00569789 /* Register.swift in Sources */,
+				CD5C979B29B086CB00569789 /* DataType.swift in Sources */,
+				CD5C977E29B086AA00569789 /* Refresh.swift in Sources */,
+				CD5C97DB29B089B600569789 /* OpCode.swift in Sources */,
+				CD5C97A629B086D800569789 /* View+Extensions.swift in Sources */,
+				CD5C97BB29B086E900569789 /* ZXTapeLoaderView.swift in Sources */,
+				CD5C977B29B086AA00569789 /* Accumilator.swift in Sources */,
+				CD5C977A29B086A400569789 /* EnvironmentSettings.swift in Sources */,
+				CD5C979A29B086CB00569789 /* DisassemblyConstants.swift in Sources */,
+				CD5C974E29B0864200569789 /* DisassemblyPersistence.swift in Sources */,
+				CD5C978F29B086C400569789 /* DisassemblySheet.swift in Sources */,
+				CD4E90AD29B0993300E77793 /* SpectrumCanvas.swift in Sources */,
+				CD5C975329B0864500569789 /* FakeAChipMock.swift in Sources */,
+				CD5C97A329B086D800569789 /* Colours.swift in Sources */,
+				CD75DD2129B0A0FD00C6B96C /* Sizing.swift in Sources */,
+				CD5C976F29B086A400569789 /* TapePlayerData.swift in Sources */,
+				CD5C97B629B086E500569789 /* Speccy+Screen.swift in Sources */,
+				CD5C97DC29B089B600569789 /* CodeListing.swift in Sources */,
+				CD5C97B229B086E500569789 /* Speccy+IO.swift in Sources */,
+				CD5C97DA29B089B600569789 /* TargetType.swift in Sources */,
+				CD5C976E29B086A400569789 /* VDU.swift in Sources */,
+				CD5C978029B086AA00569789 /* RegisterPairStruct.swift in Sources */,
+				CD5C975829B0868300569789 /* TextFieldStyles.swift in Sources */,
+				CD5C977629B086A400569789 /* StandardSprite.swift in Sources */,
+				CD5C976629B0869100569789 /* Z80+OpCodeDDFD.swift in Sources */,
+				CD5C978B29B086C000569789 /* MainHeader.swift in Sources */,
+				CD5C97C829B086F500569789 /* Speccy+ROM.swift in Sources */,
+				CD5C97AD29B086D800569789 /* UInt16+Bitwise.swift in Sources */,
+				CD5C97F429B08E8E00569789 /* WatchHeaderView.swift in Sources */,
+				CD5C977429B086A400569789 /* TestView.swift in Sources */,
+				CD5C97B029B086DE00569789 /* IOSMainMenu.swift in Sources */,
+				CD5C976429B0869100569789 /* RawZ80Processor.swift in Sources */,
+				CD5C97E329B08B0D00569789 /* ZXBeeper.swift in Sources */,
+				CD5C976829B0869100569789 /* Z80.swift in Sources */,
+				CD5C97C029B086EE00569789 /* Speccy.swift in Sources */,
+				CD5C973829B0806700569789 /* ContentView.swift in Sources */,
+				CD5C97B729B086E900569789 /* SpectrumSprite.swift in Sources */,
+				CD5C976729B0869100569789 /* Z80+OpcodeDDFDCB.swift in Sources */,
+				CD5C976929B0869100569789 /* Z80+OpcodeED.swift in Sources */,
+				CD5C979829B086CB00569789 /* AvailableRegisters.swift in Sources */,
+				CD5C977229B086A400569789 /* HeaderData.swift in Sources */,
+				CD5C978329B086BC00569789 /* DebugViews.swift in Sources */,
+				CD5C97C429B086F500569789 /* SpeccyUnused.swift in Sources */,
+				CD5C976C29B0869A00569789 /* DebugModel.swift in Sources */,
+				CD5C97F629B08F3A00569789 /* Controller.swift in Sources */,
+				CD5C979329B086C400569789 /* DisassemblerValueSection.swift in Sources */,
+				CD5C976529B0869100569789 /* Z80+Opcode.swift in Sources */,
+				CD5C976B29B0869500569789 /* Helpers.swift in Sources */,
+				CD5C97A829B086D800569789 /* Double+Precision.swift in Sources */,
+				CD5C978929B086C000569789 /* DisassemblyHeaderView.swift in Sources */,
+				CD5C97BF29B086E900569789 /* LoadSaveDisassembly.swift in Sources */,
+				CD5C975929B0868300569789 /* ZX_ULA.swift in Sources */,
+				CD5C97A929B086D800569789 /* DispatchQueue+backgrounding.swift in Sources */,
+				CD5C974D29B0863700569789 /* MockSpeccyScreen.swift in Sources */,
+				CD5C979229B086C400569789 /* DisassemblerDataSection.swift in Sources */,
+				CD5C97A129B086D800569789 /* Color+ZXColour.swift in Sources */,
+				CD5C97E029B089B600569789 /* Z80BlockDisassembly.swift in Sources */,
+				CD5C975029B0864200569789 /* SnapshotPersistence.swift in Sources */,
+				CD5C973629B0806700569789 /* FakeAWatchApp.swift in Sources */,
+				CD5C976A29B0869100569789 /* Z80+OpcodeCB.swift in Sources */,
+				CD5C97AC29B086D800569789 /* Data+String.swift in Sources */,
+				CD79552729B09333005AEABD /* DisassemblyList.swift in Sources */,
+				CD5C978129B086AA00569789 /* AFRegisterPair.swift in Sources */,
+				CD5C978729B086C000569789 /* EmulatorHeaderView.swift in Sources */,
+				CD5C978E29B086C400569789 /* DisassemblyUndefinedAsCodeSection.swift in Sources */,
+				CD5C97A029B086CF00569789 /* DisassemblyModel.swift in Sources */,
+				CD79552929B0949E005AEABD /* SpectrumView.swift in Sources */,
+				CD5C97C129B086EE00569789 /* Z80Type1FormatWrite.swift in Sources */,
+				CD5C975C29B0868300569789 /* CPU.swift in Sources */,
+				CD5C977729B086A400569789 /* DisassemblyData.swift in Sources */,
+				CD5C974F29B0864200569789 /* PersistenceController.swift in Sources */,
+				CD5C97C529B086F500569789 /* Speccy+Setup.swift in Sources */,
+				CD5C979F29B086CF00569789 /* RegisterSetModel.swift in Sources */,
+				CD5C977929B086A400569789 /* DiagnosticData.swift in Sources */,
+				CD5C977329B086A400569789 /* EmulatorData.swift in Sources */,
+				CD5C978629B086BC00569789 /* RegisterView.swift in Sources */,
+				CD5C979D29B086CB00569789 /* MediaConstants.swift in Sources */,
+				CD5C97AA29B086D800569789 /* UInt8+Bitwise.swift in Sources */,
+				CD5C975529B0864F00569789 /* EmptyCPU.swift in Sources */,
+				CD5C97CA29B086F500569789 /* Speccy128.swift in Sources */,
+				CD5C97B129B086E500569789 /* Speccy+Loading.swift in Sources */,
+				CD5C97B529B086E500569789 /* Speccy+Processing.swift in Sources */,
+				CD5C975A29B0868300569789 /* TextStyles.swift in Sources */,
+				CD5C97B829B086E900569789 /* EmptyZXSpectrum.swift in Sources */,
+				CD5C979629B086C400569789 /* DisassemblerCodeSection.swift in Sources */,
+				CD5C975229B0864200569789 /* DisassemblyVersion+Extensions.swift in Sources */,
+				CD5C977C29B086AA00569789 /* RegisterPair.swift in Sources */,
+				CD5C97AF29B086DE00569789 /* MacMainMenu.swift in Sources */,
+				CD5C979E29B086CB00569789 /* SystemConstants.swift in Sources */,
+				CD5C978C29B086C000569789 /* TapePlayerView.swift in Sources */,
+				CD5C97A429B086D800569789 /* Int+Bitwise.swift in Sources */,
+				CD5C979929B086CB00569789 /* Flag.swift in Sources */,
+				CD5C97BE29B086E900569789 /* SaveSpeccyDataView.swift in Sources */,
+				CD5C978229B086BC00569789 /* RegisterSetView.swift in Sources */,
+				CD5C97B329B086E500569789 /* Speccy+RAM.swift in Sources */,
+				CD5C979129B086C400569789 /* DisassemblerTextSection.swift in Sources */,
+				CD5C976D29B086A400569789 /* FakeAChipData.swift in Sources */,
+				CD5C97C929B086F500569789 /* ZXBitmap.swift in Sources */,
+				CD5C979529B086C400569789 /* DisassemblySection.swift in Sources */,
+				CD5C97EA29B08CF000569789 /* WatchHeaders.swift in Sources */,
+				CD5C97DE29B089B600569789 /* OpCodeDefs.swift in Sources */,
+				CD5C97AB29B086D800569789 /* UInt8+Z80.swift in Sources */,
+				CD5C97A229B086D800569789 /* Array+Helpers.swift in Sources */,
+				CD5C97A529B086D800569789 /* StringExtensions.swift in Sources */,
+				CD5C97C229B086F500569789 /* ZXColor.swift in Sources */,
+				CD5C97A729B086D800569789 /* UIImage+Bitmap.swift in Sources */,
+				CD5C97E129B08A9600569789 /* FakeAChip.xcdatamodeld in Sources */,
+				CD5C979729B086C400569789 /* DisassemblerGraphicSection.swift in Sources */,
+				CD5C97B929B086E900569789 /* SpectrumScreen.swift in Sources */,
+				CD5C975629B0867B00569789 /* PressActions.swift in Sources */,
+				CD5C97DD29B089B600569789 /* Z80Disassembler.swift in Sources */,
+				CD5C978D29B086C400569789 /* DisassemblyRow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1830,6 +2296,11 @@
 			isa = PBXTargetDependency;
 			target = CD0CC53925FA6BD400731EDA /* FakeAChip */;
 			targetProxy = CD0CC55C25FA6BD700731EDA /* PBXContainerItemProxy */;
+		};
+		CD5C973329B0806700569789 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5C972F29B0806700569789 /* FakeAWatch Watch App */;
+			targetProxy = CD5C973229B0806700569789 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2110,6 +2581,102 @@
 			};
 			name = Release;
 		};
+		CD5C973E29B0806700569789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FAGJTP495D;
+				INFOPLIST_KEY_CFBundleDisplayName = FakeAWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CD5C973F29B0806700569789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FAGJTP495D;
+				INFOPLIST_KEY_CFBundleDisplayName = FakeAWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CD5C974129B0806700569789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"FakeAWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FAGJTP495D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FakeAWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		CD5C974229B0806700569789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FakeAWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FAGJTP495D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FakeAWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willowrod.FakeAWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2149,6 +2716,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CD5C974329B0806700569789 /* Build configuration list for PBXNativeTarget "FakeAWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD5C974129B0806700569789 /* Debug */,
+				CD5C974229B0806700569789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD5C974429B0806700569789 /* Build configuration list for PBXNativeTarget "FakeAWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD5C973E29B0806700569789 /* Debug */,
+				CD5C973F29B0806700569789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -2182,6 +2767,23 @@
 		CD14704C2872396B00D921A0 /* TZX-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "TZX-SDK";
+		};
+		CD5C97CB29B0873900569789 /* TZX-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "TZX-SDK";
+		};
+		CD5C97CD29B0873900569789 /* ZXDB-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ZXDB-SDK";
+		};
+		CD5C97CF29B0873900569789 /* ZXLoaderSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ZXLoaderSDK;
+		};
+		CD5C97D129B0873900569789 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD0541CF262B27A800221FC9 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		CD5CF7BB2874CB4E00F0C8AE /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;

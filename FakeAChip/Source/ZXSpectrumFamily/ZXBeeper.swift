@@ -7,7 +7,10 @@
 //
 
 import Foundation
+
+#if canImport(AudioToolbox)
 import AudioToolbox
+#endif
 
 let kTicsPerLine = 224
 let kScreenLines = 312 // 64 + 192 + 56

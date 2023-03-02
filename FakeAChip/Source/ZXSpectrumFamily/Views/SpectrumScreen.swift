@@ -13,7 +13,7 @@ struct SpectrumScreen: View {
     var body: some View {
         HStack{
             VStack{
-                SpectrumCanvas(grid: settings.vdu.screen.pixels, emulatorData: settings.emulatorData, headerData: settings.headerData).frame(width: screenWidth, height: (screenWidth / 8) * 6, alignment: .center)
+                SpectrumCanvas(grid: settings.vdu.screen.pixels, emulatorData: settings.emulatorData, headerData: settings.headerData).frame(width: screenWidth, height: screenWidth * 0.75, alignment: .leading)
             }
             .padding(screenWidth / 18)
         }
@@ -27,7 +27,7 @@ struct SpectrumScreen_Previews: PreviewProvider {
         screenImage.setAttributes(bytes: MockSpeccyScreen.mockSpeccyAttribs.prefix(upTo: MockSpeccyScreen.mockSpeccyAttribs.count), flashing: false)
         screenImage.blit(bytes: MockSpeccyScreen.mockSpeccyScreen.prefix(upTo: MockSpeccyScreen.mockSpeccyScreen.count))
         let screen = VDU(screen: screenImage, border: Colour.black)
-        Sizing.instance.size = UIScreen.main.bounds.size
+        Sizing.instance.size = CGSize(width: 256, height: 192)
         mockData.vdu = screen
         return SpectrumScreen(screenWidth: Sizing.instance.actualWidth()).environmentObject(mockData)
     }

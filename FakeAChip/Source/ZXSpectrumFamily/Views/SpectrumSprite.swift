@@ -10,7 +10,6 @@ import SwiftUI
 struct SpectrumSprite: View {
     let sprite: StandardSprite
     var body: some View {
-        if #available(iOS 15.0, macOS 12.0, *) {
         
             Canvas { context, size in
                 let pixelSize: CGFloat = size.width / 8
@@ -35,9 +34,6 @@ struct SpectrumSprite: View {
                 }
 
             }
-        } else {
-            Text("X")
-        }
     }
 }
 

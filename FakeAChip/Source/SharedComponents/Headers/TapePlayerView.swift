@@ -60,30 +60,6 @@ struct TapeBlockView: View {
     }
 }
 
-struct SnapshotView: View {
-    @ObservedObject var tapePlayerData: TapePlayerData
-    let computer: CPU
-    var body: some View {
-        Menu("Load Snapshot"){
-            ForEach(tapePlayerData.listOfGames(extensions: ["sna", "z80", "zip"]), id: \.self){ item in
-                if item.contains("128") {
-                    Button("128K: \(item)"){
-                        loadData(item)
-                    }
-                } else {
-                    Button(item){
-                        loadData(item)
-                    }
-                }
-            }
-        }
-        .padding(20)
-    }
-
-    func loadData(_ file: String){
-        computer.load(file: file)
-    }
-}
 
 struct TapeControlsView: View {
     @ObservedObject var tapePlayerData: TapePlayerData
