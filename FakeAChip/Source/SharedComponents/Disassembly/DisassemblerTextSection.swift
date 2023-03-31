@@ -10,7 +10,7 @@ import SwiftUI
 struct DisassemblerTextSection: View {
     @ObservedObject var section: DisassemblySectionModel
     var body: some View {
-        Text(section.textOutput())
+        Text(section.textOutputValue)
             .fixedSize(horizontal: false, vertical: true)
     }
 }

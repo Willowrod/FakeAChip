@@ -10,7 +10,7 @@ import SwiftUI
 struct DisassemblyUndefinedAsCodeSection: View {
             @ObservedObject var section: DisassemblySectionModel
             var body: some View {
-                ForEach(section.codeOutput(), id: \.id){line in
+                ForEach(section.codeLines, id: \.id){line in
                     DisassemblyRow(line: line)
                 }
             }

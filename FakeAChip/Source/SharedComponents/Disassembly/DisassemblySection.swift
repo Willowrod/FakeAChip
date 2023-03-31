@@ -24,6 +24,19 @@ struct DisassemblySection: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 Spacer()
+
+
+                    Button("MB"){
+                        section.mergeBack()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+
+                Button("MF"){
+                    section.mergeForward()
+                }
+                .buttonStyle(PlainButtonStyle())
+
+                Spacer()
                 TypeSelector(section: section)
                 HStack{
                     Text("Showing:")
@@ -74,7 +87,7 @@ struct DisassemblySection: View {
 
 struct DisassemblySection_Previews: PreviewProvider {
     static var previews: some View {
-        let mod = DisassemblySectionModel()
+        let mod = DisassemblySectionModel(model: nil)
         let lin = DisassemblyLineModel()
         lin.bytes = [0x00]
         lin.code = "NOP"

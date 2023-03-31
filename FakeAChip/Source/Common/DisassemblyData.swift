@@ -48,10 +48,16 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
     @Published var textOffset = 0x20
 
     @Published var showing: DataType? = nil
-     @Published var undefinedDataShownAs: DataType = .UNDEFINED
+     @Published var undefinedDataShownAs: DataType = .UNDEFINED {
+         didSet{
+             self.disassembly.updateSections()
+         }
+     }
 
 
     @Published var showDisassemblySettings = false
+
+    @Published var timestamp: TimeInterval = 0
 
     init(fakeAChip: FakeAChipDataDelegate, delegate: DisassemblyDataDelgate) {
         self.fakeAChip = fakeAChip
@@ -67,6 +73,14 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
 
     func currentScreenShot() -> String {
         return currentMemory.toScreenShot()
+    }
+
+    func reloadView() {
+        timestamp = Date().timeIntervalSince1970
+    }
+
+    func undefinedDataType() -> DataType {
+        return undefinedDataShownAs
     }
 
 //    func save() {
@@ -96,10 +110,13 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
 
     func loadCurrentDisassembly() {
         if let currentDisassemblyVersion, let data = currentDisassemblyVersion.json?.data(using: .utf8) {
+            writeToFile(string: currentDisassemblyVersion.json)
             do{
                 let json = try JSONDecoder().decode(DisassemblyModel.self, from: data)
                 currentSnapshot = json.snapshot
                 delegate?.loadSnapshot(snap: currentSnapshot)
+                json.reassertDelegates()
+                json.delegate = self
                 disassembly = json
                 currentMajor = Int(currentDisassemblyVersion.major)
                 currentMinor = Int(currentDisassemblyVersion.minor)
@@ -110,6 +127,17 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
             } catch {
                 print("Error decoding disassembly - \(error.localizedDescription)")
             }
+        }
+    }
+
+    func writeToFile(string: String?) {
+        let filename = getDocumentsDirectory().appendingPathComponent("currentDisassembly.txt")
+        print("Saving disassembly to \(filename)")
+
+        do {
+            try string?.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
         }
     }
 
@@ -166,6 +194,8 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
 
     func disassemblyComplete(disassembly: DisassemblyModel) {
         self.disassembly = disassembly
+        self.disassembly.delegate = self
+        self.disassembly.updateSections()
     }
 
 

@@ -147,6 +147,8 @@
 		CD9CFA53281EF030001701DD /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA51281EF030001701DD /* PersistenceController.swift */; };
 		CD9CFA55281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */; };
 		CD9CFA56281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */; };
+		CD9FC8C129D7682C003C6A3B /* Z80CodeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9FC8C029D7682C003C6A3B /* Z80CodeLineModel.swift */; };
+		CD9FC8C229D7682C003C6A3B /* Z80CodeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9FC8C029D7682C003C6A3B /* Z80CodeLineModel.swift */; };
 		CDA172572603828000910C23 /* RegisterPairStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA172562603828000910C23 /* RegisterPairStruct.swift */; };
 		CDA172612604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
 		CDA172622604962100910C23 /* ZX128k+3.rom in Resources */ = {isa = PBXBuildFile; fileRef = CDA1725D2604962100910C23 /* ZX128k+3.rom */; };
@@ -488,6 +490,7 @@
 		CD9CFA4D281EE8C3001701DD /* FakeAChip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FakeAChip.xcdatamodel; sourceTree = "<group>"; };
 		CD9CFA51281EF030001701DD /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		CD9CFA54281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Booty (1984)(Firebird Software).z80"; sourceTree = "<group>"; };
+		CD9FC8C029D7682C003C6A3B /* Z80CodeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80CodeLineModel.swift; sourceTree = "<group>"; };
 		CDA172562603828000910C23 /* RegisterPairStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPairStruct.swift; sourceTree = "<group>"; };
 		CDA1725D2604962100910C23 /* ZX128k+3.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZX128k+3.rom"; sourceTree = "<group>"; };
 		CDA1725E2604962100910C23 /* ZX128k.rom */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZX128k.rom; sourceTree = "<group>"; };
@@ -808,6 +811,7 @@
 			children = (
 				CD891490260202FD00C75998 /* RegisterSetModel.swift */,
 				CD2DA796260CF4D20022F4EF /* DisassemblyModel.swift */,
+				CD9FC8C029D7682C003C6A3B /* Z80CodeLineModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1575,6 +1579,7 @@
 				CD16BD0626D4FFC900151830 /* Speccy+Loading.swift in Sources */,
 				CD0CC59425FA6C4000731EDA /* StringExtensions.swift in Sources */,
 				CDEF999A261265B000729043 /* CodeListing.swift in Sources */,
+				CD9FC8C129D7682C003C6A3B /* Z80CodeLineModel.swift in Sources */,
 				CD16BD0726D4FFC900151830 /* Speccy+Processing.swift in Sources */,
 				CD2DA788260CF21C0022F4EF /* DisassemblyRow.swift in Sources */,
 				CD2DB0C8279EBAF400071481 /* AvailableRegisters.swift in Sources */,
@@ -1692,6 +1697,7 @@
 				CDA174782609E39200910C23 /* ZXBeeper.swift in Sources */,
 				CD0CC5AB25FA6C4000731EDA /* UInt8+ZXAttributes.swift in Sources */,
 				CDEF997D261263CE00729043 /* OpCodeDefs.swift in Sources */,
+				CD9FC8C229D7682C003C6A3B /* Z80CodeLineModel.swift in Sources */,
 				CDCE4A002939BD59005FE338 /* DisassemblyPersistence.swift in Sources */,
 				CD0CC5AF25FA6C4000731EDA /* ZXBitmap.swift in Sources */,
 				CD0CC59525FA6C4000731EDA /* StringExtensions.swift in Sources */,

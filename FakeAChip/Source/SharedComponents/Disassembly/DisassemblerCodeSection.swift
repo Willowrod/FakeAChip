@@ -10,7 +10,7 @@ import SwiftUI
 struct DisassemblerCodeSection: View {
     @ObservedObject var section: DisassemblySectionModel
     var body: some View {
-        ForEach(section.lines, id: \.id){line in
+        ForEach(section.codeLines, id: \.id){line in
             DisassemblyRow(line: line)
         }
     }

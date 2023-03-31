@@ -51,6 +51,8 @@ struct DisassemblyList: View {
 //                }, label: {
 //                    Image(systemName: "chevron.up")
 //                })
+
+                Text("\(data.timestamp)").font(.system(size: 6))
             }
             
             

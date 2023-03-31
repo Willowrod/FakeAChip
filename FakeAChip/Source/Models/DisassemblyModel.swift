@@ -8,9 +8,18 @@
 import Foundation
 import SwiftUI
 
-class DisassemblyModel: ObservableObject, Codable {
+enum DisassemblyMergeDirection {
+    case Forwards, Backwards
+}
+
+protocol DisassemblyRestructureProtocol {
+    func mergeSection(uuid: UUID, direction: DisassemblyMergeDirection)
+}
+
+class DisassemblyModel: ObservableObject, Codable, DisassemblyRestructureProtocol {
    @Published var sections: [DisassemblySectionModel] = []
-    
+
+    var delegate: DisassemblyDelegate? = nil
     var snapshot: String = "x"
     
     enum CodingKeys: CodingKey {
@@ -31,6 +40,65 @@ class DisassemblyModel: ObservableObject, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sections, forKey: .sections)
         try container.encode(snapshot, forKey: .snapshot)
+    }
+
+    func reassertDelegates() {
+        sections.forEach { sec in
+            sec.delegate = self
+        }
+    }
+
+    func mergeSection(uuid: UUID, direction: DisassemblyMergeDirection) {
+        // Find index
+        print("Merging section \(uuid) \(direction)")
+        if let index = sections.firstIndex(where: {$0.id == uuid}) {
+            print("Index for section \(uuid) is \(index)")
+            let initialSection = sections[index]
+            var targetSection = sections[index]
+            print("Initial index data = \(initialSection.dataOutput())")
+            if (direction == .Forwards) {
+                if index == sections.count - 1 {
+                    return
+                }
+                     targetSection = sections[index + 1]
+                print("Target data = \(targetSection.dataOutput())")
+                targetSection.bytes.insert(contentsOf: initialSection.bytes, at: 0)
+
+                print("New data = \(targetSection.dataOutput())")
+
+
+            } else {
+                if index == 0 {
+                    return
+                }
+                 targetSection = sections[index - 1]
+                print("Target data = \(targetSection.dataOutput())")
+                targetSection.bytes.append(contentsOf: initialSection.bytes)
+                print("New data = \(targetSection.dataOutput())")
+            }
+            targetSection.resolveData(undefinedType: delegate?.undefinedDataType() ?? .UNDEFINED)
+            //sections.remove(at: index)
+            var newSections: [DisassemblySectionModel] = []
+
+            sections.forEach { sec in
+                if sec.id == targetSection.id {
+                    newSections.append(targetSection)
+                } else if sec.id == initialSection.id {
+                    //Do nothing
+                } else {
+                    newSections.append(sec)
+                }
+            }
+
+            sections = newSections
+            delegate?.reloadView()
+        }
+    }
+
+    func updateSections() {
+        sections.forEach { sec in
+            sec.resolveData(undefinedType: delegate?.undefinedDataType() ?? .UNDEFINED)
+        }
     }
     
     func export() {
@@ -83,9 +151,23 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     @Published var textOffset = 0
     @Published var isShowing = false
     @Published var temporaryStartLine: UInt16 = 0
+
+@Published var visibleContent = ""
+
+    @Published var codeLines: [DisassemblyLineModel] = []
+    @Published var graphicSprites: [GraphicsLine] = []
+    @Published var textOutputValue: String = ""
+
+
+    var delegate: DisassemblyRestructureProtocol?
     var bytes: [UInt8] = []
     var lines: [DisassemblyLineModel] = []
     var temporaryDisassembly: [DisassemblyLineModel] = []
+
+    // Graphics Section
+
+    var offsetSelected = false
+    @Published var grouped = false
     
     
 
@@ -93,8 +175,16 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         case title, lines, id, startingLine, type, bytes
     }
     
-    init(){
-        
+    init(model: DisassemblyRestructureProtocol?){
+        delegate = model
+    }
+
+    func mergeBack(){
+        delegate?.mergeSection(uuid: id, direction: .Backwards)
+    }
+
+    func mergeForward(){
+        delegate?.mergeSection(uuid: id, direction: .Forwards)
     }
     
     required init(from decoder: Decoder) throws {
@@ -106,6 +196,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         temporaryStartLine = startingLine
         type = try container.decode(DataType.self, forKey: .type)
         bytes = try container.decode(Array.self, forKey: .bytes)
+        delegate = nil
     }
     
     func encode(to encoder: Encoder) throws {
@@ -116,6 +207,50 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         try container.encode(startingLine, forKey: .startingLine)
         try container.encode(type, forKey: .type)
         try container.encode(bytes, forKey: .bytes)
+    }
+
+    func resolveData(undefinedType: DataType) {
+        switch type {
+        case .CODE:
+            //DisassemblerCodeSection(section: section)
+            _ = codeOutput()
+        case .GRAPHICS:
+            //DisassemblerGraphicSection(section: section)
+            resolveGraphics()
+        case .DATA:
+            //DisassemblerDataSection(section: section)
+            _ = dataOutput()
+        case .VALUE:
+           // DisassemblerValueSection(section: section)
+            _ = valueOutput()
+        case .TEXT, .POTENTIALTEXT:
+           // DisassemblerTextSection(section: section)
+            _ = textOutput()
+        case .UNDEFINED:
+            switch undefinedType {
+            case .CODE:
+                // DisassemblerCodeSection(section: section)
+                //DisassemblyUndefinedAsCodeSection(section: section)
+                _ = codeOutput()
+            case .GRAPHICS:
+                //DisassemblerGraphicSection(section: section)
+                resolveGraphics()
+            case .TEXT, .POTENTIALTEXT:
+                // DisassemblerTextSection(section: section)
+                 _ = textOutput()
+            case .DATA:
+                //DisassemblerDataSection(section: section)
+                _ = dataOutput()
+            case .VALUE:
+                // DisassemblerValueSection(section: section)
+                 _ = valueOutput()
+            default:
+
+                textOutputValue = "Undefined"
+            }
+        default:
+            textOutputValue = "Not Supported"
+        }
     }
     
     func textOutput(offset: Int = -64) -> String {
@@ -129,6 +264,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
                 string = "\(string)~"
             }
         }
+        textOutputValue = string
         return string
     }
     
@@ -141,6 +277,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         if string.count > 1 {
             string.removeLast()
         }
+        textOutputValue = string
         return string
     }
     
@@ -182,8 +319,10 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
             offset0 = "\(offset0)\(word0),"
             return "\(string.reduce())\n\(offset0.reduce())\n\(offset1.reduce())"
         }
-        
-        return "\(string.reduce())\n\(offset0.reduce())"
+
+        textOutputValue = "\(string.reduce())\n\(offset0.reduce())"
+
+        return textOutputValue
         
         
         
@@ -203,6 +342,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         if string.count > 1 {
             string.removeLast()
         }
+        textOutputValue = string
         return string
     }
     
@@ -210,19 +350,31 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         var returner: [StandardSprite] = []
         var count = 0
         var graphicBlock: [UInt8] = []
-        lines.forEach{byte in
+        bytes.forEach{byte in
             if count >= offset {
-                if let uint8 = UInt8(byte.code, radix: 16){
-                graphicBlock.append(uint8)
+  //              if let uint8 = UInt8(byte, radix: 16){
+                graphicBlock.append(byte)
                                     if graphicBlock.count == 8 {
                                        returner.append(StandardSprite(bytes: graphicBlock))
                                         graphicBlock.removeAll()
                                     }
-                }
+//                }
             }
             count += 1
         }
         return returner
+    }
+
+
+
+    func resolveGraphics() {
+        var tempGraphics: [GraphicsLine] = []
+        for offset in 0...7 {
+            let tempStore = graphicOutput(offset: offset);
+            print("Offset \(offset) = \(tempStore)")
+            tempGraphics.append(GraphicsLine(index: offset, graphics: tempStore))
+        }
+        graphicSprites = tempGraphics
     }
     
     func codeOutput() -> [DisassemblyLineModel] {
@@ -235,6 +387,7 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
             disassemblyLine.code = line.code
             temporaryDisassembly.append(disassemblyLine)
         }
+        codeLines = temporaryDisassembly
         return temporaryDisassembly
     }
 
@@ -251,7 +404,7 @@ class DisassemblyLineModel: ObservableObject, Identifiable, Codable {
     var bytes: [UInt8] = []
     
     enum CodingKeys: CodingKey {
-        case title, id
+        case title, id, line, code, meaning, bytes
     }
     
     init(){
@@ -262,11 +415,24 @@ class DisassemblyLineModel: ObservableObject, Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: .title)
         id = try container.decode(UUID.self, forKey: .id)
+        line = try container.decode(UInt16.self, forKey: .line)
+        code = try container.decode(String.self, forKey: .code)
+        meaning = try container.decode(String.self, forKey: .meaning)
+        bytes = try container.decode([UInt8].self, forKey: .bytes)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)
         try container.encode(id, forKey: .id)
+        try container.encode(line, forKey: .line)
+        try container.encode(code, forKey: .code)
+        try container.encode(meaning, forKey: .meaning)
+        try container.encode(bytes, forKey: .bytes)
     }
+}
+
+struct GraphicsLine {
+    let index: Int
+    let graphics: [StandardSprite]
 }

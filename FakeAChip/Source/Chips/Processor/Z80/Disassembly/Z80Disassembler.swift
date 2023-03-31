@@ -10,6 +10,9 @@ import Foundation
 protocol DisassemblyDelegate {
     func disassemblyComplete(disassembly: DisassemblyModel)
     func logToScreen(log: String)
+
+    func reloadView()
+    func undefinedDataType() -> DataType
 }
 
 class Z80Disassembler {
@@ -88,7 +91,7 @@ class Z80Disassembler {
         let disassembly = DisassemblyModel()
         
         allRoutines.forEach{routine in
-            let disassemblySection = DisassemblySectionModel()
+            let disassemblySection = DisassemblySectionModel(model: disassembly)
             disassemblySection.startingLine = UInt16(routine.startLine)
             disassemblySection.title = routine.title
             disassemblySection.type = routine.type

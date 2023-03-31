@@ -11,94 +11,40 @@ struct DisassemblerGraphicSection: View {
     @ObservedObject var section: DisassemblySectionModel
     var body: some View {
         VStack{
-            Button{
-                chooseOffset(0)
-            } label: {
+            ForEach(section.graphicSprites, id: \.index) {graphicLine in
                 HStack{
-        ForEach(section.graphicOutput(offset: 0), id: \.self){image in
-            SpectrumSprite(sprite: image)
-                .frame(width: 32, height: 32, alignment: .center)
-        }
-            }
-        }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(1)
-            } label: {
-                HStack{
-                    ForEach(section.graphicOutput(offset: 1), id: \.self){image in
+                    Button{
+                        chooseOffset(graphicLine.index)
+                    } label: {
+                        Text("Select")
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    ForEach(graphicLine.graphics, id: \.self){image in
                         SpectrumSprite(sprite: image)
                             .frame(width: 32, height: 32, alignment: .center)
                     }
+
                 }
+
             }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(2)
-            } label: {
-                HStack{
-            ForEach(section.graphicOutput(offset: 2), id: \.self){image in
-                SpectrumSprite(sprite: image)
-                    .frame(width: 32, height: 32, alignment: .center)
-            }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(3)
-            } label: {
-                HStack{
-            ForEach(section.graphicOutput(offset: 3), id: \.self){image in
-                SpectrumSprite(sprite: image)
-                    .frame(width: 32, height: 32, alignment: .center)
-            }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(4)
-            } label: {
-                HStack{
-            ForEach(section.graphicOutput(offset: 4), id: \.self){image in
-                SpectrumSprite(sprite: image)
-                    .frame(width: 32, height: 32, alignment: .center)
-            }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(5)
-            } label: {
-                HStack{
-            ForEach(section.graphicOutput(offset: 5), id: \.self){image in
-                SpectrumSprite(sprite: image)
-                    .frame(width: 32, height: 32, alignment: .center)
-            }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(6)
-            } label: {
-                HStack{
-            ForEach(section.graphicOutput(offset: 6), id: \.self){image in
-                SpectrumSprite(sprite: image)
-                    .frame(width: 32, height: 32, alignment: .center)
-            }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button{
-                chooseOffset(7)
-            } label: {
-                HStack{
-                    ForEach(section.graphicOutput(offset: 7), id: \.self){image in
-                        SpectrumSprite(sprite: image)
-                            .frame(width: 32, height: 32, alignment: .center)
-                    }
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
+
+   //         ForEach(0..<8) { i in
+//
+//            ForEach(section.graphicSprites, id: \.index){graphicSet in
+//                HStack{
+//                    Button{
+//                        chooseOffset(graphicSet.index)
+//                    } label: {
+//                        Text("Select")
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+//                    ForEach(section.graphicOutput(offset: i), id: \.self){image in
+//                        SpectrumSprite(sprite: image)
+//                            .frame(width: 32, height: 32, alignment: .center)
+//                    }
+//
+//                }
+//            }
         }
     }
 
