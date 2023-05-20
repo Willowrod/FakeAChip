@@ -226,4 +226,8 @@ class CPU: CoreDelegate {
     func loadSnapshot(from: String) {
 
     }
+
+    func loadTap(fileName: String) {
+        
+    }
 }

@@ -164,6 +164,13 @@ extension Speccy {
         tzx.setControlDelegate(del: data?.headerData.tapePlayerData)
         data?.headerData.tapePlayerData.tape = tzx
     }
+
+    func importTAP(tapFile: String, path: String? = nil){
+        let tap = TAPFormat.init(filename: tapFile, path: path)
+        loadingTStates = 0
+        tap.setControlDelegate(del: data?.headerData.tapePlayerData)
+        data?.headerData.tapePlayerData.tape = tap
+    }
     
     
     

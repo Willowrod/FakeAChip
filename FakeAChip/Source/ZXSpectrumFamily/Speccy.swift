@@ -264,4 +264,8 @@ joystickInteractionInternal(key: key, pressed: pressed)
     override func loadSnapshot(from: String) {
         loadSnapshotInternal(from: from)
     }
+
+    override func loadTap(fileName: String) {
+importTAP(tapFile: fileName)
+    }
 }

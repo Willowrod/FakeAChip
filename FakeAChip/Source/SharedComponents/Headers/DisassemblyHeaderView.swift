@@ -26,6 +26,8 @@ struct DisassemblyHeaderView: View {
                 disassembly.showDisassemblySettings = true
             }
 
+            
+
 //            Button("Create"){
 //                print("Create a new Disassembly")
 //                createDisassembly()

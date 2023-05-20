@@ -1022,8 +1022,17 @@ extension Z80 {
             // kurrentOpCode= "PUSH HL (HL = \(HL.hex())"
             instructionComplete(states: 11) //returnOpCode(v: code, c: "PUSH HL", m: " ", l: 1)
         case 0xE6:
+let x=a()
             aR().aND(byte: byte1)
+            if PC > 0x4000 {
+                print("A: \(x.hex()) - n: \(byte1.hex()) - F: \(f().hex())")
+            }
             // kurrentOpCode= "AND A,n (\(oldA.hex()) & \(byte1.hex()) = \(a().hex()))"
+
+
+
+
+
             instructionComplete(states: 7, length: 2) //returnOpCode(v: code, c: "AND ±", m: "Update A to only contain bytes set in both A and the value ±", l: 2)
             break
         case 0xE7:

@@ -190,6 +190,7 @@ class DisassemblyData: ObservableObject, DisassemblyDelegate {
         _ = Z80Disassembler.init(withData: data, knownJumpPoints: knownJumpPoints, fromPC: fromPC, delegate: self)
         disassembly.snapshot = fakeAChip.currentComputer().dumpSnapshot()
         currentMemory = disassembly.snapshot.splitToBytesROM(separator: " ")
+        print("Disassembly complete")
     }
 
     func disassemblyComplete(disassembly: DisassemblyModel) {

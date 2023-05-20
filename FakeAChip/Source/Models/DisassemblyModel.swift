@@ -210,6 +210,8 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
     }
 
     func resolveData(undefinedType: DataType) {
+
+        print("Resolving \(undefinedType.rawValue)")
         switch type {
         case .CODE:
             //DisassemblerCodeSection(section: section)
@@ -253,16 +255,27 @@ class DisassemblySectionModel: ObservableObject, Identifiable, Codable {
         }
     }
     
-    func textOutput(offset: Int = -64) -> String {
+    func textOutput(offset: Int = 32) -> String { //-64
         var string = ""
         bytes.forEach{byte in
+
+   //         print("Parsing \(byte)")
+
+            if byte > 128 {
+                let overloadedByte = byte - 128
+                if overloadedByte >= 0x20 + offset, overloadedByte <= 0x7F + offset{
+     //              print("Byte is overloaded - value = \(overloadedByte)")
+                    let myASCIICharacter = Int(overloadedByte) - offset
+                    string = "\(string)<\(myASCIICharacter.toZXCharacter())>"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
+                }
+            } else
             if byte >= 0x20 + offset, byte <= 0x7F + offset{
-           //     print("Parsing \(byte) + \(offset)")
                 let myASCIICharacter = Int(byte) - offset
                 string = "\(string)\(myASCIICharacter.toZXCharacter())"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
             } else {
                 string = "\(string)~"
             }
+   //         print("Current value is '\(string)'")
         }
         textOutputValue = string
         return string

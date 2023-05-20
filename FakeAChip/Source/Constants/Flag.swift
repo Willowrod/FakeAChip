@@ -11,7 +11,9 @@ class Flag {
     static let SUBTRACT = 1
     static let PARITY = 2
     static let OVERFLOW = 2
+    static let THREE = 3
     static let HALF_CARRY = 4
+    static let FIVE = 5
     static let ZERO = 6
     static let SIGN = 7
     

@@ -27,13 +27,15 @@ struct HeaderView: View {
                 case .Disassembly:
                     Picker(selection: $currentHeader, label: Text("")) {
                         Text("Main").tag(HeaderType.mainHeader)
-                        Text("Disassebler").tag(HeaderType.disassemblyHeader)
+                        Text("Disassembler").tag(HeaderType.disassemblyHeader)
+                        Text("Emulator").tag(HeaderType.emulatorHeader)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 case .Code:
                     Picker(selection: $currentHeader, label: Text("")) {
                         Text("Main").tag(HeaderType.mainHeader)
                         Text("Code").tag(HeaderType.codeHeader)
+                        Text("Emulator").tag(HeaderType.emulatorHeader)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }

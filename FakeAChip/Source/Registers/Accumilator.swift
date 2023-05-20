@@ -109,7 +109,14 @@ class Accumilator: Register {
     func aND(byte: UInt8){
         var byteValue = value()
         byteValue = byteValue & byte
-        Z80.F.ld(value: Z80.hBit | Z80.sz53pvTable[Int(byteValue)])
+        Z80.F.clear(bit: Flag.CARRY)
+        Z80.F.clear(bit: Flag.SUBTRACT)
+        Z80.F.parity(passedValue: byteValue)
+        Z80.F.sign(passedValue: byteValue)
+        Z80.F.zero(passedValue: byteValue)
+       // Z80.F.set(bit: Flag.THREE, value: byteValue.isSet(bit: Flag.THREE))
+       // Z80.F.set(bit: Flag.FIVE, value: byteValue.isSet(bit: Flag.FIVE))
+        //Z80.F.ld(value: Z80.hBit | Z80.sz53pvTable[Int(byteValue)])
         ld(value: byteValue)
     }
     
@@ -128,7 +135,6 @@ class Accumilator: Register {
     
     func aND(){
         let byteValue = value()
-        
         Z80.F.ld(value: Z80.hBit | Z80.sz53pvTable[Int(byteValue)])
         ld(value: byteValue)
     }
@@ -261,6 +267,8 @@ class Accumilator: Register {
         } else {
             Z80.F.clear(bit: Flag.HALF_CARRY)
         }
+
+        Z80.F.ld(value: 0x13)
         ld(value: byteValue)
     }
     

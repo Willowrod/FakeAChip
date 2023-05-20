@@ -420,7 +420,7 @@ class Z80Disassembler {
         }
     }
     
-    func routineLengthChunk(_ start: Int, chunkEnd: Int, textOffset: Int = 16) -> Int{ // Standard offset = 0x20
+    func routineLengthChunk(_ start: Int, chunkEnd: Int, textOffset: Int = 32) -> Int{ // Standard offset = 0x20
         if start < 0x5B00 {
             return 0x5B00
         }
@@ -440,7 +440,17 @@ class Z80Disassembler {
                     nonTextBytes.removeAll()
                 }
             } else {
-                if textBytes.count > minimumTextLength {
+                var isOverloaded = false
+                var overloadedByte = byte
+                if (byte > 128) {
+overloadedByte -= 128
+
+                    if overloadedByte >= textOffset && overloadedByte <= 0x5F + textOffset{
+                        textBytes.append(byte)
+                        isOverloaded = true
+                    }
+                }
+                if textBytes.count > minimumTextLength || isOverloaded {
                     addChunkOfData(textBytes, startChunk: chunkStart, type: .POTENTIALTEXT, offset: textOffset)
                     chunkStart += textBytes.count
                     textBytes.removeAll()
@@ -448,8 +458,12 @@ class Z80Disassembler {
                     nonTextBytes.append(contentsOf: textBytes)
                     textBytes.removeAll()
                 }
+
+                if !isOverloaded {
+                    nonTextBytes.append(byte)
+                }
                 
-                nonTextBytes.append(byte)
+     //           nonTextBytes.append(byte)
                 if nonTextBytes.count > maxUnknownSectionLength {
                     addChunkOfData(nonTextBytes, startChunk: chunkStart, type: .UNDEFINED)
                     chunkStart += nonTextBytes.count
@@ -475,7 +489,7 @@ class Z80Disassembler {
         return chunkEnd
     }
     
-    func addChunkOfData(_ data: [UInt8], startChunk: Int, type: DataType, offset: Int = 0x00){
+    func addChunkOfData(_ data: [UInt8], startChunk: Int, type: DataType, offset: Int = 32){
         let chunkEnd = startChunk + data.count
         var opCodeSet: [OpCode] = []
         var count = startChunk
@@ -503,11 +517,12 @@ class Z80Disassembler {
             if opcode.opCodeArray.count > 0{
             let byte = opcode.opCodeArray[0]
             if byte >= 0x20 + offset, byte <= 0x7F + offset{
-           //     print("Parsing \(byte) + \(offset)")
+                print("Parsing \(byte) + \(offset)")
                 let myASCIICharacter = Int(byte) - offset
                 string = "\(string)\(myASCIICharacter.toZXCharacter())"  //\(String(UnicodeScalar(UInt8(byte - offset + 0x20))))"
             } else {
                 string = "\(string)~"
+                print("Unable to Parse \(byte)")
             }
             }
         }

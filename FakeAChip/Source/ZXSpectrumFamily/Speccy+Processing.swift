@@ -57,7 +57,12 @@ extension Speccy {
                         thisPC = PC
                         let byte = fetchRam(location: PC)
                         self.doAdditionalPreProcessing()
+//                        if (byte == 0x27) {
+//                            print("DAA used at \(PC)")
+//                        }
+
                             opCode(byte: byte)
+
                         self.doAdditionalPostProcessing()
                     }
                     if currentTStates >= tStatesPerFrame {
@@ -117,7 +122,8 @@ extension Speccy {
     func doAdditionalPreProcessingInternal(){
         //                                                if PC == 0x9c26 {
         //                                                    print("Breaking here -  A: \(a().hex()) F: (\(String(f(), radix: 2))) HL: \(String(HL.value(), radix: 16))  BC: \(String(BC.value(), radix: 16)) DE: \(String(DE.value(), radix: 16))")
-        //                                                }
+        //
+   // }
     }
     
     func doAdditionalPostProcessingInternal(){
@@ -125,6 +131,9 @@ extension Speccy {
             beeper.updateSample(UInt32(currentTStates), beep: clicks)
         }
     }
+
+func doAdditionalOpCodeProcessing(byte: UInt8) {
+}
     
     func runInterupt() {
         if (interupt){

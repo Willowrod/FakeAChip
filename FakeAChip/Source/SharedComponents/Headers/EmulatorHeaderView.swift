@@ -24,6 +24,11 @@ struct EmulatorHeaderView: View {
                     loadEmulation()
                 }
                 Spacer()
+
+                Button("TAP"){
+                    print("Load Tap")
+                    loadTap()
+                }
                 Text("Show Keyboard:")
                 Toggle("", isOn: $emulatorData.keyboardShowing).labelsHidden()
             }
@@ -37,6 +42,10 @@ struct EmulatorHeaderView: View {
     
     func loadEmulation() {
         computer.loadEmulation()
+    }
+
+    func loadTap() {
+        computer.loadTap(fileName: "z80doc")
     }
     
 }

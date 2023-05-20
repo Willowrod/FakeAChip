@@ -335,6 +335,15 @@
 		CDD5FD1D26F12AC4009C3822 /* Speccy+ROM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16BD0A26D5000900151830 /* Speccy+ROM.swift */; };
 		CDD5FD1E26F12ACA009C3822 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53F25FA6BD400731EDA /* SceneDelegate.swift */; };
 		CDD5FD1F26F12ACA009C3822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CC53D25FA6BD400731EDA /* AppDelegate.swift */; };
+		CDEE8AD12A0585F6005699D5 /* aa.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8ACF2A0585F6005699D5 /* aa.tap */; };
+		CDEE8AD22A0585F6005699D5 /* ar.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD02A0585F6005699D5 /* ar.tap */; };
+		CDEE8ADA2A05860A005699D5 /* z80ccfscr.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD32A05860A005699D5 /* z80ccfscr.tap */; };
+		CDEE8ADB2A05860A005699D5 /* z80docflags.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD42A05860A005699D5 /* z80docflags.tap */; };
+		CDEE8ADC2A05860A005699D5 /* z80flags.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD52A05860A005699D5 /* z80flags.tap */; };
+		CDEE8ADD2A05860A005699D5 /* z80ccf.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD62A05860A005699D5 /* z80ccf.tap */; };
+		CDEE8ADE2A05860A005699D5 /* z80full.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD72A05860A005699D5 /* z80full.tap */; };
+		CDEE8ADF2A05860A005699D5 /* z80memptr.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD82A05860A005699D5 /* z80memptr.tap */; };
+		CDEE8AE02A05860A005699D5 /* z80doc.tap in Resources */ = {isa = PBXBuildFile; fileRef = CDEE8AD92A05860A005699D5 /* z80doc.tap */; };
 		CDEF98762610AF0F00729043 /* DisassemblySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF98752610AF0F00729043 /* DisassemblySection.swift */; };
 		CDEF98772610AF0F00729043 /* DisassemblySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF98752610AF0F00729043 /* DisassemblySection.swift */; };
 		CDEF9973261263BD00729043 /* Z80Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF9972261263BC00729043 /* Z80Disassembler.swift */; };
@@ -625,6 +634,15 @@
 		CDD5FD0726F11E46009C3822 /* EmulatorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorHeaderView.swift; sourceTree = "<group>"; };
 		CDD5FD0A26F11EAE009C3822 /* EmulatorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorData.swift; sourceTree = "<group>"; };
 		CDE9E118287236F8008787D7 /* ZXLoaderSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZXLoaderSDK; path = ../ZXLoaderSDK; sourceTree = "<group>"; };
+		CDEE8ACF2A0585F6005699D5 /* aa.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = aa.tap; sourceTree = "<group>"; };
+		CDEE8AD02A0585F6005699D5 /* ar.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar.tap; sourceTree = "<group>"; };
+		CDEE8AD32A05860A005699D5 /* z80ccfscr.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80ccfscr.tap; sourceTree = "<group>"; };
+		CDEE8AD42A05860A005699D5 /* z80docflags.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80docflags.tap; sourceTree = "<group>"; };
+		CDEE8AD52A05860A005699D5 /* z80flags.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80flags.tap; sourceTree = "<group>"; };
+		CDEE8AD62A05860A005699D5 /* z80ccf.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80ccf.tap; sourceTree = "<group>"; };
+		CDEE8AD72A05860A005699D5 /* z80full.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80full.tap; sourceTree = "<group>"; };
+		CDEE8AD82A05860A005699D5 /* z80memptr.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80memptr.tap; sourceTree = "<group>"; };
+		CDEE8AD92A05860A005699D5 /* z80doc.tap */ = {isa = PBXFileReference; lastKnownFileType = file; path = z80doc.tap; sourceTree = "<group>"; };
 		CDEF98752610AF0F00729043 /* DisassemblySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblySection.swift; sourceTree = "<group>"; };
 		CDEF9972261263BC00729043 /* Z80Disassembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Z80Disassembler.swift; sourceTree = "<group>"; };
 		CDEF997B261263CE00729043 /* OpCodeDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpCodeDefs.swift; sourceTree = "<group>"; };
@@ -1067,6 +1085,15 @@
 		CDA1725B260495EE00910C23 /* Roms */ = {
 			isa = PBXGroup;
 			children = (
+				CDEE8AD62A05860A005699D5 /* z80ccf.tap */,
+				CDEE8AD32A05860A005699D5 /* z80ccfscr.tap */,
+				CDEE8AD92A05860A005699D5 /* z80doc.tap */,
+				CDEE8AD42A05860A005699D5 /* z80docflags.tap */,
+				CDEE8AD52A05860A005699D5 /* z80flags.tap */,
+				CDEE8AD72A05860A005699D5 /* z80full.tap */,
+				CDEE8AD82A05860A005699D5 /* z80memptr.tap */,
+				CDEE8AD02A0585F6005699D5 /* ar.tap */,
+				CDEE8ACF2A0585F6005699D5 /* aa.tap */,
 				CDA1725C260495F800910C23 /* ZXSpectrumFamily */,
 			);
 			path = Roms;
@@ -1473,23 +1500,32 @@
 				CDB831B327906B32001C9D97 /* circle.z80 in Resources */,
 				CDD319532745A84900C1DA4D /* Invincible Island (1983)(Richard Shepherd Software).zip in Resources */,
 				CDD319492745A84900C1DA4D /* Feud (1987)(Bulldog).zip in Resources */,
+				CDEE8AD12A0585F6005699D5 /* aa.tap in Resources */,
+				CDEE8ADF2A05860A005699D5 /* z80memptr.tap in Resources */,
 				CDD319512745A84900C1DA4D /* Jet Set Willy II - The Final Frontier (1985)(Software Projects).zip in Resources */,
 				CDD3192C2745A84900C1DA4D /* Shard of Inovar (1987)(Bulldog).zip in Resources */,
+				CDEE8AD22A0585F6005699D5 /* ar.tap in Resources */,
 				CDD319672745A84900C1DA4D /* Redhawk II - Kwah! (1986)(Melbourne House).zip in Resources */,
 				CDD319292745A84900C1DA4D /* Trap Door, The (1986)(Piranha).zip in Resources */,
 				CDD319722745A84900C1DA4D /* How to be a Complete Bastard (1987)(Virgin Games).zip in Resources */,
 				CDD319422745A84900C1DA4D /* Jasper (1984)(Micromega).zip in Resources */,
+				CDEE8ADB2A05860A005699D5 /* z80docflags.tap in Resources */,
 				CDD319482745A84900C1DA4D /* Booty (1984)(Firebird Software).zip in Resources */,
+				CDEE8ADE2A05860A005699D5 /* z80full.tap in Resources */,
 				CDD3193A2745A84900C1DA4D /* Redhawk (1986)(Melbourne House).zip in Resources */,
 				CDD3195F2745A84900C1DA4D /* Movie (1986)(Imagine Software).zip in Resources */,
 				CDD319792745A84900C1DA4D /* Back to Skool (1985)(Microsphere).zip in Resources */,
+				CDEE8ADC2A05860A005699D5 /* z80flags.tap in Resources */,
+				CDEE8AE02A05860A005699D5 /* z80doc.tap in Resources */,
 				CDD3194A2745A84900C1DA4D /* Paperboy (1986)(Elite Systems).zip in Resources */,
 				CDD3195E2745A84900C1DA4D /* Kobyashi Naru (1987)(Mastertronic).zip in Resources */,
 				CDD3193F2745A84900C1DA4D /* Transylvanian Tower (1982)(Richard Shepherd Software).zip in Resources */,
 				CDD3196A2745A84900C1DA4D /* Three Weeks in Paradise (1985)(Mikro-Gen).zip in Resources */,
 				CDD319632745A84900C1DA4D /* Chiller (1985)(Mastertronic).zip in Resources */,
+				CDEE8ADA2A05860A005699D5 /* z80ccfscr.tap in Resources */,
 				CDD319522745A84900C1DA4D /* Manic Miner (1983)(Software Projects).zip in Resources */,
 				CDD319382745A84900C1DA4D /* Wriggler (1985)(Romantic Robot UK).zip in Resources */,
+				CDEE8ADD2A05860A005699D5 /* z80ccf.tap in Resources */,
 				CDD3195D2745A84900C1DA4D /* Marsport (1985)(Gargoyle Games).zip in Resources */,
 				CDD3194B2745A84900C1DA4D /* Silicon Dreams Trilogy II - Return to Eden (1984)(Level 9 Computing).zip in Resources */,
 				CD0CC54425FA6BD600731EDA /* Assets.xcassets in Resources */,

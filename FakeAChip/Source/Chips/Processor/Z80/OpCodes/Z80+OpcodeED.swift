@@ -346,7 +346,8 @@ originalByte = fetchRam(location: hl().value())
             spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
             performOut(port: c(), map: b(), source: .SPARE)
             hl().inc()
-            BC.decHigh()
+            //BC.decHigh()
+            bc().dec()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {
@@ -422,7 +423,8 @@ originalByte = fetchRam(location: hl().value())
             spareRegister = fetchRam(location: hl().value()) //.ld(value: fetchRam(location: hl().value()))
             performOut(port: c(), map: b(), source: .SPARE)
             hl().dec()
-            BC.decHigh()
+            //BC.decHigh()
+            bc().dec()
             if (bc().value() == 0){
                 instructionComplete(states: 16)
             } else {
