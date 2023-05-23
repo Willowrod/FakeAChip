@@ -1,33 +1,16 @@
 //
-//  FakeAChipTests.swift
+//  Z80RegisterPerformanceTests.swift
 //  FakeAChipTests
 //
-//  Created by Mike Hall on 11/03/2021.
+//  Created by Mike Hall on 23/05/2023.
 //
 
 import XCTest
-@testable import FakeAChip
 
-class FakeAChipTests: BaseTest {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+final class Z80RegisterPerformanceTests: BaseTest {
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
     func testLoadAPerformance() throws {
@@ -42,17 +25,6 @@ class FakeAChipTests: BaseTest {
         }
     }
 
-    func testLoadFPerformance() throws {
-        // This is an example of a performance test case.
-        measure {
-            for _ in 0...10000 {
-                for a in 0...255 {
-                    z80.ldF(value: UInt8(a))
-  //                  XCTAssert(z80.f() == a)
-                }
-            }
-        }
-    }
 
     func testLoadBCPerformance() throws {
         // This is an example of a performance test case.
@@ -88,6 +60,19 @@ class FakeAChipTests: BaseTest {
                 for a in 0...0xFFFF {
                     z80.AF.ld(value: UInt16(a))
                     XCTAssert(z80.AF.value() == a)
+                }
+            }
+        }
+    }
+
+
+    func testLoadFPerformance() throws {
+        // This is an example of a performance test case.
+        measure {
+            for _ in 0...10000 {
+                for a in 0...255 {
+                    z80.ldF(value: UInt8(a))
+                    XCTAssert(z80.f() == a)
                 }
             }
         }
