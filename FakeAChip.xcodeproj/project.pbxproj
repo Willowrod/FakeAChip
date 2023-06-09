@@ -221,6 +221,13 @@
 		CD1CF2BD2A1CBE7F005E040D /* FakeAChip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD9CFA4C281EE8C3001701DD /* FakeAChip.xcdatamodeld */; };
 		CD1CF2BE2A1CBEA4005E040D /* MockSpeccyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CF7BD287568B500F0C8AE /* MockSpeccyScreen.swift */; };
 		CD1CF2C22A1CD3DC005E040D /* Z80RegisterPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CF2C12A1CD3DC005E040D /* Z80RegisterPerformanceTests.swift */; };
+		CD1CF2F82A233FB5005E040D /* test1.z80 in Resources */ = {isa = PBXBuildFile; fileRef = CD1CF2F72A233FB5005E040D /* test1.z80 */; };
+		CD1CF3022A234743005E040D /* testz80.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD1CF3012A234743005E040D /* testz80.sna */; };
+		CD1CF3042A237263005E040D /* zdoc1.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD1CF3032A237262005E040D /* zdoc1.sna */; };
+		CD1CF30A2A23945A005E040D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CF3092A23945A005E040D /* TestModel.swift */; };
+		CD1CF30D2A2396E9005E040D /* 01.json in Resources */ = {isa = PBXBuildFile; fileRef = CD1CF30C2A2396E9005E040D /* 01.json */; };
+		CD1CF30E2A239AFF005E040D /* actionbikersna.sna in Resources */ = {isa = PBXBuildFile; fileRef = CD9CFA44281ACA5E001701DD /* actionbikersna.sna */; };
+		CD1CF30F2A239B5A005E040D /* 01.json in Resources */ = {isa = PBXBuildFile; fileRef = CD1CF30C2A2396E9005E040D /* 01.json */; };
 		CD26451B26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451C26D94CCB0072B09F /* Z80Type1FormatWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */; };
 		CD26451F26D9FF680072B09F /* DisassemblyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD26451E26D9FF680072B09F /* DisassemblyData.swift */; };
@@ -608,6 +615,11 @@
 		CD16BD0C26D5035000151830 /* SpeccyUnused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeccyUnused.swift; sourceTree = "<group>"; };
 		CD16BD0E26D5048B00151830 /* Speccy+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Speccy+Setup.swift"; sourceTree = "<group>"; };
 		CD1CF2C12A1CD3DC005E040D /* Z80RegisterPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80RegisterPerformanceTests.swift; sourceTree = "<group>"; };
+		CD1CF2F72A233FB5005E040D /* test1.z80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.z80; sourceTree = "<group>"; };
+		CD1CF3012A234743005E040D /* testz80.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = testz80.sna; sourceTree = "<group>"; };
+		CD1CF3032A237262005E040D /* zdoc1.sna */ = {isa = PBXFileReference; lastKnownFileType = file; path = zdoc1.sna; sourceTree = "<group>"; };
+		CD1CF3092A23945A005E040D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		CD1CF30C2A2396E9005E040D /* 01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 01.json; sourceTree = "<group>"; };
 		CD26451A26D94CCB0072B09F /* Z80Type1FormatWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z80Type1FormatWrite.swift; sourceTree = "<group>"; };
 		CD26451E26D9FF680072B09F /* DisassemblyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyData.swift; sourceTree = "<group>"; };
 		CD26460026DD62290072B09F /* DisassemblyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisassemblyHeaderView.swift; sourceTree = "<group>"; };
@@ -922,6 +934,7 @@
 		CD0CC55325FA6BD700731EDA /* FakeAChipTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD1CF30B2A2396A9005E040D /* Tests */,
 				CDA1729C2604B37000910C23 /* allTestP_ED_ALL.swift */,
 				CDA172962604B37000910C23 /* allTests80toca.swift */,
 				CDA172972604B37000910C23 /* allTestsP_CB00to7f.swift */,
@@ -938,6 +951,7 @@
 				CD0CC55425FA6BD700731EDA /* FakeAChipTests.swift */,
 				CD0CC55625FA6BD700731EDA /* Info.plist */,
 				CD1CF2C12A1CD3DC005E040D /* Z80RegisterPerformanceTests.swift */,
+				CD1CF3092A23945A005E040D /* TestModel.swift */,
 			);
 			path = FakeAChipTests;
 			sourceTree = "<group>";
@@ -1102,6 +1116,14 @@
 			path = SharedComponents;
 			sourceTree = "<group>";
 		};
+		CD1CF30B2A2396A9005E040D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CD1CF30C2A2396E9005E040D /* 01.json */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		CD26460226DD6A8A0072B09F /* HelperFunctions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1248,6 +1270,9 @@
 		CDA1725B260495EE00910C23 /* Roms */ = {
 			isa = PBXGroup;
 			children = (
+				CD1CF3032A237262005E040D /* zdoc1.sna */,
+				CD1CF3012A234743005E040D /* testz80.sna */,
+				CD1CF2F72A233FB5005E040D /* test1.z80 */,
 				CDEE8AD62A05860A005699D5 /* z80ccf.tap */,
 				CDEE8AD32A05860A005699D5 /* z80ccfscr.tap */,
 				CDEE8AD92A05860A005699D5 /* z80doc.tap */,
@@ -1659,6 +1684,8 @@
 				CDD3196E2745A84900C1DA4D /* Gift from the Gods (1984)(Ocean).zip in Resources */,
 				CDD319392745A84900C1DA4D /* Rebel Planet (1986)(U.S. Gold).zip in Resources */,
 				CDD319762745A84900C1DA4D /* Chuckie Egg (1983)(A & F Software).zip in Resources */,
+				CD1CF3022A234743005E040D /* testz80.sna in Resources */,
+				CD1CF3042A237263005E040D /* zdoc1.sna in Resources */,
 				CDD3194C2745A84900C1DA4D /* Action Biker (1985)(Mastertronic).zip in Resources */,
 				CDD3192D2745A84900C1DA4D /* Give my Regards to Broad Street (1985)(Mind Games).zip in Resources */,
 				CDD3196B2745A84900C1DA4D /* Quest for the Holy Grail, The (1984)(Mastertronic).zip in Resources */,
@@ -1690,6 +1717,7 @@
 				CDD3193A2745A84900C1DA4D /* Redhawk (1986)(Melbourne House).zip in Resources */,
 				CDD3195F2745A84900C1DA4D /* Movie (1986)(Imagine Software).zip in Resources */,
 				CDD319792745A84900C1DA4D /* Back to Skool (1985)(Microsphere).zip in Resources */,
+				CD1CF30F2A239B5A005E040D /* 01.json in Resources */,
 				CDEE8ADC2A05860A005699D5 /* z80flags.tap in Resources */,
 				CDEE8AE02A05860A005699D5 /* z80doc.tap in Resources */,
 				CDD3194A2745A84900C1DA4D /* Paperboy (1986)(Elite Systems).zip in Resources */,
@@ -1709,6 +1737,7 @@
 				CDD319282745A84900C1DA4D /* Paperboy 2 (1992)(Mindscape International).zip in Resources */,
 				CDD319272745A84900C1DA4D /* Universal Hero (1986)(Mastertronic).zip in Resources */,
 				CDD319652745A84900C1DA4D /* Skool Daze (1985)(Microsphere).zip in Resources */,
+				CD1CF2F82A233FB5005E040D /* test1.z80 in Resources */,
 				CDD319772745A84900C1DA4D /* Matt Lucas (1986)(Players Software).zip in Resources */,
 				CDA172652604962100910C23 /* ZX128k+2.rom in Resources */,
 				CDD319342745A84900C1DA4D /* Silicon Dreams Trilogy III - The Worm in Paradise v2 (1985)(Level 9 Computing).zip in Resources */,
@@ -1731,6 +1760,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1CF30D2A2396E9005E040D /* 01.json in Resources */,
 				CD9CFA56281F2A4C001701DD /* Booty (1984)(Firebird Software).z80 in Resources */,
 				CD9AD733267C88EA0095FDF6 /* GoogleService-Info.plist in Resources */,
 				CDA172622604962100910C23 /* ZX128k+3.rom in Resources */,
@@ -1738,6 +1768,7 @@
 				CDCE4A042939C0D9005FE338 /* Colours.xcassets in Resources */,
 				CDA172682604962100910C23 /* ZX48k.rom in Resources */,
 				CDA172642604962100910C23 /* ZX128k.rom in Resources */,
+				CD1CF30E2A239AFF005E040D /* actionbikersna.sna in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,6 +2026,7 @@
 				CDEF9B2C261C944500729043 /* EmptyCPU.swift in Sources */,
 				CDA172B82604B37000910C23 /* allTestsP_CB80toff.swift in Sources */,
 				CD1CF2972A1CB6A1005E040D /* LoadSaveDisassembly.swift in Sources */,
+				CD1CF30A2A23945A005E040D /* TestModel.swift in Sources */,
 				CD0CC5AD25FA6C4000731EDA /* ZXColor.swift in Sources */,
 				CD891492260202FD00C75998 /* RegisterSetModel.swift in Sources */,
 				CD0CC5E125FF556200731EDA /* FakeAChipData.swift in Sources */,

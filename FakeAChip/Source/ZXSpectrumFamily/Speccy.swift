@@ -266,6 +266,7 @@ joystickInteractionInternal(key: key, pressed: pressed)
     }
 
     override func loadTap(fileName: String) {
-importTAP(tapFile: fileName)
+        importTAP(tapFile: "z80full")  //fileName)
+        //loadSnapshot(sna: "zdoc1")
     }
 }

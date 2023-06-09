@@ -10,10 +10,11 @@ import Foundation
 extension UInt16 {
     func highByte() -> UInt8 {
         return UInt8(self / 256)
+        // return UInt8((self & 0xff00) >> 8)
     }
     
     func lowByte() -> UInt8 {
-       return UInt8(self - ((self / 256) * 256))
+       return UInt8(self & 0xff)   //UInt8(self - ((self / 256) * 256))
     }
     
     func hex() -> String {

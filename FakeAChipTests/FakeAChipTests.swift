@@ -93,4 +93,54 @@ class FakeAChipTests: BaseTest {
         }
     }
 
+    func testHighLowByte() throws {
+        for a in 0x00...0xffff {
+            z80.BC.ld(word: UInt16(a))
+            print("BC = \(z80.BC.hex())")
+            XCTAssert(z80.b() == z80.BC.value().highByte())
+            XCTAssert(z80.c() == z80.BC.value().lowByte())
+        }
+    }
+
+    func testAndA() throws {
+        z80.BC.ld(word: 0xbbcc)
+        z80.DE.ld(word: 0xddee)
+        z80.HL.ld(word: 0x4411)
+        z80.IX.ld(word: 0xdd88)
+        z80.IY.ld(word: 0xfd77)
+
+        for ax in 0x00...0xff {
+            z80.ldA(value: UInt8(ax))  //A.ld(word: UInt8(a))
+            print("A = \(z80.a().hex())")
+            z80.accumilator().aND(byte: z80.IX.high())
+            let anded = z80.a()
+            z80.ldA(value: UInt8(ax))  //A.ld(word: UInt8(a))
+            print("A = \(z80.a().hex())")
+            z80.accumilator().aND(byte: 0xdd)
+            XCTAssert(z80.a() == anded)
+            XCTAssert(z80.f() == Z80.sz53pvTable[anded] | 0x10)
+        }
+    }
+
+    func testRl() throws {
+
+        for ax in 0x00...0xff {
+            z80.ldA(value: UInt8(ax))
+            z80.ldF(value: 0x00)
+            let rld = z80.a().rl()
+            print("A: \(z80.a().bin()) F: \(Z80.F.value().bin()) NewA: \(rld.bin())")
+ //           z80.ldA(value: rld)
+//            XCTAssert(z80.a() == 0x07)
+//            XCTAssert(Z80.F.value() == 0x05)
+        }
+
+    }
+
+    func testFromJson() throws {
+        let json = loadJson("01")
+        print ("JSON: \(json)")
+    }
+
+    
+
 }

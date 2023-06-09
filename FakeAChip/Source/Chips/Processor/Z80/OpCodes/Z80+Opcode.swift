@@ -1022,11 +1022,10 @@ extension Z80 {
             // kurrentOpCode= "PUSH HL (HL = \(HL.hex())"
             instructionComplete(states: 11) //returnOpCode(v: code, c: "PUSH HL", m: " ", l: 1)
         case 0xE6:
-let x=a()
             aR().aND(byte: byte1)
-            if PC > 0x4000 {
-                print("A: \(x.hex()) - n: \(byte1.hex()) - F: \(f().hex())")
-            }
+//            if PC > 0x4000 {
+//                print("A: \(x.hex()) - n: \(byte1.hex()) - F: \(f().hex())")
+//            }
             // kurrentOpCode= "AND A,n (\(oldA.hex()) & \(byte1.hex()) = \(a().hex()))"
 
 

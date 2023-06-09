@@ -109,14 +109,8 @@ class Accumilator: Register {
     func aND(byte: UInt8){
         var byteValue = value()
         byteValue = byteValue & byte
-        Z80.F.clear(bit: Flag.CARRY)
-        Z80.F.clear(bit: Flag.SUBTRACT)
-        Z80.F.parity(passedValue: byteValue)
-        Z80.F.sign(passedValue: byteValue)
-        Z80.F.zero(passedValue: byteValue)
-       // Z80.F.set(bit: Flag.THREE, value: byteValue.isSet(bit: Flag.THREE))
-       // Z80.F.set(bit: Flag.FIVE, value: byteValue.isSet(bit: Flag.FIVE))
-        //Z80.F.ld(value: Z80.hBit | Z80.sz53pvTable[Int(byteValue)])
+        let newF = Z80.sz53pvTable[byteValue] | 0x10
+        Z80.F.ld(value: newF)
         ld(value: byteValue)
     }
     
@@ -136,12 +130,11 @@ class Accumilator: Register {
     func aND(){
         let byteValue = value()
         Z80.F.ld(value: Z80.hBit | Z80.sz53pvTable[Int(byteValue)])
-        ld(value: byteValue)
     }
     
     func compare(byte: UInt8){
         let byteValue = value()
-            let byteValue16: UInt16 = UInt16(byteValue) &- UInt16(byte)
+        let byteValue16: UInt16 = UInt16(byteValue) &- UInt16(byte)
         
         let part1 = (byteValue & 0x88) >> 3
         let part2 = (byte & 0x88) >> 2
@@ -159,43 +152,43 @@ class Accumilator: Register {
     }
     
     func cpi(byte: UInt8, bc: UInt16){
-//        let byteValue = value()
-//            let byteValue16: UInt16 = UInt16(byteValue) &- UInt16(byte)
-//            Z80.F.sign(passedValue: byteValue16.lowByte())
-//            Z80.F.zero(passedValue: byteValue16.lowByte())
-//            Z80.F.set(bit: Flag.OVERFLOW, value: bc &- 1 != 0)
-//            Z80.F.halfCarrySB(passedValue: byteValue16.lowByte(), oldValue: byteValue)
-//            Z80.F.negative()
+        //        let byteValue = value()
+        //            let byteValue16: UInt16 = UInt16(byteValue) &- UInt16(byte)
+        //            Z80.F.sign(passedValue: byteValue16.lowByte())
+        //            Z80.F.zero(passedValue: byteValue16.lowByte())
+        //            Z80.F.set(bit: Flag.OVERFLOW, value: bc &- 1 != 0)
+        //            Z80.F.halfCarrySB(passedValue: byteValue16.lowByte(), oldValue: byteValue)
+        //            Z80.F.negative()
         compare(byte: byte)
     }
     
     func rlcA(){
         let byteValue = value()
-//        let bit7 = byteValue.isSet(bit: 7)
-//        byteValue = byteValue << 1
-//        Z80.F.set(bit: Flag.CARRY, value: bit7)
-//        byteValue = byteValue.set(bit: 0, value: bit7)
-//        Z80.F.clear(bit: Flag.SUBTRACT)
-//        Z80.F.clear(bit: Flag.HALF_CARRY)
-//        Z80.F.bits5And3(calculatedValue: byteValue)
-//        ld(value: byteValue)
+        //        let bit7 = byteValue.isSet(bit: 7)
+        //        byteValue = byteValue << 1
+        //        Z80.F.set(bit: Flag.CARRY, value: bit7)
+        //        byteValue = byteValue.set(bit: 0, value: bit7)
+        //        Z80.F.clear(bit: Flag.SUBTRACT)
+        //        Z80.F.clear(bit: Flag.HALF_CARRY)
+        //        Z80.F.bits5And3(calculatedValue: byteValue)
+        //        ld(value: byteValue)
         ld(value: (byteValue << 1) | (byteValue >> 7))
         Z80.F.ld(value: (Z80.F.value() & (Z80.pvBit | Z80.zBit | Z80.sBit)) | (value() & (Z80.cBit | Z80.threeBit | Z80.fiveBit)))
     }
     
     func rrcA(){
-       let byteValue = value()
-//        let bit0 = byteValue.isSet(bit: 0)
-//        byteValue = byteValue >> 1
-//        Z80.F.set(bit: Flag.CARRY, value: bit0)
-//        byteValue = byteValue.set(bit: 7, value: bit0)
-//        Z80.F.clear(bit: Flag.SUBTRACT)
-//        Z80.F.clear(bit: Flag.HALF_CARRY)
-//        Z80.F.bits5And3(calculatedValue: byteValue)
-//        ld(value: byteValue)
-//        ZilogZ80.f.value = (ZilogZ80.f.value & (ZilogZ80.pvBit | ZilogZ80.zBit | ZilogZ80.sBit)) | (value & ZilogZ80.cBit)
-//        value = (value >> 1) | (value << 7)
-//        ZilogZ80.f.value |= (value & (ZilogZ80.threeBit | ZilogZ80.fiveBit))
+        let byteValue = value()
+        //        let bit0 = byteValue.isSet(bit: 0)
+        //        byteValue = byteValue >> 1
+        //        Z80.F.set(bit: Flag.CARRY, value: bit0)
+        //        byteValue = byteValue.set(bit: 7, value: bit0)
+        //        Z80.F.clear(bit: Flag.SUBTRACT)
+        //        Z80.F.clear(bit: Flag.HALF_CARRY)
+        //        Z80.F.bits5And3(calculatedValue: byteValue)
+        //        ld(value: byteValue)
+        //        ZilogZ80.f.value = (ZilogZ80.f.value & (ZilogZ80.pvBit | ZilogZ80.zBit | ZilogZ80.sBit)) | (value & ZilogZ80.cBit)
+        //        value = (value >> 1) | (value << 7)
+        //        ZilogZ80.f.value |= (value & (ZilogZ80.threeBit | ZilogZ80.fiveBit))
         Z80.F.ld(value: (Z80.F.value() & (Z80.pvBit | Z80.zBit | Z80.sBit)) | (byteValue & Z80.cBit))
         ld(value: (byteValue >> 1) | (byteValue << 7))
         Z80.F.ld(value: Z80.F.value() | (value() & (Z80.threeBit | Z80.fiveBit)))
@@ -230,51 +223,95 @@ class Accumilator: Register {
     }
     
     func daA(){ // TODO: Flags!!!!
-        var byteValue = value()
-        let oldValue = byteValue
-        let lower = byteValue.lowerNibble()
-        let carry = Z80.F.isSet(bit: Flag.CARRY)
-        let halfCarry = Z80.F.isSet(bit: Flag.HALF_CARRY)
-        let negative = Z80.F.isSet(bit: Flag.SUBTRACT)
-        
+        let old = value()
         var correction: UInt8 = 0x00
-        
-        if (lower > 0x09 || halfCarry){
-            correction |= 0x06
-        }
-        
-        if (byteValue > 0x99 || carry){
-            correction |= 0x60
-            Z80.F.set(bit: Flag.CARRY)
-        } else {
-            Z80.F.clear(bit: Flag.CARRY)
-        }
-        
-        if (negative){
-            byteValue = byteValue &- correction
-        } else {
-            byteValue = byteValue &+ correction
-        }
-        
-        Z80.F.overFlow(passedValue: correction, oldValue: oldValue, newValue: byteValue)
-        Z80.F.sign(passedValue: byteValue)
-        Z80.F.zero(passedValue: byteValue)
-        Z80.F.bits5And3(calculatedValue: byteValue)
-        let originalBit4 = oldValue & 0x10
-        let computedBit4 = byteValue & 0x10
-        if originalBit4 ^ computedBit4 > 0 {
-            Z80.F.set(bit: Flag.HALF_CARRY)
-        } else {
-            Z80.F.clear(bit: Flag.HALF_CARRY)
-        }
+        var cFlag: UInt8 = 0x00
+        var hFlag: UInt8 = 0x00
 
-        Z80.F.ld(value: 0x13)
-        ld(value: byteValue)
+        let isHalfCarry = Z80.F.isSet(bit: Flag.HALF_CARRY)
+        let isCarry = Z80.F.isSet(bit: Flag.CARRY)
+        let isSubtraction = Z80.F.isSet(bit: Flag.SUBTRACT)
+
+        if isHalfCarry || (old & 0x0f) > 0x09 {
+            correction = correction &+ 0x06
+        }
+        if isCarry || old > 0x99 {
+            correction = correction &+ 0x60
+        }
+        if old > 0x99 {
+            cFlag = 0x01
+        }
+        var corrected = old &+ correction
+
+        if isSubtraction {
+            corrected = old &- correction
+        }
+        ld(value: corrected)
+        let hcS = Z80.F.value() & 0x12
+
+        // calculate H flag....
+//        if isSubtraction && !isHalfCarry {
+//
+//        } else {
+//            if (isSubtraction && isHalfCarry) {
+//                if old & 0x0f < 0x06 {
+//                    hFlag = 0x10
+//                }
+//            } else {
+//                if old & 0x0f > 0x09 {
+//                    hFlag = 0x10
+//                }
+//            }
+//        }
+
+        Z80.F.ld(value: ((Z80.F.value() & 0x02) | Z80.sz53pvTable[corrected] | cFlag | hcS)) //
+        //        print("Old: \(old.bin()) - OldF: \(oldF.bin()) - Corrected: \(corrected.bin()) - Mask: \(cFlag.bin()) - F: \(Z80.F.value().bin())")
+
+        //        var byteValue = value()
+        //        let oldValue = byteValue
+        //        let lower = byteValue.lowerNibble()
+        //        let carry = Z80.F.isSet(bit: Flag.CARRY)
+        //        let halfCarry = Z80.F.isSet(bit: Flag.HALF_CARRY)
+        //        let negative = Z80.F.isSet(bit: Flag.SUBTRACT)
+        //
+        //        var correction: UInt8 = 0x00
+        //
+        //        if (lower > 0x09 || halfCarry){
+        //            correction |= 0x06
+        //        }
+        //
+        //        if (byteValue > 0x99 || carry){
+        //            correction |= 0x60
+        //            Z80.F.set(bit: Flag.CARRY)
+        //        } else {
+        //            Z80.F.clear(bit: Flag.CARRY)
+        //        }
+        //
+        //        if (negative){
+        //            byteValue = byteValue &- correction
+        //        } else {
+        //            byteValue = byteValue &+ correction
+        //        }
+        //
+        //        Z80.F.overFlow(passedValue: correction, oldValue: oldValue, newValue: byteValue)
+        //        Z80.F.sign(passedValue: byteValue)
+        //        Z80.F.zero(passedValue: byteValue)
+        //        Z80.F.bits5And3(calculatedValue: byteValue)
+        //        let originalBit4 = oldValue & 0x10
+        //        let computedBit4 = byteValue & 0x10
+        //        if originalBit4 ^ computedBit4 > 0 {
+        //            Z80.F.set(bit: Flag.HALF_CARRY)
+        //        } else {
+        //            Z80.F.clear(bit: Flag.HALF_CARRY)
+        //        }
+        //
+        //        Z80.F.ld(value: 0x13)
+        //        ld(value: byteValue)
     }
     
     func cpl(){
         var byteValue = value()
-     byteValue = ~byteValue
+        byteValue = ~byteValue
         Z80.F.set(bit: Flag.HALF_CARRY)
         Z80.F.set(bit: Flag.SUBTRACT)
         Z80.F.bits5And3(calculatedValue: byteValue)

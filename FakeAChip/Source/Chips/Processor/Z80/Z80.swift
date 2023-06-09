@@ -53,7 +53,7 @@ class Z80: CPU {
     
     var isDebugging = false
     
-    let tState = Double(1) / Double(3494400)
+   // let tState = Double(1) / Double(3494400)
     
     var currentOpCode = ""
     

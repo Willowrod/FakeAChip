@@ -40,6 +40,9 @@ extension Z80 {
         case 0x47: //LD I,A
             I = a() //.ld(value: a())
             instructionComplete(states: 9)
+
+
+
         case 0x48: // TODO: IN C, (C)
             performIn(port: c(), map: b(), destination: .C)
         instructionComplete(states: 12)
@@ -89,6 +92,9 @@ extension Z80 {
         case 0x57: // LD A,I // TODO: LD A, I
             //aR().ld(value: I.value())
             aR().ld(value: I)
+            let caz: UInt8 = Z80.F.value() & 0x01
+            let pv: UInt8 = interupt2 ? 0x04 : 0x00
+            Z80.F.ld(value: Z80.sz53Table[a()] | caz | pv)
         instructionComplete(states: 9)
         case 0x58: // TODO: IN E, (C)
             performIn(port: c(), map: b(), destination: .E)
@@ -114,6 +120,9 @@ extension Z80 {
         case 0x5F: // LD A,R
             //aR().ld(value: R.value())
             aR().ld(value: R)
+            let caz: UInt8 = Z80.F.value() & 0x01
+            let pv: UInt8 = interupt2 ? 0x04 : 0x00
+            Z80.F.ld(value: Z80.sz53Table[a()] | caz | pv)
         instructionComplete(states: 9)
         case 0x60: // TODO: IN H, (C)
             performIn(port: c(), map: b(), destination: .H)
@@ -146,6 +155,14 @@ extension Z80 {
             let nA = (a() & 240) &+ hlLN
             aR().ld(value: nA)
             ldRam(location: hl().value(), value: nHL)
+
+            Z80.F.zero(passedValue: a())
+            Z80.F.parity(passedValue: a())
+            Z80.F.clearBit(bit: Flag.HALF_CARRY)
+            Z80.F.sign(passedValue: a())
+            Z80.F.bits5And3(calculatedValue: a())
+            Z80.F.positive()
+
         instructionComplete(states: 18)
         case 0x68: // TODO: IN L, (C)
             performIn(port: c(), map: b(), destination: .L)
@@ -241,7 +258,7 @@ extension Z80 {
             bc().dec()
             Z80.F.clear(bit: Flag.HALF_CARRY)
             Z80.F.clear(bit: Flag.SUBTRACT)
-            Z80.F.set(bit: Flag.PARITY, value: bc().value() != 1)
+            Z80.F.set(bit: Flag.PARITY, value: bc().value() > 0)
             Z80.F.set(bit: 3, value: bit35Bit.isSet(bit: 3))
             Z80.F.set(bit: 5, value: bit35Bit.isSet(bit: 1))
             
@@ -267,7 +284,7 @@ extension Z80 {
             bc().dec()
             Z80.F.clear(bit: Flag.HALF_CARRY)
             Z80.F.clear(bit: Flag.SUBTRACT)
-            Z80.F.set(bit: Flag.PARITY, value: bc().value() != 1)
+            Z80.F.set(bit: Flag.PARITY, value: bc().value() > 0)
             Z80.F.set(bit: 3, value: bit35Bit.isSet(bit: 3))
             Z80.F.set(bit: 5, value: bit35Bit.isSet(bit: 1))
         instructionComplete(states: 16)

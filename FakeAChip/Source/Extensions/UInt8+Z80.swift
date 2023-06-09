@@ -8,6 +8,19 @@
 import Foundation
 
 extension UInt8 {
+    func bcdCorrect(isHalfCarry: Bool, isCarry: Bool) -> (value: UInt8, carryMask: UInt8) {
+        var temp = self
+        var carry: UInt8 = 0x00
+        if isHalfCarry || self.lowerNibble() > 0x09 {
+            temp = temp &+ 0x06
+            //carry = carry | 0x10 // half carry?
+        }
+        if isCarry || self > 0x99 {
+            temp = temp &+ 0x60
+            carry = 0x01
+        }
+        return (value: temp, carryMask: carry)
+    }
 //    mutating func inc() {
 //        let oldValue = self
 //        self = self &+ 1

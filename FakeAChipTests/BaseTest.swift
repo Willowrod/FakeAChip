@@ -39,5 +39,34 @@ class BaseTest: XCTestCase {
         }
     }
 
+    func loadJson(_ testID: String) -> [TestModel] {
+       // let filename = getPath(forFile: "\(testID).json")
+        print("Looking for file \(testID).json")
+        if let filePath = Bundle.main.path(forResource: testID, ofType: "json") {
+            print("Is it in \(filePath)?")
+            do {
+                guard let disassembly = FileManager.default.contents(atPath: filePath) else {
+                    print("Failed to read data")
+                    return []
+                }
+                let json = try JSONDecoder().decode([TestModel].self, from: disassembly) //JSONEncoder().encode(self)
+                
+                return json
+            } catch {
+                print("Something bad happened.... \(error.localizedDescription)")
+            }
+        }
+        return []
+    }
+
+    func testRun(_ testID: String) {
+        let models = loadJson(testID)
+        models.forEach { model in
+
+
+        }
+    }
+
+    
   
 }

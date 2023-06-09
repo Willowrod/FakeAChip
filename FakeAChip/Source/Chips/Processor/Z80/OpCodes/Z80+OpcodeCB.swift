@@ -76,6 +76,7 @@ extension Z80 {
                 case 2: //RL
                     register = register.rl()
                     writeRegister(byte: byte, value: register)
+            print("Byte = \(byte)")
                     if effectiveByte == 6 {
                         instructionComplete(states: 15)
                     } else {

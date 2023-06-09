@@ -45,7 +45,7 @@ struct EmulatorHeaderView: View {
     }
 
     func loadTap() {
-        computer.loadTap(fileName: "z80doc")
+        computer.loadTap(fileName: "z80docflags")
     }
     
 }

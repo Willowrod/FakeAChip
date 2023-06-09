@@ -92,38 +92,38 @@ extension UInt8 {
     }
     
     func rrc() -> UInt8 {
-//        let bit0 = self.isSet(bit: 0)
-//        var newValue = self >> 1
-//        newValue = newValue.set(bit: 7, value: bit0)
-//        Z80.F.clearBit(bit: Flag.HALF_CARRY)
-//        Z80.F.positive()
-//        Z80.F.set(bit: Flag.CARRY, value: bit0)
-//        Z80.F.set(bit: Flag.ZERO, value: newValue == 0)
-//        Z80.F.bits5And3(calculatedValue: newValue)
-//        Z80.F.sign(passedValue: newValue)
-//        Z80.F.parity(passedValue: newValue)
-//        return newValue
-        
-        
-        Z80.F.ld(value: self & Z80.cBit)
-           let value = (self >> 1) | (self << 7)
-        Z80.F.ld(value: Z80.F.value() | Z80.sz53pvTable[Int(value)])
+
+let bit0 = self & 0x01
+
+let bit7 = bit0 << 7
+
+        let value = self >> 1 | bit7
+
+
+        Z80.F.clearBit(bit: Flag.HALF_CARRY)
+        Z80.F.positive()
+        Z80.F.set(bit: Flag.ZERO, value: value == 0)
+        Z80.F.bits5And3(calculatedValue: value)
+        Z80.F.sign(passedValue: value)
+        Z80.F.parity(passedValue: value)
+
+        Z80.F.set(bit: Flag.CARRY, value: bit0 > 0)
         return value
     }
     
     func rl() -> UInt8 {
-        let rltemp = self
-        var newValue = self << 1
-        newValue = newValue.set(bit: 0, value: Z80.F.readBit(bit: Flag.CARRY))
-        Z80.F.ld(value: (rltemp >> 7) | Z80.sz53pvTable[Int(newValue)])
+        let carry = Z80.F.value() & 0x01
+        let outgoing: UInt8 = self & 0x80 > 0 ? 0x01 : 0x00
+        let newValue: UInt8 = (self << 1 | carry) & 0xff
+        Z80.F.ld(value: outgoing | Z80.sz53pvTable[Int(newValue)])
         return newValue
     }
     
     func rr() -> UInt8 {
-        let rrtemp = self
-        var newValue = self >> 1
-        newValue = newValue.set(bit: 7, value: Z80.F.readBit(bit: Flag.CARRY))
-        Z80.F.ld(value: (rrtemp & Z80.cBit) | Z80.sz53pvTable[Int(newValue)])
+        let carry = Z80.F.value() & 0x01 << 7
+        let outgoing = self & 0x01
+        let newValue = self >> 1 | carry
+        Z80.F.ld(value: outgoing | Z80.sz53pvTable[Int(newValue)])
         return newValue
     }
     
